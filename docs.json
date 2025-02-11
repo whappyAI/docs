@@ -11,68 +11,79 @@
   "navigation": {
     "tabs": [
       {
-        "tab": "Guides",
+        "tab": "Guide",
         "groups": [
           {
-            "group": "Get Started",
+            "group": "Introduction",
             "pages": [
-              "introduction",
-              "quickstart",
-              "development"
+              "introduction/overview",
+              "introduction/features"
             ]
           },
           {
-            "group": "Essentials",
+            "group": "Getting Started",
             "pages": [
-              "essentials/markdown",
-              "essentials/code",
-              "essentials/images",
-              "essentials/settings",
-              "essentials/navigation",
-              "essentials/reusable-snippets"
-            ]
-          }
-        ]
-      },
-      {
-        "tab": "API Reference",
-        "groups": [
-          {
-            "group": "API Documentation",
-            "pages": [
-              "api-reference/introduction"
+              "getting-started/quick-setup",
+              "getting-started/shopify",
+              "getting-started/wordpress-others"
             ]
           },
           {
-            "group": "Endpoint Examples",
+            "group": "Agent Configuration",
             "pages": [
-              "api-reference/endpoint/get",
-              "api-reference/endpoint/create",
-              "api-reference/endpoint/delete"
+              "agent-config/design-customizations",
+              "agent-config/data-sources",
+              "agent-config/testing-debugging",
+              "agent-config/model-controls"
             ]
-          }
+          },
+          {
+            "group": "Deployment & Integration",
+            "pages": [
+              "deployment/shopify-deployment",
+              "deployment/custom-embed",
+              "deployment/team-collaboration"
+            ]
+          },
+          {
+            "group": "Conversations & Analytics",
+            "pages": [
+              "conversations-analytics/viewing-history",
+              "conversations-analytics/dashboard"
+            ]
+          },
+          {
+            "group": "Support & Offline",
+            "pages": [
+              "support-offline/email-support",
+              "support-offline/offline-messages"
+            ]
+          },
+          {
+            "group": "Account & Billing",
+            "pages": [
+              "account-billing/profile",
+              "account-billing/billing-plans"
+            ]
+          },
+          {
+            "group": "FAQs & Troubleshooting",
+            "pages": [
+              "faqs-troubleshooting/common-issues",
+              "faqs-troubleshooting/improving-ai",
+              "faqs-troubleshooting/integration-issues"
+            ]
+          },
+          {
+            "group": "Changelog",
+            "pages": [
+              "changelog/release-notes"
+            ]
+          }          
         ]
       }
     ],
-    "global": {
-      "anchors": [
-        {
-          "anchor": "Documentation",
-          "href": "https://mintlify.com/docs",
-          "icon": "book-open-cover"
-        },
-        {
-          "anchor": "Community",
-          "href": "https://mintlify.com/community",
-          "icon": "slack"
-        },
-        {
-          "anchor": "Blog",
-          "href": "https://mintlify.com/blog",
-          "icon": "newspaper"
-        }
-      ]
-    }
+    "global": {}
   },
   "logo": {
     "light": "/logo/light.svg",
@@ -82,20 +93,20 @@
     "links": [
       {
         "label": "Support",
-        "href": "mailto:hi@mintlify.com"
+        "href": "mailto:support@laxi.ai"
       }
     ],
     "primary": {
       "type": "button",
       "label": "Dashboard",
-      "href": "https://dashboard.mintlify.com"
+      "href": "https://laxi.ai/studio"
     }
   },
   "footer": {
     "socials": {
-      "x": "https://x.com/mintlify",
-      "github": "https://github.com/mintlify",
-      "linkedin": "https://linkedin.com/company/mintlify"
+      "x": "https://x.com/laxi_ai",
+      "github": "https://github.com/laxi-ai",
+      "linkedin": "https://linkedin.com/company/laxi-ai"
     }
   }
 }
