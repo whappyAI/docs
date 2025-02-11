@@ -24,46 +24,61 @@
             "group": "Getting Started",
             "pages": [
               "getting-started/quick-setup",
-              "getting-started/shopify",
-              "getting-started/wordpress"
+              {
+                "group": "Platform Guides",
+                "pages": [
+                  "getting-started/shopify",
+                  "getting-started/wordpress"
+                ]
+              }
             ]
           },
           {
-            "group": "Agent Configuration",
+            "group": "Core Features",
             "pages": [
-              "agent-config/design-customizations",
-              "agent-config/data-sources",
-              "agent-config/testing-debugging",
-              "agent-config/model-controls"
+              {
+                "group": "Agent Configuration",
+                "pages": [
+                  "agent-config/design-customizations",
+                  "agent-config/data-sources",
+                  "agent-config/testing-debugging",
+                  "agent-config/model-controls"
+                ]
+              },
+              {
+                "group": "Deployment",
+                "pages": [
+                  "deployment/shopify-deployment",
+                  "deployment/custom-embed",
+                  "deployment/team-collaboration"
+                ]
+              },
+              {
+                "group": "Analytics",
+                "pages": [
+                  "conversations-analytics/viewing-history",
+                  "conversations-analytics/dashboard"
+                ]
+              }
             ]
           },
           {
-            "group": "Deployment & Integration",
+            "group": "Account Management & Support",
             "pages": [
-              "deployment/shopify-deployment",
-              "deployment/custom-embed",
-              "deployment/team-collaboration"
-            ]
-          },
-          {
-            "group": "Conversations & Analytics",
-            "pages": [
-              "conversations-analytics/viewing-history",
-              "conversations-analytics/dashboard"
-            ]
-          },
-          {
-            "group": "Support & Offline",
-            "pages": [
-              "support-offline/email-support",
-              "support-offline/offline-messages"
-            ]
-          },
-          {
-            "group": "Account & Billing",
-            "pages": [
-              "account-billing/profile",
-              "account-billing/billing-plans"
+              {
+                "group": "Support Resources",
+                "pages": [
+                  "support-offline/email-support",
+                  "support-offline/offline-messages"
+                ]
+              },
+              {
+                "group": "Account Settings",
+                "pages": [
+                  "account-billing/profile",
+                  "account-billing/billing-plans"
+                ]
+              }
             ]
           },
           {
@@ -79,7 +94,7 @@
             "pages": [
               "changelog/release-notes"
             ]
-          }          
+          }
         ]
       }
     ],
