@@ -9,76 +9,49 @@
   },
   "favicon": "/favicon.ico",
   "navigation": {
-    "tabs": [
+    "groups": [
       {
-        "tab": "Guide",
-        "groups": [
+        "group": "Get Started",
+        "pages": ["about", "quickstart"]
+      },
+      {
+        "group": "Learn",
+        "pages": [
           {
-            "group": "Introduction",
+            "group": "Setup & Configuration",
+            "icon": "sliders",
+            "pages": ["quickstart/shopify", "quickstart/wordpress"]
+          },
+          {
+            "group": "Agent Configuration",
+            "icon": "screwdriver-wrench",
             "pages": [
-              "introduction/overview",
-              "introduction/features"
+              "agent-config/customization",
+              "agent-config/data-sources",
+              "agent-config/testing-debugging"
             ]
           },
           {
-            "group": "Getting Started",
+            "group": "Deployment & Integration",
+            "icon": "cloud",
+            "pages": ["deployment/shopify", "deployment/manual-embed"]
+          },
+          {
+            "group": "Conversations & Analytics",
+            "icon": "chart-line",
             "pages": [
-              "quickstart",
-              {
-                "group": "Platform Guides",
-                "pages": [
-                  "getting-started/shopify",
-                  "getting-started/wordpress"
-                ]
-              }
+              "analytics/viewing-history",
+              "analytics/performance-tracking"
             ]
           },
           {
-            "group": "Core Features",
+            "group": "Support & Account",
+            "icon": "life-ring",
             "pages": [
-              {
-                "group": "Agent Configuration",
-                "pages": [
-                  "agent-config/design-customizations",
-                  "agent-config/data-sources",
-                  "agent-config/testing-debugging",
-                  "agent-config/model-controls"
-                ]
-              },
-              {
-                "group": "Deployment",
-                "pages": [
-                  "deployment/shopify-deployment",
-                  "deployment/custom-embed",
-                  "deployment/team-collaboration"
-                ]
-              },
-              {
-                "group": "Analytics",
-                "pages": [
-                  "conversations-analytics/viewing-history",
-                  "conversations-analytics/dashboard"
-                ]
-              }
-            ]
-          },
-          {
-            "group": "Account Management & Support",
-            "pages": [
-              {
-                "group": "Support Resources",
-                "pages": [
-                  "support-offline/email-support",
-                  "support-offline/offline-messages"
-                ]
-              },
-              {
-                "group": "Account Settings",
-                "pages": [
-                  "account-billing/profile",
-                  "account-billing/billing-plans"
-                ]
-              }
+              "support/email-support",
+              "support/offline-messages",
+              "account-billing/profile",
+              "account-billing/billing-plans"
             ]
           }
         ]
