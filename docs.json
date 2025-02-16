@@ -23,7 +23,7 @@
           {
             "group": "Getting Started",
             "pages": [
-              "getting-started/quick-setup",
+              "quickstart",
               {
                 "group": "Platform Guides",
                 "pages": [
@@ -79,20 +79,6 @@
                   "account-billing/billing-plans"
                 ]
               }
-            ]
-          },
-          {
-            "group": "FAQs & Troubleshooting",
-            "pages": [
-              "faqs-troubleshooting/common-issues",
-              "faqs-troubleshooting/improving-ai",
-              "faqs-troubleshooting/integration-issues"
-            ]
-          },
-          {
-            "group": "Changelog",
-            "pages": [
-              "changelog/release-notes"
             ]
           }
         ]
