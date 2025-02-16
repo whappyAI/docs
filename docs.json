@@ -1,6 +1,6 @@
 {
   "$schema": "https://mintlify.com/docs.json",
-  "theme": "mint",
+  "theme": "palm",
   "name": "Laxi.ai Documentation",
   "colors": {
     "primary": "#6e51e0",
@@ -12,46 +12,61 @@
     "groups": [
       {
         "group": "Get Started",
-        "pages": ["about", "quickstart"]
+        "pages": [
+          "about", 
+          "quickstart"
+        ]
       },
       {
         "group": "Learn",
         "pages": [
           {
-            "group": "Setup & Configuration",
+            "group": "Setup",
             "icon": "sliders",
-            "pages": ["quickstart/shopify", "quickstart/wordpress"]
+            "pages": [
+              "setup/shopify", 
+              "setup/general"
+            ]
           },
           {
-            "group": "Agent Configuration",
+            "group": "Agent",
             "icon": "screwdriver-wrench",
             "pages": [
-              "agent-config/customization",
-              "agent-config/data-sources",
-              "agent-config/testing-debugging"
+              "agent/customizations",
+              "agent/data-sources",
+              "agent/testing"
             ]
           },
           {
-            "group": "Deployment & Integration",
+            "group": "Integrations",
             "icon": "cloud",
-            "pages": ["deployment/shopify", "deployment/manual-embed"]
+            "pages": [
+              "integrations/shopify", 
+              "integrations/manual-embed"
+            ]
           },
           {
-            "group": "Conversations & Analytics",
+            "group": "Analytics",
             "icon": "chart-line",
             "pages": [
-              "analytics/viewing-history",
-              "analytics/performance-tracking"
+              "analytics/dashboard", 
+              "analytics/chat-history"
             ]
           },
           {
-            "group": "Support & Account",
-            "icon": "life-ring",
+            "group": "Support",
+            "icon": "headset",
             "pages": [
-              "support/email-support",
-              "support/offline-messages",
-              "account-billing/profile",
-              "account-billing/billing-plans"
+              "support/email-support"
+            ]
+          },
+          {
+            "group": "Profile & Billing",
+            "icon": "credit-card",
+            "pages": [
+              "account/profile",
+              "account/subscriptions",
+              "account/billing"
             ]
           }
         ]
@@ -72,8 +87,8 @@
     ],
     "primary": {
       "type": "button",
-      "label": "Dashboard",
-      "href": "https://laxi.ai/studio"
+      "label": "Try laxi.ai",
+      "href": "https://laxi.ai"
     }
   },
   "footer": {
