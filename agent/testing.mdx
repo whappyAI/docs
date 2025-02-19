@@ -1,112 +1,108 @@
 ---
-
 title: "Testing & Debugging"
 description: "Learn how to test and refine your AI chatbot responses in real-time."
 icon: "bug"
-
 ---
 
-The **Testing & Debugging** section allows you to **simulate real customer interactions** and ensure your AI agent provides **accurate responses** before going live.  
+# Testing & Debugging  
 
----
+Before deploying your AI agent, it's important to test how it interacts with users. The **Testing & Debugging** section allows you to simulate real customer interactions and fine-tune responses. You can try different queries, verify chatbot accuracy, and make adjustments as needed.
 
-## Testing Environment  
+## Accessing the Testing & Debugging Section  
 
-When you open the **Testing & Debugging** screen, you’ll see:  
-- A **chat interface** where you can interact with your AI agent.  
-- Your **latest AI configuration** in action.  
-- A **sandbox mode** to refine chatbot behavior **before deployment**.  
+To begin, navigate to the **Laxi.ai Dashboard → Playground**. This section allows you to test and refine your AI agent before going live.
+
+<img src="/images/agent-config/testing-tab.png" alt="Navigate to Testing & Debugging in Laxi.ai" style={{ marginTop: '1rem', maxWidth: '100%' }} />
+
+Once inside the testing environment, you’ll see a **chat interface** where you can interact with your AI agent in real-time.
 
 <img src="/images/agent-config/all-options.png" alt="Laxi.ai Testing Screen" style={{ marginTop: '1rem', maxWidth: '100%' }} />
 
 ---
 
-## Testing Predefined Suggested Messages
+## Testing Suggested Messages  
 
-Validate how your AI handles **user-selected prompts** from your configured suggested messages. These are common options users can choose instead of typing free-form queries.
+Suggested messages allow customers to click on **predefined queries** instead of typing. Testing these ensures that your AI delivers relevant and accurate responses.
 
-### **1. Product Discovery Flow**  
+### Testing Product Queries  
 
-**Suggested Message:** *"Our most liked product"*  
-**AI Response:** Displays **top-rated products** from your **catalog**.  
+A customer might ask about popular products. Selecting the **"Our most liked product"** option should display the top-rated items from your store.
 
 <img src="/images/agent-config/our-most-liked-product.png" alt="AI recommends top-rated products" style={{ marginTop: '1rem', maxWidth: '100%' }} />
 
----
+### Finding the Right Gift  
 
-### **2. Gift Finder Experience**  
-
-**Suggested Message:** *"Help me find a gift"*  
-**AI Response:** Generates **gift recommendations** based on currently available in-stock items that match common gifting categories.  
+Customers often look for gift recommendations. Clicking **"Help me find a gift"** should generate product suggestions tailored to gifting.
 
 <img src="/images/agent-config/help-me-find-a-gift.png" alt="AI suggests gift ideas" style={{ marginTop: '1rem', maxWidth: '100%' }} />
 
----
+### Checking Return Policy  
 
-### **3. Policy Assistance**  
-
-**Suggested Message:** *"Return policy"*  
-**AI Response:** Delivers **context-aware policy details** from your knowledge base with relevant examples.  
+If a user asks about returns by selecting **"Return policy"**, the chatbot should pull accurate details from your stored knowledge base.
 
 <img src="/images/agent-config/return-policy.png" alt="AI responds with return policy details" style={{ marginTop: '1rem', maxWidth: '100%' }} />
 
----
+### Understanding Privacy Policies  
 
-### **4. Data Privacy Assurance**  
-
-**Suggested Message:** *"Privacy policy"*  
-**AI Response:** Presents **verified privacy information** from your system's policy documents.  
+Users concerned about data security may ask about privacy policies. Clicking **"Privacy policy"** should retrieve verified information from your business policies.
 
 <img src="/images/agent-config/privacy-policy.png" alt="AI responds with privacy policy details" style={{ marginTop: '1rem', maxWidth: '100%' }} />
 
 ---
 
-## Conversational Flow Testing  
+## Testing Conversational Flow  
 
-To ensure **context retention**, test how the AI handles **multi-step conversations**.
+A good chatbot can handle multi-step conversations while maintaining context. You can test this by asking follow-up questions about a product.
 
-### **Example Chat Sequence:**
+### Example: Snowboard Inquiry  
 
-<Steps>
-  <Step title="User Inquiry: Snowboard Options | AI Response: Product Listing">
-    **User:** What snowboard options do I have?  
-    **AI:** *Lists available snowboards.*  
-    <img src="/images/agent-config/snowboard-options.png" alt="AI displays snowboard options" style={{ marginTop: '1rem', maxWidth: '100%' }} />
-  </Step>
+1. **User:** What snowboard options do I have?  
+   - **AI:** *Displays a list of available snowboards.*  
 
-  <Step title="User Request: Best Recommendation | AI Response: Top-rated Selection">
-    **User:** Which is the best one?  
-    **AI:** *Recommends the highest-rated snowboard.*  
-    <img src="/images/agent-config/best-snowboard.png" alt="AI recommends top snowboard" style={{ marginTop: '1rem', maxWidth: '100%' }} />
-  </Step>
+   <img src="/images/agent-config/snowboard-options.png" alt="AI displays snowboard options" style={{ marginTop: '1rem', maxWidth: '100%' }} />
 
-  <Step title="User Follow-up: Detailed Information | AI Response: Product Specifications">
-    **User:** Can you give more details on this?  
-    **AI:** *Provides specifications, features, and pricing.*  
-    <img src="/images/agent-config/more-details-snowboard.png" alt="AI shows product details" style={{ marginTop: '1rem', maxWidth: '100%' }} />
-  </Step>
+2. **User:** Which is the best one?  
+   - **AI:** *Recommends the highest-rated snowboard.*  
 
-  <Step title="User Concern: Durability Check | AI Response: Quality Assurance">
-    **User:** Is it strong and reliable?  
-    **AI:** *Confirms the durability of the snowboard.*  
-    <img src="/images/agent-config/is-it-strong.png" alt="AI confirms product durability" style={{ marginTop: '1rem', maxWidth: '100%' }} />
-  </Step>
-</Steps>
+   <img src="/images/agent-config/best-snowboard.png" alt="AI recommends top snowboard" style={{ marginTop: '1rem', maxWidth: '100%' }} />
+
+3. **User:** Can you give more details on this?  
+   - **AI:** *Provides specifications, features, and pricing.*  
+
+   <img src="/images/agent-config/more-details-snowboard.png" alt="AI shows product details" style={{ marginTop: '1rem', maxWidth: '100%' }} />
+
+4. **User:** Is it strong and reliable?  
+   - **AI:** *Confirms the durability of the snowboard.*  
+
+   <img src="/images/agent-config/is-it-strong.png" alt="AI confirms product durability" style={{ marginTop: '1rem', maxWidth: '100%' }} />
 
 <Tip>
-For **best results**, test **product queries, policies, and contextual conversations** to fine-tune your AI agent.
+Test different types of queries to check how well your AI agent understands customer needs and provides relevant answers.
 </Tip>
 
 ---
 
 ## Debugging & Refining Responses  
 
-If your chatbot gives **unexpected** or **incomplete** responses:  
+If your chatbot provides incorrect or incomplete responses, follow these steps to improve its accuracy:
+<Steps>
+  <Step title="Review Data Sources">
+    Ensure all product details, FAQs, and documents are correctly synced.
+  </Step>
 
-- **Check your data sources** → Ensure all **products, FAQs, and documents** are correctly synced.  
-- **Train your AI agent** → Click **Update AI Agent** after modifying knowledge sources.  
-- **Refine chatbot settings** → Adjust the **tone, welcome messages, or suggested responses** in **Agent Configuration**.  
+  <Step title="Update the AI Agent">
+    If you've added new data, click **Update AI Agent** to train it with the latest information.
+  </Step>
+
+  <Step title="Adjust Suggested Messages">
+    Modify or add personalized responses to improve customer interactions.
+  </Step>
+</Steps>
 
 <Info>
-Testing regularly helps maintain **accuracy and consistency** in customer interactions.
+Regular testing and updates help maintain a well-functioning AI chatbot that enhances customer experience.
 </Info>
+
+## Final Thoughts
+
+Testing and debugging your AI agent ensures that it responds accurately to customer queries. By regularly reviewing data sources, updating the AI model, and refining responses, you can create a chatbot that delivers helpful and precise answers. If adjustments are needed, revisit the **Agent Configuration** settings for further refinements.
