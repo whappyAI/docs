@@ -1,92 +1,110 @@
 ---
-
 title: "Data Sources"
 description: "Train your AI agent with knowledge from various data sources, including ecommerce platforms, files, and FAQs."
 icon: "database"
+---
+
+# Managing Your AI's Data Sources  
+
+Your AI agent relies on accurate and up-to-date information to assist customers effectively. The **Data Sources** section allows you to connect ecommerce platforms, upload files, and manage FAQs to enhance your chatbot’s knowledge.  
+
+To get started, navigate to **Laxi.ai Dashboard → Data Sources**. This is where you can view and manage all connected data.  
+
+<img src="/images/agent-config/data-sources-tab.png" alt="Navigating to Data Sources in Laxi.ai" style={{ marginTop: '1rem', maxWidth: '100%' }} />
 
 ---
 
-# Data Sources  
+## Connecting Your Ecommerce Store  
 
-Train your AI agent with knowledge from various sources to improve responses and recommendations.  
-
-On the **Data Sources** page, you will find:  
-
-- **Total Characters** used for training data.  
-- **Total Products** synced with your AI.  
-- **Last Updated Timestamp** indicating the most recent sync.  
-
----
-
-## Integrate with Your Ecommerce Provider  
-
-Select your preferred **integration method** to import product data.
+Laxi.ai supports multiple ways to import products. Depending on your platform, you can either sync your store automatically or connect manually.
 
 ### **For Shopify Users**  
-If you are using Shopify, your store’s product catalog is **automatically connected**.  
+If you are using Shopify, your product catalog is **automatically connected** and stays synced with Laxi.ai. There’s no need for manual integration.  
 
-<Icon icon="check" iconType="solid" /> Your **products sync automatically** with Laxi.ai.  
-<Icon icon="check" iconType="solid" /> You **cannot remove** Shopify as a data source, but you can **resync anytime**.  
+- Shopify products **sync automatically** to your AI agent.  
+- The Shopify integration **cannot be removed**, but you can **resync data anytime**.  
 
-**To resync Shopify data:** Click the resync icon to pull the latest updates.
+### **Resyncing Shopify Data**  
+If you have recently updated your Shopify store, click the **Resync** button to pull the latest product updates into Laxi.ai.  
 
 <img src="/images/agent-config/shopify-sync.png" alt="Resync Shopify data with Laxi.ai" style={{ marginTop: '1rem', maxWidth: '100%' }} />
 
 <Info>
-Since Shopify is directly linked, **this integration cannot be removed**, but you can **resync anytime**.
+Shopify remains permanently connected as a data source. You can only **resync** but not remove the integration.
 </Info>
 
 ---
 
-### **For Non Shopify Users**  
-If you are **not using Shopify**, you can **connect your WooCommerce store manually**.
+### **For WooCommerce & Other Users**  
+If you are **not using Shopify**, you can manually connect your WooCommerce store or upload product data.  
 
-#### **Connect a WooCommerce Store**  
+#### **Connecting a WooCommerce Store**  
 1. Enter your **Store URL**.  
 2. Provide your **Consumer Key & Consumer Secret**.  
 3. Click **Connect** to sync product data.  
+
+Once connected, your WooCommerce products will sync automatically and stay updated.
 
 <img src="/images/agent-config/woocommerce-sync.png" alt="Connect WooCommerce store to Laxi.ai" style={{ marginTop: '1rem', maxWidth: '100%' }} />
 
 ---
 
-## **Manually Upload Product Data (Google Sheets)**  
-This option is available for **both Shopify and non-Shopify users**.  
+## Importing Product Data Manually  
 
+If your store is not on Shopify or WooCommerce, or if you need to add **custom product data**, you can upload a **Google Sheets file** with product details.
+
+### **How to Upload a Product Sheet**  
 1. Download the **[Google Sheets Template](https://docs.google.com/spreadsheets/d/1guASJrK34cW_Ll8qZQBSYsVJtuR_NLKAroz3On4E9sc/edit?usp=sharing)** to ensure proper formatting.  
-2. Fill in product details according to the template.  
-3. Upload the file in the **Data Sources** section.  
+2. Fill in your **product details** following the template guidelines.  
+3. Upload the completed file in the **Data Sources** section.  
 
 <img src="/images/agent-config/google-sheets.png" alt="Google Sheets product import" style={{ marginTop: '1rem', maxWidth: '100%' }} />
 
+<Tip>
+The Google Sheets method is available for **both Shopify and WooCommerce users** who need to upload additional product data.
+</Tip>
+
 ---
 
-## Add Company Information  
+## Adding Business & Company Information  
 
-Laxi.ai allows you to **enrich your AI agent** with additional business-related data.  
+Beyond product data, your AI agent can also be trained on **company policies, FAQs, and other important information**.  
 
-<Icon icon="check" iconType="solid" /> **Upload Files** – PDF, DOCX, or text files.  
-<Icon icon="check" iconType="solid" /> **Add URLs** – Link relevant company pages.  
-<Icon icon="check" iconType="solid" /> **Define FAQs** – Provide common customer queries and responses.  
+### **Ways to Add Knowledge Data**  
+- **Upload Documents** – Add PDFs, DOCX, or TXT files.  
+- **Add URLs** – Link company pages with useful information.  
+- **Define FAQs** – Enter frequently asked questions and responses.  
 
-### **Upload Knowledge Documents**  
-1. Click **Upload File** or drag-and-drop a document.  
-2. Supported formats: **PDF, DOCX, TXT**.  
-3. The AI will process the file to extract relevant data.  
+### **Uploading Documents**  
+1. Click **Upload File** or drag and drop your document.  
+2. Supported file formats: **PDF, DOCX, TXT**.  
+3. Laxi.ai will process the document and extract key information.  
 
 <img src="/images/agent-config/file-upload.png" alt="Upload company knowledge files" style={{ marginTop: '1rem', maxWidth: '100%' }} />
 
+<Tip>
+Providing well-structured knowledge sources ensures your AI chatbot can **accurately respond to customer queries** about store policies, returns, and more.
+</Tip>
+
 ---
 
-## Update AI Agent  
+## Keeping Your AI Updated  
 
-Once your data is synced, you need to **update the AI agent** to ensure it is trained on the latest information.
+Once you've connected or updated any data source, you need to **update the AI agent** to apply the latest information.  
 
-Click **Update AI Agent** to apply the newly synced data and improve chatbot accuracy.
+### **How to Update Your AI Agent**  
+1. Navigate to **Laxi.ai Dashboard → Data Sources**.  
+2. Click **Update AI Agent**.  
+3. Wait for the process to complete—this ensures the chatbot is trained on the most recent data.  
 
 <img src="/images/agent-config/update-ai-agent.png" alt="Update AI Agent in Laxi.ai" style={{ marginTop: '1rem', maxWidth: '100%' }} />
 
 <Tip>
-To keep your AI agent performing at its best, regularly **update the AI agent** after syncing data. This ensures it reflects the **latest product catalog, FAQs, and company knowledge** for more accurate responses.
+Regularly **update your AI agent** after syncing new data. This guarantees **accurate responses** based on the latest products, FAQs, and company knowledge.
 </Tip>
 
+---
+
+## Final Thoughts  
+
+Keeping your AI agent updated with the latest product data and business knowledge ensures accurate responses and better customer interactions. Regularly syncing data sources and updating the AI agent will help maintain an efficient and well-informed chatbot.
