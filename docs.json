@@ -2,10 +2,19 @@
   "$schema": "https://mintlify.com/docs.json",
   "theme": "palm",
   "name": "Laxi.ai Documentation",
+  "appearance": {
+    "default": "dark"
+  },
   "colors": {
     "primary": "#6e51e0",
     "light": "#6e51e0",
     "dark": "#6e51e0"
+  },
+  "background": {
+    "color": {
+      "dark": "#0a0814"
+    },
+    "decoration": "windows"
   },
   "favicon": "/favicon.ico",
   "navigation": {
