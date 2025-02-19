@@ -16,7 +16,7 @@
     },
     "decoration": "windows"
   },
-  "favicon": "/favicon.ico",
+  "favicon": "/favicon.svg",
   "navigation": {
     "groups": [
       {
