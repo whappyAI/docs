@@ -43,7 +43,8 @@
             "pages": [
               "agent/customizations",
               "agent/data-sources",
-              "agent/testing"
+              "agent/testing",
+              "agent/model-controls"
             ]
           },
           {
