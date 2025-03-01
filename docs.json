@@ -1,78 +1,88 @@
 {
   "$schema": "https://mintlify.com/docs.json",
-  "theme": "mint",
+  "theme": "palm",
   "name": "Laxi.ai Documentation",
+  "appearance": {
+    "default": "dark"
+  },
   "colors": {
     "primary": "#6e51e0",
     "light": "#6e51e0",
     "dark": "#6e51e0"
   },
-  "favicon": "/favicon.ico",
+  "background": {
+    "color": {
+      "dark": "#0a0814"
+    },
+    "decoration": "windows"
+  },
+  "favicon": "/favicon.svg",
   "navigation": {
-    "tabs": [
+    "groups": [
       {
-        "tab": "Guides",
-        "groups": [
-          {
-            "group": "Get Started",
-            "pages": [
-              "introduction",
-              "quickstart",
-              "development"
-            ]
-          },
-          {
-            "group": "Essentials",
-            "pages": [
-              "essentials/markdown",
-              "essentials/code",
-              "essentials/images",
-              "essentials/settings",
-              "essentials/navigation",
-              "essentials/reusable-snippets"
-            ]
-          }
+        "group": "Get Started",
+        "pages": [
+          "about", 
+          "quickstart"
         ]
       },
       {
-        "tab": "API Reference",
-        "groups": [
+        "group": "Learn",
+        "pages": [
           {
-            "group": "API Documentation",
+            "group": "Setup",
+            "icon": "sliders",
             "pages": [
-              "api-reference/introduction"
+              "setup/shopify", 
+              "setup/general"
             ]
           },
           {
-            "group": "Endpoint Examples",
+            "group": "Agent",
+            "icon": "screwdriver-wrench",
             "pages": [
-              "api-reference/endpoint/get",
-              "api-reference/endpoint/create",
-              "api-reference/endpoint/delete"
+              "agent/customizations",
+              "agent/data-sources",
+              "agent/testing",
+              "agent/model-controls"
+            ]
+          },
+          {
+            "group": "Integrations",
+            "icon": "cloud",
+            "pages": [
+              "integrations/shopify", 
+              "integrations/manual-embed"
+            ]
+          },
+          {
+            "group": "Analytics",
+            "icon": "chart-line",
+            "pages": [
+              "analytics/dashboard", 
+              "analytics/chat-history"
+            ]
+          },
+          {
+            "group": "Support",
+            "icon": "headset",
+            "pages": [
+              "support/email-support"
+            ]
+          },
+          {
+            "group": "Profile & Billing",
+            "icon": "credit-card",
+            "pages": [
+              "account/profile",
+              "account/subscriptions",
+              "account/billing"
             ]
           }
         ]
       }
     ],
-    "global": {
-      "anchors": [
-        {
-          "anchor": "Documentation",
-          "href": "https://mintlify.com/docs",
-          "icon": "book-open-cover"
-        },
-        {
-          "anchor": "Community",
-          "href": "https://mintlify.com/community",
-          "icon": "slack"
-        },
-        {
-          "anchor": "Blog",
-          "href": "https://mintlify.com/blog",
-          "icon": "newspaper"
-        }
-      ]
-    }
+    "global": {}
   },
   "logo": {
     "light": "/logo/light.svg",
@@ -82,20 +92,20 @@
     "links": [
       {
         "label": "Support",
-        "href": "mailto:hi@mintlify.com"
+        "href": "mailto:support@laxi.ai"
       }
     ],
     "primary": {
       "type": "button",
-      "label": "Dashboard",
-      "href": "https://dashboard.mintlify.com"
+      "label": "Try laxi.ai",
+      "href": "https://laxi.ai"
     }
   },
   "footer": {
     "socials": {
-      "x": "https://x.com/mintlify",
-      "github": "https://github.com/mintlify",
-      "linkedin": "https://linkedin.com/company/mintlify"
+      "x": "https://x.com/laxi_ai",
+      "github": "https://github.com/laxi-ai",
+      "linkedin": "https://linkedin.com/company/laxi-ai"
     }
   }
 }
