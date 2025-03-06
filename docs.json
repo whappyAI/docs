@@ -3,7 +3,7 @@
   "theme": "palm",
   "name": "Laxi.ai Documentation",
   "appearance": {
-    "default": "dark"
+    "default": "light"
   },
   "colors": {
     "primary": "#6e51e0",
@@ -18,65 +18,61 @@
   },
   "favicon": "/favicon.svg",
   "navigation": {
-    "groups": [
+    "tabs": [
       {
-        "group": "Get Started",
-        "pages": [
-          "about", 
-          "quickstart"
-        ]
-      },
-      {
-        "group": "Learn",
-        "pages": [
+        "tab": "User Guides",
+        "groups": [
           {
-            "group": "Setup",
-            "icon": "sliders",
+            "group": "Get Started",
+            "pages": ["about", "quickstart"]
+          },
+          {
+            "group": "Learn",
             "pages": [
-              "setup/shopify", 
-              "setup/general"
+              "learn/design",
+              "learn/data-sources",
+              "learn/playground",
+              "learn/model-controls"
             ]
           },
           {
-            "group": "Agent",
-            "icon": "screwdriver-wrench",
+            "group": "Deploy",
             "pages": [
-              "agent/customizations",
-              "agent/data-sources",
-              "agent/testing",
-              "agent/model-controls"
+              "deploy/manual-embed", 
+              "deploy/shopify"
             ]
           },
           {
-            "group": "Integrations",
-            "icon": "cloud",
+            "group": "Monitor",
             "pages": [
-              "integrations/shopify", 
-              "integrations/manual-embed"
-            ]
-          },
-          {
-            "group": "Analytics",
-            "icon": "chart-line",
-            "pages": [
-              "analytics/dashboard", 
-              "analytics/chat-history"
+              "analytics/conversations", 
+              "analytics/dashboard"
             ]
           },
           {
             "group": "Support",
-            "icon": "headset",
             "pages": [
               "support/email-support"
             ]
           },
           {
-            "group": "Profile & Billing",
-            "icon": "credit-card",
+            "group": "Account",
             "pages": [
               "account/profile",
               "account/subscriptions",
               "account/billing"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Integrations",
+        "groups": [
+          {
+            "group": "Platform Setup",
+            "pages": [
+              "setup/general",
+              "setup/shopify"
             ]
           }
         ]
@@ -92,7 +88,7 @@
     "links": [
       {
         "label": "Support",
-        "href": "mailto:support@laxi.ai"
+        "href": "mailto:team@laxi.ai"
       }
     ],
     "primary": {
