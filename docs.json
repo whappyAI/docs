@@ -36,13 +36,6 @@
             ]
           },
           {
-            "group": "Deploy",
-            "pages": [
-              "deploy/manual-embed", 
-              "deploy/shopify"
-            ]
-          },
-          {
             "group": "Monitor",
             "pages": [
               "analytics/conversations", 
@@ -69,10 +62,12 @@
         "tab": "Integrations",
         "groups": [
           {
-            "group": "Platform Setup",
+            "group": "Platforms",
             "pages": [
-              "setup/general",
-              "setup/shopify"
+              "setup/shopify",
+              "setup/woocommerce",
+              "setup/bigcommerce",
+              "setup/ecwid"
             ]
           }
         ]
