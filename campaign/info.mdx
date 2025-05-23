@@ -1,0 +1,180 @@
+---
+title: "Info"
+description: "Define what information your AI assistant will collect from leads during conversations"
+icon: "clipboard-list"
+---
+
+This is where you define what information your AI assistant should collect from leads during WhatsApp conversations. These fields become available in your conversation funnel for qualifying and gathering lead data.
+
+## How It Works
+
+1. **Create information fields** for data you want to collect (budget, timeline, needs, etc.)
+2. **Use these fields in your funnel** by adding Info nodes that ask for specific information
+3. **AI collects the data** during conversations with leads
+4. **Review collected information** in the Leads section
+
+## Adding Information Fields
+
+Click **"Add Info Field"** to create a new field for lead qualification.
+
+### Field Details
+
+**Field Title**
+- What you'll see in your leads dashboard and funnel builder
+- Examples: "Budget", "Timeline", "Company Size", "Project Type"
+
+**Description**
+- Instructions for the AI about what to ask for
+- Examples:
+- "Ask about the client's budget for this project"
+- "Find out when they need the project completed"
+- "Understand what type of website they need"
+
+**Information Type**
+Choose how leads should provide this information:
+
+- **Text**: Open-ended text responses
+- **Number**: Numeric values (budget amounts, company size, etc.)
+- **Multiple Choice**: Predefined options to choose from
+
+## Field Types Explained
+
+### Text Fields
+Best for open-ended questions where you want detailed responses.
+
+**Examples:**
+- **Company Description**: "Tell me about your business and what services you offer"
+- **Project Details**: "Describe what you're looking for in this project"
+- **Current Challenges**: "What's your biggest marketing challenge right now?"
+
+### Number Fields
+Perfect for budgets, quantities, sizes, and other numeric data.
+
+**Examples:**
+- **Budget Range**: "What's your budget for this project?"
+- **Company Size**: "How many employees does your company have?"
+- **Monthly Revenue**: "What's your current monthly revenue?"
+
+### Multiple Choice Fields
+Great for qualifying leads with specific criteria or preferences.
+
+**Setup:**
+- **Option Key**: Internal identifier (e.g., "small_budget", "large_budget")
+- **Display Text**: What the lead sees (e.g., "Under $5,000", "Over $20,000")
+
+**Examples:**
+
+**Budget Range:**
+- Under $5,000 → `small_budget`
+- $5,000 - $15,000 → `medium_budget`
+- Over $15,000 → `large_budget`
+
+**Project Timeline:**
+- ASAP → `urgent`
+- Within 3 months → `normal`
+- Flexible timing → `flexible`
+
+**Industry Type:**
+- E-commerce → `ecommerce`
+- Professional Services → `services`
+- Manufacturing → `manufacturing`
+
+## Example Questions
+
+Add example questions to help the AI ask for information naturally:
+
+**For Budget:**
+- "What's your budget range for this project?"
+- "How much are you looking to invest in this?"
+- "Do you have a specific budget in mind?"
+
+**For Timeline:**
+- "When do you need this completed?"
+- "What's your ideal timeline for this project?"
+- "How quickly are you looking to get started?"
+
+## Using Fields in Your Funnel
+
+After creating information fields:
+
+1. Go to **Campaign → Funnel**
+2. Add an **Info** node to your conversation flow
+3. Select which information field to collect
+4. The AI will ask for that information during conversations
+
+### Example Conversation Flow
+
+```
+Talk: "Hi! I'd love to learn more about your project."
+↓
+Info: Collect "Project Type"
+↓
+Info: Collect "Budget Range"
+↓
+Info: Collect "Timeline"
+↓
+Condition: If budget > $10,000 → Book Meeting
+```
+
+## Best Practices
+
+### **Field Creation**
+- **Use clear titles**: "Budget" instead of "How much money"
+- **Write specific descriptions**: Tell the AI exactly what to ask for
+- **Add multiple examples**: Give the AI different ways to ask the same question
+- **Order by importance**: Create the most critical qualification fields first
+
+### **Question Examples**
+- **Be conversational**: "What's your budget?" not "Provide budget information"
+- **Offer context**: "To help me recommend the right solution, what's your budget range?"
+- **Make it natural**: Write how you would ask in person
+
+### **Multiple Choice Options**
+- **Cover all scenarios**: Include options that capture most possible responses
+- **Use clear labels**: Make options easy to understand
+- **Keep keys simple**: Use underscores, no spaces (e.g., `high_priority`, `low_priority`)
+- **Add an "other" option**: For responses that don't fit predefined choices
+
+## Field Examples by Industry
+
+### **Web Design Agency**
+- **Project Type** (Multiple Choice): New Website, Redesign, E-commerce, Landing Page
+- **Budget Range** (Multiple Choice): Under $5K, $5K-15K, $15K+
+- **Timeline** (Text): "When do you need this completed?"
+- **Current Website** (Text): "Do you have an existing website? If so, what's the URL?"
+
+### **Business Consultant**
+- **Company Size** (Number): "How many employees does your company have?"
+- **Annual Revenue** (Multiple Choice): Under $1M, $1M-5M, $5M+
+- **Main Challenge** (Text): "What's your biggest business challenge right now?"
+- **Urgency** (Multiple Choice): Urgent, Within 3 months, No rush
+
+### **Real Estate Agent**
+- **Budget Range** (Multiple Choice): Under $300K, $300K-500K, $500K+
+- **Home Type** (Multiple Choice): Single Family, Condo, Townhouse
+- **Timeline** (Multiple Choice): Ready Now, Within 6 months, Just Looking
+- **Location Preference** (Text): "What areas or neighborhoods interest you?"
+
+## Required vs Optional Fields
+
+**Required Fields**: AI will keep asking until it gets an answer
+- Use for critical qualification information
+- Essential for determining if someone is a good fit
+
+**Optional Fields**: AI asks once, moves on if no response
+- Nice-to-have information
+- Additional context that helps but isn't mandatory
+
+## Viewing Collected Information
+
+Once leads start conversations:
+1. Go to **Leads** section
+2. Click on any lead to see their conversation
+3. View all collected information in an organized format
+4. Export or integrate this data with your CRM
+
+Your information fields become the foundation for qualifying leads and understanding their needs through automated WhatsApp conversations!
+
+<Tip>
+    Start with 3-5 essential fields. You can always add more later as you refine your qualification process.
+</Tip>

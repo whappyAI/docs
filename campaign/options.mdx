@@ -1,0 +1,164 @@
+---
+title: "Options"
+description: "Configure when your campaign sends messages with timezone and operating hours settings"
+icon: "sliders"
+---
+
+The Options tab controls **when** your WhatsApp campaign is active and sending messages to leads. This ensures you only contact prospects during appropriate business hours and respects different time zones.
+
+## Campaign Timezone
+
+Set the timezone for your campaign operations.
+
+**How it works:**
+- All operating hours are based on this timezone
+- Choose the timezone where your business operates
+- Leads will receive messages according to this schedule, regardless of their location
+
+**Example:**
+```
+Business in New York → Select "America/New_York (EST/EDT)"
+Business in London → Select "Europe/London (GMT/BST)"
+Business in Sydney → Select "Australia/Sydney (AEST/AEDT)"
+```
+
+<Note>
+    The timezone affects when messages are sent, not the content. Choose your business timezone, not your leads' timezones.
+</Note>
+
+## Operating Hours
+
+Configure which days and times your campaign sends messages.
+
+### Day Selection
+**Enable/Disable Days:**
+- Toggle each day on/off using the checkbox
+- Disabled days = no messages sent
+- Enabled days = messages sent during specified hours
+
+**Typical Schedules:**
+- **Business Days Only**: Monday-Friday enabled, weekends disabled
+- **Full Week**: All days enabled with different weekend hours
+- **Custom**: Any combination based on your business needs
+
+### Time Ranges
+**Set Hours for Each Day:**
+- **Start Time**: When to begin sending messages
+- **End Time**: When to stop sending messages
+- Times are in 24-hour format (9:00 = 9 AM, 17:00 = 5 PM)
+
+**Example Schedules:**
+
+**Standard Business Hours:**
+```
+Monday-Friday: 9:00 AM to 5:00 PM
+Saturday-Sunday: Disabled
+```
+
+**Extended Hours:**
+```
+Monday-Friday: 8:00 AM to 7:00 PM
+Saturday: 10:00 AM to 4:00 PM
+Sunday: Disabled
+```
+
+**International Business:**
+```
+Monday-Friday: 6:00 AM to 10:00 PM
+Saturday-Sunday: 9:00 AM to 6:00 PM
+```
+
+## How Operating Hours Work
+
+### Message Timing
+- **During Hours**: Messages sent immediately when leads respond
+- **Outside Hours**: Messages queued until next operating period
+- **Conversations**: Ongoing chats pause when hours end, resume when they begin
+
+### Lead Experience
+- Leads receive natural response times during your business hours
+- No messages sent late at night or on disabled days
+- Conversations feel professional and respectful
+
+### Queue Management
+- Messages queued outside hours are sent when operations resume
+- Order preserved for fair lead handling
+- No messages lost due to timing restrictions
+
+## Best Practices
+
+### Timezone Selection
+- **Match Your Location**: Use your business's primary timezone
+- **Be Consistent**: Don't change timezone frequently once set
+- **Consider Coverage**: If serving multiple zones, choose your main office time
+
+### Operating Hours
+- **Respect Boundaries**: Don't send messages too early or late
+- **Match Expectations**: Align with when leads expect business contact
+- **Test Different Hours**: Monitor response rates at different times
+- **Cultural Awareness**: Consider local business customs in your market
+
+### Schedule Planning
+- **Start Conservative**: Begin with standard business hours
+- **Expand Gradually**: Add hours based on response patterns
+- **Monitor Performance**: Track when leads are most responsive
+- **Adjust Seasonally**: Different hours may work better at different times of year
+
+## Common Schedule Examples
+
+### Professional Services
+```
+Monday-Friday: 9:00 AM - 6:00 PM
+Saturday: 10:00 AM - 2:00 PM
+Sunday: Disabled
+Timezone: Your business location
+```
+
+### E-commerce/Retail
+```
+Monday-Friday: 8:00 AM - 8:00 PM
+Saturday-Sunday: 10:00 AM - 6:00 PM
+Timezone: Primary market timezone
+```
+
+### Global/SaaS Business
+```
+Monday-Friday: 6:00 AM - 10:00 PM
+Saturday-Sunday: 8:00 AM - 8:00 PM
+Timezone: Company headquarters
+```
+
+### Local Services
+```
+Monday-Friday: 8:00 AM - 6:00 PM
+Saturday: 9:00 AM - 3:00 PM
+Sunday: Disabled
+Timezone: Local timezone
+```
+
+## Important Notes
+
+### Campaign Behavior
+- **Active Campaign Required**: Hours only apply when your campaign is running
+- **Immediate Effect**: Changes apply to new messages immediately
+- **Existing Conversations**: Ongoing chats follow the new schedule
+
+### Technical Details
+- Hours are inclusive (9:00 AM start means messages can send at 9:00 AM)
+- End times are exclusive (5:00 PM end means last message at 4:59 PM)
+- System processes queued messages within minutes of hours beginning
+
+<Warning>
+    Changing timezone affects all scheduled messages. Be careful when adjusting timezone for active campaigns.
+</Warning>
+
+## Saving Changes
+
+Remember to **Save** your settings before leaving the Options tab:
+- Unsaved changes are highlighted with visual indicators
+- You'll be prompted to save when navigating away
+- Settings take effect immediately after saving
+
+<Tip>
+    Start with standard business hours and monitor your conversation analytics to find the optimal schedule for your leads.
+</Tip>

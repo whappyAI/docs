@@ -1,0 +1,155 @@
+---
+title: "Calendly"
+description: "Connect your Calendly account to enable automatic appointment booking in WhatsApp conversations"
+icon: "calendar-days"
+---
+
+Connect your Calendly account to let qualified leads book appointments directly through your WhatsApp conversations. The AI will automatically check your availability and handle the booking process.
+
+## How It Works
+
+When leads reach a **Book Meeting** node in your conversation funnel:
+
+1. **AI offers available times** from your Calendly calendar
+2. **Lead selects preferred time** via WhatsApp
+3. **Meeting is booked automatically**
+4. **Both parties receive confirmation**
+
+No more back-and-forth scheduling messages - everything happens seamlessly in the conversation.
+
+## Connecting Your Account
+
+### Requirements
+- **Calendly Premium** or higher plan
+- Active Calendly account with event types set up
+
+### Connection Steps
+
+1. Go to **Integrations → Calendly** in your Whappy dashboard
+2. Click **"Connect Calendly Account"**
+3. You'll be redirected to Calendly to authorize the connection
+4. Once connected, return to Whappy to see your event types
+
+<Note>
+    The connection uses secure OAuth authentication - Whappy never sees your Calendly password.
+</Note>
+
+## Managing Event Types
+
+After connecting, you'll see all your active Calendly event types with:
+
+- **Event Name**: The title of your meeting type
+- **Duration**: How long the meeting lasts
+- **Description**: Details about the meeting (if set)
+
+### Refreshing Event Types
+
+If you create new event types in Calendly or make changes:
+
+1. Go to the **Event Types** tab
+2. Click **"Refresh"** to sync the latest events
+3. New events will be available in your funnel builder
+
+## Using Calendly in Your Funnel
+
+### Adding Book Meeting Nodes
+
+In your **Campaign → Funnel** builder:
+
+1. Add a **Book Meeting** node to your conversation flow
+2. Select which **Calendly event type** to use for booking
+3. Customize the message the AI sends when offering appointments
+
+### Example Flow
+
+```
+Talk: "What's your project timeline?"
+↓
+Condition: "Within 3 months?"
+↓ (Yes)
+Book Meeting: "Let's schedule a 30-minute strategy call to discuss your project."
+↓
+Close: "Perfect! You'll receive a calendar invite shortly."
+```
+
+## Benefits
+
+### **Automatic Availability**
+- Shows only your actual available time slots
+- Prevents double-booking
+- Updates in real-time with your calendar
+
+### **Seamless Experience**
+- Leads book without leaving WhatsApp
+- No need to share calendar links manually
+- Professional booking process
+
+### **Time Savings**
+- Eliminates scheduling back-and-forth
+- Works 24/7, even when you're offline
+- Qualified leads can book immediately
+
+## Best Practices
+
+### **Event Type Setup**
+- Use clear, descriptive names for your events
+- Set appropriate meeting lengths based on lead type
+- Add meeting descriptions to set expectations
+
+### **Funnel Strategy**
+- Only offer booking to qualified leads
+- Use different event types for different lead values:
+- **15 min**: Quick discovery calls
+- **30 min**: Product demos
+- **60 min**: Strategy sessions
+
+### **Availability Management**
+- Keep your Calendly availability updated
+- Set buffer time between meetings
+- Use working hours that match your actual schedule
+
+## Troubleshooting
+
+### **Can't connect account?**
+- Make sure you have Calendly Premium or higher
+- Try using an incognito/private browser window
+- Clear your browser cache and cookies
+
+### **Event types not showing?**
+- Check that events are active in your Calendly account
+- Click "Refresh" in the Event Types tab
+- Verify events are set to allow booking
+
+### **Booking not working in funnel?**
+- Ensure your Calendly account is still connected
+- Check that the selected event type is still active
+- Verify your availability settings in Calendly
+
+## Managing Your Connection
+
+### **Viewing Connection Status**
+Your Calendly connection status is shown in the integration settings. A green checkmark indicates successful connection.
+
+### **Disconnecting**
+If you need to disconnect your account:
+
+1. Go to **Integrations → Calendly**
+2. Click **"Disconnect Account"**
+3. Confirm the disconnection
+
+<Warning>
+    Disconnecting will stop all Book Meeting nodes using Calendly from working until you reconnect.
+</Warning>
+
+## Getting Started
+
+Ready to enable automatic appointment booking?
+
+1. **Connect your account** in Integrations → Calendly
+2. **Add Book Meeting nodes** to your conversation funnel
+3. **Select appropriate event types** for different lead scenarios
+4. **Test your funnel** to ensure booking works correctly
+
+Your WhatsApp conversations will now seamlessly convert qualified leads into booked meetings!
+
+Need help? Check our [troubleshooting guide](/support/troubleshooting) or [contact support](/support/contact-support).

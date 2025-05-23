@@ -1,0 +1,241 @@
+---
+title: "Funnel"
+description: "Build conversation flows to qualify leads and book appointments automatically"
+icon: "diagram-nested"
+---
+
+The Funnel is Whappy's visual conversation flow builder. It allows you to create automated WhatsApp conversation sequences that guide leads through qualification questions and actions like booking meetings.
+
+## How Funnels Work
+
+Your funnel defines the path a conversation takes with each lead. The AI follows this flow, asking questions, evaluating responses, and taking actions based on the logic you've built.
+
+**Flow Structure:**
+- **Nodes** represent actions or decisions in the conversation
+- **Edges** connect nodes to show the conversation path
+- **Conditions** create branching logic based on lead responses
+- **Actions** perform tasks like booking meetings or sending data
+
+## Node Types
+
+### Start Node
+Every funnel begins with a Start node that sends the initial WhatsApp message.
+
+**Configuration:**
+- **WhatsApp Template**: Select an approved template for the first message
+- **Preview**: View the template content before sending
+
+<Note>
+    WhatsApp requires approved templates for the first message to a contact. Configure templates in the Integrations section.
+</Note>
+
+**Example Use:**
+```
+Template: "Hi {{name}}, thanks for your interest in our web design services! I'd love to learn more about your project."
+```
+
+### Info Node
+Collects specific information from leads during the conversation.
+
+**Configuration:**
+- **Information Field**: Choose which data to collect (from Info tab setup)
+- **AI Guidance**: The AI naturally asks for this information in conversation
+
+**Available Information Types:**
+- **Text**: Open-ended responses (company name, project description)
+- **Number**: Numeric values (budget, timeline, employee count)
+- **Multiple Choice**: Predefined options (priority level, industry type)
+
+**Example Use:**
+```
+Field: Budget Range
+AI asks: "What budget range are you working with for this project?"
+Stores: Lead's budget response for later use
+```
+
+### Condition Node
+Creates branching logic based on collected information.
+
+**Configuration:**
+- **Check Field**: Select which information to evaluate
+- **Operator**: How to compare the value (equals, greater than, contains, etc.)
+- **Value**: What to compare against
+- **Default Path**: Where to go if information is unknown
+
+**Available Operators:**
+- **Text**: Equals, Contains, Is empty, Is not empty
+- **Numbers**: Equals, Greater than, Less than, Greater/Less or equal
+- **Multiple Choice**: Equals, Is in list, Is not in list
+
+**Example Use:**
+```
+Condition: Budget > 5000
+True Path: → Book Meeting Node
+False Path: → Info Node (ask about timeline)
+Default: → True Path (if budget unknown)
+```
+
+### Talk Node
+Provides information or responses to leads without collecting data.
+
+**Configuration:**
+- **AI Examples**: Add examples of what the AI should say
+- **Multiple Examples**: AI uses these as guidelines for natural responses
+
+**Example Use:**
+```
+Examples:
+- "We specialize in modern, mobile-responsive websites for small businesses"
+- "Our typical project includes design, development, and basic SEO optimization"
+- "We can have your site live within 4-6 weeks of project start"
+```
+
+### Book Meeting Node
+Schedules appointments with qualified leads.
+
+**Configuration:**
+- **Meeting Type**: Select from your Calendly/Cal.com event types
+- **Event Description**: What kind of meeting this is
+- **Ask Message**: Example of how AI should propose the meeting
+
+**Requirements:**
+- Calendly or Cal.com integration must be configured
+- At least one active event type available
+
+**Example Use:**
+```
+Meeting Type: "30-min Discovery Call"
+Description: "Strategy session to discuss your web design needs"
+Ask Message: "I'd love to schedule a quick call to discuss your project. Are you available next week?"
+```
+
+### Close Node
+Ends the conversation and optionally sends lead data to external systems.
+
+**Configuration:**
+- **Webhook (Optional)**: Send lead data to your CRM or other tools
+- **Endpoint URL**: Where to send the data
+- **HTTP Method**: POST, PUT, or PATCH
+- **Custom Headers**: Authentication or content type headers
+
+**Example Use:**
+```
+Webhook: https://your-crm.com/api/leads
+Method: POST
+Headers: Authorization: Bearer your-token
+Data: All collected lead information sent as JSON
+```
+
+## Building Your Funnel
+
+### Getting Started
+1. **Start with Context**: Set up your campaign context first (Info tab)
+2. **Define Information**: Configure what data to collect (Info tab)
+3. **Build the Flow**: Use the visual builder to create your conversation path
+4. **Test Thoroughly**: Use the Test button to simulate conversations
+
+### Adding Nodes
+- Click the **+** button after any node to add the next step
+- **Condition nodes** show two + buttons (True/False paths)
+- **Other nodes** show one + button for the next step
+
+### Connecting Logic
+1. **Linear Flow**: Start → Info → Info → Book Meeting → Close
+2. **Branching Flow**: Start → Info → Condition → Different paths based on response
+3. **Complex Flow**: Multiple conditions and paths based on various criteria
+
+### Visual Layout
+- Nodes are positioned automatically based on the flow
+- **Condition branches** spread horizontally (True left, False right)
+- **Linear nodes** flow vertically down the page
+
+## Testing Your Funnel
+
+### Test Button
+The Test button simulates a conversation with your funnel:
+- **Requirements**: Funnel must be saved and have at least 2 nodes
+- **Simulation**: Chat interface shows how the AI will respond
+- **Data Collection**: See what information gets collected
+- **Flow Paths**: Test different conversation branches
+
+### Test Scenarios
+Test these common scenarios:
+- **Happy Path**: Lead provides all information and books meeting
+- **Incomplete Info**: Lead skips questions or provides unclear answers
+- **Disqualified Lead**: Lead doesn't meet your criteria
+- **Different Conditions**: Various budget ranges, timelines, or other factors
+
+## Best Practices
+
+### Flow Design
+- **Keep it Simple**: Start with basic flows, add complexity gradually
+- **Limit Conditions**: Too many branches make flows hard to manage
+- **Test Frequently**: Check each change with the test feature
+- **Plan Paths**: Map out your ideal conversation before building
+
+### Information Collection
+- **Essential First**: Collect the most important qualifying information early
+- **Natural Order**: Ask questions in a logical sequence
+- **Clear Options**: For multiple choice, make options distinct and clear
+- **Default Paths**: Always set appropriate defaults for unknown information
+
+### Meeting Booking
+- **Qualify First**: Only offer meetings to qualified leads
+- **Clear Purpose**: Explain what the meeting will cover
+- **Flexible Scheduling**: Use calendar integration for easy booking
+- **Confirmation**: Set up email confirmations through your calendar tool
+
+### Webhook Integration
+- **Test Endpoints**: Verify your webhook URLs work before going live
+- **Authentication**: Use proper headers for secure API access
+- **Error Handling**: Your endpoint should handle the data format properly
+- **Data Mapping**: Plan how Whappy's data maps to your CRM fields
+
+## Common Flow Patterns
+
+### Lead Qualification Flow
+```
+Start → Get Budget → Budget Condition → Get Timeline → Book Meeting → Close
+                            ↓
+                    Talk (Explain Pricing) → Close
+```
+
+### Information Gathering Flow
+```
+Start → Get Company → Get Industry → Get Size → Condition (Size > 50) → Book Meeting
+                                                        ↓
+                                              Talk (SMB Services) → Close
+```
+
+### Multi-Stage Qualification
+```
+Start → Get Budget → Budget OK? → Get Timeline → Timeline OK? → Book Meeting
+           ↓             ↓              ↓            ↓
+        Close         Close          Close        Close
+```
+
+## Troubleshooting
+
+### Common Issues
+- **Test Button Disabled**: Save your funnel and ensure it has multiple nodes
+- **Template Errors**: Check WhatsApp integration and template approval status
+- **Booking Failures**: Verify Calendly/Cal.com connection and active event types
+- **Webhook Issues**: Test your endpoint URL and authentication headers
+
+### Flow Problems
+- **Dead Ends**: Every path should eventually reach a Close node
+- **Missing Conditions**: Ensure all condition branches are connected
+- **Unclear Logic**: Review condition operators and values
+- **Too Complex**: Simplify flows that have too many branches
+
+## Next Steps
+
+After building your funnel:
+1. **Configure Options**: Set operating hours and timezone
+2. **Test Thoroughly**: Try multiple conversation scenarios
+3. **Launch Campaign**: Start your automated conversations
+4. **Monitor Performance**: Review conversation data and optimize
+
+<Tip>
+    Start with a simple linear flow (Start → Info → Book Meeting → Close) and add complexity as you learn what works best for your leads.
+</Tip>

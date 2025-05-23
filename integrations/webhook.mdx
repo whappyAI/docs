@@ -1,0 +1,231 @@
+---
+title: "Webhook"
+description: "Add leads to your Whappy campaign automatically using webhooks"
+icon: "webhook"
+---
+
+Webhooks provide an automated way to add leads to your Whappy campaigns. Instead of manually importing leads or using other integrations, you can send lead data directly to Whappy via HTTP POST requests.
+
+## When to Use Webhooks
+
+Webhooks are perfect for:
+- **Website Forms**: Automatically add leads when someone fills out a contact form
+- **Custom Applications**: Integrate with your existing software systems
+- **Third-party Tools**: Connect services that aren't directly supported
+- **Real-time Lead Import**: Add leads immediately as they're generated
+
+## Setting Up Your Webhook
+
+### 1. Get Your API Key
+
+Navigate to **Integrations → Webhook** in your Whappy dashboard to find your unique API key. This key authenticates your requests and ensures leads are added to your account.
+
+<Warning>
+    Keep your API key secure and never share it publicly. Anyone with this key can add leads to your account.
+</Warning>
+
+### 2. API Endpoint
+
+Send POST requests to:
+```
+POST https://api.whappie.com/v1/lead
+```
+
+### 3. Required Headers
+
+Include these headers in your requests:
+```
+Content-Type: application/json
+X-API-Key: your-api-key-here
+```
+
+## Request Format
+
+### Required Fields
+- **name**: Lead's full name
+- **phone**: Lead's phone number (including country code)
+
+### Optional Fields
+- **email**: Lead's email address
+- **company**: Lead's company name
+- **source**: Where the lead came from (e.g., "Website", "Facebook")
+- **custom_fields**: Additional data as key-value pairs
+
+### Example Request Body
+```json
+{
+  "name": "John Doe",
+  "phone": "+1234567890",
+  "email": "john@example.com",
+  "company": "Acme Inc.",
+  "source": "Website",
+  "custom_fields": {
+    "budget": "10000",
+    "interest": "Product A"
+  }
+}
+```
+
+## Code Examples
+
+<Tabs>
+    <Tab title="cURL">
+        ```bash
+        curl -X POST https://api.whappie.com/v1/lead \
+        -H "Content-Type: application/json" \
+        -H "X-API-Key: your-api-key-here" \
+        -d '{
+        "name": "John Doe",
+        "phone": "+1234567890",
+        "email": "john@example.com",
+        "company": "Acme Inc.",
+        "source": "Website"
+    }'
+        ```
+    </Tab>
+
+    <Tab title="JavaScript">
+        ```javascript
+        fetch('https://api.whappie.com/v1/lead', {
+        method: 'POST',
+        headers: {
+        'Content-Type': 'application/json',
+        'X-API-Key': 'your-api-key-here'
+    },
+        body: JSON.stringify({
+        name: 'John Doe',
+        phone: '+1234567890',
+        email: 'john@example.com',
+        company: 'Acme Inc.',
+        source: 'Website'
+    })
+    })
+        .then(response => response.json())
+        .then(data => console.log(data))
+        .catch(error => console.error('Error:', error));
+        ```
+    </Tab>
+
+    <Tab title="Python">
+        ```python
+        import requests
+        import json
+
+        url = "https://api.whappie.com/v1/lead"
+        headers = {
+        "Content-Type": "application/json",
+        "X-API-Key": "your-api-key-here"
+    }
+        payload = {
+        "name": "John Doe",
+        "phone": "+1234567890",
+        "email": "john@example.com",
+        "company": "Acme Inc.",
+        "source": "Website"
+    }
+
+        response = requests.post(url, headers=headers, data=json.dumps(payload))
+        print(response.json())
+        ```
+    </Tab>
+</Tabs>
+
+## Response Format
+
+### Successful Response
+```json
+{
+  "status": "success",
+  "data": {
+    "id": "lead_12345",
+    "name": "John Doe",
+    "phone": "+1234567890",
+    "created_at": "2025-01-15T10:30:00Z"
+  }
+}
+```
+
+### Error Response
+```json
+{
+  "status": "error",
+  "message": "Invalid phone number format"
+}
+```
+
+## Using Custom Fields
+
+Custom fields you include in your webhook payload can be used as variables in your WhatsApp message templates. For example:
+
+If you send:
+```json
+{
+  "name": "John Doe",
+  "phone": "+1234567890",
+  "custom_fields": {
+    "budget": "50000",
+    "timeline": "3 months"
+  }
+}
+```
+
+You can use `{{budget}}` and `{{timeline}}` in your WhatsApp templates:
+```
+Hi {{name}}, I see you're looking for a solution with a {{budget}} budget and {{timeline}} timeline. Let's discuss!
+```
+
+## Testing Your Webhook
+
+1. **Use the API Key from your dashboard**
+2. **Test with a simple cURL request** to verify connectivity
+3. **Check the Leads section** to confirm the lead was added
+4. **Verify your campaign processes the lead** correctly
+
+<Tip>
+    Start with a simple test request using just the required fields (name and phone) before adding custom fields.
+</Tip>
+
+## Common Use Cases
+
+### Website Contact Forms
+Add this JavaScript to your website forms:
+```javascript
+// After form submission
+const formData = {
+  name: document.getElementById('name').value,
+  phone: document.getElementById('phone').value,
+  email: document.getElementById('email').value,
+  source: 'Website Contact Form'
+};
+
+// Send to Whappy
+fetch('https://api.whappie.com/v1/lead', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+    'X-API-Key': 'your-api-key-here'
+  },
+  body: JSON.stringify(formData)
+});
+```
+## Security Best Practices
+
+- **Use HTTPS only** for all webhook requests
+- **Store API keys securely** (environment variables, not in code)
+- **Validate data** before sending to prevent errors
+- **Handle errors gracefully** in your application
+- **Monitor webhook usage** to detect unusual activity
+
+## Troubleshooting
+
+**Lead not appearing?**
+- Check your API key is correct
+- Verify the phone number format includes country code
+- Ensure your campaign is running
+
+**Getting errors?**
+- Confirm all required fields are included
+- Check the request format matches the examples
+- Verify your API key has the correct permissions
+
+Need help? Check our [troubleshooting guide](/support/troubleshooting) or [contact support](/support/contact-support).

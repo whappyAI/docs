@@ -1,0 +1,198 @@
+---
+title: "WhatsApp"
+description: "Connect your WhatsApp Business account to send automated messages to leads"
+icon: "whatsapp"
+---
+
+WhatsApp integration is the core of your Whappy automation. It allows your AI assistant to send and receive messages with leads through your WhatsApp Business account.
+
+## Getting Started
+
+### Requirements
+- **WhatsApp Business Account** (not personal WhatsApp)
+- **Meta Business Manager** access
+- **WhatsApp Business API** subscription
+
+### What You'll Need
+- **WhatsApp Number ID**: Your business phone number ID from Meta
+- **Business Account ID**: Your Meta Business Account ID
+- **API Token**: Authentication token from Meta Business Platform
+
+## Connecting Your Account
+
+1. Navigate to **Integrations → WhatsApp** in your Whappy dashboard
+2. Go to the **Basic Settings** tab
+3. Enter your credentials:
+- **WhatsApp Number ID** from Meta Business Platform
+- **Meta Business Account ID**
+- **API Token** for authentication
+4. Click **Test Connection** to verify everything works
+5. Click **Save Settings** once the test passes
+
+<Warning>
+    Keep your API token secure. Anyone with this token can send messages from your WhatsApp Business account.
+</Warning>
+
+## Creating Message Templates
+
+WhatsApp requires **approved templates** for starting conversations with leads. You cannot send initial messages without approved templates.
+
+### Adding Templates
+
+1. Go to the **Message Templates** tab
+2. Click **"Add Template"**
+3. Fill in the template details:
+- **Template Name**: Use underscores, no spaces (e.g., `welcome_message`)
+- **Language**: Select the language for your template
+- **Category**: Choose Utility (for business messages) or Marketing
+- **Message**: Write your template text
+
+### Using Parameters
+
+Make templates dynamic with parameters in double curly braces:
+
+```
+Hello {{user_name}}, welcome to {{business_name}}!
+How can I help you today?
+```
+
+**Parameters you can use:**
+- `{{user_name}}` - Lead's name
+- `{{business_name}}` - Your business name
+- `{{budget}}` - Lead's budget (if collected)
+- Any custom field from your lead data
+
+### Template Example
+
+**Template Name**: `welcome_message`
+**Category**: Utility
+**Message**:
+```
+Hi {{user_name}}! This is {{business_name}}.
+I saw you're interested in our services.
+What's the best way I can help you today?
+```
+
+### Template Approval Process
+
+1. **Submit**: Click "Save Templates" to submit for approval
+2. **Review**: Meta reviews your template (usually 24-48 hours)
+3. **Status**: Templates show as Pending → Approved or Rejected
+4. **Use**: Only approved templates can be used in campaigns
+
+<Tip>
+    Create templates that sound natural and provide value. Avoid overly promotional language to increase approval chances.
+</Tip>
+
+## Using Templates in Your Funnel
+
+### Selecting Templates
+
+Templates are used in the **starter node** of your conversation funnel:
+
+1. Go to **Campaign → Funnel**
+2. Click on the **Start** node (first node in your funnel)
+3. Select an **approved template** from the dropdown
+4. The template text becomes your welcome message
+
+### Template Preview
+
+When you select a template, you'll see a preview showing exactly what message leads will receive.
+
+## Template Categories
+
+### **Utility Templates**
+- For business communications
+- Customer service messages
+- Appointment confirmations
+- Follow-ups
+
+**Example**:
+```
+Hi {{user_name}}, thanks for your interest in our {{service_type}}.
+Let's schedule a quick call to discuss your needs.
+```
+
+### **Marketing Templates**
+- Promotional content
+- Product announcements
+- Special offers
+
+**Example**:
+```
+{{user_name}}, we have a special offer on {{service_type}} this month.
+Would you like to learn more?
+```
+
+## Best Practices
+
+### **Template Creation**
+- Use clear, conversational language
+- Include the recipient's name when possible
+- Avoid excessive emojis or promotional language
+- Test templates with different parameter values
+
+### **Parameter Usage**
+- Always provide example values for parameters
+- Use parameters from your lead information fields
+- Keep parameter names descriptive and consistent
+
+### **Approval Tips**
+- Submit templates that provide clear value to recipients
+- Avoid spam-like language or excessive sales pitches
+- Include your business name for transparency
+- Make sure templates make sense without prior context
+
+## Managing Templates
+
+### **Viewing Template Status**
+Templates show one of three statuses:
+- **🟡 Pending**: Submitted for Meta review
+- **🟢 Approved**: Ready to use in campaigns
+- **🔴 Rejected**: Needs revision and resubmission
+
+### **Editing Templates**
+- **New templates**: Can be edited before saving
+- **Existing templates**: Are read-only once submitted
+- **Rejected templates**: Delete and create new ones with revisions
+
+### **Template Limits**
+- You can create multiple templates for different scenarios
+- Only approved templates appear in the funnel builder
+- Templates are shared across all your campaigns
+
+## Testing Your Integration
+
+### **Connection Test**
+Use the "Test Connection" button to verify:
+- Your credentials are correct
+- WhatsApp API is accessible
+- Account permissions are properly set
+
+### **Template Testing**
+Before going live:
+1. Create and get approval for at least one template
+2. Set up a simple funnel using the approved template
+3. Test with a personal phone number first
+4. Verify messages send and receive correctly
+
+## Troubleshooting
+
+### **Connection Issues**
+- Double-check your WhatsApp Number ID and Business Account ID
+- Verify your API token is current and has proper permissions
+- Make sure your WhatsApp Business account is active
+
+### **Template Problems**
+- **Not appearing in funnel**: Check if template is approved
+- **Rejection**: Revise language to be less promotional/spammy
+- **Parameters not working**: Verify parameter names match your lead fields exactly
+
+### **Message Sending Issues**
+- Confirm template is approved and selected in starter node
+- Check that your campaign is running and leads are being processed
+- Verify recipient phone numbers include country codes
+
+Ready to connect WhatsApp? Head to **Integrations → WhatsApp** to get started!
+
+Need help? Check our [troubleshooting guide](/support/troubleshooting) or [contact support](/support/contact-support).

@@ -1,14 +1,15 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "palm",
-  "name": "Laxi.ai Documentation",
+  "name": "Whappy Documentation",
+  "description": "AI-driven WhatsApp automation for lead qualification and appointment setting",
   "appearance": {
     "default": "light"
   },
   "colors": {
-    "primary": "#6e51e0",
-    "light": "#6e51e0",
-    "dark": "#6e51e0"
+    "primary": "#0095FF",
+    "light": "#0095FF",
+    "dark": "#0095FF"
   },
   "background": {
     "color": {
@@ -20,83 +21,117 @@
   "navigation": {
     "tabs": [
       {
-        "tab": "User Guides",
+        "tab": "Overview",
+        "icon": "house",
         "groups": [
           {
-            "group": "Get Started",
-            "pages": ["about", "quickstart"]
-          },
-          {
-            "group": "Learn",
+            "group": "Getting Started",
             "pages": [
-              "learn/design",
-              "learn/data-sources",
-              "learn/playground",
-              "learn/model-controls"
+              "introduction",
+              "quickstart"
             ]
           },
           {
-            "group": "Monitor",
+            "group": "Billing & Subscription",
             "pages": [
-              "analytics/conversations", 
-              "analytics/dashboard"
+              "billing/subscription-plans",
+              "billing/billing-management",
+              "billing/account-settings"
             ]
           },
           {
             "group": "Support",
             "pages": [
-              "support/email-support"
+              "support/troubleshooting",
+              "support/faq",
+              "support/contact-support"
             ]
-          },
+          }
+        ]
+      },
+      {
+        "tab": "Campaign",
+        "icon": "bullhorn",
+        "groups": [
           {
-            "group": "Account",
+            "group": "Campaign Setup",
             "pages": [
-              "account/profile",
-              "account/subscriptions",
-              "account/billing"
+              "campaign/context",
+              "campaign/info",
+              "campaign/funnel",
+              "campaign/options"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Leads",
+        "icon": "users",
+        "groups": [
+          {
+            "group": "Lead Management",
+            "pages": [
+              "leads/overview"
             ]
           }
         ]
       },
       {
         "tab": "Integrations",
+        "icon": "plug",
         "groups": [
           {
-            "group": "Platforms",
+            "group": "Conversations",
             "pages": [
-              "setup/shopify",
-              "setup/woocommerce",
-              "setup/bigcommerce",
-              "setup/ecwid"
+              "integrations/whatsapp"
+            ]
+          },
+          {
+            "group": "Leads",
+            "pages": [
+              "integrations/webhook",
+              "integrations/zapier"
+            ]
+          },
+          {
+            "group": "Appointment Setting",
+            "pages": [
+              "integrations/calendly",
+              "integrations/cal-com"
             ]
           }
         ]
       }
     ],
-    "global": {}
+    "global": {
+    }
   },
   "logo": {
-    "light": "/logo/light.svg",
-    "dark": "/logo/dark.svg"
+    "light": "/logo/light.png",
+    "dark": "/logo/dark.png"
   },
   "navbar": {
     "links": [
       {
+        "label": "Log in",
+        "href": "https://app.whappy.ai"
+      },
+      {
         "label": "Support",
-        "href": "mailto:team@laxi.ai"
+        "href": "mailto:team@whappy.ai"
       }
     ],
     "primary": {
       "type": "button",
-      "label": "Try laxi.ai",
-      "href": "https://laxi.ai"
+      "label": "Try Now",
+      "href": "https://whappy.ai/signup"
     }
   },
   "footer": {
     "socials": {
-      "x": "https://x.com/laxi_ai",
-      "github": "https://github.com/laxi-ai",
-      "linkedin": "https://linkedin.com/company/laxi-ai"
+      "x": "https://x.com/whappy",
+      "github": "https://github.com/whappy-ai",
+      "linkedin": "https://linkedin.com/company/whappy-ai"
     }
   }
 }

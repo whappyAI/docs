@@ -1,0 +1,195 @@
+---
+title: "Cal.com"
+description: "Automatically book appointments with qualified leads using your Cal.com calendar"
+icon: "calendar-check"
+---
+
+Cal.com integration allows your WhatsApp AI assistant to automatically book appointments with qualified leads based on your real-time availability. Instead of manual back-and-forth scheduling, leads can book meetings directly through your conversation funnel.
+
+## How It Works
+
+When a lead reaches a **Book Meeting** node in your conversation funnel:
+
+1. **AI checks availability** on your Cal.com calendar in real-time
+2. **Offers available time slots** to the lead via WhatsApp
+3. **Books the appointment** automatically when the lead selects a time
+4. **Sends confirmation** to both you and the lead
+
+This creates a seamless experience where qualified leads can book meetings without leaving the WhatsApp conversation.
+
+## Setting Up Cal.com Integration
+
+### 1. Get Your Cal.com API Key
+
+First, you'll need to generate an API key from your Cal.com account:
+
+1. Log into your [Cal.com account](https://cal.com)
+2. Go to **Settings** → **Developer** → **API Keys**
+3. Click **"Create New API Key"**
+4. Copy the generated API key
+
+<Warning>
+    Keep your API key secure. Anyone with this key can access your calendar information and book appointments.
+</Warning>
+
+### 2. Configure in Whappy
+
+1. Navigate to **Integrations → Cal.com** in your Whappy dashboard
+2. Paste your API key in the **API Key** field
+3. Click **Save** to connect your account
+
+Once configured successfully, you'll see a green confirmation message indicating Cal.com is ready to use.
+
+### 3. Prepare Your Cal.com Events
+
+Make sure your Cal.com event types are properly configured:
+
+- **Set as Public**: Events must be publicly bookable
+- **Enable Booking**: Ensure booking is allowed for the events you want to use
+- **Configure Duration**: Set appropriate meeting lengths (15min, 30min, 1hr, etc.)
+- **Set Availability**: Define your available hours and days
+
+<Tip>
+    Create specific event types for different types of leads (e.g., "Sales Demo - 30min", "Consultation Call - 45min") to better organize your calendar.
+</Tip>
+
+## Using Cal.com in Your Funnel
+
+### Adding Book Meeting Nodes
+
+In your **Campaign → Funnel** builder:
+
+1. Drag a **Book Meeting** node into your conversation flow
+2. Configure the node settings:
+- **Select Calendar Event**: Choose which Cal.com event type to use
+- **Message Text**: Customize what the AI says when offering booking
+- **Confirmation Message**: Set what leads see after booking
+
+### Example Funnel Flow
+
+```
+Talk Node: "What's your budget for this project?"
+↓
+Condition Node: Budget > $5,000?
+↓ (Yes)
+Book Meeting Node: "Great! Let's schedule a call to discuss your project in detail."
+↓
+Close Node: "Thanks! I've sent you a calendar invite. Looking forward to our call!"
+```
+
+### AI Conversation Example
+
+Here's how the booking conversation might look:
+
+**AI**: "Based on your needs, I'd love to schedule a 30-minute consultation call. I have availability this week:"
+
+**AI**: "• Tomorrow (Jan 16) at 2:00 PM"
+**AI**: "• Thursday (Jan 18) at 10:00 AM"
+**AI**: "• Friday (Jan 19) at 3:30 PM"
+
+**Lead**: "Thursday at 10 AM works for me"
+
+**AI**: "Perfect! I've booked you for Thursday, January 18th at 10:00 AM. You'll receive a calendar invite shortly with the meeting details."
+
+## Benefits of Cal.com Integration
+
+### **Real-time Availability**
+- No double-bookings or scheduling conflicts
+- Always shows current available slots
+- Respects your calendar settings and blocked times
+
+### **Automatic Booking**
+- Leads can book instantly without waiting for human response
+- Reduces friction in the sales process
+- Works 24/7, even when you're offline
+
+### **Professional Experience**
+- Seamless integration within WhatsApp conversation
+- Automatic calendar invites and reminders
+- Consistent booking experience for all leads
+
+### **Calendar Management**
+- All bookings appear in your Cal.com calendar
+- Integrates with Google Calendar, Outlook, and other calendar apps
+- Maintains your existing calendar workflow
+
+## Advanced Configuration
+
+### Multiple Event Types
+
+You can set up different Cal.com event types for different scenarios:
+
+- **Discovery Call** (15 minutes) - For initial lead qualification
+- **Product Demo** (30 minutes) - For interested prospects
+- **Strategy Session** (60 minutes) - For high-value leads
+
+Then use different **Book Meeting** nodes in your funnel based on lead qualification level.
+
+### Conditional Booking
+
+Use **Condition** nodes before **Book Meeting** nodes to qualify leads:
+
+```
+Condition: Budget > $10,000?
+├─ Yes → Book "Strategy Session" (60 min)
+└─ No → Book "Quick Call" (15 min)
+```
+
+### Buffer Time
+
+Configure buffer time in Cal.com to:
+- Prevent back-to-back bookings
+- Allow travel time between meetings
+- Give yourself preparation time
+
+## Troubleshooting
+
+### **Meeting node not working?**
+- Verify your Cal.com API key is correct
+- Check that your event types are set to "Public"
+- Ensure booking is enabled for the selected event
+
+### **No available times showing?**
+- Check your Cal.com availability settings
+- Verify your calendar isn't fully booked
+- Make sure the event duration fits your available slots
+
+### **Leads not receiving calendar invites?**
+- Confirm email integration is set up in Cal.com
+- Check that leads provided valid email addresses
+- Verify your Cal.com notification settings
+
+## Best Practices
+
+### **Event Type Setup**
+- Use clear, descriptive names for your event types
+- Set appropriate meeting durations based on conversation type
+- Include meeting descriptions and preparation instructions
+
+### **Availability Management**
+- Keep your Cal.com availability updated
+- Use buffer times to avoid scheduling conflicts
+- Set working hours that match your actual availability
+
+### **Funnel Design**
+- Only offer booking to qualified leads
+- Use condition nodes to route different lead types to appropriate meeting lengths
+- Provide clear context about what the meeting will cover
+
+### **Follow-up Process**
+- Set up automatic reminder emails in Cal.com
+- Prepare meeting agendas based on lead information collected
+- Have a process for no-shows and rescheduling
+
+## Integration Benefits
+
+Cal.com integration transforms your lead qualification process by:
+
+- **Reducing Manual Work**: No more back-and-forth scheduling emails
+- **Increasing Conversion**: Qualified leads can book immediately while interested
+- **Improving Experience**: Professional, seamless booking process
+- **Scaling Outreach**: Handle booking for hundreds of leads automatically
+
+Ready to set up automated appointment booking? Head to **Integrations → Cal.com** to get started!
+
+Need help? Check our [troubleshooting guide](/support/troubleshooting) or [contact support](/support/contact-support).

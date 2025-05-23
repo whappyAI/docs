@@ -1,105 +1,155 @@
 ---
 title: "Quick Setup"
-icon: "shop"
-description: "Follow this step-by-step guide to set up and deploy your AI chatbot on any ecommerce platform or third-party website."
+icon: "rocket"
+description: "Get your WhatsApp lead qualification automation up and running in minutes with this step-by-step guide."
 ---
 
-# Setting Up Your AI Chatbot
+# Getting Started with Whappy
 
-Laxi.ai allows you to create and configure an AI chatbot for your ecommerce store, even if you are not using Shopify. This guide walks you through the key steps to set up your chatbot, connect data sources, and deploy it on your website.
-
----
-
-## 1. Creating Your AI Agent
-
-To get started, navigate to **Laxi.ai Dashboard → Agents** and click on new AI agent. This chatbot will handle customer interactions, product inquiries, and support requests.
-
-<img src="/images/getting-started/create-new-agent.png" alt="Navigating to AI Agents in Laxi.ai" style={{ marginTop: '1rem', maxWidth: '100%' }} />
-
-Once you click there, provide a name and get started with your very first AI agent.
-
-<img src="/images/getting-started/write-agent-name.png" alt="Creating a new AI agent" style={{ marginTop: '1rem', maxWidth: '100%' }} />
-
-> For more details, visit [Agent Configuration](/learn/design).
+Whappy helps you automate WhatsApp conversations to qualify leads and book appointments. This guide walks you through setting up your first campaign, from initial context to managing qualified leads.
 
 ---
 
-## 2. Customizing Your Chatbot
+## 1. Create Your First Campaign
 
-After creating your chatbot, the next step is to customize its appearance and behavior. Navigate to **Laxi.ai Dashboard → Design** Settings to configure:
+Start by navigating to **Dashboard → Campaign** to set up your WhatsApp automation campaign.
 
-- Brand colors and fonts
-- Chatbot language and tone
-- Welcome messages and suggested responses
+### Set Your Context
+Define the foundation of your AI assistant:
 
-<img src="/images/learn/design-tab.png" alt="Navigating to Design Settings" style={{ marginTop: '1rem', maxWidth: '50%', marginLeft: 'auto', marginRight: 'auto' }} />
+- **WhatsApp Name**: The name your AI will use when messaging leads
+- **Business Activity**: Describe what your business does
+- **Conversation Objective**: What you want to achieve (qualify leads, book demos, etc.)
+- **Additional Information**: Any extra context the AI should know
 
-Once inside the Design Customization panel, set up your chatbot's UI elements, messaging tone, and toggle placement.
-
-<img src="/images/learn/design-branding.png" alt="Customizing chatbot appearance" style={{ marginTop: '1rem', maxWidth: '100%' }} />
-
-> For a deeper customization guide, visit [Design Customization](/learn/design).
-
----
-
-## 3. Connecting Your Data Sources
-
-Your chatbot needs access to product information and company details. Navigate to **Laxi.ai Dashboard → Data Sources** to:
-
-- Connect your WooCommerce store or manually upload products via Google Sheets.
-- Add company knowledge, such as FAQs, policies, and support documents.
-
-<img src="/images/learn/data-sources-tab.png" alt="Navigating to Data Sources" style={{ marginTop: '1rem', maxWidth: '50%', marginLeft: 'auto', marginRight: 'auto' }} />
-
-Once inside the Data Sources section, link your store, upload knowledge files, and sync the latest data.
-
-<img src="/images/learn/data-sources-options.png" alt="Connecting data sources" style={{ marginTop: '1rem', maxWidth: '100%' }} />
-
-> Learn more about managing data in [Data Sources & Training](/learn/data-sources).
-
----
-
-## 4. Testing Your Chatbot
-
-Before going live, you can test and refine chatbot responses in the Playground section. Navigate to **Laxi.ai Dashboard → Playground** to:
-
-- Simulate real customer queries.
-- Check AI-generated responses.
-- Make adjustments based on chatbot accuracy.
-
-<img src="/images/learn/testing-tab.png" alt="Navigating to Playground" style={{ marginTop: '1rem', maxWidth: '50%', marginLeft: 'auto', marginRight: 'auto' }} />
-
-Interact with the chatbot in a sandbox environment and make necessary refinements.
-
-<img src="/images/learn/all-options.png" alt="Testing chatbot interactions" style={{ marginTop: '1rem', maxWidth: '50%', marginLeft: 'auto', marginRight: 'auto' }} />
-
-> For a full testing guide, visit [Playground](/learn/playground).
-
----
-
-## 5. Deploying Your Chatbot
-
-Once everything is set up, the final step is to **deploy your chatbot** by embedding it into your website. Navigate to **Laxi.ai Dashboard → Share & Deploy** to:
-
-- Copy the embed code for your chatbot.
-- Paste it into your website's HTML before the `</body>` tag.
-
-<img src="/images/deploy/share-deploy-tab.png" alt="Navigating to Share & Deploy" style={{ marginTop: '1rem', maxWidth: '50%', marginLeft: 'auto', marginRight: 'auto' }} />
-
-Insert the provided script into your website's HTML to activate the chatbot.
-
-<img src="/images/deploy/embed-code.png" alt="Embedding chatbot script" style={{ marginTop: '1rem', maxWidth: '100%' }} />
+<img src="/images/campaign/context-setup.png" alt="Setting up campaign context" style={{ marginTop: '1rem', maxWidth: '100%' }} />
 
 <Tip>
-    For the best performance, add the embed script just before the closing `</body>` tag to ensure smooth loading.
+    Be specific about your business and objectives. The AI uses this information to have natural, relevant conversations with your leads.
 </Tip>
-
-> Learn more about manual deployment in [Manual Embed Integration](/deploy/manual-embed).
 
 ---
 
-## Final Thoughts
+## 2. Define Lead Information Fields
 
-By following these steps, you can successfully set up and launch your AI chatbot. From customizing its appearance to integrating data sources and testing, Laxi.ai provides an easy-to-use platform to automate customer interactions.
+Navigate to the **Info** tab to specify what information you want to collect from leads during your WhatsApp conversations.
 
-Your chatbot is now live and ready to assist customers! 🚀
+<img src="/images/campaign/info-fields.png" alt="Defining lead information fields" style={{ marginTop: '1rem', maxWidth: '100%' }} />
+
+**Example Fields:**
+- Budget range (Multiple choice)
+- Project timeline (Text input)
+- Company size (Number)
+
+---
+
+## 3. Build Your Conversation Funnel
+
+In the **Funnel** tab, create the conversation flow using drag-and-drop nodes:
+
+Build your conversation flow using simple drag-and-drop nodes to guide leads through qualification and booking.
+
+<img src="/images/campaign/funnel-builder.png" alt="Building conversation funnel" style={{ marginTop: '1rem', maxWidth: '100%' }} />
+
+<Note>
+    Use the Test button to simulate conversations and refine your funnel before going live.
+</Note>
+
+---
+
+## 4. Configure Campaign Options
+
+Set your **operating hours** and **timezone** in the **Options** tab:
+
+- **Timezone**: Select your business timezone
+- **Operating Days**: Choose which days to run campaigns
+- **Active Hours**: Set start and end times for each day
+
+<img src="/images/campaign/options-schedule.png" alt="Configuring campaign schedule" style={{ marginTop: '1rem', maxWidth: '100%' }} />
+
+---
+
+## 5. Set Up WhatsApp Integration
+
+Navigate to **Integrations → WhatsApp** to connect your WhatsApp Business account and configure message templates.
+
+<img src="/images/integrations/whatsapp-setup.png" alt="WhatsApp integration setup" style={{ marginTop: '1rem', maxWidth: '100%' }} />
+
+<Warning>
+    WhatsApp templates must be approved before you can send messages. Set up your integration early in the process.
+</Warning>
+
+---
+
+## 6. Test Your Campaign
+
+Before going live:
+
+1. **Test the Funnel**: Use the Test button in the funnel builder
+2. **Verify Integrations**: Check WhatsApp connection status
+3. **Review Message Templates**: Ensure they're approved and working
+
+<img src="/images/campaign/test-conversation.png" alt="Testing campaign conversation" style={{ marginTop: '1rem', maxWidth: '70%' }} />
+
+---
+
+## 7. Launch and Manage Leads
+
+### Start Your Campaign
+Once everything is configured and tested:
+1. Go back to your **Campaign** page
+2. Click the **Start Campaign** button
+3. Your campaign status will show as "Running"
+
+### Add Leads to Your Campaign
+Navigate to **Leads** to add contacts to your campaign:
+
+- **Manual Entry**: Add leads individually
+- **Import**: Upload lead lists
+- **Automation**: Connect with Zapier or other tools
+
+<img src="/images/leads/lead-management.png" alt="Managing leads dashboard" style={{ marginTop: '1rem', maxWidth: '100%' }} />
+
+### Monitor Conversations
+Track lead interactions in real-time:
+- View conversation history
+- See qualification status
+- Check appointment bookings
+- Export qualified leads
+
+---
+
+## 8. Optional: Set Up Additional Integrations
+
+### Scheduling Integration
+Connect your calendar for appointment booking:
+- Sync your availability
+- Let leads book directly through WhatsApp
+
+### Zapier Integration
+Automate your workflow:
+- Send qualified leads to your CRM
+- Trigger follow-up sequences
+- Connect with other business tools
+
+---
+
+## Next Steps
+
+🎉 Congratulations! Your WhatsApp lead qualification system is now live.
+
+**What happens next:**
+1. Leads will receive automated WhatsApp messages
+2. The AI qualifies them based on your criteria
+3. Qualified leads can book appointments automatically
+4. You receive notifications for high-priority leads
+
+**Optimization Tips:**
+- Monitor conversation analytics
+- Refine your funnel based on performance
+- A/B test different message approaches
+- Regularly update your lead qualification criteria
+
+> **Need Help?** Check out our detailed guides for [Campaign Setup](/campaign/context), [Lead Management](/leads/overview), or [Integration Configuration](/integrations/whatsapp).
+
+Your automated lead qualification system is ready to work 24/7! 🚀
