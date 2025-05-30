@@ -1,122 +1,64 @@
 ---
-title: "Zapier"
-description: "Automate workflows by connecting Whappy with 5,000+ apps through Zapier webhooks."
+title: "Zapier Integration"
+description: "Bidirectional integration: Send qualified leads to other apps and receive new leads from external sources."
 icon: "bolt"
 ---
 
+Whappy's Zapier integration works both ways - send qualified leads to your favorite apps automatically, and receive new leads from external sources to start WhatsApp conversations.
 
-Connect Whappy with thousands of apps through Zapier to automate your lead management workflow. When leads schedule appointments or complete conversations, Whappy can automatically trigger actions in your favorite tools.
+## How It Works
 
-## Overview
+<CardGroup cols={2}>
+    <Card title="Send Leads Out" icon="arrow-right" color="#green">
+        **Triggers**: When leads complete conversations or book appointments, automatically send their data to CRM, email tools, calendars, etc.
+    </Card>
+    <Card title="Receive Leads In" icon="arrow-left" color="#blue">
+        **Actions**: When you get new leads from forms, ads, or other sources, automatically add them to Whappy campaigns to start conversations.
+    </Card>
+</CardGroup>
 
-The Zapier integration allows you to:
-- **Automatically send qualified leads** to your CRM
-- **Add appointments** to your calendar apps
-- **Trigger email sequences** when conversations complete
-- **Send notifications** to Slack or Discord
-- **Update spreadsheets** with lead data
-- **Track conversions** in analytics platforms
+---
 
-## Available Triggers
+## Available Triggers (Whappy → Other Apps)
 
-Whappy supports two main trigger events that can start your Zapier workflows:
+### 1. Conversation Closed
+**When it triggers**: Lead reaches the "close" step in your conversation funnel (successfully qualified)
 
-### 1. Appointment Scheduled
-Triggers when a lead successfully books an appointment through your conversation funnel.
+**Use cases**:
+- Add qualified lead to CRM (HubSpot, Salesforce)
+- Start email nurture sequence (Mailchimp, ConvertKit)
+- Create opportunity in sales pipeline
+- Send notification to sales team
 
-**Use cases:**
-- Add appointment to Google Calendar
-- Send confirmation email
-- Create CRM opportunity
-- Notify your sales team
+### 2. Appointment Scheduled
+**When it triggers**: Lead books an appointment through your conversation funnel
 
-### 2. Conversation Closed
-Triggers when a lead reaches the "close" step in your funnel (conversation completed).
+**Use cases**:
+- Create calendar event (Google Calendar, Outlook)
+- Send appointment confirmation email
+- Add to CRM with meeting details
+- Notify team in Slack
 
-**Use cases:**
-- Add lead to email marketing list
-- Create contact in CRM
-- Send lead data to analytics
-- Trigger follow-up sequences
+---
 
-## Getting Your API Key
+## Available Actions (Other Apps → Whappy)
 
-Before setting up Zapier workflows, you'll need your API key:
+### Create Lead
+**When to use**: You want to add new contacts to Whappy campaigns from external sources
 
-1. **Log into your Whappy account**
-2. **Navigate to Integrations → Zapier**
-3. **Copy your unique API Key**
+**Use cases**:
+- New website form submissions → Start WhatsApp conversation
+- Facebook lead ads → Qualify leads via WhatsApp
+- CRM contacts → Re-engage with WhatsApp campaigns
+- Event registrations → Follow up via WhatsApp
 
-<Warning>
-    Keep your API key secure and never share it publicly. This key gives access to your lead data.
-</Warning>
+---
 
-## Setting Up Zapier Integration
+## Data Models
 
-### Step 1: Create a New Zap
+### Trigger Data (Whappy Sends Out)
 
-1. **Go to Zapier** and create a new Zap
-2. **Choose "Webhooks by Zapier"** as your trigger app
-3. **Select "Catch Hook"** as the trigger event
-
-### Step 2: Configure the Webhook
-
-1. **Copy the webhook URL** that Zapier provides
-2. **In Whappy**, go to Integrations → Zapier
-3. **Configure your webhook URLs** for the events you want to track:
-
-<Tabs>
-    <Tab title="Appointment Webhook">
-        Configure this URL to receive data when leads book appointments:
-
-        ```bash
-        POST https://api.whappy.ai/v1/zap/url/appointment
-        Headers: X-API-Key: your_api_key_here
-        Body: {
-        "targetUrl": "https://hooks.zapier.com/hooks/catch/your-zapier-url"
-    }
-        ```
-    </Tab>
-
-    <Tab title="Close Event Webhook">
-        Configure this URL to receive data when conversations complete:
-
-        ```bash
-        POST https://api.whappy.ai/v1/zap/url/close
-        Headers: X-API-Key: your_api_key_here
-        Body: {
-        "targetUrl": "https://hooks.zapier.com/hooks/catch/your-zapier-url"
-    }
-        ```
-    </Tab>
-</Tabs>
-
-### Step 3: Test Your Connection
-
-Test your integration to ensure it's working:
-
-```bash
-POST https://api.whappy.ai/v1/zap
-Headers: X-API-Key: your_api_key_here
-```
-
-**Response codes:**
-- `200 OK`: Connection successful
-- `401 Unauthorized`: Check your API key
-
-### Step 4: Get Sample Data
-
-Before building your Zap, see what data you'll receive:
-
-```bash
-GET https://api.whappy.ai/v1/zap/sample/appointment
-# or
-GET https://api.whappy.ai/v1/zap/sample/close
-```
-
-## Data Structure
-
-When your webhook is triggered, you'll receive this data structure:
+When conversations close or appointments are booked, this data is sent to your Zapier webhook:
 
 ```json
 {
@@ -125,7 +67,7 @@ When your webhook is triggered, you'll receive this data structure:
   "phone": "+1234567890",
   "name": "John Doe",
   "lead_info_json": "{\"source\": \"website\", \"campaign\": \"spring_2025\"}",
-  "collected_info_json": "{\"interests\": [\"product_a\"], \"budget\": \"$5000\"}",
+  "collected_info_json": "{\"budget\": \"$5000\", \"timeline\": \"Q2\", \"interests\": [\"product_a\"]}",
   "appointment": {
     "full_date": "2025-05-25T14:00:00Z"
   },
@@ -134,150 +76,405 @@ When your webhook is triggered, you'll receive this data structure:
 }
 ```
 
-### Field Descriptions
+#### Field Descriptions
+
+| Field | Type | Description | Example |
+|-------|------|-------------|---------|
+| `lead_id` | string | Unique Whappy lead identifier | `"lead_12345"` |
+| `created_at` | string | When lead was first created (ISO 8601) | `"2025-05-22T10:30:00Z"` |
+| `phone` | string | Lead's WhatsApp phone number | `"+1234567890"` |
+| `name` | string | Lead's full name | `"John Doe"` |
+| `lead_info_json` | string | Source & campaign data (JSON string) | `{"source": "website"}` |
+| `collected_info_json` | string | Qualification data collected (JSON string) | `{"budget": "$5000"}` |
+| `appointment` | object | Appointment details (if scheduled) | `{"full_date": "2025-05-25T14:00:00Z"}` |
+| `conversation_json` | string | Full conversation history (JSON string) | `{"messages": [...]}` |
+| `appointment_json` | string | Extended appointment info (JSON string) | `{"type": "consultation"}` |
+
+#### AppointmentPayload
+
+Appointment-specific information included in the `appointment` field:
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `lead_id` | string | Unique identifier for the lead |
-| `created_at` | string | When the lead was created (ISO 8601) |
-| `phone` | string | Lead's phone number |
-| `name` | string | Lead's full name |
-| `lead_info_json` | string | Source and campaign data (JSON string) |
-| `collected_info_json` | string | Information collected during conversation |
-| `appointment` | object | Appointment details (if scheduled) |
-| `conversation_json` | string | Full conversation history |
-| `appointment_json` | string | Detailed appointment information |
+| `full_date` | string | ISO 8601 timestamp of the scheduled appointment |
 
-## Common Zapier Workflows
+### Action Data (Whappy Receives)
 
-### 1. CRM Integration
+When other apps send leads to Whappy, provide this data structure:
 
-**Trigger:** Conversation Closed
-**Action:** Create contact in HubSpot/Salesforce
-
-Map the fields:
-- Name → `name`
-- Phone → `phone`
-- Source → Extract from `lead_info_json`
-
-### 2. Calendar Booking
-
-**Trigger:** Appointment Scheduled
-**Action:** Create Google Calendar event
-
-Map the fields:
-- Title → "Meeting with " + `name`
-- Start time → `appointment.full_date`
-- Description → Extract from `appointment_json`
-
-### 3. Email Marketing
-
-**Trigger:** Conversation Closed
-**Action:** Add subscriber to Mailchimp
-
-Map the fields:
-- Email → Extract from `collected_info_json`
-- Name → `name`
-- Tags → Extract interests from `collected_info_json`
-
-### 4. Team Notifications
-
-**Trigger:** Appointment Scheduled
-**Action:** Send Slack message
-
-Message template:
-```
-🎉 New appointment booked!
-👤 Lead: {{name}}
-📞 Phone: {{phone}}
-📅 Time: {{appointment.full_date}}
-```
-
-## Advanced Configuration
-
-### Multiple Webhooks
-
-You can configure different webhook URLs for different events:
-
-```bash
-# Set appointment webhook
-POST /zap/url/appointment
-{"targetUrl": "https://hooks.zapier.com/appointment-handler"}
-
-# Set close event webhook
-POST /zap/url/close
-{"targetUrl": "https://hooks.zapier.com/close-handler"}
-```
-
-### Removing Webhooks
-
-To stop sending data to a webhook:
-
-```bash
-# Remove appointment webhook
-DELETE https://api.whappy.ai/v1/zap/url/appointment
-
-# Remove close event webhook
-DELETE https://api.whappy.ai/v1/zap/url/close
-```
-
-## Troubleshooting
-
-### Common Issues
-
-**Webhook not triggering?**
-- Verify your API key is correct
-- Check that the webhook URL is properly configured
-- Test your connection using the `/zap` endpoint
-
-**Missing data fields?**
-- Use the sample endpoint to see exact data structure
-- Check that your Zap is looking for the right field names
-- Remember that JSON fields need to be parsed
-
-**Authentication errors?**
-- Ensure your API key is included in the `X-API-Key` header
-- Verify the API key hasn't been regenerated
-
-### Testing Your Setup
-
-1. **Configure a webhook URL** in Whappy
-2. **Create a test conversation** in your campaign
-3. **Complete the conversation** or book an appointment
-4. **Check your Zapier dashboard** for incoming data
-
-## Error Handling
-
-The API returns standard HTTP status codes:
-
-| Code | Meaning | Action |
-|------|---------|--------|
-| `200` | Success | Request completed successfully |
-| `304` | Not Modified | URL update failed, try again |
-| `400` | Bad Request | Check your request data format |
-| `401` | Unauthorized | Verify your API key |
-| `500` | Server Error | Contact support if persistent |
-
-Error responses include details:
 ```json
 {
-  "detail": "Description of the error"
+  "name": "Jane Smith",
+  "phone": "+1987654321",
+  "email": "jane@example.com",
+  "company": "Acme Inc.",
+  "source": "Website Form",
+  "custom_fields": {
+    "budget": "10000",
+    "interest": "Product A",
+    "timeline": "Immediate"
+  }
 }
 ```
 
-## Rate Limits
+#### Required Fields
+- **name**: Lead's full name
+- **phone**: WhatsApp phone number (with country code)
 
-Please use reasonable rate limits when making API requests. For higher throughput needs, contact support.
-
-## Support
-
-Need help with your Zapier integration?
-
-- **Check sample data** using the `/zap/sample/{event}` endpoint
-- **Test your connection** with the `/zap` endpoint
-- **Contact support** at support@whappy.ai
-- **Visit the Help Center** in your Whappy dashboard
+#### Optional Fields
+- **email**: Email address
+- **company**: Company name
+- **source**: Where the lead came from
+- **custom_fields**: Any additional data to use in conversations
 
 <Note>
-    The Zapier integration requires an active Whappy subscription. Webhook deliveries are attempted multiple times with exponential backoff for reliability.
+    Custom fields can be referenced in your conversation templates using `{{field_name}}` syntax.
 </Note>
+
+---
+
+## Integration Workflow
+
+### Outbound: Sending Leads to Other Apps
+
+<Steps>
+    <Step title="Set up webhook in target app">
+        Create a Zap using "Webhooks by Zapier" as the trigger:
+        - Choose "Catch Hook" as trigger event
+        - Copy the webhook URL Zapier provides
+
+        <img src="/images/workflows/zapier-webhook-setup.png" alt="Setting up webhook in Zapier" />
+    </Step>
+
+    <Step title="Get your Whappy API key">
+        In your Whappy dashboard, go to **Integrations → Zapier** and copy your API key:
+
+        <img src="/images/zapier/copy-api-key.png" alt="Copy api key in Whappy" />
+    </Step>
+
+    <Step title="Configure webhook via API">
+        Use the Whappy API to connect your webhook:
+
+        ```bash
+        # For conversation closed events
+        curl -X POST https://api.whappy.ai/v1/zap/url/close \
+        -H "X-API-Key: your_whappy_api_key" \
+        -H "Content-Type: application/json" \
+        -d '{"targetUrl": "https://hooks.zapier.com/your-webhook-url"}'
+
+        # For appointment scheduled events
+        curl -X POST https://api.whappy.ai/v1/zap/url/appointment \
+        -H "X-API-Key: your_whappy_api_key" \
+        -H "Content-Type: application/json" \
+        -d '{"targetUrl": "https://hooks.zapier.com/your-webhook-url"}'
+        ```
+    </Step>
+
+    <Step title="Complete your Zap">
+        Back in Zapier:
+        - Test trigger to see sample Whappy data
+        - Choose your action app (HubSpot, Google Calendar, etc.)
+        - Map Whappy fields to target app fields
+        - Test and publish your Zap
+
+        <img src="/images/workflows/zapier-field-mapping.png" alt="Mapping fields in Zapier" />
+    </Step>
+</Steps>
+
+### Inbound: Receiving Leads from Other Apps
+
+<Steps>
+    <Step title="Set up trigger in source app">
+        Create a Zap with your lead source as the trigger:
+        - New form submission (Typeform, Gravity Forms)
+        - New Facebook lead ad
+        - New row in Google Sheets
+        - New contact in CRM
+
+        <img src="/images/workflows/source-app-trigger.png" alt="Setting up trigger in source app" />
+    </Step>
+
+    <Step title="Configure Whappy action">
+        Choose "Webhooks by Zapier" as the action:
+        - Set webhook URL to: `https://api.whappy.ai/v1/lead`
+        - Add header: `X-API-Key: your_whappy_api_key`
+        - Method: POST
+
+        <img src="/images/workflows/whappy-action-setup.png" alt="Configuring Whappy action in Zapier" />
+    </Step>
+
+    <Step title="Map lead data">
+        Map source app fields to Whappy format:
+        - Name → name
+        - Phone → phone
+        - Email → email
+        - Company → company
+        - Other fields → custom_fields object
+
+        <img src="/images/workflows/inbound-field-mapping.png" alt="Mapping inbound lead data" />
+    </Step>
+</Steps>
+
+### Complete Workflow Example
+
+**Scenario**: Facebook Lead Ad → WhatsApp Qualification → CRM Entry
+
+<img src="/images/workflows/complete-workflow-diagram.png" alt="Complete bidirectional workflow example" />
+
+1. **Facebook Lead Ad** captures contact info
+2. **Zapier Action** sends lead to Whappy campaign
+3. **WhatsApp Conversation** qualifies the lead
+4. **Zapier Trigger** sends qualified lead to HubSpot
+5. **CRM Entry** created with all conversation data
+
+---
+
+## Quick Setup Guide
+
+### Sending Leads Out (Triggers)
+
+<Tabs>
+    <Tab title="To CRM (HubSpot)">
+        **Trigger**: Conversation Closed
+        **Action**: Create HubSpot Contact
+
+        **Setup**:
+        1. Create webhook in Zapier, copy URL
+        2. Configure webhook via API:
+        ```bash
+        curl -X POST https://api.whappy.ai/v1/zap/url/close \
+        -H "X-API-Key: your_key" \
+        -d '{"targetUrl": "https://hooks.zapier.com/your-url"}'
+        ```
+        3. Map: `name` → First Name, `phone` → Phone, parse `collected_info_json` for custom properties
+
+        <img src="/images/setups/hubspot-setup.png" alt="Setting up HubSpot integration" />
+    </Tab>
+
+    <Tab title="To Calendar (Google)">
+        **Trigger**: Appointment Scheduled
+        **Action**: Create Google Calendar Event
+
+        **Setup**:
+        1. Create webhook in Zapier, copy URL
+        2. Configure webhook via API:
+        ```bash
+        curl -X POST https://api.whappy.ai/v1/zap/url/appointment \
+        -H "X-API-Key: your_key" \
+        -d '{"targetUrl": "https://hooks.zapier.com/your-url"}'
+        ```
+        3. Map: `appointment.full_date` → Start Time, `name` → Event Title
+
+        <img src="/images/setups/calendar-setup.png" alt="Setting up Google Calendar integration" />
+    </Tab>
+
+    <Tab title="To Email (Mailchimp)">
+        **Trigger**: Conversation Closed
+        **Action**: Add Mailchimp Subscriber
+
+        **Setup**:
+        1. Create webhook in Zapier, copy URL
+        2. Configure webhook via API:
+        ```bash
+        curl -X POST https://api.whappy.ai/v1/zap/url/close \
+        -H "X-API-Key: your_key" \
+        -d '{"targetUrl": "https://hooks.zapier.com/your-url"}'
+        ```
+        3. Extract email from `collected_info_json`, map interests as tags
+
+        <img src="/images/setups/mailchimp-setup.png" alt="Setting up Mailchimp integration" />
+    </Tab>
+</Tabs>
+
+### Receiving Leads In (Actions)
+
+<Tabs>
+    <Tab title="From Forms (Typeform)">
+        **Trigger**: New Typeform Response
+        **Action**: Create Lead in Whappy
+
+        **Setup**:
+        1. Set Typeform as trigger in Zapier
+        2. Use Webhooks action to POST to `https://api.whappy.ai/v1/lead`
+        3. Map form fields to Whappy lead structure
+
+        <img src="/images/setups/typeform-setup.png" alt="Setting up Typeform to Whappy integration" />
+    </Tab>
+
+    <Tab title="From Ads (Facebook)">
+        **Trigger**: New Facebook Lead Ad
+        **Action**: Create Lead in Whappy
+
+        **Setup**:
+        1. Connect Facebook Lead Ads in Zapier
+        2. Use Webhooks action for Whappy
+        3. Map ad form fields to lead data structure
+
+        <img src="/images/setups/facebook-ads-setup.png" alt="Setting up Facebook Ads integration" />
+    </Tab>
+
+    <Tab title="From Spreadsheet (Google Sheets)">
+        **Trigger**: New Row in Google Sheets
+        **Action**: Create Lead in Whappy
+
+        **Setup**:
+        1. Set Google Sheets as trigger
+        2. Use Webhooks action for Whappy API
+        3. Map spreadsheet columns to lead fields
+
+        <img src="/images/setups/sheets-setup.png" alt="Setting up Google Sheets integration" />
+    </Tab>
+</Tabs>
+
+---
+
+## API Reference
+
+<Accordion title="Developer endpoints for programmatic configuration">
+
+    ### Base URL
+    ```
+    https://api.whappy.ai/v1
+    ```
+
+    ### Authentication
+    ```
+    X-API-Key: your_api_key_here
+    ```
+
+    ### Configure Outbound Webhooks
+
+    ```bash
+    # Set conversation closed webhook
+    curl -X POST https://api.whappy.ai/v1/zap/url/close \
+    -H "X-API-Key: your_key" \
+    -H "Content-Type: application/json" \
+    -d '{"targetUrl": "https://hooks.zapier.com/your-webhook"}'
+
+    # Set appointment scheduled webhook
+    curl -X POST https://api.whappy.ai/v1/zap/url/appointment \
+    -H "X-API-Key: your_key" \
+    -H "Content-Type: application/json" \
+    -d '{"targetUrl": "https://hooks.zapier.com/your-webhook"}'
+    ```
+
+    ### Create Lead (Inbound Action)
+
+    ```bash
+    curl -X POST https://api.whappy.ai/v1/lead \
+    -H "X-API-Key: your_key" \
+    -H "Content-Type: application/json" \
+    -d '{
+    "name": "John Doe",
+    "phone": "+1234567890",
+    "email": "john@example.com",
+    "source": "Website Form",
+    "custom_fields": {
+    "budget": "5000",
+    "interest": "Product A"
+}
+}'
+    ```
+
+    ### Test & Sample Data
+
+    ```bash
+    # Test connection
+    curl -X POST https://api.whappy.ai/v1/zap \
+    -H "X-API-Key: your_key"
+
+    # Get sample trigger data
+    curl https://api.whappy.ai/v1/zap/sample/close \
+    -H "X-API-Key: your_key"
+    ```
+
+    **Response Codes**: 200 (success), 400 (bad request), 401 (unauthorized)
+
+</Accordion>
+
+---
+
+## Troubleshooting
+
+<AccordionGroup>
+    <Accordion title="Triggers not firing">
+        **Check these items**:
+        - Webhook URL is correctly configured via API
+        - Your Zap is turned ON in Zapier
+        - Lead actually reached close step or booked appointment
+        - Test with a real conversation, not just test data
+
+        **Debug steps**:
+        1. Check webhook logs in Zapier
+        2. Verify webhook configuration with API call:
+        ```bash
+        curl -X POST https://api.whappy.ai/v1/zap \
+        -H "X-API-Key: your_key"
+        ```
+        3. Test with sample data endpoint to verify structure
+    </Accordion>
+
+    <Accordion title="Action (create lead) failing">
+        **Common issues**:
+        - Missing required fields (name, phone)
+        - Invalid phone number format
+        - API key incorrect or missing
+        - Malformed JSON in custom_fields
+
+        **Solutions**:
+        1. Ensure phone includes country code (+1234567890)
+        2. Verify API key in Whappy dashboard
+        3. Test with minimal required fields first
+        4. Check Zapier error logs for specific issues
+    </Accordion>
+
+    <Accordion title="Missing or incorrect data">
+        **For triggers (outbound)**:
+        - Check that information was collected in conversation
+        - Verify field mapping in Zapier matches available data
+        - Use sample endpoint to see exact data structure
+
+        **For actions (inbound)**:
+        - Confirm source app is sending expected data
+        - Check field mapping from source to Whappy format
+        - Test with static values first, then dynamic mapping
+    </Accordion>
+</AccordionGroup>
+
+---
+
+## Best Practices
+
+### Data Flow Design
+
+<CardGroup cols={2}>
+    <Card title="Outbound Strategy" icon="arrow-right">
+        - Use conversation closed for CRM/email automation
+        - Use appointment scheduled for calendar/confirmation workflows
+        - Filter high-value leads for different treatment
+        - Include conversation context in target apps
+    </Card>
+    <Card title="Inbound Strategy" icon="arrow-left">
+        - Validate phone numbers before sending to Whappy
+        - Include source information for tracking
+        - Map relevant data to custom fields for personalization
+        - Set up error handling for failed lead creation
+    </Card>
+</CardGroup>
+
+### Workflow Optimization
+
+- **Start simple**: Begin with basic automations before adding complexity
+- **Use filters**: Process only relevant leads (budget thresholds, source types)
+- **Test thoroughly**: Always test with real data before going live
+- **Monitor regularly**: Check for failed tasks and data quality issues
+
+<Tip>
+    Create separate Zaps for different lead sources or qualification levels rather than complex multi-conditional workflows.
+</Tip>
+
+Ready to connect Whappy with your favorite apps?
+
+1. **Get your API key**: Go to **Integrations → Zapier** in your dashboard
+2. **Set up Zapier webhooks**: Use "Webhooks by Zapier" to create your automations
+3. **Configure via API**: Use the endpoints above to connect Whappy to your Zaps
