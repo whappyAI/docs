@@ -19,123 +19,6 @@ Connect Whappy with over 6,000 apps through Zapier to automate your lead workflo
 
 ---
 
-## Setting Up Triggers (Send Leads Out)
-
-Use triggers to automatically send qualified lead data from Whappy to your other business tools when conversations complete or appointments are booked.
-
-### Available Triggers
-
-- **Lead Closed**: Fires when a lead successfully completes your conversation funnel
-- **Appointment Scheduled**: Fires when a lead books an appointment through your conversation
-
-### Step-by-Step Setup
-
-<Steps>
-    <Step title="Create a new Zap and find Whappy">
-        1. Go to [zapier.com](https://zapier.com) and click **Create Zap**
-        2. In the trigger section, search for **"Whappy"**
-        3. Select **Whappy** from the app results
-
-        <img src="/images/zapier/search-whappy.png" alt="Search for Whappy in Zapier triggers" />
-    </Step>
-
-
-    <Step title="Select your trigger event">
-        Choose the trigger that matches your workflow:
-        
-        - **Lead Closed**: Use this to send completed/qualified leads to your CRM or email marketing tools
-        - **Appointment Scheduled**: Use this to create calendar events or send confirmation emails
-
-        <div style={{ textAlign: 'center' }}>
-        <img src="/images/zapier/setup-lead-closed.png" alt="Select trigger event in Zapier" style={{ maxWidth: '350px', width: '100%', height: 'auto' }} />
-        </div>
-    </Step>
-
-    <Step title="Connect your Whappy account">
-        1. Click **Sign in to Whappy**
-        2. In your Whappy dashboard, navigate to **Integrations → Zapier**
-        3. Copy your API key from the Zapier integration card
-        4. Return to Zapier and paste the API key in the connection form
-        5. Click **Yes, Continue to Whappy**
-
-        <img src="/images/zapier/copy-api-key.png" alt="Connect Whappy account in Zapier" />
-
-        <img src="/images/zapier/paste-api-key.png" alt="Paste api-key in Zapier" />
-
-        Click **Continue**.
-
-        <Note>
-            Your API key is unique to your account. Keep it secure and don't share it publicly.
-        </Note>
-    </Step>
-
-    <Step title="Test your trigger">
-        1. Click **Test trigger** to pull in sample data from Whappy
-        2. You'll see the lead data structure that will be sent to your next app
-        3. Review the sample data and click **Continue**
-
-        <div style={{ textAlign: 'center' }}>
-            <img src="/images/zapier/test-trigger.png" alt="Test trigger and view sample data" style={{ maxWidth: '350px', width: '100%', height: 'auto' }} />
-        </div>
-
-        <Tip>
-            If no sample data appears, make sure you have at least one completed conversation or appointment in Whappy.
-        </Tip>
-    </Step>
-
-    <Step title="Set up your action app">
-        1. Choose the app you want to send data to (HubSpot, Google Calendar, Mailchimp, etc.)
-        2. Connect your account for the chosen app
-        3. Map the Whappy fields to your target app fields
-        4. Test the complete Zap
-        5. Turn on your Zap to start the automation
-    </Step>
-</Steps>
-
-### Popular Trigger Use Cases
-
-<Accordion title="Send qualified leads to CRM (HubSpot, Salesforce)">
-    **Setup**: 
-    - **Trigger**: Lead Closed
-    - **Action**: Create Contact in CRM
-    
-    **Field Mapping Example**:
-    - Whappy "Name" → CRM "First Name" / "Last Name"
-    - Whappy "Phone" → CRM "Phone Number"  
-    - Whappy "Email" → CRM "Email Address"
-    - Whappy "Collected Info" → CRM Custom Properties
-
-    **Benefits**: Automatically populate your CRM with qualified leads and their conversation data.
-</Accordion>
-
-<Accordion title="Create calendar events for appointments">
-    **Setup**:
-    - **Trigger**: Appointment Scheduled
-    - **Action**: Create Google Calendar Event
-    
-    **Field Mapping Example**:
-    - Whappy "Appointment Date" → Calendar "Event Start Time"
-    - Whappy "Lead Name" → Calendar "Event Title"
-    - Whappy "Phone" → Calendar "Event Description"
-
-    **Benefits**: Automatically block time in your calendar when leads book appointments through WhatsApp.
-</Accordion>
-
-<Accordion title="Add to email marketing lists">
-    **Setup**:
-    - **Trigger**: Lead Closed
-    - **Action**: Add Subscriber to Mailchimp/ConvertKit
-    
-    **Field Mapping Example**:
-    - Whappy "Email" → Email Tool "Subscriber Email"
-    - Whappy "Name" → Email Tool "Subscriber Name"
-    - Whappy "Collected Info" → Email Tool Tags/Custom Fields
-
-    **Benefits**: Automatically nurture qualified leads with targeted email sequences.
-</Accordion>
-
----
-
 ## Setting Up Actions (Receive Leads In)
 
 Use actions to automatically add new leads to Whappy from your other business tools and start WhatsApp conversations.
@@ -243,6 +126,124 @@ Use actions to automatically add new leads to Whappy from your other business to
     - Follow up on sales opportunities
     - Nurture prospects with conversational AI
 </Accordion>
+
+---
+
+## Setting Up Triggers (Send Leads Out)
+
+Use triggers to automatically send qualified lead data from Whappy to your other business tools when conversations complete or appointments are booked.
+
+### Available Triggers
+
+- **Lead Closed**: Fires when a lead successfully completes your conversation funnel
+- **Appointment Scheduled**: Fires when a lead books an appointment through your conversation
+
+### Step-by-Step Setup
+
+<Steps>
+    <Step title="Create a new Zap and find Whappy">
+        1. Go to [zapier.com](https://zapier.com) and click **Create Zap**
+        2. In the trigger section, search for **"Whappy"**
+        3. Select **Whappy** from the app results
+
+        <img src="/images/zapier/search-whappy.png" alt="Search for Whappy in Zapier triggers" />
+    </Step>
+
+
+    <Step title="Select your trigger event">
+        Choose the trigger that matches your workflow:
+
+        - **Lead Closed**: Use this to send completed/qualified leads to your CRM or email marketing tools
+        - **Appointment Scheduled**: Use this to create calendar events or send confirmation emails
+
+        <div style={{ textAlign: 'center' }}>
+            <img src="/images/zapier/setup-lead-closed.png" alt="Select trigger event in Zapier" style={{ maxWidth: '350px', width: '100%', height: 'auto' }} />
+        </div>
+    </Step>
+
+    <Step title="Connect your Whappy account">
+        1. Click **Sign in to Whappy**
+        2. In your Whappy dashboard, navigate to **Integrations → Zapier**
+        3. Copy your API key from the Zapier integration card
+        4. Return to Zapier and paste the API key in the connection form
+        5. Click **Yes, Continue to Whappy**
+
+        <img src="/images/zapier/copy-api-key.png" alt="Connect Whappy account in Zapier" />
+
+        <img src="/images/zapier/paste-api-key.png" alt="Paste api-key in Zapier" />
+
+        Click **Continue**.
+
+        <Note>
+            Your API key is unique to your account. Keep it secure and don't share it publicly.
+        </Note>
+    </Step>
+
+    <Step title="Test your trigger">
+        1. Click **Test trigger** to pull in sample data from Whappy
+        2. You'll see the lead data structure that will be sent to your next app
+        3. Review the sample data and click **Continue**
+
+        <div style={{ textAlign: 'center' }}>
+            <img src="/images/zapier/test-trigger.png" alt="Test trigger and view sample data" style={{ maxWidth: '350px', width: '100%', height: 'auto' }} />
+        </div>
+
+        <Tip>
+            If no sample data appears, make sure you have at least one completed conversation or appointment in Whappy.
+        </Tip>
+    </Step>
+
+    <Step title="Set up your action app">
+        1. Choose the app you want to send data to (HubSpot, Google Calendar, Mailchimp, etc.)
+        2. Connect your account for the chosen app
+        3. Map the Whappy fields to your target app fields
+        4. Test the complete Zap
+        5. Turn on your Zap to start the automation
+    </Step>
+</Steps>
+
+### Popular Trigger Use Cases
+
+<Accordion title="Send qualified leads to CRM (HubSpot, Salesforce)">
+    **Setup**:
+    - **Trigger**: Lead Closed
+    - **Action**: Create Contact in CRM
+
+    **Field Mapping Example**:
+    - Whappy "Name" → CRM "First Name" / "Last Name"
+    - Whappy "Phone" → CRM "Phone Number"
+    - Whappy "Email" → CRM "Email Address"
+    - Whappy "Collected Info" → CRM Custom Properties
+
+    **Benefits**: Automatically populate your CRM with qualified leads and their conversation data.
+</Accordion>
+
+<Accordion title="Create calendar events for appointments">
+    **Setup**:
+    - **Trigger**: Appointment Scheduled
+    - **Action**: Create Google Calendar Event
+
+    **Field Mapping Example**:
+    - Whappy "Appointment Date" → Calendar "Event Start Time"
+    - Whappy "Lead Name" → Calendar "Event Title"
+    - Whappy "Phone" → Calendar "Event Description"
+
+    **Benefits**: Automatically block time in your calendar when leads book appointments through WhatsApp.
+</Accordion>
+
+<Accordion title="Add to email marketing lists">
+    **Setup**:
+    - **Trigger**: Lead Closed
+    - **Action**: Add Subscriber to Mailchimp/ConvertKit
+
+    **Field Mapping Example**:
+    - Whappy "Email" → Email Tool "Subscriber Email"
+    - Whappy "Name" → Email Tool "Subscriber Name"
+    - Whappy "Collected Info" → Email Tool Tags/Custom Fields
+
+    **Benefits**: Automatically nurture qualified leads with targeted email sequences.
+</Accordion>
+
 
 ---
 
