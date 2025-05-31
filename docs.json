@@ -98,7 +98,7 @@
             "group": "Appointment Setting",
             "pages": [
               "integrations/calendly",
-              "integrations/cal-com"
+              "integrations/cal"
             ]
           }
         ]
