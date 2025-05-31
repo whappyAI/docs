@@ -90,7 +90,7 @@
             "group": "Leads",
             "pages": [
               "integrations/webhook",
-              "integrations/zapier-general",
+              "integrations/zapier",
               "integrations/zapier-developer"
             ]
           },
