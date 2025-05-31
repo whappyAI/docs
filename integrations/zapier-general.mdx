@@ -39,6 +39,18 @@ Use triggers to automatically send qualified lead data from Whappy to your other
         <img src="/images/zapier/search-whappy.png" alt="Search for Whappy in Zapier triggers" />
     </Step>
 
+
+    <Step title="Select your trigger event">
+        Choose the trigger that matches your workflow:
+        
+        - **Lead Closed**: Use this to send completed/qualified leads to your CRM or email marketing tools
+        - **Appointment Scheduled**: Use this to create calendar events or send confirmation emails
+
+        <div style={{ textAlign: 'center' }}>
+        <img src="/images/zapier/setup-lead-closed.png" alt="Select trigger event in Zapier" style={{ maxWidth: '350px', width: '100%', height: 'auto' }} />
+        </div>
+    </Step>
+
     <Step title="Connect your Whappy account">
         1. Click **Sign in to Whappy**
         2. In your Whappy dashboard, navigate to **Integrations → Zapier**
@@ -50,20 +62,11 @@ Use triggers to automatically send qualified lead data from Whappy to your other
 
         <img src="/images/zapier/paste-api-key.png" alt="Paste api-key in Zapier" />
 
+        Click **Continue**.
+
         <Note>
             Your API key is unique to your account. Keep it secure and don't share it publicly.
         </Note>
-    </Step>
-
-    <Step title="Select your trigger event">
-        Choose the trigger that matches your workflow:
-        
-        - **Lead Closed**: Use this to send completed/qualified leads to your CRM or email marketing tools
-        - **Appointment Scheduled**: Use this to create calendar events or send confirmation emails
-
-        Click **Continue** after making your selection.
-
-        <img src="/images/zapier/setup-lead-closed.png" alt="Select trigger event in Zapier" />
     </Step>
 
     <Step title="Test your trigger">
@@ -71,7 +74,9 @@ Use triggers to automatically send qualified lead data from Whappy to your other
         2. You'll see the lead data structure that will be sent to your next app
         3. Review the sample data and click **Continue**
 
-        <img src="/images/zapier/test-trigger.png" alt="Test trigger and view sample data" />
+        <div style={{ textAlign: 'center' }}>
+            <img src="/images/zapier/test-trigger.png" alt="Test trigger and view sample data" style={{ maxWidth: '350px', width: '100%', height: 'auto' }} />
+        </div>
 
         <Tip>
             If no sample data appears, make sure you have at least one completed conversation or appointment in Whappy.
@@ -150,6 +155,10 @@ Use actions to automatically add new leads to Whappy from your other business to
         2. Select **Whappy** from the app results
         3. Choose **Create Lead** as the action event
         4. Click **Continue**
+
+        <div style={{ textAlign: 'center' }}>
+            <img src="/images/zapier/setup-action.png" alt="Setup action" style={{ maxWidth: '350px', width: '100%', height: 'auto' }} />
+        </div>
     </Step>
 
     <Step title="Connect your Whappy account">
@@ -179,7 +188,9 @@ Use actions to automatically add new leads to Whappy from your other business to
         - **Lead Data** *(JSON format for custom information)*
         - **Is Test Lead** *(choose "No" for real leads, "Yes" for testing)*
 
-        <img src="/images/zapier/configure-action.png" alt="Configure lead data fields in Zapier action" />
+        <div style={{ textAlign: 'center' }}>
+            <img src="/images/zapier/configure-action.png" alt="Configure lead data fields in Zapier action" style={{ maxWidth: '350px', width: '100%', height: 'auto' }} />
+        </div>
 
         <Warning>
             Phone numbers must include the country code (e.g., +1 for US) to work with WhatsApp.
@@ -191,25 +202,12 @@ Use actions to automatically add new leads to Whappy from your other business to
         2. Check your Whappy dashboard under **Leads** to confirm the lead was created
         3. If the test succeeds, turn on your Zap to start receiving leads automatically
 
-        <img src="/images/zapier/test-action.png" alt="Test action and verify lead creation" />
+        <div style={{ textAlign: 'center' }}>
+            <img src="/images/zapier/test-action.png" alt="Test action and verify lead creation" style={{ maxWidth: '350px', width: '100%', height: 'auto' }} />
+        </div>
+
     </Step>
 </Steps>
-
-### Lead Data Field Format
-
-The **Lead Data** field accepts JSON format for passing custom information that you can use in your conversations:
-
-```json
-{
-  "source": "Website Contact Form",
-  "campaign": "Spring 2025",
-  "budget": "5000-10000",
-  "timeline": "Q2 2025",
-  "interest": "Web Design"
-}
-```
-
-This custom data will be visible in the lead's profile and can be referenced in your conversation templates.
 
 ### Popular Action Use Cases
 
