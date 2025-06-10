@@ -32,17 +32,8 @@
             ]
           },
           {
-            "group": "Billing & Subscription",
-            "pages": [
-              "billing/subscription-plans",
-              "billing/billing-management",
-              "billing/account-settings"
-            ]
-          },
-          {
             "group": "Support",
             "pages": [
-              "support/troubleshooting",
               "support/faq",
               "support/contact-support"
             ]

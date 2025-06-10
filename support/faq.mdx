@@ -1,0 +1,293 @@
+---
+title: "FAQ"
+description: "Frequently asked questions about Whappy's AI-powered WhatsApp automation platform"
+icon: "question"
+---
+
+## Platform & Setup
+
+<AccordionGroup>
+    <Accordion title="What is Whappy and how does it work?">
+        Whappy is a SaaS platform that automates WhatsApp conversations using AI to qualify leads and schedule appointments. It uses conversation flows (called "funnels") that guide prospects through a structured qualification process, collecting information and setting up meetings automatically.
+    </Accordion>
+
+    <Accordion title="What are the system requirements to use Whappy?">
+        - A WhatsApp Business account
+        - Modern web browser (Chrome, Firefox, Safari, Edge)
+        - Active internet connection
+        - Business phone number verified with WhatsApp Business
+        - For integrations: Calendly, Cal.com, or Zapier accounts (optional)
+    </Accordion>
+
+    <Accordion title="How do I connect my WhatsApp Business account?">
+        1. Navigate to the Integrations page
+        2. Click on the WhatsApp integration card
+        3. Follow the OAuth flow to connect your WhatsApp Business account
+        4. Verify your business phone number and account details
+        5. Your WhatsApp integration will be active once verified
+    </Accordion>
+</AccordionGroup>
+
+## Funnel Configuration
+
+<AccordionGroup>
+    <Accordion title="What is a funnel and how do I create one?">
+        A funnel is a conversation flow that defines how your AI assistant interacts with leads. To create one:
+
+        1. Go to the **Funnel** tab
+        2. Configure your business context in the **Context** section
+        3. Define information fields to collect in the **Info** section
+        4. Build your conversation flow using the visual flow builder
+        5. Set your operating hours in the **Options** section
+    </Accordion>
+
+    <Accordion title="What types of nodes are available in the flow builder?">
+        - **Start Node**: Initiates the conversation with a welcome message
+        - **Info Node**: Collects specific information from leads (text, numbers, multiple choice)
+        - **Condition Node**: Creates branching logic based on collected information
+        - **Talk Node**: Sends custom messages or responses
+        - **Appointment Node**: Schedules meetings using Calendly or Cal.com
+        - **Close Node**: Ends the conversation and optionally sends data to external systems
+    </Accordion>
+
+    <Accordion title="How do I set up conditional logic in my funnel?">
+        1. Add a **Condition Node** to your flow
+        2. Select the information field to evaluate
+        3. Choose an operator (equals, greater than, less than, contains)
+        4. Set the comparison value
+        5. Connect the "true" and "false" outputs to different next steps
+        6. Optionally set a default path for unexpected values
+    </Accordion>
+
+    <Accordion title="Can I collect custom information from leads?">
+        Yes! In the **Info** tab, you can create custom information fields:
+
+        - **Text fields**: For names, descriptions, or open-ended responses
+        - **Number fields**: For budgets, quantities, or numeric values
+        - **Multiple choice**: For predefined options like preferences or categories
+        - Each field can be marked as required or optional
+        - You can provide example questions to guide the AI's conversation
+    </Accordion>
+</AccordionGroup>
+
+## Lead Management
+
+<AccordionGroup>
+    <Accordion title="How are leads added to my system?">
+        Leads can be added through:
+        - Manual entry in the Leads page
+        - Zapier integration (automatic from forms, CRM, etc.)
+        - Webhook integration from your own systems
+        - Direct API calls to your unique endpoint
+    </Accordion>
+
+    <Accordion title="What's the difference between test and real leads?">
+        - **Test leads**: Used for testing your funnel without affecting real data or sending actual WhatsApp messages
+        - **Real leads**: Actual prospects that will receive WhatsApp messages from your AI assistant
+        - You can toggle between viewing test and real leads using the switch in the Leads page
+    </Accordion>
+
+    <Accordion title="How can I view conversation history with leads?">
+        1. Go to the **Leads** page
+        2. Find the lead you want to review
+        3. Click the message icon in the Actions column
+        4. The conversation modal will show the complete message history
+        5. You can also see collected information and appointment details
+    </Accordion>
+
+    <Accordion title="Can I manually send messages to leads?">
+        Currently, Whappy focuses on automated conversations through your configured funnel. Manual messaging capabilities may be added in future updates. For now, you can view conversation history and collected lead information.
+    </Accordion>
+</AccordionGroup>
+
+## Integrations
+
+<AccordionGroup>
+    <Accordion title="What integrations does Whappy support?">
+        - **WhatsApp Business**: Core messaging platform (required)
+        - **Calendly**: For appointment scheduling
+        - **Cal.com**: Alternative appointment scheduling
+        - **Zapier**: Connect to 5000+ apps for lead import
+        - **Webhooks**: Direct integration with your systems
+    </Accordion>
+
+    <Accordion title="How do I set up Calendly integration?">
+        1. Navigate to **Integrations** page
+        2. Click on the Calendly card
+        3. Click "Connect" and authenticate with your Calendly account
+        4. Your event types will be automatically imported
+        5. Use the Appointment node in your funnel to offer specific event types
+    </Accordion>
+
+    <Accordion title="How does the Zapier integration work?">
+        1. Get your API key from the Zapier integration card
+        2. Create a Zap in Zapier with your trigger (form submission, CRM update, etc.)
+        3. Use "Webhooks by Zapier" as the action
+        4. Send lead data to your Whappy webhook URL with your API key
+        5. Configure optional triggers for appointments and conversation closures
+    </Accordion>
+
+    <Accordion title="What data format should I use for webhook integrations?">
+        Send a POST request to your webhook URL with this JSON format:
+
+        ```json
+        {
+            "name": "John Doe",
+            "phone": "+1234567890",
+            "email": "john@example.com",
+            "tags": ["website", "demo-request"],
+            "lead_info": {
+            "source": "website",
+            "budget": 5000
+        },
+            "is_test": false
+        }
+        ```
+
+        Include your API key in the Authorization header: `Bearer YOUR_API_KEY`
+    </Accordion>
+</AccordionGroup>
+
+## Campaign Management
+
+<AccordionGroup>
+    <Accordion title="How do I start and stop my campaign?">
+        1. Ensure all requirements are met (WhatsApp connected, funnel configured)
+        2. Save any unsaved changes to your funnel
+        3. Click **Start Campaign** on the home page
+        4. To stop, click **Stop Campaign** and confirm
+        5. Stopping a campaign will close any ongoing conversations
+    </Accordion>
+
+    <Accordion title="What are operating hours and how do they work?">
+        Operating hours define when your AI assistant will respond to leads:
+
+        - Set different hours for each day of the week
+        - Choose your timezone in the Options page
+        - Messages received outside operating hours will be queued
+        - Conversations will resume during the next operating period
+    </Accordion>
+
+    <Accordion title="Can I run multiple campaigns simultaneously?">
+        Currently, Whappy supports one active campaign per account. You can create and test different funnels, but only one can be running at a time. Enterprise features may include multiple campaign support in the future.
+    </Accordion>
+</AccordionGroup>
+
+## Technical & Troubleshooting
+
+<AccordionGroup>
+    <Accordion title="Why isn't my WhatsApp integration working?">
+        Check these common issues:
+
+        - Ensure your WhatsApp Business account is verified
+        - Check that your phone number is properly connected
+        - Verify you have the necessary permissions on your WhatsApp Business account
+        - Try disconnecting and reconnecting the integration
+        - Contact support if issues persist
+    </Accordion>
+
+    <Accordion title="My funnel isn't saving changes. What should I do?">
+        - Check your internet connection
+        - Ensure all required fields are completed
+        - Try refreshing the page and making changes again
+        - Clear your browser cache and cookies
+        - If using condition nodes, verify all operators and values are set
+    </Accordion>
+
+    <Accordion title="How do I troubleshoot appointment scheduling issues?">
+        1. Verify your Calendly/Cal.com integration is properly connected
+        2. Check that your event types are active and visible
+        3. Ensure your calendar has available time slots
+        4. Test the booking process with a test lead
+        5. Check your appointment node configuration in the funnel
+    </Accordion>
+
+    <Accordion title="What should I do if leads aren't receiving messages?">
+        Verify these settings:
+
+        - Campaign is running (green status on home page)
+        - Lead phone numbers are in correct international format (+1234567890)
+        - Operating hours are configured and current time is within them
+        - WhatsApp Business account has sufficient credits/quota
+        - Lead is not marked as a test lead (unless testing)
+    </Accordion>
+
+    <Accordion title="How can I test my funnel before going live?">
+        1. Create test leads using the "Add Lead" button with test mode enabled
+        2. Ensure your campaign is running
+        3. Test leads will follow your funnel but won't send actual WhatsApp messages
+        4. Review the conversation flow and collected information
+        5. Iterate on your funnel configuration as needed
+    </Accordion>
+</AccordionGroup>
+
+## API & Development
+
+<AccordionGroup>
+    <Accordion title="Does Whappy provide an API for custom integrations?">
+        Yes, Whappy provides webhook endpoints for lead creation and status updates. Full REST API documentation is available for enterprise customers. Contact support for API access and documentation.
+    </Accordion>
+
+    <Accordion title="How do I handle webhook authentication?">
+        All webhook requests must include an Authorization header:
+
+        ```
+        Authorization: Bearer YOUR_API_KEY
+        ```
+
+        Get your API key from the Integrations page. Keep this key secure and rotate it regularly for security.
+    </Accordion>
+
+    <Accordion title="Can I export my lead data?">
+        Currently, lead data can be viewed and managed through the Whappy interface. Data export features are planned for future releases. Enterprise customers can request custom data exports through support.
+    </Accordion>
+</AccordionGroup>
+
+## Billing & Limits
+
+<AccordionGroup>
+    <Accordion title="What are the usage limits for different plans?">
+        Usage limits vary by plan and may include:
+
+        - Number of leads per month
+        - Number of conversations per day
+        - WhatsApp message limits
+        - Integration capabilities
+
+        Check your current usage and limits in the billing section of your account.
+    </Accordion>
+
+    <Accordion title="How is usage calculated?">
+        - **Leads**: Each unique lead added to your system
+        - **Conversations**: Each started conversation with a lead
+        - **Messages**: Each WhatsApp message sent by your AI assistant
+        - Usage resets according to your billing cycle
+    </Accordion>
+
+    <Accordion title="What happens if I exceed my plan limits?">
+        - Your campaign may be paused to prevent overages
+        - You'll receive notifications about approaching limits
+        - Upgrade your plan to increase limits
+        - Contact support for temporary limit increases if needed
+    </Accordion>
+</AccordionGroup>
+
+## Security & Privacy
+
+<AccordionGroup>
+    <Accordion title="How does Whappy protect my data and my leads' data?">
+        - All data is encrypted in transit and at rest
+        - SOC 2 Type II compliance (coming soon)
+        - Regular security audits and penetration testing
+        - GDPR and CCPA compliant data handling
+        - Lead data is stored securely and never shared with third parties
+    </Accordion>
+
+    <Accordion title="Can I delete lead data?">
+        Yes, you can delete individual leads from the Leads page. For bulk data deletion or account data removal, contact support. We comply with data deletion requests in accordance with privacy regulations.
+    </Accordion>
+
+    <Accordion title="Where is my data stored?">
+        All data is stored in secure, SOC 2 compliant data centers. We use industry-standard encryption and security practices to protect your information. Specific data residency options may be available for enterprise customers.
+    </Accordion>
+</AccordionGroup>
