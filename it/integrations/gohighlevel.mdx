@@ -1,0 +1,96 @@
+---
+title: "GoHighLevel"
+description: "Sincronizza i contatti, offri i calendari GoHighLevel e riporta i risultati sul contatto."
+icon: "arrows-rotate"
+---
+
+Collegare GoHighLevel permette ai nuovi contatti di avviare automaticamente una conversazione WhatsApp, rende disponibili i tuoi calendari GoHighLevel nel passaggio appuntamento e riporta sul contatto l'esito di ogni conversazione conclusa.
+
+Lo trovi in **Integrazioni**.
+
+<Note>
+    Se la tua dashboard è stata configurata da un'agenzia, questa integrazione può comparire con un altro nome. Le funzionalità sono le stesse — vedi [Account agenzia](/it/integrations/agency).
+</Note>
+
+## Due modi per collegarsi
+
+<Tabs>
+    <Tab title="Installa l'app (consigliato)">
+        Premi **Connetti con GoHighLevel** e installa l'app Whappy sul sotto-account che vuoi sincronizzare.
+
+        È la strada migliore:
+
+        - I webhook vengono configurati automaticamente: non c'è nessun URL né segreto da copiare.
+        - La connessione si rinnova da sola, quindi non scade.
+        - I webhook in entrata sono verificati dalla firma dell'app di GoHighLevel.
+
+        Whappy legge contatti, calendari e campi personalizzati del sotto-account.
+    </Tab>
+    <Tab title="Collegamento manuale">
+        Se preferisci non installare l'app, collegati con un Private Integration Token.
+
+        <Steps>
+            <Step title="Trova il tuo Location ID">
+                In GoHighLevel: **Settings → Business Profile**. Ogni sotto-account ha il proprio id, simile a `ve9EPM428h8vShlRW1KT`.
+            </Step>
+            <Step title="Crea un Private Integration Token">
+                In GoHighLevel: **Settings → Private Integrations**. Concedi almeno l'ambito **contacts**. Il token inizia con `pit-`.
+            </Step>
+            <Step title="Incolla entrambi in Whappy e collega">
+                Il token è conservato sul server e non viene mai più mostrato.
+            </Step>
+            <Step title="Copia i dati del webhook">
+                Whappy mostra un URL webhook e un segreto. **Copia subito il segreto**: viene mostrato una sola volta e non è più recuperabile. Se lo perdi puoi generarne uno nuovo.
+            </Step>
+            <Step title="Completa la configurazione in GoHighLevel">
+                Apri il workflow che deve passare i contatti a Whappy. Aggiungi un'azione **Webhook** con l'URL qui sopra e metodo **POST**, aggiungi un header personalizzato con il segreto come valore, pubblica il workflow e invia un contatto di prova per verificare che arrivi.
+            </Step>
+        </Steps>
+    </Tab>
+</Tabs>
+
+## Cosa ottieni collegandolo
+
+- **I nuovi contatti avviano una conversazione automaticamente.**
+- **Nessun duplicato.** I contatti vengono riconosciuti dal loro id GoHighLevel, quindi rieseguire un workflow non crea mai un secondo lead.
+- **Instradamento per tag.** Manda i contatti a campagne diverse in base ai loro tag GoHighLevel.
+- **Calendari nel passaggio appuntamento.** I tuoi calendari GoHighLevel diventano selezionabili accanto a Cal.com e Calendly.
+
+## Riportare i risultati
+
+Apri la scheda **Writeback** e attiva **Invia i risultati**. Quando una conversazione si conclude, Whappy:
+
+- Aggiunge la **trascrizione come nota** sul contatto.
+- **Applica un tag** con l'esito: *funnel completato* oppure *conversazione interrotta*.
+- **Compila i campi** che hai mappato.
+
+### Mappatura dei campi
+
+Scegli quale risposta raccolta finisce in quale campo GoHighLevel. Le risposte che non mappi restano in Whappy e non vengono inviate.
+
+Se il selettore dice che non ci sono campi personalizzati, creali prima in GoHighLevel e poi riapri la scheda.
+
+<Note>
+    La trascrizione e il tag di esito vengono inviati anche se non mappi alcun campo. La mappatura riguarda soltanto le singole risposte.
+</Note>
+
+### Pipeline e opportunità
+
+Facoltativamente, sposta la trattativa in una pipeline al termine della conversazione. Scegli la pipeline e lo stadio.
+
+Lasciando **Non creare opportunità** la tua pipeline non viene mai toccata: è l'impostazione predefinita e non viene creato nulla a tua insaputa.
+
+## Ruotare il segreto e disconnettere
+
+**Ruota il segreto del webhook** ne genera uno nuovo. Il tuo workflow GoHighLevel continua a inviare il vecchio segreto finché non lo aggiorni lì, quindi aggiornalo subito dopo la rotazione.
+
+**Disconnetti account** interrompe la ricezione dei contatti da quel sotto-account. Lead e conversazioni esistenti vengono conservati: stai scollegando una sorgente, non cancellando lo storico. Per ricollegarti servirà un nuovo token.
+
+## Se l'installazione fallisce
+
+| Messaggio | Cosa controllare |
+| --- | --- |
+| **Impossibile avviare l'installazione** | Le credenziali dell'app non sono configurate. Contatta l'assistenza. |
+| **Autorizzazione negata** | L'installazione è stata rifiutata in GoHighLevel, o GoHighLevel ha restituito un errore. Riprova. |
+| **Parametri mancanti** | Il callback è arrivato incompleto. Riavvia l'installazione da Integrazioni. |
+| **Impossibile collegarsi. Verifica il Location ID e che il token vi acceda** | Via manuale: o l'id è sbagliato, o il token non ha accesso a quel sotto-account. |

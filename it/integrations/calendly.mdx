@@ -1,0 +1,155 @@
+---
+title: "Calendly"
+description: "Collega Calendly per fissare appuntamenti automaticamente dalle conversazioni WhatsApp"
+icon: "calendar-days"
+---
+
+Collega il tuo account Calendly per permettere ai lead qualificati di fissare appuntamenti direttamente dalle conversazioni WhatsApp. L'AI controlla la tua disponibilità e gestisce la prenotazione.
+
+## Come funziona
+
+Quando un lead arriva a un nodo **Fissa appuntamento** del funnel:
+
+1. **L'AI propone gli orari disponibili** dal tuo calendario Calendly
+2. **Il lead sceglie l'orario** via WhatsApp
+3. **L'incontro viene fissato automaticamente**
+4. **Entrambe le parti ricevono la conferma**
+
+Niente più scambi di messaggi per trovare una data: tutto avviene dentro la conversazione.
+
+## Collegare l'account
+
+### Requisiti
+- Piano **Calendly Premium** o superiore
+- Account Calendly attivo con tipi di evento configurati
+
+### Passaggi
+
+1. Vai su **Integrazioni → Calendly** nella dashboard di Whappy
+2. Premi **"Collega account Calendly"**
+3. Verrai reindirizzato a Calendly per autorizzare la connessione
+4. Una volta collegato, torna su Whappy per vedere i tuoi tipi di evento
+
+<Note>
+    La connessione usa l'autenticazione sicura OAuth: Whappy non vede mai la tua password Calendly.
+</Note>
+
+## Gestire i tipi di evento
+
+Dopo il collegamento vedrai tutti i tipi di evento attivi, con:
+
+- **Nome evento**: il titolo del tipo di incontro
+- **Durata**: quanto dura
+- **Descrizione**: dettagli sull'incontro (se impostati)
+
+### Aggiornare i tipi di evento
+
+Se crei nuovi tipi di evento in Calendly o li modifichi:
+
+1. Apri la scheda **Tipi di evento**
+2. Premi **"Aggiorna"** per sincronizzare
+3. I nuovi eventi saranno disponibili nel costruttore di funnel
+
+## Usare Calendly nel funnel
+
+### Aggiungere nodi Fissa appuntamento
+
+Nel costruttore in **Campagna → Funnel**:
+
+1. Aggiungi un nodo **Fissa appuntamento** al flusso
+2. Scegli quale **tipo di evento Calendly** usare
+3. Personalizza il messaggio con cui l'AI propone l'appuntamento
+
+### Esempio di flusso
+
+```
+Dialogo: "Quali sono le tempistiche del tuo progetto?"
+↓
+Condizione: "Entro 3 mesi?"
+↓ (Sì)
+Fissa appuntamento: "Fissiamo una call strategica da 30 minuti per parlare del progetto."
+↓
+Chiusura: "Perfetto! Riceverai a breve l'invito nel calendario."
+```
+
+## Vantaggi
+
+### **Disponibilità automatica**
+- Mostra solo le fasce realmente libere
+- Evita le sovrapposizioni
+- Si aggiorna in tempo reale con il tuo calendario
+
+### **Esperienza fluida**
+- Il lead prenota senza uscire da WhatsApp
+- Nessun link da condividere a mano
+- Processo di prenotazione professionale
+
+### **Risparmio di tempo**
+- Elimina gli scambi di messaggi per trovare una data
+- Funziona 24 ore su 24, anche quando non ci sei
+- I lead qualificati possono prenotare subito
+
+## Buone pratiche
+
+### **Configurazione dei tipi di evento**
+- Usa nomi chiari e descrittivi
+- Imposta durate adeguate al tipo di lead
+- Aggiungi descrizioni per chiarire le aspettative
+
+### **Strategia del funnel**
+- Proponi la prenotazione solo ai lead qualificati
+- Usa tipi di evento diversi in base al valore del lead:
+- **15 min**: call conoscitive rapide
+- **30 min**: demo di prodotto
+- **60 min**: sessioni strategiche
+
+### **Gestione della disponibilità**
+- Tieni aggiornata la disponibilità su Calendly
+- Imposta pause fra un incontro e l'altro
+- Usa orari che rispecchino la tua agenda reale
+
+## Risoluzione dei problemi
+
+### **Non riesci a collegare l'account?**
+- Verifica di avere Calendly Premium o superiore
+- Prova con una finestra del browser in incognito
+- Svuota cache e cookie del browser
+
+### **I tipi di evento non compaiono?**
+- Controlla che gli eventi siano attivi su Calendly
+- Premi "Aggiorna" nella scheda Tipi di evento
+- Verifica che gli eventi consentano la prenotazione
+
+### **La prenotazione non funziona nel funnel?**
+- Assicurati che l'account Calendly sia ancora collegato
+- Controlla che il tipo di evento selezionato sia ancora attivo
+- Verifica le impostazioni di disponibilità su Calendly
+
+## Gestire la connessione
+
+### **Stato della connessione**
+Lo stato è indicato nelle impostazioni dell'integrazione. Una spunta verde indica che la connessione è attiva.
+
+### **Disconnessione**
+Se devi scollegare l'account:
+
+1. Vai su **Integrazioni → Calendly**
+2. Premi **"Disconnetti account"**
+3. Conferma
+
+<Warning>
+    La disconnessione blocca tutti i nodi Fissa appuntamento che usano Calendly finché non ricolleghi l'account.
+</Warning>
+
+## Per cominciare
+
+Pronto ad attivare la prenotazione automatica?
+
+1. **Collega l'account** in Integrazioni → Calendly
+2. **Aggiungi nodi Fissa appuntamento** al funnel
+3. **Scegli i tipi di evento** adatti ai diversi scenari
+4. **Prova il funnel** per verificare che la prenotazione funzioni
+
+Le tue conversazioni WhatsApp trasformeranno i lead qualificati in incontri fissati.
+
+Ti serve aiuto? Consulta le [FAQ](/it/support/faq) o [contatta l'assistenza](/it/support/contact-support).

@@ -1,0 +1,96 @@
+---
+title: "GoHighLevel"
+description: "Sync contacts into Whappy, offer GoHighLevel calendars, and write results back to the contact."
+icon: "arrows-rotate"
+---
+
+Connecting GoHighLevel lets new contacts start a WhatsApp conversation automatically, offers your GoHighLevel calendars on the appointment step, and writes the outcome of every finished conversation back onto the contact.
+
+Find it in **Integrations**.
+
+<Note>
+    If your dashboard was set up by an agency, this integration may appear under a different name. The functionality is the same — see [Agency accounts](/integrations/agency).
+</Note>
+
+## Two ways to connect
+
+<Tabs>
+    <Tab title="Install the app (recommended)">
+        Press **Connect with GoHighLevel** and install the Whappy app on the sub-account you want to sync.
+
+        This is the better route:
+
+        - Webhooks are wired up automatically — there is no URL or secret to copy anywhere.
+        - The connection refreshes itself, so it does not expire.
+        - Inbound webhooks are verified by GoHighLevel's own app signature.
+
+        Whappy reads the sub-account's contacts, calendars and custom fields.
+    </Tab>
+    <Tab title="Connect manually">
+        If you would rather not install the app, connect with a Private Integration Token.
+
+        <Steps>
+            <Step title="Find your Location ID">
+                In GoHighLevel: **Settings → Business Profile**. Each sub-account has its own id, and it looks something like `ve9EPM428h8vShlRW1KT`.
+            </Step>
+            <Step title="Create a Private Integration Token">
+                In GoHighLevel: **Settings → Private Integrations**. Grant the **contacts** scope at minimum. The token starts with `pit-`.
+            </Step>
+            <Step title="Paste both into Whappy and connect">
+                The token is stored server-side and is never shown again.
+            </Step>
+            <Step title="Copy your webhook details">
+                Whappy shows a webhook URL and a secret. **Copy the secret now** — it is shown only once and cannot be retrieved later. You can generate a new one if you lose it.
+            </Step>
+            <Step title="Finish setup in GoHighLevel">
+                Open the workflow that should hand contacts to Whappy. Add a **Webhook** action with the URL above using method **POST**, add a custom header with the secret as its value, publish the workflow, and send a test contact to confirm it arrives.
+            </Step>
+        </Steps>
+    </Tab>
+</Tabs>
+
+## What connecting gives you
+
+- **New contacts start a conversation automatically.**
+- **No duplicates.** Contacts are matched by their GoHighLevel id, so re-running a workflow never creates a second lead.
+- **Routing by tag.** Send contacts to different campaigns based on their GoHighLevel tags.
+- **Calendars on the appointment step.** Your GoHighLevel calendars become selectable alongside Cal.com and Calendly.
+
+## Writing results back
+
+Open the **Writeback** tab and turn on **Send results back**. When a conversation ends, Whappy will:
+
+- Add the **transcript as a note** on the contact.
+- **Tag the contact** with the outcome — either *funnel completed* or *conversation halted*.
+- **Fill the fields** you have mapped.
+
+### Field mapping
+
+Choose which collected answer goes into which GoHighLevel field. Answers you do not map stay in Whappy and are not sent.
+
+If the picker says no custom fields were found, create them in GoHighLevel first, then reopen the tab.
+
+<Note>
+    The transcript and the outcome tag are sent whether or not you map any fields. Mapping is only about the individual answers.
+</Note>
+
+### Pipelines and opportunities
+
+Optionally move the deal into a pipeline when the conversation ends. Choose the pipeline and the stage.
+
+Leave it set to **Don't create opportunities** and your pipeline is never touched — this is the default, and nothing is created behind your back.
+
+## Rotating the secret and disconnecting
+
+**Rotate webhook secret** generates a new one. Your GoHighLevel workflow keeps sending the old secret until you update it there, so update the workflow immediately after rotating.
+
+**Disconnect account** stops Whappy receiving contacts from that sub-account. Existing leads and conversations are kept — you are disconnecting a source, not deleting history. Reconnecting later requires a new token.
+
+## If the install fails
+
+| Message | What to check |
+| --- | --- |
+| **Could not start the install** | The app credentials are not configured. Contact support. |
+| **Authorization denied** | The install was declined in GoHighLevel, or GoHighLevel returned an error. Try again. |
+| **Missing required parameters** | The callback arrived incomplete. Start the install again from Integrations. |
+| **Could not connect. Check the Location ID and that the token can access it** | The manual route: either the id is wrong or the token has no access to that sub-account. |

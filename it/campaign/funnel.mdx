@@ -1,0 +1,295 @@
+---
+title: "Funnel"
+description: "Costruisci flussi di conversazione per qualificare i lead e fissare appuntamenti automaticamente"
+icon: "diagram-nested"
+---
+
+Il Funnel è il costruttore visuale dei flussi di conversazione di Whappy. Ti permette di creare sequenze automatiche su WhatsApp che guidano i lead attraverso domande di qualificazione e azioni come la prenotazione di un incontro.
+
+## Come funzionano i funnel
+
+Il funnel definisce il percorso che una conversazione segue con ogni lead. L'AI segue questo flusso: pone domande, valuta le risposte e agisce secondo la logica che hai costruito.
+
+**Struttura del flusso:**
+- I **nodi** rappresentano azioni o decisioni nella conversazione
+- Gli **archi** collegano i nodi e mostrano il percorso della conversazione
+- Le **condizioni** creano diramazioni in base alle risposte del lead
+- Le **azioni** svolgono compiti come fissare un incontro o inviare dati
+
+## Tipi di nodo
+
+### Nodo Avvio
+Ogni funnel comincia con un nodo Avvio, che invia il primo messaggio WhatsApp.
+
+**Configurazione:**
+- **Template WhatsApp**: seleziona un template approvato per il primo messaggio
+- **Anteprima**: guarda il contenuto del template prima dell'invio
+
+<Note>
+    WhatsApp richiede template approvati per il primo messaggio a un contatto. I template si configurano nella sezione Integrazioni.
+</Note>
+
+**Esempio d'uso:**
+```
+Template: "Ciao {{name}}, grazie per l'interesse nei nostri servizi di web design! Mi piacerebbe saperne di più sul tuo progetto."
+```
+
+### Nodo Info
+Raccoglie informazioni specifiche dal lead durante la conversazione.
+
+**Configurazione:**
+- **Campo informativo**: scegli quale dato raccogliere (dalla scheda Info)
+- **Indicazioni per l'AI**: l'AI chiede l'informazione in modo naturale nella conversazione
+
+**Tipi di informazione disponibili:**
+- **Testo**: risposte aperte (nome azienda, descrizione del progetto)
+- **Numero**: valori numerici (budget, tempistiche, numero di dipendenti)
+- **Scelta multipla**: opzioni predefinite (livello di priorità, settore)
+
+**Esempio d'uso:**
+```
+Campo: Fascia di budget
+L'AI chiede: "Con quale budget stai lavorando per questo progetto?"
+Salva: la risposta del lead sul budget, per usarla più avanti
+```
+
+### Nodo Condizione
+Crea diramazioni logiche in base alle informazioni raccolte.
+
+**Configurazione:**
+- **Campo da verificare**: seleziona quale informazione valutare
+- **Operatore**: come confrontare il valore (uguale a, maggiore di, contiene…)
+- **Valore**: con cosa confrontarlo
+- **Percorso predefinito**: dove andare se l'informazione manca
+
+**Operatori disponibili:**
+- **Testo**: è uguale a, contiene, è vuoto, non è vuoto
+- **Numeri**: uguale, maggiore di, minore di, maggiore/minore o uguale
+- **Scelta multipla**: è uguale a, è nell'elenco, non è nell'elenco
+
+**Esempio d'uso:**
+```
+Condizione: Budget > 5000
+Percorso vero: → Nodo Fissa appuntamento
+Percorso falso: → Nodo Info (chiedi le tempistiche)
+Predefinito: → Percorso vero (se il budget è ignoto)
+```
+
+### Nodo Dialogo
+Fornisce informazioni o risposte ai lead senza raccogliere dati.
+
+**Configurazione:**
+- **Esempi per l'AI**: aggiungi esempi di cosa l'AI dovrebbe dire
+- **Più esempi**: l'AI li usa come linee guida per risposte naturali
+
+**Esempio d'uso:**
+```
+Esempi:
+- "Siamo specializzati in siti moderni e ottimizzati per mobile per le piccole imprese"
+- "Un progetto tipico comprende design, sviluppo e ottimizzazione SEO di base"
+- "Possiamo pubblicare il tuo sito in 4-6 settimane dall'inizio del progetto"
+```
+
+### Nodo Fissa appuntamento
+Fissa appuntamenti con i lead qualificati.
+
+**Configurazione:**
+- **Tipo di incontro**: scegli fra i tuoi tipi di evento Calendly/Cal.com
+- **Descrizione dell'evento**: che tipo di incontro è
+- **Messaggio di proposta**: esempio di come l'AI dovrebbe proporre l'incontro
+
+**Requisiti:**
+- L'integrazione Calendly o Cal.com deve essere configurata
+- Deve esserci almeno un tipo di evento attivo
+
+**Esempio d'uso:**
+```
+Tipo di incontro: "Call conoscitiva da 30 minuti"
+Descrizione: "Sessione strategica per parlare delle tue esigenze di web design"
+Messaggio: "Mi farebbe piacere fissare una breve call per parlare del progetto. Hai disponibilità la prossima settimana?"
+```
+
+### Nodo Chiusura
+Termina la conversazione e, facoltativamente, invia i dati del lead a sistemi esterni.
+
+**Configurazione:**
+- **Webhook (facoltativo)**: invia i dati del lead al tuo CRM o ad altri strumenti
+- **URL di destinazione**: dove inviare i dati
+- **Metodo HTTP**: POST, PUT o PATCH
+- **Header personalizzati**: autenticazione o tipo di contenuto
+
+**Esempio d'uso:**
+```
+Webhook: https://tuo-crm.it/api/leads
+Metodo: POST
+Header: Authorization: Bearer tuo-token
+Dati: tutte le informazioni raccolte, inviate in JSON
+```
+
+### Nodo Invia dati
+Invia tutto ciò che è stato raccolto finora a un sistema esterno, a metà conversazione, senza chiudere il funnel.
+
+**Tipi di connessione:**
+- **WhatsApp**: Whappy crea automaticamente un template di notifica nel tuo Meta Business Suite e lo usa per inviare un avviso immediato a un numero che scegli tu — utile per segnalare al team commerciale che è arrivato un lead qualificato.
+- **Webhook**: un payload JSON con tutti i dati della conversazione e le informazioni raccolte, inviato al tuo endpoint. Scegli il metodo HTTP e aggiungi header personalizzati per l'autenticazione.
+- **Zapier**: attiva un trigger "Send Data" che hai creato nell'integrazione Zapier di Whappy.
+
+**Verifica:**
+Usa **Prova invio dati** per eseguire il passaggio su una conversazione reale di questa campagna e vedere l'esatto payload che il tuo endpoint riceve.
+
+- La prova usa la **versione salvata più di recente** del passaggio: salva le modifiche se vuoi includerle.
+- I risultati mostrano il corpo della risposta, il payload inviato e, per Zapier, quanti trigger sono andati a buon fine.
+- Limite di **10 prove al minuto**.
+- Solo i passaggi Webhook e Zapier possono essere provati così.
+
+Spunta **Salta durante i test** per impedire che questo passaggio parta durante le prove del funnel, così provare una conversazione non avvisa il tuo team né chiama il tuo CRM.
+
+### Nodo Invia documento
+Invia PDF o immagini al lead.
+
+**Configurazione:**
+- **File da inviare**: fino a **5** file per passaggio, inviati nell'ordine mostrato
+- **Messaggio (facoltativo)**: inviato solo con il primo file
+- **Attendi risposta**: mette in pausa la conversazione finché il lead non risponde
+
+I file provengono dalla tua libreria [Risorse](/it/campaign/assets): li carichi una volta e li riutilizzi in quanti passaggi e campagne vuoi. PDF fino a 16 MB, JPEG e PNG fino a 5 MB.
+
+**Esempio d'uso:**
+```
+File: listino-2026.pdf, portfolio.pdf
+Messaggio: "Ecco il listino che mi avevi chiesto."
+Attendi risposta: sì
+```
+
+### Nodo Invia nota vocale
+Invia un messaggio vocale preregistrato, che arriva come una vera nota vocale WhatsApp: la stessa bolla riproducibile che invierebbe una persona.
+
+**Configurazione:**
+- **Registrazione da inviare**: una registrazione dalla tua libreria [Risorse](/it/campaign/assets)
+- **Cosa dire prima (facoltativo)**: descrivi di cosa parla la nota vocale, *non* le parole esatte. L'assistente AI scrive una breve riga di introduzione nella lingua del lead.
+- **Attendi risposta**: mette in pausa la conversazione finché il lead non risponde
+
+Fino a 5 minuti per registrazione. I file audio fino a 16 MB vengono convertiti automaticamente.
+
+**Esempio d'uso:**
+```
+Registrazione: prezzi-spiegati.ogg
+Cosa dire prima: digli che questa spiega le fasce di prezzo
+```
+
+## Costruire il funnel
+
+### Per cominciare
+1. **Parti dal contesto**: configura prima il contesto della campagna
+2. **Definisci le informazioni**: imposta quali dati raccogliere (scheda Info)
+3. **Costruisci il flusso**: usa il costruttore visuale per creare il percorso
+4. **Prova a fondo**: usa il pulsante Test per simulare le conversazioni
+
+### Modificare un funnel attivo
+Whappy conserva una copia di ogni passaggio prima che l'editor lo modifichi, così la configurazione precedente di una campagna attiva non va mai persa. Le conversazioni già in corso proseguono con la versione con cui erano iniziate.
+
+### Aggiungere nodi
+- Premi il pulsante **+** dopo un nodo per aggiungere il passaggio successivo
+- I **nodi Condizione** mostrano due pulsanti + (percorso vero/falso)
+- Gli **altri nodi** ne mostrano uno solo
+
+### Collegare la logica
+1. **Flusso lineare**: Avvio → Info → Info → Fissa appuntamento → Chiusura
+2. **Flusso con diramazioni**: Avvio → Info → Condizione → percorsi diversi in base alla risposta
+3. **Flusso complesso**: più condizioni e percorsi in base a criteri diversi
+
+### Disposizione visiva
+- I nodi vengono posizionati automaticamente in base al flusso
+- Le **diramazioni delle condizioni** si aprono in orizzontale (vero a sinistra, falso a destra)
+- I **nodi lineari** scendono in verticale
+
+## Provare il funnel
+
+### Pulsante Test
+Il pulsante Test simula una conversazione con il tuo funnel:
+- **Requisiti**: il funnel deve essere salvato e avere almeno 2 nodi
+- **Simulazione**: un'interfaccia di chat mostra come risponderà l'AI
+- **Raccolta dati**: vedi quali informazioni vengono raccolte
+- **Percorsi**: puoi provare le diverse diramazioni
+
+### Scenari da provare
+Metti alla prova questi casi tipici:
+- **Percorso ideale**: il lead fornisce tutte le informazioni e fissa l'incontro
+- **Informazioni incomplete**: il lead salta domande o risponde in modo poco chiaro
+- **Lead non qualificato**: il lead non rientra nei tuoi criteri
+- **Condizioni diverse**: fasce di budget, tempistiche o altri fattori differenti
+
+## Buone pratiche
+
+### Progettazione del flusso
+- **Parti semplice**: comincia con flussi lineari e aggiungi complessità gradualmente
+- **Limita le condizioni**: troppe diramazioni rendono il flusso ingestibile
+- **Prova spesso**: verifica ogni modifica con il test
+- **Pianifica i percorsi**: disegna la conversazione ideale prima di costruirla
+
+### Raccolta delle informazioni
+- **Prima l'essenziale**: raccogli presto le informazioni di qualificazione più importanti
+- **Ordine naturale**: poni le domande in una sequenza logica
+- **Opzioni chiare**: nelle scelte multiple, rendi le opzioni distinte e comprensibili
+- **Percorsi predefiniti**: imposta sempre un percorso adeguato per le informazioni ignote
+
+### Prenotazione degli incontri
+- **Qualifica prima**: proponi incontri solo ai lead qualificati
+- **Scopo chiaro**: spiega di cosa si parlerà
+- **Flessibilità**: usa l'integrazione con il calendario per semplificare la prenotazione
+- **Conferma**: configura le email di conferma nel tuo strumento di calendario
+
+### Integrazione webhook
+- **Verifica gli endpoint**: controlla che gli URL funzionino prima di andare in produzione
+- **Autenticazione**: usa header corretti per un accesso sicuro
+- **Gestione degli errori**: il tuo endpoint deve saper gestire il formato dei dati
+- **Mappatura dei dati**: pianifica come i dati di Whappy corrispondono ai campi del tuo CRM
+
+## Schemi di flusso ricorrenti
+
+### Flusso di qualificazione
+```
+Avvio → Chiedi budget → Condizione budget → Chiedi tempistiche → Fissa appuntamento → Chiusura
+                              ↓
+                      Dialogo (spiega i prezzi) → Chiusura
+```
+
+### Flusso di raccolta informazioni
+```
+Avvio → Azienda → Settore → Dimensione → Condizione (dimensione > 50) → Fissa appuntamento
+                                                        ↓
+                                          Dialogo (servizi PMI) → Chiusura
+```
+
+### Qualificazione a più stadi
+```
+Avvio → Budget → Budget ok? → Tempistiche → Tempistiche ok? → Fissa appuntamento
+           ↓          ↓             ↓              ↓
+        Chiusura   Chiusura      Chiusura      Chiusura
+```
+
+## Risoluzione dei problemi
+
+### Problemi frequenti
+- **Pulsante Test disattivato**: salva il funnel e assicurati che abbia più nodi
+- **Errori sui template**: verifica l'integrazione WhatsApp e lo stato di approvazione
+- **Prenotazioni fallite**: controlla la connessione Calendly/Cal.com e i tipi di evento attivi
+- **Problemi di webhook**: verifica URL e header di autenticazione
+
+### Problemi di flusso
+- **Vicoli ciechi**: ogni percorso deve arrivare a un nodo Chiusura
+- **Condizioni incomplete**: assicurati che tutte le diramazioni siano collegate
+- **Logica poco chiara**: rivedi operatori e valori delle condizioni
+- **Troppo complesso**: semplifica i flussi con troppe diramazioni
+
+## Passi successivi
+
+Dopo aver costruito il funnel:
+1. **Configura le opzioni**: orari di attività e fuso orario
+2. **Prova a fondo**: sperimenta più scenari di conversazione
+3. **Lancia la campagna**: avvia le conversazioni automatiche
+4. **Monitora i risultati**: analizza i dati delle conversazioni e ottimizza
+
+<Tip>
+    Comincia con un flusso lineare semplice (Avvio → Info → Fissa appuntamento → Chiusura) e aggiungi complessità man mano che capisci cosa funziona con i tuoi lead.
+</Tip>

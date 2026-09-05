@@ -1,0 +1,72 @@
+---
+title: "Permissions"
+description: "The five levels that decide what Autopilot may do on your behalf, and how the top two are earned."
+icon: "shield-halved"
+---
+
+Autopilot's permissions decide how far it can go without you. You set the level; for the two highest levels, your account also has to have earned it.
+
+You will find this screen in the dashboard under **Account → AI assistant**.
+
+## The five levels
+
+Each level includes everything below it. Start low and raise it as you get comfortable.
+
+| Level | What it can do | What it still cannot do |
+| --- | --- | --- |
+| **Read only** | Look at everything and answer your questions. | Change anything at all. |
+| **Draft** | Write things no customer will ever see — draft campaigns, context documents, the questions you collect. | Touch anything a lead could reach. |
+| **Build** | Build a complete campaign and connect your accounts. | Start it. |
+| **Launch** | Start campaigns. Real people receive real messages with nobody watching. | — |
+| **Operate** | Change live campaigns, their templates, funnels and settings. | — |
+
+**Read only** is the default for every new account.
+
+## What you can grant, and what you must earn
+
+You can set any level up to **Build** yourself and it takes effect immediately.
+
+**Launch** and **Operate** work differently. You can select them, and Whappy saves your choice — but the level in force stays at **Build** until your account meets both conditions:
+
+<Steps>
+    <Step title="Three campaigns launched by hand, without problems">
+        You have started three campaigns yourself and none of them ran into trouble.
+    </Step>
+    <Step title="A rehearsal that passed">
+        At least one [rehearsal](/autopilot/rehearsal) has completed with a passing result.
+    </Step>
+</Steps>
+
+Until both are true, the permissions screen shows **Granted, but not active yet** along with exactly what is still missing. Nothing is silently ignored — you can always see the gap.
+
+<Note>
+    This is why rehearsing a campaign is worth doing even when you are confident in it. A passing rehearsal is one of the two things standing between you and unattended launches.
+</Note>
+
+## Weekly limits
+
+From **Launch** upward, two limits bound how much can happen without you:
+
+- **3 campaign activations per week**
+- **10 unattended changes per week**
+
+These exist so that a misunderstanding stays small. Autopilot that misreads a request can burn three activations, not three hundred.
+
+## Automatic pause
+
+If a watchdog detects a problem — your WhatsApp sender quality dropping, for example — Autopilot is suspended automatically. The permissions screen shows **Paused automatically** with the reason.
+
+While suspended, the effective level drops to **Build** no matter what you have granted. Everything above it is blocked until a person clears the suspension.
+
+## The action log
+
+Every change Autopilot makes is recorded, and you can read the log on the same screen.
+
+Two things about it are worth knowing:
+
+- **Only changes are logged.** Reading your data is not recorded, because it happens constantly and recording it would bury the entries that matter.
+- **Values are never stored — only which action was taken.** The log keeps the name of the action and the names of the fields involved, never their contents.
+
+That second point is deliberate. Your leads' phone numbers, message bodies and API keys pass through these actions, and an audit log that quietly became a second copy of your customer data would be a liability rather than a safeguard.
+
+The log also records actions that were **denied**, along with why — useful when Autopilot tells you it could not do something and you want to know which permission was missing.

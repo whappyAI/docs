@@ -1,0 +1,164 @@
+---
+title: "Opzioni"
+description: "Configura quando la campagna invia messaggi, con fuso orario e orari di attività"
+icon: "sliders"
+---
+
+La scheda Opzioni controlla **quando** la tua campagna WhatsApp è attiva e invia messaggi ai lead. Serve a contattare i potenziali clienti solo in orari appropriati e a rispettare i fusi orari.
+
+## Fuso orario della campagna
+
+Imposta il fuso orario in cui opera la campagna.
+
+**Come funziona:**
+- Tutti gli orari di attività si basano su questo fuso orario
+- Scegli il fuso in cui opera la tua attività
+- I lead ricevono i messaggi secondo questa pianificazione, indipendentemente da dove si trovano
+
+**Esempio:**
+```
+Attività a Roma → Seleziona "Europe/Rome (CET/CEST)"
+Attività a Londra → Seleziona "Europe/London (GMT/BST)"
+Attività a New York → Seleziona "America/New_York (EST/EDT)"
+```
+
+<Note>
+    Il fuso orario incide su quando i messaggi vengono inviati, non sul contenuto. Scegli il fuso della tua attività, non quello dei tuoi lead.
+</Note>
+
+## Orari di attività
+
+Configura in quali giorni e in quali orari la campagna invia messaggi.
+
+### Selezione dei giorni
+**Attivare/disattivare i giorni:**
+- Attiva o disattiva ogni giorno con la casella di selezione
+- Giorni disattivati = nessun messaggio inviato
+- Giorni attivi = messaggi inviati negli orari indicati
+
+**Pianificazioni tipiche:**
+- **Solo giorni feriali**: da lunedì a venerdì attivi, fine settimana disattivato
+- **Settimana intera**: tutti i giorni attivi con orari diversi nel weekend
+- **Personalizzata**: qualsiasi combinazione adatta alla tua attività
+
+### Fasce orarie
+**Imposta gli orari per ogni giorno:**
+- **Ora di inizio**: quando cominciare a inviare messaggi
+- **Ora di fine**: quando smettere
+- Gli orari sono in formato 24 ore (9:00 = 9 del mattino, 17:00 = 5 del pomeriggio)
+
+**Esempi di pianificazione:**
+
+**Orario d'ufficio standard:**
+```
+Lunedì-venerdì: 9:00 - 17:00
+Sabato-domenica: disattivati
+```
+
+**Orario esteso:**
+```
+Lunedì-venerdì: 8:00 - 19:00
+Sabato: 10:00 - 16:00
+Domenica: disattivata
+```
+
+**Attività internazionale:**
+```
+Lunedì-venerdì: 6:00 - 22:00
+Sabato-domenica: 9:00 - 18:00
+```
+
+## Come funzionano gli orari
+
+### Tempi di invio
+- **Dentro l'orario**: i messaggi partono subito quando il lead risponde
+- **Fuori orario**: i messaggi restano in coda fino al periodo di attività successivo
+- **Conversazioni**: le chat in corso si mettono in pausa alla fine dell'orario e riprendono all'inizio del successivo
+
+### Esperienza del lead
+- I lead ricevono tempi di risposta naturali durante il tuo orario di lavoro
+- Nessun messaggio a tarda notte o nei giorni disattivati
+- Le conversazioni risultano professionali e rispettose
+
+### Gestione della coda
+- I messaggi accodati fuori orario partono alla ripresa dell'attività
+- L'ordine viene mantenuto per una gestione equa dei lead
+- Nessun messaggio va perso per via delle restrizioni orarie
+
+## Buone pratiche
+
+### Scelta del fuso orario
+- **Rispecchia la tua sede**: usa il fuso principale della tua attività
+- **Sii coerente**: evita di cambiarlo spesso una volta impostato
+- **Valuta la copertura**: se servi più fusi, scegli quello della sede principale
+
+### Orari di attività
+- **Rispetta i limiti**: non scrivere troppo presto o troppo tardi
+- **Allineati alle aspettative**: usa gli orari in cui i lead si aspettano di essere contattati
+- **Prova orari diversi**: osserva i tassi di risposta in fasce diverse
+- **Attenzione al contesto culturale**: considera le abitudini locali del tuo mercato
+
+### Pianificazione
+- **Parti prudente**: comincia con l'orario d'ufficio standard
+- **Estendi gradualmente**: aggiungi ore in base ai risultati
+- **Monitora le prestazioni**: osserva quando i lead rispondono di più
+- **Adatta alle stagioni**: in periodi diversi possono funzionare orari diversi
+
+## Esempi comuni di pianificazione
+
+### Servizi professionali
+```
+Lunedì-venerdì: 9:00 - 18:00
+Sabato: 10:00 - 14:00
+Domenica: disattivata
+Fuso orario: sede della tua attività
+```
+
+### E-commerce / retail
+```
+Lunedì-venerdì: 8:00 - 20:00
+Sabato-domenica: 10:00 - 18:00
+Fuso orario: mercato principale
+```
+
+### Attività globale / SaaS
+```
+Lunedì-venerdì: 6:00 - 22:00
+Sabato-domenica: 8:00 - 20:00
+Fuso orario: sede centrale
+```
+
+### Servizi locali
+```
+Lunedì-venerdì: 8:00 - 18:00
+Sabato: 9:00 - 15:00
+Domenica: disattivata
+Fuso orario: locale
+```
+
+## Note importanti
+
+### Comportamento della campagna
+- **Campagna attiva richiesta**: gli orari valgono solo quando la campagna è in esecuzione
+- **Effetto immediato**: le modifiche valgono subito per i nuovi messaggi
+- **Conversazioni esistenti**: le chat in corso seguono la nuova pianificazione
+
+### Dettagli tecnici
+- L'ora di inizio è inclusa (inizio alle 9:00 significa che si può inviare dalle 9:00)
+- L'ora di fine è esclusa (fine alle 17:00 significa ultimo messaggio alle 16:59)
+- I messaggi in coda vengono elaborati entro pochi minuti dall'inizio dell'orario
+
+<Warning>
+    Cambiare il fuso orario incide su tutti i messaggi pianificati. Fai attenzione quando lo modifichi su campagne attive.
+</Warning>
+
+## Salvare le modifiche
+
+Ricordati di premere **Salva** prima di lasciare la scheda Opzioni:
+- Le modifiche non salvate sono evidenziate
+- Ti verrà chiesto di salvare quando esci dalla pagina
+- Le impostazioni hanno effetto subito dopo il salvataggio
+
+<Tip>
+    Comincia con l'orario d'ufficio standard e osserva le statistiche delle conversazioni per trovare la pianificazione migliore per i tuoi lead.
+</Tip>

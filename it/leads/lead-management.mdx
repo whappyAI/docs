@@ -1,0 +1,61 @@
+---
+title: "Aggiungere e gestire i lead"
+description: "Aggiungi i lead uno alla volta oppure importali in blocco da un file CSV."
+icon: "user-plus"
+---
+
+I lead arrivano in una campagna in quattro modi: li aggiungi a mano, importi un CSV, arrivano da un'[integrazione](/it/integrations/webhook) oppure da un'inserzione lead di Meta.
+
+## Aggiungere un singolo lead
+
+Dalla scheda Lead della campagna, apri il menu azioni e scegli **Aggiungi singolo lead**. Servono un nome e un numero di telefono in formato internazionale completo; email e i tuoi campi informativi sono facoltativi.
+
+## Importare da CSV
+
+Scegli **Importa da CSV**. L'importazione si svolge in cinque passaggi.
+
+<Steps>
+    <Step title="Caricamento">
+        Seleziona il file. La prima riga deve contenere le intestazioni delle colonne.
+    </Step>
+    <Step title="Mappatura colonne">
+        Indica a Whappy cos'è ogni colonna: **Nome**, **Telefono**, **Email**, uno dei tuoi campi informativi oppure **Non importare**.
+
+        Nome e telefono sono obbligatori. Ogni altra colonna può essere mappata su un campo personalizzato, così il valore importato è disponibile all'assistente AI durante la conversazione.
+    </Step>
+    <Step title="Anteprima e verifica">
+        Whappy controlla mappatura e dati e segnala due tipi di problema: gli **errori di mappatura**, che ti riportano al passaggio precedente, e gli **avvisi di validazione** sulle singole righe.
+    </Step>
+    <Step title="Importazione">
+        Le righe vengono aggiunte alla campagna.
+    </Step>
+    <Step title="Completato">
+        Un riepilogo di ciò che è stato importato.
+    </Step>
+</Steps>
+
+### Requisiti del file
+
+- La prima riga deve contenere le **intestazioni**.
+- Le colonne **Nome** e **Telefono** sono obbligatorie.
+- **Email** e le colonne informative personalizzate sono facoltative.
+- I numeri devono includere il **prefisso internazionale**, per esempio `+39344123456`.
+- Massimo **1.000 righe** per importazione.
+
+<Note>
+    Dividi una lista più lunga in più file da 1.000 righe. Un lead che arriva da un'integrazione collegata non viene duplicato, ma una riga di CSV viene presa per buona: controlla prima di reimportare un file.
+</Note>
+
+## Eliminare i lead
+
+Elimina un singolo lead dal menu azioni della sua riga, oppure selezionane diversi e usa **Elimina selezionati**. La barra di selezione mostra quanti ne hai scelti e permette di annullare la selezione.
+
+Eliminare un lead elimina anche il suo storico conversazioni.
+
+## Lead di prova
+
+Una campagna può contenere lead di prova accanto a quelli reali, così puoi provare un funnel dall'inizio alla fine senza scrivere a una persona vera.
+
+<Note>
+    Per mettere alla prova un intero funnel con clienti realistici e difficili invece che con un lead tuo, usa la [prova generale](/it/autopilot/rehearsal): fa passare sei profili nella campagna senza contattare nessuno.
+</Note>

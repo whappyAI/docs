@@ -126,6 +126,57 @@ Headers: Authorization: Bearer your-token
 Data: All collected lead information sent as JSON
 ```
 
+### Send Data Node
+Sends everything collected so far to an external system, mid-conversation, without ending the funnel.
+
+**Connection Types:**
+- **WhatsApp**: Whappy creates a notification template in your Meta Business Suite automatically and uses it to send an instant alert to a number you choose — useful for "a qualified lead just came in" pings to your sales team.
+- **Webhook**: A JSON payload containing all conversation data and lead info collected so far, sent to your endpoint. Choose the HTTP method and add custom headers for authentication.
+- **Zapier**: Fires a "Send Data" trigger you have created in the Whappy Zapier integration.
+
+**Testing:**
+Use **Test send data** to dispatch the step against a real conversation from this campaign, so you can see the exact payload your endpoint receives.
+
+- The test runs against the **most recently saved version** of the step — save your changes first if you want them included.
+- Results show the response body, the payload sent, and for Zapier how many triggers succeeded.
+- Limited to **10 tests per minute**.
+- Only Webhook and Zapier steps can be tested this way.
+
+Tick **Skip test** to stop this step firing during funnel tests, so trying a conversation does not alert your team or hit your CRM.
+
+### Send Document Node
+Sends PDFs or images to the lead.
+
+**Configuration:**
+- **Files to send**: Up to **5** files per step, sent in the order shown
+- **Message (optional)**: Sent with the first file only
+- **Wait for reply**: Pause the conversation until the lead responds
+
+Files come from your [Assets](/campaign/assets) library — upload once, reuse across any number of steps and campaigns. PDFs up to 16 MB, JPEG and PNG up to 5 MB.
+
+**Example Use:**
+```
+Files: pricing-2026.pdf, portfolio.pdf
+Message: "Here is the pricing you asked for."
+Wait for reply: yes
+```
+
+### Send Voice Note Node
+Sends a pre-recorded voice message, which arrives as a real WhatsApp voice note — the same playable bubble a person sends.
+
+**Configuration:**
+- **Recording to send**: One recording from your [Assets](/campaign/assets) library
+- **What to say before it (optional)**: Describe what the voice note is about, *not* the exact words. The AI assistant writes one short line in the lead's own language to introduce it.
+- **Wait for reply**: Pause the conversation until the lead responds
+
+Up to 5 minutes per recording. Audio files up to 16 MB are converted automatically.
+
+**Example Use:**
+```
+Recording: pricing-explained.ogg
+What to say before it: tell them this explains the pricing tiers
+```
+
 ## Building Your Funnel
 
 ### Getting Started
@@ -133,6 +184,9 @@ Data: All collected lead information sent as JSON
 2. **Define Information**: Configure what data to collect (Info tab)
 3. **Build the Flow**: Use the visual builder to create your conversation path
 4. **Test Thoroughly**: Use the Test button to simulate conversations
+
+### Editing a live funnel
+Whappy keeps a copy of a step before the editor changes it, so a live campaign's earlier configuration is never lost to an edit. Conversations already in flight continue against the version they started on.
 
 ### Adding Nodes
 - Click the **+** button after any node to add the next step

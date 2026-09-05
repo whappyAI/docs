@@ -1,70 +1,70 @@
 ---
-title: "Zapier Developer API"
-description: "Complete API reference for building Zapier integrations with Whappy AI. Configure webhooks, handle events, and manage data flow."
+title: "API per sviluppatori Zapier"
+description: "Riferimento API completo per costruire integrazioni Zapier con Whappy. Configura i webhook, gestisci gli eventi e il flusso dei dati."
 icon: "code"
 ---
 
-## Base URL
+## URL di base
 
 ```
 https://api.whappy.ai/v1
 ```
 
-## Authentication
+## Autenticazione
 
-All API requests require authentication using an API key. Include your API key in the request headers:
+Tutte le richieste API richiedono autenticazione tramite API key. Includi la tua chiave negli header della richiesta:
 
 ```bash
 X-API-Key: your_api_key_here
 ```
 
-### Getting Your API Key
+### Ottenere la tua API key
 
-1. Log into your Whappy Account
-2. Navigate to **Integrations → Zapier**
-3. Copy your unique API Key from the integration panel
+1. Accedi al tuo account Whappy
+2. Vai su **Integrazioni → Zapier**
+3. Copia la tua API key dal pannello dell'integrazione
 
 <Warning>
-    Keep your API key secure and never share it publicly. Treat it like a password.
+    Custodisci la tua API key e non condividerla mai pubblicamente. Trattala come una password.
 </Warning>
 
 ---
 
-## Endpoints
+## Endpoint
 
-### Configure Webhook URLs
+### Configurare gli URL dei webhook
 
-Configure target URLs where Whappy AI will send data when specific events occur in your conversations.
+Configura gli URL a cui Whappy invierà i dati quando si verificano determinati eventi nelle conversazioni.
 
-#### Set Appointment Webhook URL
+#### Impostare l'URL webhook per gli appuntamenti
 
-Configure where to send data when a lead schedules an appointment.
+Configura dove inviare i dati quando un lead fissa un appuntamento.
 
 ```bash
 POST /zap/url/appointment
 ```
 
-**Request Body:**
+**Corpo della richiesta:**
 ```json
 {
   "targetUrl": "https://your-webhook-endpoint.com/appointment"
 }
 ```
 
-**Headers:**
+**Header:**
 ```bash
 Content-Type: application/json
 X-API-Key: your_api_key_here
 ```
 
-**Response Codes:**
-- `200 OK`: URL successfully configured
-- `304 Not Modified`: URL update failed
-- `400 Bad Request`: Invalid request data
-- `401 Unauthorized`: Missing or invalid API key
-- `500 Internal Server Error`: Server error
+**Codici di risposta:**
+- `200 OK`: URL configurato correttamente
+- `304 Not Modified`: aggiornamento dell'URL non riuscito
+- `400 Bad Request`: dati della richiesta non validi
+- `401 Unauthorized`: API key mancante o non valida
+- `500 Internal Server Error`: errore del server
 
-**Example Request:**
+**Esempio di richiesta:**
 ```bash
 curl -X POST https://api.whappy.ai/v1/zap/url/appointment \
   -H "Content-Type: application/json" \
@@ -72,9 +72,9 @@ curl -X POST https://api.whappy.ai/v1/zap/url/appointment \
   -d '{"targetUrl": "https://hooks.zapier.com/hooks/catch/123456/abcdef/"}'
 ```
 
-#### Set Close Event Webhook URL
+#### Impostare l'URL webhook per l'evento di chiusura
 
-Configure where to send data when a lead reaches a "close" step in the conversation.
+Configura dove inviare i dati quando un lead raggiunge un passaggio di "chiusura" nella conversazione.
 
 ```bash
 POST /zap/url/close
@@ -95,19 +95,19 @@ curl -X POST https://api.whappy.ai/v1/zap/url/close \
   -d '{"targetUrl": "https://hooks.zapier.com/hooks/catch/123456/ghijkl/"}'
 ```
 
-#### Remove Appointment Webhook URL
+#### Rimuovere l'URL webhook degli appuntamenti
 
-Remove the configured webhook URL for appointment events.
+Rimuove l'URL webhook configurato per gli eventi di appuntamento.
 
 ```bash
 DELETE /zap/url/appointment
 ```
 
 **Response Codes:**
-- `200 OK`: URL successfully removed
-- `304 Not Modified`: URL removal failed
-- `401 Unauthorized`: Missing or invalid API key
-- `500 Internal Server Error`: Server error
+- `200 OK`: URL rimosso correttamente
+- `304 Not Modified`: rimozione dell'URL non riuscita
+- `401 Unauthorized`: API key mancante o non valida
+- `500 Internal Server Error`: errore del server
 
 **Example Request:**
 ```bash
@@ -115,9 +115,9 @@ curl -X DELETE https://api.whappy.ai/v1/zap/url/appointment \
   -H "X-API-Key: your_api_key_here"
 ```
 
-#### Remove Close Event Webhook URL
+#### Rimuovere l'URL webhook dell'evento di chiusura
 
-Remove the configured webhook URL for close events.
+Rimuove l'URL webhook configurato per gli eventi di chiusura.
 
 ```bash
 DELETE /zap/url/close
@@ -129,19 +129,19 @@ curl -X DELETE https://api.whappy.ai/v1/zap/url/close \
   -H "X-API-Key: your_api_key_here"
 ```
 
-### Test Integration
+### Provare l'integrazione
 
-#### Test Connection
+#### Prova di connessione
 
-Test your API connection and authentication. Use this endpoint to verify your integration is working correctly.
+Verifica connessione e autenticazione. Usa questo endpoint per controllare che l'integrazione funzioni.
 
 ```bash
 POST /zap
 ```
 
 **Response Codes:**
-- `200 OK`: Connection successful
-- `401 Unauthorized`: Authentication failed
+- `200 OK`: connessione riuscita
+- `401 Unauthorized`: autenticazione fallita
 
 **Example Request:**
 ```bash
@@ -149,7 +149,7 @@ curl -X POST https://api.whappy.ai/v1/zap \
   -H "X-API-Key: your_api_key_here"
 ```
 
-**Success Response:**
+**Risposta positiva:**
 ```json
 {
   "status": "success",
@@ -157,18 +157,18 @@ curl -X POST https://api.whappy.ai/v1/zap \
 }
 ```
 
-### Get Sample Data
+### Ottenere dati di esempio
 
-#### Retrieve Sample Data
+#### Recuperare dati di esempio
 
-Get a sample of the data structure that will be sent to your webhook URLs. Essential for setting up Zapier workflows.
+Ottieni un esempio della struttura dati che verrà inviata ai tuoi URL webhook. Indispensabile per configurare i flussi Zapier.
 
 ```bash
 GET /zap/sample/{event_name}
 ```
 
-**Parameters:**
-- `event_name`: Either `appointment` or `close`
+**Parametri:**
+- `event_name`: `appointment` oppure `close`
 
 **Example Request:**
 ```bash
@@ -176,7 +176,7 @@ curl -X GET https://api.whappy.ai/v1/zap/sample/appointment \
   -H "X-API-Key: your_api_key_here"
 ```
 
-**Example Response:**
+**Esempio di risposta:**
 ```json
 [
   {
@@ -197,35 +197,35 @@ curl -X GET https://api.whappy.ai/v1/zap/sample/appointment \
 
 ---
 
-## Data Models
+## Modelli di dati
 
 ### DataPayload
 
-The main data structure sent to your webhook URLs when events occur:
+La struttura dati principale inviata ai tuoi URL webhook quando si verifica un evento:
 
-| Field | Type | Required | Description |
-|-------|------|----------|-------------|
-| `lead_id` | string | Yes | Unique identifier for the lead |
-| `created_at` | string | Yes | ISO 8601 timestamp when the lead was created |
-| `phone` | string | Yes | Lead's phone number with country code |
-| `name` | string | Yes | Lead's full name |
-| `lead_info_json` | string | No | JSON string containing lead source and campaign information |
-| `collected_info_json` | string | No | JSON string with information collected during the conversation |
-| `appointment` | [AppointmentPayload](#appointmentpayload) | No | Appointment details (only for appointment events) |
-| `conversation_json` | string | No | JSON string containing the full conversation history |
-| `appointment_json` | string | No | JSON string with detailed appointment information |
+| Campo | Tipo | Obbligatorio | Descrizione |
+|-------|------|--------------|-------------|
+| `lead_id` | string | Sì | Identificatore univoco del lead |
+| `created_at` | string | Sì | Data e ora ISO 8601 di creazione del lead |
+| `phone` | string | Sì | Numero di telefono del lead con prefisso internazionale |
+| `name` | string | Sì | Nome completo del lead |
+| `lead_info_json` | string | No | Stringa JSON con origine del lead e informazioni sulla campagna |
+| `collected_info_json` | string | No | Stringa JSON con le informazioni raccolte durante la conversazione |
+| `appointment` | [AppointmentPayload](#appointmentpayload) | No | Dettagli dell'appuntamento (solo per gli eventi di appuntamento) |
+| `conversation_json` | string | No | Stringa JSON con lo storico completo della conversazione |
+| `appointment_json` | string | No | Stringa JSON con i dettagli dell'appuntamento |
 
 ### AppointmentPayload
 
-Appointment-specific information included in appointment events:
+Informazioni specifiche incluse negli eventi di appuntamento:
 
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
-| `full_date` | string | Yes | ISO 8601 timestamp of the scheduled appointment |
+| `full_date` | string | Sì | Data e ora ISO 8601 dell'appuntamento fissato |
 
-### Parsed JSON Fields
+### Campi JSON da interpretare
 
-The JSON string fields contain structured data that can be parsed:
+I campi stringa JSON contengono dati strutturati che puoi interpretare:
 
 #### lead_info_json
 ```json
@@ -255,12 +255,12 @@ The JSON string fields contain structured data that can be parsed:
     {
       "timestamp": "2025-05-22T10:30:00Z",
       "sender": "ai",
-      "content": "Hello! How can I help you today?"
+      "content": "Ciao! Come posso aiutarti oggi?"
     },
     {
       "timestamp": "2025-05-22T10:31:00Z",
       "sender": "lead",
-      "content": "I'm interested in your web design services"
+      "content": "Mi interessano i vostri servizi di web design"
     }
   ],
   "duration": 300,
@@ -281,11 +281,11 @@ The JSON string fields contain structured data that can be parsed:
 
 ---
 
-## Webhook Payload Examples
+## Esempi di payload webhook
 
-### Lead Closed Event
+### Evento Lead Closed
 
-When a lead successfully completes the conversation funnel:
+Quando un lead completa il funnel di conversazione:
 
 ```json
 {
@@ -300,9 +300,9 @@ When a lead successfully completes the conversation funnel:
 }
 ```
 
-### Appointment Scheduled Event
+### Evento Appointment Scheduled
 
-When a lead books an appointment:
+Quando un lead fissa un appuntamento:
 
 ```json
 {
@@ -322,64 +322,64 @@ When a lead books an appointment:
 
 ---
 
-## Integration Workflow
+## Flusso di integrazione
 
-### 1. Set Up Webhook Endpoints
+### 1. Configura gli endpoint webhook
 
-Configure where Whappy should send event data:
+Indica dove Whappy deve inviare i dati degli eventi:
 
 ```bash
-# Configure appointment webhook
+# Configura il webhook degli appuntamenti
 curl -X POST https://api.whappy.ai/v1/zap/url/appointment \
   -H "Content-Type: application/json" \
   -H "X-API-Key: your_api_key" \
   -d '{"targetUrl": "https://hooks.zapier.com/hooks/catch/123456/appointment/"}'
 
-# Configure close event webhook
+# Configura il webhook dell'evento di chiusura
 curl -X POST https://api.whappy.ai/v1/zap/url/close \
   -H "Content-Type: application/json" \
   -H "X-API-Key: your_api_key" \
   -d '{"targetUrl": "https://hooks.zapier.com/hooks/catch/123456/close/"}'
 ```
 
-### 2. Test Your Integration
+### 2. Prova l'integrazione
 
-Verify your API connection:
+Verifica la connessione API:
 
 ```bash
 curl -X POST https://api.whappy.ai/v1/zap \
   -H "X-API-Key: your_api_key"
 ```
 
-### 3. Get Sample Data
+### 3. Ottieni dati di esempio
 
-Understand the data structure you'll receive:
+Capisci la struttura dati che riceverai:
 
 ```bash
-# Get appointment event sample
+# Esempio di evento appuntamento
 curl -X GET https://api.whappy.ai/v1/zap/sample/appointment \
   -H "X-API-Key: your_api_key"
 
-# Get close event sample
+# Esempio di evento di chiusura
 curl -X GET https://api.whappy.ai/v1/zap/sample/close \
   -H "X-API-Key: your_api_key"
 ```
 
-### 4. Handle Webhook Data
+### 4. Gestisci i dati del webhook
 
-In your Zapier webhook handler, you'll receive the DataPayload structure. Parse the JSON fields as needed:
+Nel gestore webhook riceverai la struttura DataPayload. Interpreta i campi JSON secondo necessità:
 
 ```javascript
-// Example webhook handler (Node.js)
+// Esempio di gestore webhook (Node.js)
 app.post('/webhook/whappy-appointment', (req, res) => {
   const payload = req.body;
 
-  // Parse JSON fields
+  // Interpreta i campi JSON
   const leadInfo = JSON.parse(payload.lead_info_json || '{}');
   const collectedInfo = JSON.parse(payload.collected_info_json || '{}');
   const appointmentInfo = JSON.parse(payload.appointment_json || '{}');
 
-  // Process the data
+  // Elabora i dati
   console.log('New appointment scheduled:', {
     leadName: payload.name,
     phone: payload.phone,
@@ -394,14 +394,14 @@ app.post('/webhook/whappy-appointment', (req, res) => {
 
 ---
 
-## Common Use Cases
+## Casi d'uso comuni
 
-### CRM Integration
+### Integrazione CRM
 
-Automatically create or update contacts in your CRM:
+Crea o aggiorna automaticamente i contatti nel tuo CRM:
 
 ```javascript
-// Example: Send to HubSpot
+// Esempio: invio a HubSpot
 const hubspotContact = {
   properties: {
     firstname: payload.name.split(' ')[0],
@@ -413,12 +413,12 @@ const hubspotContact = {
 };
 ```
 
-### Calendar Integration
+### Integrazione con il calendario
 
-Add appointments to scheduling systems:
+Aggiungi gli appuntamenti ai sistemi di pianificazione:
 
 ```javascript
-// Example: Create Google Calendar event
+// Esempio: creazione di un evento su Google Calendar
 const calendarEvent = {
   summary: `Consultation with ${payload.name}`,
   start: {
@@ -429,12 +429,12 @@ const calendarEvent = {
 };
 ```
 
-### Email Marketing
+### Email marketing
 
-Add leads to email sequences:
+Aggiungi i lead alle sequenze email:
 
 ```javascript
-// Example: Add to Mailchimp list
+// Esempio: aggiunta a una lista Mailchimp
 const subscriber = {
   email_address: JSON.parse(payload.collected_info_json).email,
   status: 'subscribed',
@@ -448,19 +448,19 @@ const subscriber = {
 
 ---
 
-## Error Handling
+## Gestione degli errori
 
-### Standard HTTP Status Codes
+### Codici di stato HTTP standard
 
-| Code | Description | Action |
-|------|-------------|---------|
-| `200` | Success | Request completed successfully |
-| `304` | Not Modified | Resource wasn't modified (for updates) |
-| `400` | Bad Request | Check request parameters and body format |
-| `401` | Unauthorized | Verify your API key is correct |
-| `500` | Internal Server Error | Contact support if persistent |
+| Codice | Descrizione | Cosa fare |
+|--------|-------------|-----------|
+| `200` | Successo | Richiesta completata correttamente |
+| `304` | Not Modified | La risorsa non è stata modificata (negli aggiornamenti) |
+| `400` | Bad Request | Controlla parametri e formato del corpo della richiesta |
+| `401` | Unauthorized | Verifica che la tua API key sia corretta |
+| `500` | Internal Server Error | Contatta l'assistenza se persiste |
 
-### Error Response Format
+### Formato della risposta di errore
 
 ```json
 {
@@ -468,21 +468,21 @@ const subscriber = {
 }
 ```
 
-### Common Error Scenarios
+### Errori frequenti
 
 <AccordionGroup>
-    <Accordion title="Invalid API Key">
-        **Error Response:**
+    <Accordion title="API key non valida">
+        **Risposta di errore:**
         ```json
         {
             "detail": "Invalid authentication credentials"
         }
         ```
 
-        **Solution:** Verify your API key is copied correctly from the Whappy dashboard.
+        **Soluzione:** verifica di aver copiato correttamente la API key dalla dashboard di Whappy.
     </Accordion>
 
-    <Accordion title="Invalid Webhook URL">
+    <Accordion title="URL webhook non valido">
         **Error Response:**
         ```json
         {
@@ -490,10 +490,10 @@ const subscriber = {
         }
         ```
 
-        **Solution:** Ensure the webhook URL is properly formatted and accessible.
+        **Soluzione:** assicurati che l'URL sia formattato correttamente e raggiungibile.
     </Accordion>
 
-    <Accordion title="Webhook URL Not Reachable">
+    <Accordion title="URL webhook irraggiungibile">
         **Error Response:**
         ```json
         {
@@ -501,49 +501,49 @@ const subscriber = {
         }
         ```
 
-        **Solution:** Verify the webhook endpoint is online and accepting POST requests.
+        **Soluzione:** verifica che l'endpoint sia online e accetti richieste POST.
     </Accordion>
 </AccordionGroup>
 
 ---
 
-## Rate Limits
+## Limiti di frequenza
 
-- **General Rate Limit**: 100 requests per minute per API key
-- **Webhook Configuration**: 10 requests per minute
-- **Sample Data**: 50 requests per minute
+- **Limite generale**: 100 richieste al minuto per API key
+- **Configurazione webhook**: 10 richieste al minuto
+- **Dati di esempio**: 50 richieste al minuto
 
 <Note>
-    If you need higher rate limits for production use, contact our support team with your use case details.
+    Se ti servono limiti più alti per l'uso in produzione, contatta l'assistenza descrivendo il tuo caso d'uso.
 </Note>
 
 ---
 
-## Security Best Practices
+## Buone pratiche di sicurezza
 
-### API Key Management
-- Store API keys securely using environment variables
-- Never commit API keys to version control
-- Rotate API keys periodically
-- Use different API keys for development and production
+### Gestione delle API key
+- Conserva le chiavi in modo sicuro usando variabili d'ambiente
+- Non inserire mai una chiave nel controllo di versione
+- Ruota le chiavi periodicamente
+- Usa chiavi diverse per sviluppo e produzione
 
-### Webhook Security
-- Validate webhook payloads before processing
-- Use HTTPS endpoints for webhooks
-- Implement proper error handling and logging
-- Set up monitoring for webhook failures
+### Sicurezza dei webhook
+- Valida i payload prima di elaborarli
+- Usa endpoint HTTPS
+- Implementa una gestione degli errori e un logging adeguati
+- Monitora i fallimenti dei webhook
 
-### Data Handling
-- Parse JSON fields safely with try-catch blocks
-- Validate data types before processing
-- Sanitize data before storing or forwarding
-- Respect data privacy regulations (GDPR, CCPA)
+### Trattamento dei dati
+- Interpreta i campi JSON in sicurezza con blocchi try-catch
+- Valida i tipi di dato prima di elaborarli
+- Ripulisci i dati prima di archiviarli o inoltrarli
+- Rispetta le normative sulla privacy (GDPR)
 
 ---
 
-## Testing Your Integration
+## Provare l'integrazione
 
-### 1. Test API Connection
+### 1. Prova la connessione API
 
 ```bash
 curl -X POST https://api.whappy.ai/v1/zap \
@@ -551,30 +551,30 @@ curl -X POST https://api.whappy.ai/v1/zap \
   -v
 ```
 
-### 2. Configure Test Webhooks
+### 2. Configura webhook di prova
 
 ```bash
-# Use tools like ngrok for local testing
+# Usa strumenti come ngrok per i test in locale
 ngrok http 3000
 
-# Configure webhook with ngrok URL
+# Configura il webhook con l'URL ngrok
 curl -X POST https://api.whappy.ai/v1/zap/url/close \
   -H "Content-Type: application/json" \
   -H "X-API-Key: your_test_api_key" \
   -d '{"targetUrl": "https://abc123.ngrok.io/webhook/close"}'
 ```
 
-### 3. Validate Sample Data
+### 3. Verifica i dati di esempio
 
 ```bash
-# Get and validate sample data structure
+# Recupera e verifica la struttura dei dati di esempio
 curl -X GET https://api.whappy.ai/v1/zap/sample/close \
   -H "X-API-Key: your_test_api_key" | jq .
 ```
 
-### 4. Monitor Webhook Calls
+### 4. Monitora le chiamate webhook
 
-Set up logging in your webhook handler to monitor incoming data:
+Attiva il logging nel gestore webhook per monitorare i dati in arrivo:
 
 ```javascript
 app.post('/webhook/test', (req, res) => {
@@ -585,41 +585,41 @@ app.post('/webhook/test', (req, res) => {
 
 ---
 
-## Support
+## Assistenza
 
-For technical support or questions about the API:
+Per supporto tecnico o domande sull'API:
 
-- **Documentation**: Start from the [documentation home](/introduction)
-- **Dashboard Support**: Contact support through your Whappy dashboard
+- **Documentazione**: parti dalla [home della documentazione](/it/introduction)
+- **Assistenza dalla dashboard**: contatta il supporto dalla tua dashboard Whappy
 - **Email**: [team@whappy.ai](mailto:team@whappy.ai)
 
-### When Contacting Support
+### Quando contatti l'assistenza
 
-Include the following information:
-- Your API key (first 8 characters only)
-- Request/response examples
-- Error messages and HTTP status codes
-- Timestamp of the issue
-- Expected vs. actual behavior
-
----
-
-## Changelog
-
-### Version 1.0
-- Initial release
-- Support for appointment and close event webhooks
-- Sample data endpoint
-- Basic authentication via API key
-- Webhook URL configuration and management
+Includi queste informazioni:
+- La tua API key (solo i primi 8 caratteri)
+- Esempi di richiesta e risposta
+- Messaggi di errore e codici di stato HTTP
+- Data e ora del problema
+- Comportamento atteso e comportamento effettivo
 
 ---
 
-## SDK and Libraries
+## Cronologia delle versioni
 
-### Official Libraries
+### Versione 1.0
+- Prima release
+- Supporto per i webhook di appuntamento e chiusura
+- Endpoint per i dati di esempio
+- Autenticazione di base tramite API key
+- Configurazione e gestione degli URL webhook
 
-We're working on official SDKs for popular languages. In the meantime, here are community examples:
+---
+
+## SDK e librerie
+
+### Librerie ufficiali
+
+Stiamo lavorando a SDK ufficiali per i linguaggi più diffusi. Nel frattempo, ecco alcuni esempi:
 
 <Tabs>
     <Tab title="Node.js">
@@ -704,4 +704,4 @@ We're working on official SDKs for popular languages. In the meantime, here are 
     </Tab>
 </Tabs>
 
-Ready to build your Zapier integration? Start by testing your API connection and exploring the sample data endpoints!
+Tutto pronto per costruire la tua integrazione Zapier? Comincia provando la connessione API ed esplorando gli endpoint dei dati di esempio.

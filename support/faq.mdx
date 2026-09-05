@@ -46,7 +46,10 @@ icon: "question"
         - **Info Node**: Collects specific information from leads (text, numbers, multiple choice)
         - **Condition Node**: Creates branching logic based on collected information
         - **Talk Node**: Sends custom messages or responses
-        - **Appointment Node**: Schedules meetings using Calendly or Cal.com
+        - **Appointment Node**: Schedules meetings using Calendly, Cal.com or GoHighLevel
+        - **Send Data Node**: Sends collected data to a webhook, Zapier or a WhatsApp alert, mid-conversation
+        - **Send Document Node**: Sends PDFs or images from your [Assets](/campaign/assets) library
+        - **Send Voice Note Node**: Sends a pre-recorded voice message as a real WhatsApp voice note
         - **Close Node**: Ends the conversation and optionally sends data to external systems
     </Accordion>
 
@@ -76,7 +79,9 @@ icon: "question"
     <Accordion title="How are leads added to my system?">
         Leads can be added through:
         - Manual entry in the Leads page
+        - CSV import, up to 1,000 rows per file — see [Adding & managing leads](/leads/lead-management)
         - Zapier integration (automatic from forms, CRM, etc.)
+        - GoHighLevel contact sync
         - Webhook integration from your own systems
         - Direct API calls to your unique endpoint
     </Accordion>
@@ -96,7 +101,9 @@ icon: "question"
     </Accordion>
 
     <Accordion title="Can I manually send messages to leads?">
-        Currently, Whappy focuses on automated conversations through your configured funnel. Manual messaging capabilities may be added in future updates. For now, you can view conversation history and collected lead information.
+        Yes. Open **Chats**, select a conversation, and press **Stop AI conversation** to take over. The AI assistant stops replying and you can type directly in the message box.
+
+        Press **Continue AI conversation** to hand it back. The lead sees one continuous WhatsApp conversation and cannot tell where the handover happened. See [Conversation history](/leads/conversation-history).
     </Accordion>
 </AccordionGroup>
 
@@ -144,7 +151,7 @@ icon: "question"
         }
         ```
 
-        Include your API key in the Authorization header: `Bearer YOUR_API_KEY`
+        Include your API key in the `X-API-Key` header.
     </Accordion>
 </AccordionGroup>
 
@@ -169,7 +176,19 @@ icon: "question"
     </Accordion>
 
     <Accordion title="Can I run multiple campaigns simultaneously?">
-        Currently, Whappy supports one active campaign per account. You can create and test different funnels, but only one can be running at a time. Enterprise features may include multiple campaign support in the future.
+        Yes. The **Campaigns** page lists all your campaigns, each with its own funnel, leads, Coach and rehearsal, and each can be started and stopped independently.
+
+        You can also **duplicate** a campaign to use it as a starting point, and mark one as your **default**.
+    </Accordion>
+
+    <Accordion title="What does the Ready column mean?">
+        Each campaign row shows whether it can actually run. A campaign is ready only when three things are true:
+
+        - You have an **active subscription**
+        - **WhatsApp is connected**
+        - The **funnel is complete**
+
+        If any are missing, the row names the one that is missing rather than just refusing to start.
     </Accordion>
 </AccordionGroup>
 
@@ -229,17 +248,17 @@ icon: "question"
     </Accordion>
 
     <Accordion title="How do I handle webhook authentication?">
-        All webhook requests must include an Authorization header:
+        All webhook requests must include your API key in the `X-API-Key` header:
 
         ```
-        Authorization: Bearer YOUR_API_KEY
+        X-API-Key: YOUR_API_KEY
         ```
 
         Get your API key from the Integrations page. Keep this key secure and rotate it regularly for security.
     </Accordion>
 
     <Accordion title="Can I export my lead data?">
-        Currently, lead data can be viewed and managed through the Whappy interface. Data export features are planned for future releases. Enterprise customers can request custom data exports through support.
+        Yes. On a campaign's Leads tab, open the actions menu and choose **Export to CSV**. The export contains the leads currently listed, including the information collected from them, so filters and search narrow the export too.
     </Accordion>
 </AccordionGroup>
 
@@ -277,10 +296,9 @@ icon: "question"
 <AccordionGroup>
     <Accordion title="How does Whappy protect my data and my leads' data?">
         - All data is encrypted in transit and at rest
-        - SOC 2 Type II compliance (coming soon)
-        - Regular security audits and penetration testing
-        - GDPR and CCPA compliant data handling
+        - GDPR compliant data handling
         - Lead data is stored securely and never shared with third parties
+        - Access to your account is authenticated on every request, and the assistant's action log deliberately stores field names only, never their values
     </Accordion>
 
     <Accordion title="Can I delete lead data?">
@@ -288,6 +306,8 @@ icon: "question"
     </Accordion>
 
     <Accordion title="Where is my data stored?">
-        All data is stored in secure, SOC 2 compliant data centers. We use industry-standard encryption and security practices to protect your information. Specific data residency options may be available for enterprise customers.
+        Whappy runs on Google Cloud, with its services deployed in European regions. We use industry-standard encryption and security practices to protect your information.
+
+        If you need a specific written commitment on data residency — for a procurement review or a DPA — [contact support](/support/contact-support) and we will confirm the current arrangement for your account in writing.
     </Accordion>
 </AccordionGroup>

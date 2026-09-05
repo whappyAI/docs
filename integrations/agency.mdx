@@ -1,0 +1,62 @@
+---
+title: "Agency accounts"
+description: "White-labelling the dashboard for clients you onboard through the GoHighLevel Marketplace."
+icon: "buildings"
+---
+
+If you install Whappy on a client's sub-account through the GoHighLevel Marketplace, their dashboard can carry your name instead of ours and ours instead of the CRM vendor's.
+
+## What white-label changes
+
+When white-label is on:
+
+- The dashboard shows **your product name** and **your logo**.
+- Support links point at **your support address**, not ours.
+- The CRM is referred to as **"CRM"** everywhere instead of by the vendor's name — in labels, help text and the URLs your client can see. The callback your client lands on is `/integrations/crm/callback`.
+
+Everything else works identically. White-label changes what your client reads, not what the platform does.
+
+## When it switches on
+
+White-label has three states, and the difference between the middle one and the others matters:
+
+| Setting | Behaviour |
+| --- | --- |
+| **On** | Vendor names hidden, always. |
+| **Off** | Vendor names shown, always. |
+| **Inherit** | Decided by how the account arrived. |
+
+**Inherit is the default**, and under it a tenant who arrived through a **Marketplace install** is white-labelled automatically. An account that connected any other way is not.
+
+This means the common case needs no configuration: install through the Marketplace and your client's dashboard is already white-labelled. Set it explicitly only when you want to override that.
+
+<Note>
+    Turning it explicitly **off** is not the same as leaving it on **inherit**. Off means "show vendor names even though this was a Marketplace install".
+</Note>
+
+## What you can set
+
+| Field | Limit |
+| --- | --- |
+| **Product name** shown in the dashboard | 60 characters |
+| **Logo** — an absolute `https://` URL | 2048 characters |
+| **Support email** where your clients ask for help | 254 characters |
+
+Leave a field empty to use the Whappy default for it. The fields are independent, so you can set a name without a logo.
+
+## Onboarding a client
+
+<Steps>
+    <Step title="Install the app on their sub-account">
+        From Integrations, use **Connect with GoHighLevel** on the client's account. See [GoHighLevel](/integrations/gohighlevel) for the full flow.
+    </Step>
+    <Step title="Set the branding">
+        Product name, logo and support email. White-label is already on by default for a Marketplace install.
+    </Step>
+    <Step title="Build and rehearse the campaign">
+        [Rehearse](/autopilot/rehearsal) before handing the account over — it costs nothing and it is what stops a client's first real lead being the first test of the funnel.
+    </Step>
+    <Step title="Set their Autopilot permissions">
+        A client account starts at **Read only**. Decide deliberately how much [Autopilot](/autopilot/trust-levels) they should have.
+    </Step>
+</Steps>

@@ -1,0 +1,61 @@
+---
+title: "Adding & managing leads"
+description: "Add leads one at a time or import them in bulk from a CSV file."
+icon: "user-plus"
+---
+
+Leads reach a campaign in one of four ways: you add them by hand, you import a CSV, they arrive from an [integration](/integrations/webhook), or they come in from a [Meta lead ad](/integrations/meta-conversions).
+
+## Adding a single lead
+
+From the campaign's Leads tab, open the actions menu and choose **Add single lead**. You need a name and a phone number in full international format; email and any of your own information fields are optional.
+
+## Importing from CSV
+
+Choose **Import from CSV**. The import runs in five steps.
+
+<Steps>
+    <Step title="Upload">
+        Select your file. The first row must contain column headers.
+    </Step>
+    <Step title="Map columns">
+        Tell Whappy what each column is: **Name**, **Phone**, **Email**, one of your own information fields, or **Do not import**.
+
+        Name and phone are required. Any other column can be mapped onto a custom field so the imported value is available to the AI assistant in conversation.
+    </Step>
+    <Step title="Preview and validate">
+        Whappy checks the mapping and the data, and reports two kinds of problem: **mapping issues**, which send you back a step, and **validation warnings** on individual rows.
+    </Step>
+    <Step title="Import">
+        Rows are added to the campaign.
+    </Step>
+    <Step title="Complete">
+        A summary of what was imported.
+    </Step>
+</Steps>
+
+### File requirements
+
+- First row must contain **column headers**.
+- **Name** and **Phone** columns are required.
+- **Email** and custom information columns are optional.
+- Phone numbers must include **country codes** — for example `+34644123456`.
+- Maximum **1,000 rows** per import.
+
+<Note>
+    Split a larger list into several files of up to 1,000 rows. Importing the same lead twice does not create a duplicate when the lead arrives from a connected integration, but a CSV row is taken at face value — check before re-importing a file.
+</Note>
+
+## Deleting leads
+
+Delete one lead from its row's actions menu, or tick several and use **Delete selected**. The selection bar shows how many are selected and lets you clear the selection.
+
+Deleting a lead removes its conversation history with it.
+
+## Test leads
+
+A campaign can hold test leads alongside real ones so you can try a funnel end to end without messaging a real person.
+
+<Note>
+    For testing a whole funnel against realistic, difficult customers rather than one lead of your own, use [Rehearsal](/autopilot/rehearsal) instead — it runs six personas through the campaign and contacts nobody.
+</Note>

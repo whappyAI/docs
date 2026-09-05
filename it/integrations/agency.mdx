@@ -1,0 +1,62 @@
+---
+title: "Account agenzia"
+description: "Personalizzare la dashboard con il tuo marchio per i clienti che porti dal Marketplace GoHighLevel."
+icon: "buildings"
+---
+
+Se installi Whappy sul sotto-account di un cliente tramite il Marketplace GoHighLevel, la sua dashboard può portare il tuo nome al posto del nostro, e il nostro al posto di quello del fornitore CRM.
+
+## Cosa cambia con il marchio personalizzato
+
+Quando è attivo:
+
+- La dashboard mostra **il nome del tuo prodotto** e **il tuo logo**.
+- I link di assistenza puntano al **tuo indirizzo di supporto**, non al nostro.
+- Il CRM viene chiamato **"CRM"** ovunque, invece che con il nome del fornitore — nelle etichette, nei testi di aiuto e negli URL che il tuo cliente può leggere. Il callback su cui atterra è `/integrations/crm/callback`.
+
+Tutto il resto funziona in modo identico. Il marchio personalizzato cambia ciò che legge il tuo cliente, non ciò che fa la piattaforma.
+
+## Quando si attiva
+
+Ha tre stati, e la differenza fra quello centrale e gli altri conta:
+
+| Impostazione | Comportamento |
+| --- | --- |
+| **Attivo** | Nomi dei fornitori sempre nascosti. |
+| **Disattivo** | Nomi dei fornitori sempre visibili. |
+| **Eredita** | Deciso da come è arrivato l'account. |
+
+**Eredita è l'impostazione predefinita**: con essa un cliente arrivato tramite **installazione dal Marketplace** riceve automaticamente il marchio personalizzato. Un account collegato in altro modo no.
+
+Il caso più comune non richiede quindi alcuna configurazione: installa dal Marketplace e la dashboard del tuo cliente è già personalizzata. Imposta il valore esplicitamente solo se vuoi forzare il contrario.
+
+<Note>
+    Metterlo esplicitamente su **disattivo** non equivale a lasciarlo su **eredita**. Disattivo significa "mostra i nomi dei fornitori anche se è un'installazione dal Marketplace".
+</Note>
+
+## Cosa puoi impostare
+
+| Campo | Limite |
+| --- | --- |
+| **Nome del prodotto** mostrato nella dashboard | 60 caratteri |
+| **Logo** — un URL assoluto `https://` | 2048 caratteri |
+| **Email di assistenza** a cui scrivono i tuoi clienti | 254 caratteri |
+
+Lascia vuoto un campo per usare il valore predefinito di Whappy. I campi sono indipendenti: puoi impostare un nome senza un logo.
+
+## Onboarding di un cliente
+
+<Steps>
+    <Step title="Installa l'app sul suo sotto-account">
+        Da Integrazioni, usa **Connetti con GoHighLevel** sull'account del cliente. La procedura completa è in [GoHighLevel](/it/integrations/gohighlevel).
+    </Step>
+    <Step title="Imposta il marchio">
+        Nome del prodotto, logo ed email di assistenza. Per un'installazione dal Marketplace il marchio personalizzato è già attivo.
+    </Step>
+    <Step title="Costruisci la campagna e fai la prova generale">
+        Fai la [prova generale](/it/autopilot/rehearsal) prima di consegnare l'account: non costa nulla ed è ciò che evita che il primo lead vero del cliente sia anche il primo test del funnel.
+    </Step>
+    <Step title="Imposta i permessi di Autopilot">
+        L'account di un cliente parte da **Sola lettura**. Decidi con attenzione quanto [Autopilot](/it/autopilot/trust-levels) concedergli.
+    </Step>
+</Steps>

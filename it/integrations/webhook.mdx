@@ -1,0 +1,231 @@
+---
+title: "Webhook"
+description: "Aggiungi lead alla tua campagna Whappy automaticamente tramite webhook"
+icon: "webhook"
+---
+
+I webhook sono il modo automatico per aggiungere lead alle tue campagne Whappy. Invece di importarli a mano o passare da altre integrazioni, puoi inviare i dati direttamente a Whappy con richieste HTTP POST.
+
+## Quando usare i webhook
+
+I webhook sono perfetti per:
+- **Moduli del sito**: aggiungere un lead appena qualcuno compila un modulo di contatto
+- **Applicazioni su misura**: integrare i tuoi sistemi software esistenti
+- **Strumenti di terze parti**: collegare servizi non supportati direttamente
+- **Importazione in tempo reale**: aggiungere i lead nel momento in cui vengono generati
+
+## Configurare il webhook
+
+### 1. Ottieni la tua API key
+
+Vai su **Integrazioni → Webhook** nella dashboard di Whappy per trovare la tua API key. Questa chiave autentica le richieste e garantisce che i lead finiscano sul tuo account.
+
+<Warning>
+    Custodisci la tua API key e non condividerla pubblicamente. Chiunque la possieda può aggiungere lead al tuo account.
+</Warning>
+
+### 2. Endpoint API
+
+Invia richieste POST a:
+```
+POST https://api.whappy.ai/v1/lead
+```
+
+### 3. Header obbligatori
+
+Includi questi header nelle richieste:
+```
+Content-Type: application/json
+X-API-Key: la-tua-api-key
+```
+
+## Formato della richiesta
+
+### Campi obbligatori
+- **name**: nome completo del lead
+- **phone**: numero di telefono (con prefisso internazionale)
+
+### Campi facoltativi
+- **email**: indirizzo email del lead
+- **company**: nome dell'azienda
+- **source**: da dove arriva il lead (es. "Sito", "Facebook")
+- **custom_fields**: dati aggiuntivi come coppie chiave-valore
+
+### Esempio di corpo della richiesta
+```json
+{
+  "name": "Mario Rossi",
+  "phone": "+393441234567",
+  "email": "mario@esempio.it",
+  "company": "Acme Srl",
+  "source": "Sito",
+  "custom_fields": {
+    "budget": "10000",
+    "interest": "Prodotto A"
+  }
+}
+```
+
+## Esempi di codice
+
+<Tabs>
+    <Tab title="cURL">
+        ```bash
+        curl -X POST https://api.whappy.ai/v1/lead \
+        -H "Content-Type: application/json" \
+        -H "X-API-Key: la-tua-api-key" \
+        -d '{
+        "name": "Mario Rossi",
+        "phone": "+393441234567",
+        "email": "mario@esempio.it",
+        "company": "Acme Srl",
+        "source": "Sito"
+    }'
+        ```
+    </Tab>
+
+    <Tab title="JavaScript">
+        ```javascript
+        fetch('https://api.whappy.ai/v1/lead', {
+        method: 'POST',
+        headers: {
+        'Content-Type': 'application/json',
+        'X-API-Key': 'la-tua-api-key'
+    },
+        body: JSON.stringify({
+        name: 'Mario Rossi',
+        phone: '+393441234567',
+        email: 'mario@esempio.it',
+        company: 'Acme Srl',
+        source: 'Sito'
+    })
+    })
+        .then(response => response.json())
+        .then(data => console.log(data))
+        .catch(error => console.error('Errore:', error));
+        ```
+    </Tab>
+
+    <Tab title="Python">
+        ```python
+        import requests
+        import json
+
+        url = "https://api.whappy.ai/v1/lead"
+        headers = {
+        "Content-Type": "application/json",
+        "X-API-Key": "la-tua-api-key"
+    }
+        payload = {
+        "name": "Mario Rossi",
+        "phone": "+393441234567",
+        "email": "mario@esempio.it",
+        "company": "Acme Srl",
+        "source": "Sito"
+    }
+
+        response = requests.post(url, headers=headers, data=json.dumps(payload))
+        print(response.json())
+        ```
+    </Tab>
+</Tabs>
+
+## Formato della risposta
+
+### Risposta positiva
+```json
+{
+  "status": "success",
+  "data": {
+    "id": "lead_12345",
+    "name": "Mario Rossi",
+    "phone": "+393441234567",
+    "created_at": "2026-01-15T10:30:00Z"
+  }
+}
+```
+
+### Risposta di errore
+```json
+{
+  "status": "error",
+  "message": "Formato del numero di telefono non valido"
+}
+```
+
+## Usare i campi personalizzati
+
+I campi personalizzati inviati nel payload possono essere usati come variabili nei template dei messaggi WhatsApp. Per esempio, se invii:
+
+```json
+{
+  "name": "Mario Rossi",
+  "phone": "+393441234567",
+  "custom_fields": {
+    "budget": "50000",
+    "timeline": "3 mesi"
+  }
+}
+```
+
+puoi usare `{{budget}}` e `{{timeline}}` nei tuoi template:
+```
+Ciao {{name}}, vedo che cerchi una soluzione con un budget di {{budget}} e tempistiche di {{timeline}}. Parliamone!
+```
+
+## Provare il webhook
+
+1. **Usa l'API key della tua dashboard**
+2. **Fai una semplice richiesta cURL** per verificare la connettività
+3. **Controlla la sezione Lead** per confermare che il lead sia stato aggiunto
+4. **Verifica che la campagna elabori il lead** correttamente
+
+<Tip>
+    Comincia con una richiesta di prova che usi solo i campi obbligatori (name e phone), prima di aggiungere i campi personalizzati.
+</Tip>
+
+## Casi d'uso comuni
+
+### Moduli di contatto del sito
+Aggiungi questo JavaScript ai moduli del tuo sito:
+```javascript
+// Dopo l'invio del modulo
+const formData = {
+  name: document.getElementById('name').value,
+  phone: document.getElementById('phone').value,
+  email: document.getElementById('email').value,
+  source: 'Modulo di contatto del sito'
+};
+
+// Invio a Whappy
+fetch('https://api.whappy.ai/v1/lead', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+    'X-API-Key': 'la-tua-api-key'
+  },
+  body: JSON.stringify(formData)
+});
+```
+
+## Buone pratiche di sicurezza
+
+- **Usa solo HTTPS** per tutte le richieste
+- **Conserva le API key in modo sicuro** (variabili d'ambiente, non nel codice)
+- **Valida i dati** prima di inviarli, per prevenire errori
+- **Gestisci gli errori** con eleganza nella tua applicazione
+- **Monitora l'uso del webhook** per individuare attività anomale
+
+## Risoluzione dei problemi
+
+**Il lead non compare?**
+- Controlla che l'API key sia corretta
+- Verifica che il numero includa il prefisso internazionale
+- Assicurati che la campagna sia in esecuzione
+
+**Ricevi errori?**
+- Verifica che tutti i campi obbligatori siano presenti
+- Controlla che il formato della richiesta corrisponda agli esempi
+- Verifica che la tua API key abbia i permessi corretti
+
+Ti serve aiuto? Consulta le [FAQ](/it/support/faq) o [contatta l'assistenza](/it/support/contact-support).

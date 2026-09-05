@@ -1,0 +1,195 @@
+---
+title: "Cal.com"
+description: "Fissa appuntamenti automaticamente con i lead qualificati usando il tuo calendario Cal.com"
+icon: "calendar-check"
+---
+
+L'integrazione con Cal.com permette al tuo assistente AI su WhatsApp di fissare appuntamenti con i lead qualificati in base alla tua disponibilità in tempo reale. Invece di scambiarsi messaggi per trovare una data, i lead prenotano direttamente dal funnel di conversazione.
+
+## Come funziona
+
+Quando un lead arriva a un nodo **Fissa appuntamento** del funnel:
+
+1. **L'AI controlla la disponibilità** sul tuo calendario Cal.com in tempo reale
+2. **Propone le fasce libere** al lead via WhatsApp
+3. **Fissa l'appuntamento** automaticamente quando il lead sceglie un orario
+4. **Invia la conferma** a te e al lead
+
+Il risultato è un'esperienza fluida in cui i lead qualificati prenotano senza uscire dalla conversazione WhatsApp.
+
+## Configurare l'integrazione
+
+### 1. Ottieni la tua API key di Cal.com
+
+Per prima cosa genera una API key dal tuo account Cal.com:
+
+1. Accedi al tuo [account Cal.com](https://cal.com)
+2. Vai su **Settings** → **Developer** → **API Keys**
+3. Premi **"Create New API Key"**
+4. Copia la chiave generata
+
+<Warning>
+    Custodisci la tua API key. Chiunque la possieda può accedere alle informazioni del tuo calendario e fissare appuntamenti.
+</Warning>
+
+### 2. Configura in Whappy
+
+1. Vai su **Integrazioni → Cal.com** nella dashboard di Whappy
+2. Incolla la chiave nel campo **API Key**
+3. Premi **Salva** per collegare l'account
+
+A collegamento riuscito comparirà un messaggio di conferma verde che indica che Cal.com è pronto all'uso.
+
+### 3. Prepara i tuoi eventi Cal.com
+
+Assicurati che i tipi di evento siano configurati correttamente:
+
+- **Impostati come pubblici**: gli eventi devono essere prenotabili pubblicamente
+- **Prenotazione attiva**: verifica che la prenotazione sia consentita per gli eventi che vuoi usare
+- **Durata**: imposta durate adeguate (15 min, 30 min, 1 ora…)
+- **Disponibilità**: definisci giorni e orari in cui sei disponibile
+
+<Tip>
+    Crea tipi di evento specifici per i diversi tipi di lead (per esempio "Demo commerciale - 30 min", "Call di consulenza - 45 min") per tenere il calendario più ordinato.
+</Tip>
+
+## Usare Cal.com nel funnel
+
+### Aggiungere nodi Fissa appuntamento
+
+Nel costruttore in **Campagna → Funnel**:
+
+1. Trascina un nodo **Fissa appuntamento** nel flusso
+2. Configura il nodo:
+- **Seleziona l'evento del calendario**: scegli quale tipo di evento Cal.com usare
+- **Testo del messaggio**: personalizza cosa dice l'AI quando propone la prenotazione
+- **Messaggio di conferma**: imposta cosa vede il lead dopo aver prenotato
+
+### Esempio di flusso
+
+```
+Nodo Dialogo: "Qual è il tuo budget per questo progetto?"
+↓
+Nodo Condizione: Budget > 5.000 €?
+↓ (Sì)
+Nodo Fissa appuntamento: "Ottimo! Fissiamo una call per parlare del progetto nel dettaglio."
+↓
+Nodo Chiusura: "Grazie! Ti ho inviato l'invito nel calendario. A presto!"
+```
+
+### Esempio di conversazione
+
+Ecco come può presentarsi la prenotazione:
+
+**AI**: "In base alle tue esigenze, mi piacerebbe fissare una consulenza di 30 minuti. Ho disponibilità questa settimana:"
+
+**AI**: "• Domani (16 gennaio) alle 14:00"
+**AI**: "• Giovedì (18 gennaio) alle 10:00"
+**AI**: "• Venerdì (19 gennaio) alle 15:30"
+
+**Lead**: "Giovedì alle 10 mi va bene"
+
+**AI**: "Perfetto! Ho fissato giovedì 18 gennaio alle 10:00. Riceverai a breve l'invito con i dettagli."
+
+## Vantaggi dell'integrazione
+
+### **Disponibilità in tempo reale**
+- Nessuna sovrapposizione o conflitto di agenda
+- Mostra sempre le fasce realmente libere
+- Rispetta le impostazioni e i blocchi del tuo calendario
+
+### **Prenotazione automatica**
+- Il lead prenota subito, senza attendere una risposta umana
+- Riduce gli attriti nel processo di vendita
+- Funziona 24 ore su 24, anche quando non ci sei
+
+### **Esperienza professionale**
+- Integrazione fluida dentro la conversazione WhatsApp
+- Inviti e promemoria automatici
+- Esperienza di prenotazione uniforme per tutti i lead
+
+### **Gestione del calendario**
+- Tutte le prenotazioni compaiono nel tuo calendario Cal.com
+- Si integra con Google Calendar, Outlook e altre app
+- Non stravolge il tuo modo di lavorare
+
+## Configurazione avanzata
+
+### Più tipi di evento
+
+Puoi creare tipi di evento diversi per scenari diversi:
+
+- **Call conoscitiva** (15 minuti) — per la qualificazione iniziale
+- **Demo di prodotto** (30 minuti) — per i lead interessati
+- **Sessione strategica** (60 minuti) — per i lead di alto valore
+
+Poi usa nodi **Fissa appuntamento** diversi nel funnel in base al livello di qualificazione.
+
+### Prenotazione condizionale
+
+Usa i nodi **Condizione** prima dei nodi **Fissa appuntamento** per qualificare i lead:
+
+```
+Condizione: Budget > 10.000 €?
+├─ Sì → Prenota "Sessione strategica" (60 min)
+└─ No → Prenota "Call rapida" (15 min)
+```
+
+### Tempo cuscinetto
+
+Configura il buffer in Cal.com per:
+- Evitare incontri uno dietro l'altro
+- Lasciare tempo per gli spostamenti
+- Avere tempo di prepararti
+
+## Risoluzione dei problemi
+
+### **Il nodo appuntamento non funziona?**
+- Verifica che l'API key di Cal.com sia corretta
+- Controlla che i tipi di evento siano impostati come "pubblici"
+- Assicurati che la prenotazione sia attiva per l'evento selezionato
+
+### **Non compaiono orari disponibili?**
+- Controlla le impostazioni di disponibilità su Cal.com
+- Verifica che il calendario non sia già pieno
+- Assicurati che la durata dell'evento rientri nelle fasce libere
+
+### **I lead non ricevono gli inviti?**
+- Verifica che l'integrazione email sia configurata su Cal.com
+- Controlla che i lead abbiano fornito indirizzi email validi
+- Verifica le impostazioni di notifica su Cal.com
+
+## Buone pratiche
+
+### **Configurazione dei tipi di evento**
+- Usa nomi chiari e descrittivi
+- Imposta durate adeguate al tipo di conversazione
+- Includi descrizioni e istruzioni di preparazione
+
+### **Gestione della disponibilità**
+- Tieni aggiornata la disponibilità su Cal.com
+- Usa i tempi cuscinetto per evitare conflitti
+- Imposta orari che rispecchino la tua reale disponibilità
+
+### **Progettazione del funnel**
+- Proponi la prenotazione solo ai lead qualificati
+- Usa i nodi condizione per indirizzare tipi di lead diversi a durate diverse
+- Spiega chiaramente di cosa si parlerà nell'incontro
+
+### **Gestione del follow-up**
+- Configura promemoria automatici via email su Cal.com
+- Prepara l'ordine del giorno in base alle informazioni raccolte
+- Definisci una procedura per assenze e spostamenti di data
+
+## In sintesi
+
+L'integrazione con Cal.com trasforma il processo di qualificazione:
+
+- **Meno lavoro manuale**: niente più email avanti e indietro per fissare una data
+- **Più conversioni**: i lead qualificati prenotano finché sono interessati
+- **Esperienza migliore**: prenotazione professionale e senza attriti
+- **Scalabilità**: gestisce automaticamente le prenotazioni di centinaia di lead
+
+Pronto ad attivare la prenotazione automatica? Vai su **Integrazioni → Cal.com**.
+
+Ti serve aiuto? Consulta le [FAQ](/it/support/faq) o [contatta l'assistenza](/it/support/contact-support).

@@ -28,7 +28,7 @@ Navigate to **Integrations → Webhook** in your Whappy dashboard to find your u
 
 Send POST requests to:
 ```
-POST https://api.whappie.com/v1/lead
+POST https://api.whappy.ai/v1/lead
 ```
 
 ### 3. Required Headers
@@ -71,7 +71,7 @@ X-API-Key: your-api-key-here
 <Tabs>
     <Tab title="cURL">
         ```bash
-        curl -X POST https://api.whappie.com/v1/lead \
+        curl -X POST https://api.whappy.ai/v1/lead \
         -H "Content-Type: application/json" \
         -H "X-API-Key: your-api-key-here" \
         -d '{
@@ -86,7 +86,7 @@ X-API-Key: your-api-key-here
 
     <Tab title="JavaScript">
         ```javascript
-        fetch('https://api.whappie.com/v1/lead', {
+        fetch('https://api.whappy.ai/v1/lead', {
         method: 'POST',
         headers: {
         'Content-Type': 'application/json',
@@ -111,7 +111,7 @@ X-API-Key: your-api-key-here
         import requests
         import json
 
-        url = "https://api.whappie.com/v1/lead"
+        url = "https://api.whappy.ai/v1/lead"
         headers = {
         "Content-Type": "application/json",
         "X-API-Key": "your-api-key-here"
@@ -199,7 +199,7 @@ const formData = {
 };
 
 // Send to Whappy
-fetch('https://api.whappie.com/v1/lead', {
+fetch('https://api.whappy.ai/v1/lead', {
   method: 'POST',
   headers: {
     'Content-Type': 'application/json',
@@ -228,4 +228,4 @@ fetch('https://api.whappie.com/v1/lead', {
 - Check the request format matches the examples
 - Verify your API key has the correct permissions
 
-Need help? Check our [troubleshooting guide](/support/troubleshooting) or [contact support](/support/contact-support).
+Need help? Check our [FAQ](/support/faq) or [contact support](/support/contact-support).

@@ -19,84 +19,252 @@
   },
   "favicon": "/favicon.svg",
   "navigation": {
-    "tabs": [
+    "languages": [
       {
-        "tab": "Overview",
-        "icon": "house",
-        "groups": [
+        "language": "en",
+        "tabs": [
           {
-            "group": "Getting Started",
-            "pages": [
-              "introduction",
-              "quickstart"
+            "tab": "Overview",
+            "icon": "house",
+            "groups": [
+              {
+                "group": "Getting Started",
+                "pages": [
+                  "introduction",
+                  "quickstart"
+                ]
+              },
+              {
+                "group": "Support",
+                "pages": [
+                  "support/faq",
+                  "support/contact-support"
+                ]
+              }
             ]
           },
           {
-            "group": "Support",
-            "pages": [
-              "support/faq",
-              "support/contact-support"
+            "tab": "Campaign",
+            "icon": "bullhorn",
+            "groups": [
+              {
+                "group": "Campaign Setup",
+                "pages": [
+                  "campaign/context",
+                  "campaign/info",
+                  "campaign/funnel",
+                  "campaign/options"
+                ]
+              },
+              {
+                "group": "Content",
+                "pages": [
+                  "campaign/assets"
+                ]
+              }
+            ]
+          },
+          {
+            "tab": "Autopilot",
+            "icon": "wand-magic-sparkles",
+            "groups": [
+              {
+                "group": "Autopilot",
+                "pages": [
+                  "autopilot/overview",
+                  "autopilot/trust-levels"
+                ]
+              },
+              {
+                "group": "Improving a campaign",
+                "pages": [
+                  "autopilot/coach",
+                  "autopilot/rehearsal",
+                  "autopilot/briefing"
+                ]
+              }
+            ]
+          },
+          {
+            "tab": "Leads",
+            "icon": "users",
+            "groups": [
+              {
+                "group": "Lead Management",
+                "pages": [
+                  "leads/overview",
+                  "leads/viewing-leads",
+                  "leads/lead-management",
+                  "leads/conversation-history"
+                ]
+              }
+            ]
+          },
+          {
+            "tab": "Integrations",
+            "icon": "plug",
+            "groups": [
+              {
+                "group": "Conversations",
+                "pages": [
+                  "integrations/whatsapp"
+                ]
+              },
+              {
+                "group": "CRM",
+                "pages": [
+                  "integrations/gohighlevel",
+                  "integrations/agency"
+                ]
+              },
+              {
+                "group": "Leads",
+                "pages": [
+                  "integrations/webhook",
+                  "integrations/zapier",
+                  "integrations/zapier-developer"
+                ]
+              },
+              {
+                "group": "Appointment Setting",
+                "pages": [
+                  "integrations/calendly",
+                  "integrations/cal"
+                ]
+              },
+              {
+                "group": "Advertising",
+                "pages": [
+                  "integrations/meta-conversions"
+                ]
+              }
             ]
           }
         ]
       },
       {
-        "tab": "Campaign",
-        "icon": "bullhorn",
-        "groups": [
+        "language": "it",
+        "tabs": [
           {
-            "group": "Campaign Setup",
-            "pages": [
-              "campaign/context",
-              "campaign/info",
-              "campaign/funnel",
-              "campaign/options"
-            ]
-          }
-        ]
-      },
-      {
-        "tab": "Leads",
-        "icon": "users",
-        "groups": [
-          {
-            "group": "Lead Management",
-            "pages": [
-              "leads/overview"
-            ]
-          }
-        ]
-      },
-      {
-        "tab": "Integrations",
-        "icon": "plug",
-        "groups": [
-          {
-            "group": "Conversations",
-            "pages": [
-              "integrations/whatsapp"
+            "tab": "Panoramica",
+            "icon": "house",
+            "groups": [
+              {
+                "group": "Per iniziare",
+                "pages": [
+                  "it/introduction",
+                  "it/quickstart"
+                ]
+              },
+              {
+                "group": "Assistenza",
+                "pages": [
+                  "it/support/faq",
+                  "it/support/contact-support"
+                ]
+              }
             ]
           },
           {
-            "group": "Leads",
-            "pages": [
-              "integrations/webhook",
-              "integrations/zapier",
-              "integrations/zapier-developer"
+            "tab": "Campagna",
+            "icon": "bullhorn",
+            "groups": [
+              {
+                "group": "Configurazione campagna",
+                "pages": [
+                  "it/campaign/context",
+                  "it/campaign/info",
+                  "it/campaign/funnel",
+                  "it/campaign/options"
+                ]
+              },
+              {
+                "group": "Contenuti",
+                "pages": [
+                  "it/campaign/assets"
+                ]
+              }
             ]
           },
           {
-            "group": "Appointment Setting",
-            "pages": [
-              "integrations/calendly",
-              "integrations/cal"
+            "tab": "Autopilot",
+            "icon": "wand-magic-sparkles",
+            "groups": [
+              {
+                "group": "Autopilot",
+                "pages": [
+                  "it/autopilot/overview",
+                  "it/autopilot/trust-levels"
+                ]
+              },
+              {
+                "group": "Migliorare una campagna",
+                "pages": [
+                  "it/autopilot/coach",
+                  "it/autopilot/rehearsal",
+                  "it/autopilot/briefing"
+                ]
+              }
+            ]
+          },
+          {
+            "tab": "Lead",
+            "icon": "users",
+            "groups": [
+              {
+                "group": "Gestione dei lead",
+                "pages": [
+                  "it/leads/overview",
+                  "it/leads/viewing-leads",
+                  "it/leads/lead-management",
+                  "it/leads/conversation-history"
+                ]
+              }
+            ]
+          },
+          {
+            "tab": "Integrazioni",
+            "icon": "plug",
+            "groups": [
+              {
+                "group": "Conversazioni",
+                "pages": [
+                  "it/integrations/whatsapp"
+                ]
+              },
+              {
+                "group": "CRM",
+                "pages": [
+                  "it/integrations/gohighlevel",
+                  "it/integrations/agency"
+                ]
+              },
+              {
+                "group": "Lead",
+                "pages": [
+                  "it/integrations/webhook",
+                  "it/integrations/zapier",
+                  "it/integrations/zapier-developer"
+                ]
+              },
+              {
+                "group": "Appuntamenti",
+                "pages": [
+                  "it/integrations/calendly",
+                  "it/integrations/cal"
+                ]
+              },
+              {
+                "group": "Pubblicità",
+                "pages": [
+                  "it/integrations/meta-conversions"
+                ]
+              }
             ]
           }
         ]
       }
-    ],
-    "global": {
-    }
+    ]
   },
   "logo": {
     "light": "/logo/light.png",

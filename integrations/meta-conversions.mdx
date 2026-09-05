@@ -1,0 +1,67 @@
+---
+title: "Ad reporting"
+description: "Tell Meta which of your leads turned out to be good, so it buys you more like them."
+icon: "bullseye-arrow"
+---
+
+Meta optimises your ad spend against whatever you tell it a good outcome is. If the only thing you report is "someone filled in the form", it will get very good at finding people who fill in forms and stop there.
+
+Ad reporting sends the later outcomes back — who replied, who answered all your questions, who booked — so Meta stops buying you cheap leads and starts buying you real ones.
+
+Open it from a campaign: **Campaigns → your campaign → Ad reporting**.
+
+## The five stages
+
+Choose which stages to report and what to call each one in your ad account.
+
+| Stage | Meaning |
+| --- | --- |
+| **Filled in your form** | Meta already knows about this one. |
+| **Replied to you** | They wrote back at least once. |
+| **Answered all your questions** | Usually the one worth optimising for. |
+| **Booked an appointment** | There is a booking in your calendar. |
+| **Became a customer** | Reported by your own systems. |
+
+Each stage has its own event name, which must match an event in your Meta ad account.
+
+<Note>
+    **Answered all your questions** is the stage most businesses should optimise for. It is far enough down the funnel to mean something, and unlike *became a customer* it happens often enough and soon enough for Meta's optimiser to learn from.
+</Note>
+
+## Connecting your ad account
+
+<Steps>
+    <Step title="Dataset ID">
+        From **Events Manager** in Meta.
+    </Step>
+    <Step title="Access token">
+        Paste it in. It is stored securely and never shown again — leave the field blank later to keep the token you saved, or type a new one to replace it.
+    </Step>
+    <Step title="Choose your stages">
+        Turn on the stages you want reported and give each one its event name.
+    </Step>
+    <Step title="Check it in practice mode first">
+        See below.
+    </Step>
+    <Step title="Turn on reporting">
+        Nothing is sent at all until this is on.
+    </Step>
+</Steps>
+
+## Practice mode
+
+**Leave practice mode on until the list below looks right.**
+
+In practice mode Whappy records exactly what it *would* have sent, without sending it. The **Recent reports** list fills up as conversations finish, and each entry is marked as practice.
+
+This exists because a wrong setup here is expensive and quiet. Events sent to your ad account teach Meta what to buy, and nothing in the dashboard will tell you that it learned the wrong lesson — you will simply get worse leads, some weeks later, for reasons that look like bad luck.
+
+Check that the stages firing are the ones you expect, and that the event names match your ad account, before you turn practice mode off.
+
+<Warning>
+    Once practice mode is off, events go to your ad account for real and cannot be recalled.
+</Warning>
+
+## Recent reports
+
+The log shows what has been sent, or in practice mode what would have been. Use it to confirm that events fire when you expect: if leads are completing your funnel and nothing appears here, the stage is probably switched off or reporting itself is not on.
