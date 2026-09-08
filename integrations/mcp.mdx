@@ -1,0 +1,90 @@
+---
+title: "Claude and other MCP clients"
+description: "Connect Whappy to Claude or any MCP client and build a WhatsApp agent from a conversation"
+icon: "sparkles"
+---
+
+Whappy can be attached to Claude, or to any other client that speaks the Model Context Protocol, as a **custom connector**. Once connected, you describe what you want in the chat and it builds the campaign in your Whappy account: "build me a WhatsApp agent for example.com" is enough to get a funnel, the questions it asks, and its knowledge of your business.
+
+The connection is yours to grant and yours to withdraw. You decide what it may do before it does anything, and everything it does happens inside your account under your name.
+
+## Connecting
+
+<Steps>
+  <Step title="Add the connector">
+    In your client, add a custom connector with this URL:
+
+    ```
+    https://mcp.whappy.ai/mcp
+    ```
+
+    In Claude, that is **Settings → Connectors → Add custom connector**. Whappy is not in the connector directory, so it has to be added by URL.
+  </Step>
+  <Step title="Sign in to Whappy">
+    The client opens a Whappy page in your browser. Sign in with the account you want the client to work in, or create one.
+  </Step>
+  <Step title="Choose what it may do">
+    You will see who is asking and a choice of what to allow: **Read only**, **Draft** or **Build**. Pick one and allow, or deny.
+  </Step>
+  <Step title="Start building">
+    Back in the client, say what you want. A good first message is a website address and who you want to reach.
+  </Step>
+</Steps>
+
+## What you can allow
+
+A connection can be given any of the first three levels from [Permissions](/autopilot/trust-levels):
+
+| Level | The connection can |
+| --- | --- |
+| **Read only** | Look at your campaigns, leads and results, and answer questions about them. |
+| **Draft** | Also write things no customer will ever see: draft campaigns, context documents, the questions you collect. |
+| **Build** | Also build a complete campaign and connect your accounts. |
+
+**Launch** and **Operate** are never available to a connection, whatever your account level is. Starting a campaign means real people receive real messages, so it stays a decision you make in the dashboard.
+
+Two things are worth knowing before you click Allow:
+
+<Note>
+  Allowing at a level also raises your **account** level to match, if it was lower. It never lowers it. So allowing a connection at **Build** leaves your account at **Build** afterwards — you can change it back under **Account → AI assistant**.
+</Note>
+
+The level in force is always the lower of the two: what you allowed for this connection, and what your account permits. Tightening your account level tightens every connection with it, immediately.
+
+## What a connected client can and cannot do
+
+It can research a business from a website or a description, build the campaign and its funnel, write the knowledge and the questions, rehearse the conversation against a synthetic lead, and tell you what is still missing before launch.
+
+Some things stay out of its reach by design:
+
+- **Starting a campaign** — done by you, in the dashboard.
+- **Billing, subscriptions and account changes** — never available to a connection.
+- **Connecting a WhatsApp number** — Meta's sign-up runs in a browser, so the client hands you a link and you finish it there.
+
+A connected client also sees a smaller set of capabilities than the assistant inside the Whappy dashboard. The in-app assistant works within your account's own permissions; a connection works within what you granted it.
+
+## Limits
+
+These bound what can happen while you are not watching. They are per account, not per connection.
+
+- **30 AI generation requests per hour.** Building campaigns, writing knowledge and generating questions all count, at every level including **Read only**.
+- **Campaign activations and unattended changes per week**, as described in [Permissions](/autopilot/trust-levels).
+- **20 new client registrations per hour** from one network address. You will not meet this one unless something is misbehaving.
+
+If a request is refused, the message tells you which of the two limits stopped it: reconnect at a higher level, or change your account permissions in the dashboard.
+
+## Staying connected
+
+Your client is given access for one hour at a time and renews it quietly in the background for up to 30 days. If you do not use the connection for 30 days, you will be asked to sign in again.
+
+## Disconnecting
+
+Remove the connector in your client — Claude calls it **Disconnect**. That tells Whappy to revoke the access immediately, and the client cannot renew it.
+
+<Note>
+  There is not yet a page in the Whappy dashboard listing your connected clients. Until there is, disconnect from the client side. If you have lost access to the client, or you believe a connection has been compromised, [contact support](/support/contact-support) and we will revoke it for you.
+</Note>
+
+## If you are on an agency account
+
+Connecting a client to a **client account you manage** is not supported in this release. A connection is bound to the person who approved it and acts in their own account, so switching into a managed account will not carry over to it.

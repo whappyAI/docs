@@ -1,0 +1,90 @@
+---
+title: "Claude e altri client MCP"
+description: "Collega Whappy a Claude o a qualsiasi client MCP e costruisci un agente WhatsApp conversando"
+icon: "sparkles"
+---
+
+Whappy può essere collegato a Claude, o a qualsiasi altro client che parla il Model Context Protocol, come **connettore personalizzato**. Una volta collegato, descrivi in chat quello che vuoi e lui costruisce la campagna nel tuo account Whappy: "costruiscimi un agente WhatsApp per example.com" basta per ottenere un funnel, le domande da fare e la conoscenza della tua attività.
+
+Il collegamento lo autorizzi tu e lo revochi tu. Decidi cosa può fare prima che faccia qualsiasi cosa, e tutto quello che fa avviene dentro il tuo account a tuo nome.
+
+## Collegare
+
+<Steps>
+  <Step title="Aggiungi il connettore">
+    Nel tuo client, aggiungi un connettore personalizzato con questo indirizzo:
+
+    ```
+    https://mcp.whappy.ai/mcp
+    ```
+
+    In Claude si trova in **Impostazioni → Connettori → Aggiungi connettore personalizzato**. Whappy non è nella directory dei connettori, quindi va aggiunto tramite indirizzo.
+  </Step>
+  <Step title="Accedi a Whappy">
+    Il client apre una pagina Whappy nel browser. Accedi con l'account in cui vuoi che il client lavori, oppure creane uno.
+  </Step>
+  <Step title="Scegli cosa può fare">
+    Vedrai chi sta chiedendo e potrai scegliere cosa consentire: **Sola lettura**, **Bozza** o **Costruzione**. Scegli e consenti, oppure nega.
+  </Step>
+  <Step title="Inizia a costruire">
+    Torna nel client e di' cosa vuoi. Un buon primo messaggio è l'indirizzo di un sito e a chi vuoi rivolgerti.
+  </Step>
+</Steps>
+
+## Cosa puoi consentire
+
+A un collegamento puoi dare uno dei primi tre livelli descritti in [Permessi](/it/autopilot/trust-levels):
+
+| Livello | Il collegamento può |
+| --- | --- |
+| **Sola lettura** | Guardare campagne, lead e risultati, e rispondere alle tue domande. |
+| **Bozza** | Anche scrivere cose che nessun cliente vedrà mai: campagne in bozza, documenti di contesto, le informazioni da raccogliere. |
+| **Costruzione** | Anche costruire una campagna completa e collegare i tuoi account. |
+
+**Avvio** e **Operatività** non sono mai disponibili per un collegamento, qualunque sia il livello del tuo account. Avviare una campagna significa che persone reali ricevono messaggi reali: resta una decisione che prendi tu, dalla dashboard.
+
+Due cose da sapere prima di consentire:
+
+<Note>
+  Consentire a un certo livello alza anche il livello del tuo **account**, se era più basso. Non lo abbassa mai. Quindi dopo aver consentito un collegamento a **Costruzione**, il tuo account resta a **Costruzione** — puoi riportarlo indietro da **Account → Assistente AI**.
+</Note>
+
+Il livello effettivo è sempre il più basso tra i due: quello che hai consentito a questo collegamento e quello che il tuo account permette. Se stringi il livello dell'account, stringi immediatamente anche tutti i collegamenti.
+
+## Cosa può e non può fare un client collegato
+
+Può studiare un'attività da un sito o da una descrizione, costruire la campagna e il suo funnel, scrivere la conoscenza e le domande, provare la conversazione con un lead sintetico e dirti cosa manca ancora prima del lancio.
+
+Alcune cose restano fuori dalla sua portata, per scelta:
+
+- **Avviare una campagna** — lo fai tu, dalla dashboard.
+- **Fatturazione, abbonamenti e modifiche all'account** — mai disponibili a un collegamento.
+- **Collegare un numero WhatsApp** — la registrazione di Meta avviene nel browser, quindi il client ti passa un link e finisci lì.
+
+Un client collegato vede anche un insieme di strumenti più ristretto rispetto all'assistente dentro la dashboard Whappy. L'assistente in-app lavora con i permessi del tuo account; un collegamento lavora dentro quello che gli hai concesso.
+
+## Limiti
+
+Delimitano quanto può succedere mentre non stai guardando. Valgono per account, non per collegamento.
+
+- **30 richieste di generazione AI all'ora.** Costruire campagne, scrivere conoscenza e generare domande contano tutte, a ogni livello, anche in **Sola lettura**.
+- **Attivazioni di campagne e modifiche non presidiate a settimana**, come descritto in [Permessi](/it/autopilot/trust-levels).
+- **20 nuove registrazioni di client all'ora** dallo stesso indirizzo di rete. Non lo incontrerai, a meno che qualcosa non stia funzionando male.
+
+Se una richiesta viene rifiutata, il messaggio ti dice quale dei due limiti l'ha fermata: ricollegarti a un livello più alto, oppure cambiare i permessi dell'account dalla dashboard.
+
+## Restare collegati
+
+Il client riceve l'accesso per un'ora alla volta e lo rinnova in silenzio, fino a 30 giorni. Se non usi il collegamento per 30 giorni, ti verrà chiesto di accedere di nuovo.
+
+## Scollegare
+
+Rimuovi il connettore dal client — in Claude si chiama **Disconnetti**. Questo dice a Whappy di revocare subito l'accesso, e il client non può più rinnovarlo.
+
+<Note>
+  Non c'è ancora una pagina nella dashboard Whappy che elenca i client collegati. Finché non ci sarà, scollega dal client. Se hai perso l'accesso al client, o pensi che un collegamento sia stato compromesso, [contatta l'assistenza](/it/support/contact-support) e lo revochiamo noi.
+</Note>
+
+## Se hai un account agenzia
+
+Collegare un client a un **account cliente che gestisci** non è supportato in questa versione. Un collegamento è legato alla persona che l'ha approvato e agisce nel suo account, quindi entrare in un account gestito non lo porta con sé.

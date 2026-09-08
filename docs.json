@@ -111,6 +111,12 @@
                 ]
               },
               {
+                "group": "AI clients",
+                "pages": [
+                  "integrations/mcp"
+                ]
+              },
+              {
                 "group": "CRM",
                 "pages": [
                   "integrations/gohighlevel",
@@ -230,6 +236,12 @@
                 "group": "Conversazioni",
                 "pages": [
                   "it/integrations/whatsapp"
+                ]
+              },
+              {
+                "group": "Client AI",
+                "pages": [
+                  "it/integrations/mcp"
                 ]
               },
               {
