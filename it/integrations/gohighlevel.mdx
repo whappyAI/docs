@@ -16,18 +16,35 @@ Lo trovi in **Integrazioni**.
 
 <Tabs>
     <Tab title="Installa l'app (consigliato)">
-        Premi **Connetti con GoHighLevel** e installa l'app Whappy sul sotto-account che vuoi sincronizzare.
+        L'app si installa **una volta sola, dall'agenzia**, dal Marketplace di GoHighLevel: non sotto-account per sotto-account. Una sola installazione copre tutti i tuoi clienti.
+
+        <Steps>
+            <Step title="Installa dal Marketplace">
+                GoHighLevel ti chiede su quali sotto-account attivare l'app. La scelta è tua e si può cambiare in seguito.
+            </Step>
+            <Step title="Torna su Whappy">
+                Se GoHighLevel può dirci chi sei, Whappy ti propone **Continua come te** e crea l'account sul momento: non c'è nulla da compilare. Altrimenti accedi o registrati come al solito, e l'installazione ti aspetta.
+            </Step>
+            <Step title="Scegli quali clienti far gestire a Whappy">
+                I tuoi sotto-account vengono elencati. Attivarne uno lo trasforma in un cliente Whappy. **Solo quelli che attivi vengono fatturati**: la sola installazione non crea mai un cliente né una voce in fattura.
+            </Step>
+        </Steps>
 
         È la strada migliore:
 
         - I webhook vengono configurati automaticamente: non c'è nessun URL né segreto da copiare.
         - La connessione si rinnova da sola, quindi non scade.
         - I webhook in entrata sono verificati dalla firma dell'app di GoHighLevel.
+        - I nuovi sotto-account possono essere rilevati automaticamente man mano che li crei.
 
-        Whappy legge contatti, calendari e campi personalizzati del sotto-account.
+        Whappy legge contatti, calendari e campi personalizzati di ogni sotto-account attivato.
+
+        <Note>
+            Il piano di ogni cliente si sceglie e si paga **in GoHighLevel**, e anche la prova gratuita si svolge lì. Cambiare il piano di un cliente nel Marketplace ne aggiorna i limiti in Whappy: qui non c'è nulla da modificare.
+        </Note>
     </Tab>
     <Tab title="Collegamento manuale">
-        Se preferisci non installare l'app, collegati con un Private Integration Token.
+        Per un singolo sotto-account, senza Marketplace: collegati con un Private Integration Token. Con questa strada la fatturazione è gestita da Whappy e non da GoHighLevel.
 
         <Steps>
             <Step title="Trova il tuo Location ID">

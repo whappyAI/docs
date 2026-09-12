@@ -16,18 +16,35 @@ Find it in **Integrations**.
 
 <Tabs>
     <Tab title="Install the app (recommended)">
-        Press **Connect with GoHighLevel** and install the Whappy app on the sub-account you want to sync.
+        The app is installed **once, by the agency**, from the GoHighLevel Marketplace — not per sub-account. One install covers every client you have.
+
+        <Steps>
+            <Step title="Install from the Marketplace">
+                GoHighLevel asks which of your sub-accounts to put the app on. That choice is yours and can be changed later.
+            </Step>
+            <Step title="Land back in Whappy">
+                If GoHighLevel can tell us who you are, Whappy offers **Continue as you** and creates your account on the spot — there is nothing to fill in. Otherwise you sign in or sign up as usual, and the install waits for you.
+            </Step>
+            <Step title="Choose which clients Whappy runs">
+                Your sub-accounts are listed. Activating one turns it into a Whappy client. **Only the ones you activate are billed** — installing alone never creates a client or an invoice line.
+            </Step>
+        </Steps>
 
         This is the better route:
 
         - Webhooks are wired up automatically — there is no URL or secret to copy anywhere.
         - The connection refreshes itself, so it does not expire.
         - Inbound webhooks are verified by GoHighLevel's own app signature.
+        - New sub-accounts can be picked up automatically as you create them.
 
-        Whappy reads the sub-account's contacts, calendars and custom fields.
+        Whappy reads each activated sub-account's contacts, calendars and custom fields.
+
+        <Note>
+            Your plan for each client is chosen and charged **in GoHighLevel**, and your free trial runs there too. Changing a client's plan in the Marketplace moves their limits in Whappy — there is nothing to change here.
+        </Note>
     </Tab>
     <Tab title="Connect manually">
-        If you would rather not install the app, connect with a Private Integration Token.
+        For a single sub-account, without the Marketplace: connect with a Private Integration Token. Billing for this route is handled in Whappy rather than in GoHighLevel.
 
         <Steps>
             <Step title="Find your Location ID">
