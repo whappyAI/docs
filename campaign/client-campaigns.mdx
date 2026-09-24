@@ -1,0 +1,83 @@
+---
+title: "Campaigns for existing customers"
+description: "Keep one ongoing WhatsApp conversation with every customer you already have"
+icon: "users"
+---
+
+Most campaigns go out to people who have never bought from you. This one is for the people who already have.
+
+A campaign for existing customers keeps **one conversation per customer, open forever**. There is no funnel to build and no point at which the conversation is finished. Your customer writes whenever they want something, the assistant answers using what it knows about your business, and when you have an offer to make, you send it into a conversation that already exists.
+
+<Note>
+    You choose which kind of campaign you are creating when you create it, and **it cannot be changed afterwards**. The two work so differently that converting one into the other would lose either the funnel or the conversation history.
+</Note>
+
+## Creating one
+
+Click **New campaign** and choose **For existing customers**.
+
+You will notice the campaign has different pages from a normal one:
+
+| Page | What it is for |
+|---|---|
+| **Knowledge** | What the assistant knows about your business — prices, policies, opening hours |
+| **Offers** | Promotions the assistant can tell customers about |
+| **Clients** | The customers themselves |
+| **Announcements** | Sending an offer out to customers |
+| **Settings** | Pacing, hours, and how the assistant behaves |
+
+There is no Funnel page and no Questions page. Both are generated for you when you write an offer.
+
+## Before you start
+
+You need a **connected WhatsApp number**, the same as any campaign, and at least one **approved WhatsApp template**. The template is what lets you write to a customer who has not messaged you recently — WhatsApp does not allow free text to someone who has gone quiet, and that rule is theirs, not ours.
+
+One approved template is enough to start. You do not need a different one for every offer.
+
+## Importing your customers
+
+Go to **Clients → Import** and upload a CSV.
+
+The file needs a `phone` column. Anything else you include — a name, a tag, a plan — is kept and the assistant can use it.
+
+```
+phone,name,plan
++393331234567,Marco,Premium
++393339876543,Giulia,Basic
+```
+
+Before the import runs you must confirm that **these customers agreed to receive WhatsApp messages from your business**. This is not a formality. Importing a list that did not agree is how a number gets reported and blocked, and the confirmation is recorded with your account and the date.
+
+When the import finishes you get a per-row report: how many were added, how many were already there and were updated, and the reason any row was rejected.
+
+<Note>
+    Re-importing a list you already have does not create duplicate customers. Rows that match an existing phone number update it instead.
+</Note>
+
+## The welcome
+
+You can configure a message new customers get when they are imported. **This is optional** — if you skip it, your customers are added quietly and will hear from you the first time you announce an offer.
+
+Go to **Settings → Welcome** to write one. Describe it in plain words, pick the template it opens with, and optionally list anything you would like to ask — "preferred contact time", "which branch do you use". The assistant asks for those once, in conversation, and if a customer does not want to answer it stops asking rather than pressing.
+
+### Why the welcome takes days
+
+This is the part most people think is broken, so it is worth explaining.
+
+A three-thousand-customer import does not go out in an afternoon. It trickles out over days, at the pace set in **Settings**.
+
+That pace **is** the protection. Sending three thousand messages from a number in one hour is the fastest way to have WhatsApp flag it, and a flagged number stops working for everybody — including the customers already talking to you. The Clients page shows you how far along the queue is and roughly when it will finish.
+
+If you need a specific customer reached sooner, message them yourself. The assistant picks the conversation up from there.
+
+## When a customer asks to stop
+
+A customer who replies STOP — or any of the usual words — is marked as opted out immediately, and no further offers are sent to them.
+
+They are **not** cut off. The assistant still answers their questions, still helps them, still knows who they are. Opting out ends the marketing, not the service. That distinction matters legally and it matters to the customer.
+
+You can see who has opted out on the **Clients** page, and you can re-enable someone who asks you to.
+
+## What happens next
+
+Once your customers are in, [write an offer](/campaign/offers) and the assistant can start telling them about it.

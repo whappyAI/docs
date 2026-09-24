@@ -1,0 +1,83 @@
+---
+title: "Campagne per clienti esistenti"
+description: "Mantieni una conversazione WhatsApp continua con ogni cliente che hai già"
+icon: "users"
+---
+
+La maggior parte delle campagne si rivolge a chi non ha mai comprato da te. Questa è per chi l'ha già fatto.
+
+Una campagna per clienti esistenti mantiene **una conversazione per cliente, sempre aperta**. Non c'è un funnel da costruire né un momento in cui la conversazione è conclusa. Il cliente scrive quando ha bisogno, l'assistente risponde con quello che sa della tua attività, e quando hai un'offerta la mandi dentro una conversazione che esiste già.
+
+<Note>
+    Scegli il tipo di campagna quando la crei, e **non è più modificabile**. Le due funzionano in modo così diverso che convertire l'una nell'altra perderebbe o il funnel o lo storico delle conversazioni.
+</Note>
+
+## Come crearla
+
+Clicca **Nuova campagna** e scegli **Per clienti esistenti**.
+
+La campagna ha pagine diverse da una normale:
+
+| Pagina | A cosa serve |
+|---|---|
+| **Conoscenza** | Quello che l'assistente sa della tua attività: prezzi, condizioni, orari |
+| **Offerte** | Promozioni di cui l'assistente può parlare ai clienti |
+| **Clienti** | I clienti stessi |
+| **Annunci** | Mandare un'offerta ai clienti |
+| **Impostazioni** | Ritmo, orari e comportamento dell'assistente |
+
+Non c'è la pagina Funnel né la pagina Domande: entrambe vengono generate quando scrivi un'offerta.
+
+## Prima di iniziare
+
+Ti serve un **numero WhatsApp collegato**, come per qualsiasi campagna, e almeno un **template WhatsApp approvato**. Il template è ciò che ti permette di scrivere a un cliente che non ti contatta da un po': WhatsApp non consente testo libero verso chi è rimasto in silenzio, ed è una loro regola, non nostra.
+
+Un solo template approvato basta per iniziare. Non ne serve uno diverso per ogni offerta.
+
+## Importare i clienti
+
+Vai su **Clienti → Importa** e carica un CSV.
+
+Il file deve avere una colonna `phone`. Tutto il resto che includi — nome, tag, piano — viene conservato e l'assistente può usarlo.
+
+```
+phone,name,plan
++393331234567,Marco,Premium
++393339876543,Giulia,Basic
+```
+
+Prima dell'importazione devi confermare che **questi clienti hanno acconsentito a ricevere messaggi WhatsApp dalla tua attività**. Non è una formalità: importare una lista che non ha acconsentito è il modo più rapido per far segnalare e bloccare un numero, e la conferma viene registrata con il tuo account e la data.
+
+Al termine ricevi un resoconto riga per riga: quanti aggiunti, quanti già presenti e aggiornati, e il motivo di ogni riga rifiutata.
+
+<Note>
+    Reimportare una lista che hai già non crea clienti doppi. Le righe che corrispondono a un numero esistente lo aggiornano.
+</Note>
+
+## Il benvenuto
+
+Puoi configurare un messaggio che i nuovi clienti ricevono all'importazione. **È facoltativo**: se lo salti, i clienti vengono aggiunti in silenzio e ti sentiranno la prima volta che annunci un'offerta.
+
+Vai su **Impostazioni → Benvenuto**. Descrivilo a parole tue, scegli il template con cui si apre e, se vuoi, elenca cosa ti farebbe comodo chiedere — "orario preferito", "quale sede usi". L'assistente lo chiede una volta, in conversazione, e se il cliente non vuole rispondere smette di chiedere invece di insistere.
+
+### Perché il benvenuto richiede giorni
+
+È la parte che più spesso sembra un malfunzionamento, quindi vale la pena spiegarla.
+
+Un'importazione di tremila clienti non parte in un pomeriggio. Esce poco alla volta nell'arco di giorni, al ritmo impostato in **Impostazioni**.
+
+Quel ritmo **è** la protezione. Mandare tremila messaggi da un numero in un'ora è il modo più rapido per farlo segnalare da WhatsApp, e un numero segnalato smette di funzionare per tutti, compresi i clienti che ti stanno già scrivendo. La pagina Clienti mostra a che punto è la coda e più o meno quando finirà.
+
+Se ti serve raggiungere prima un cliente specifico, scrivigli tu. L'assistente prosegue da lì.
+
+## Quando un cliente chiede di smettere
+
+Un cliente che risponde STOP — o una delle solite parole — viene escluso subito e non riceve più offerte.
+
+**Non** viene tagliato fuori. L'assistente continua a rispondere alle sue domande, ad aiutarlo, a sapere chi è. L'esclusione ferma il marketing, non il servizio. È una distinzione che conta legalmente e conta per il cliente.
+
+Vedi chi si è escluso nella pagina **Clienti**, e puoi riattivarlo se te lo chiede.
+
+## E poi
+
+Una volta dentro i clienti, [scrivi un'offerta](/it/campaign/offers) e l'assistente può iniziare a parlarne.

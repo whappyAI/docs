@@ -57,6 +57,14 @@
                 ]
               },
               {
+                "group": "For existing customers",
+                "pages": [
+                  "campaign/client-campaigns",
+                  "campaign/offers",
+                  "campaign/announcements"
+                ]
+              },
+              {
                 "group": "Content",
                 "pages": [
                   "campaign/assets"
@@ -182,6 +190,14 @@
                   "it/campaign/info",
                   "it/campaign/funnel",
                   "it/campaign/options"
+                ]
+              },
+              {
+                "group": "Per clienti esistenti",
+                "pages": [
+                  "it/campaign/client-campaigns",
+                  "it/campaign/offers",
+                  "it/campaign/announcements"
                 ]
               },
               {
