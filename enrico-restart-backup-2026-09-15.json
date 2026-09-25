@@ -1,0 +1,482 @@
+{
+ "lead": {
+  "_id": "a52d2d90-8dd0-4c7b-8088-c8d9e9c8f62a",
+  "user_id": "sw8M9aBAsWO2qVph7xeH7wDy2ge2",
+  "name": "Enrico",
+  "email": "",
+  "phone": "+393200382838",
+  "wa_id": "393200382838",
+  "identities": [],
+  "primary_channel": null,
+  "tags": [],
+  "lead_info": {
+   "nome": "Enrico",
+   "nome_cliente": "Enrico",
+   "nome_paziente": "Enrico",
+   "name": "Enrico",
+   "phone": "+393200382838",
+   "mail": "",
+   "campaign_name": "International Real Estate Agent ITA"
+  },
+  "external_refs": {},
+  "conversation_id": "67de808f-6639-49ee-86ea-edfa5a6310ce",
+  "campaign_id": "74f8f9a4-ea60-404f-85e7-1b1f630ff5f8",
+  "marketing_opt_out": false,
+  "opt_out_history": [],
+  "consent_basis": null,
+  "is_test": false,
+  "is_e2e": false,
+  "language": "it",
+  "appointment_id": "2d1f04a6-c68d-4460-a13d-4ddd3ebd730c",
+  "created_at": "2026-09-14 16:45:17.678000",
+  "updated_at": "2026-09-15 07:29:03.011000",
+  "transition_history": [
+   {
+    "from_campaign_id": "e7786bff-3065-4179-99f6-9c5b786370a4",
+    "to_campaign_id": "74f8f9a4-ea60-404f-85e7-1b1f630ff5f8",
+    "from_conversation_id": "f18e9886-dc68-48c4-a81e-27400eb54af2",
+    "to_conversation_id": "67de808f-6639-49ee-86ea-edfa5a6310ce",
+    "at": "2026-09-15 07:29:02.028000",
+    "source": "close_step"
+   }
+  ]
+ },
+ "conversation": {
+  "_id": "67de808f-6639-49ee-86ea-edfa5a6310ce",
+  "user_id": "sw8M9aBAsWO2qVph7xeH7wDy2ge2",
+  "lead_id": "a52d2d90-8dd0-4c7b-8088-c8d9e9c8f62a",
+  "funnel_id": "",
+  "campaign_id": "74f8f9a4-ea60-404f-85e7-1b1f630ff5f8",
+  "phone_number_id": "1409106848942699",
+  "channel": "whatsapp_cloud",
+  "channel_thread": null,
+  "collected_info": [],
+  "state": "waiting_for_reply",
+  "summary": null,
+  "archived_message_count": 0,
+  "onboarding_status": null,
+  "messages": [
+   {
+    "user_id": "sw8M9aBAsWO2qVph7xeH7wDy2ge2",
+    "lead_id": "a52d2d90-8dd0-4c7b-8088-c8d9e9c8f62a",
+    "sender": "ai",
+    "text": "Ti piacerebbe automatizzare i lead?\nCiao Enrico, come stai? Sono Alessandro di Whappy.ai. Ho notato la tua attivit\u00e0 e mi chiedevo se ti facesse piacere scoprire come automatizzare la gestione dei contatti e le prenotazioni su WhatsApp. Ti andrebbe di fare due chiacchiere veloci per vedere come funziona?",
+    "state": "delivered",
+    "channel": "whatsapp_cloud",
+    "external_message_id": "wamid.HBgMMzkzMjAwMzgyODM4FQIAERgSQTA3NzA4NDk2RDBFODMxQ0YwAA==",
+    "attachments": [],
+    "reply_to": null,
+    "metadata": {
+     "external_message_ids": [
+      "wamid.HBgMMzkzMjAwMzgyODM4FQIAERgSQTA3NzA4NDk2RDBFODMxQ0YwAA=="
+     ]
+    },
+    "created_at": "2026-09-15 07:29:03.035000"
+   },
+   {
+    "user_id": "sw8M9aBAsWO2qVph7xeH7wDy2ge2",
+    "lead_id": "a52d2d90-8dd0-4c7b-8088-c8d9e9c8f62a",
+    "sender": "lead",
+    "text": "Yess",
+    "state": "seen",
+    "channel": "whatsapp_cloud",
+    "external_message_id": null,
+    "attachments": [],
+    "reply_to": null,
+    "metadata": {
+     "type": "text",
+     "audio": null,
+     "text": {
+      "body": "Yess"
+     },
+     "id": "wamid.HBgMMzkzMjAwMzgyODM4FQIAEhgUM0E1OUJBNUZDN0VBQTIyNDEzQTcA"
+    },
+    "created_at": "2026-09-15 08:06:19.024000"
+   },
+   {
+    "user_id": "sw8M9aBAsWO2qVph7xeH7wDy2ge2",
+    "lead_id": "a52d2d90-8dd0-4c7b-8088-c8d9e9c8f62a",
+    "sender": "ai",
+    "text": "Grazie per aver provato la simulazione di Whappy!\n\nDi cosa si occupa la tua azienda o attivit\u00e0?",
+    "state": "delivered",
+    "channel": "whatsapp_cloud",
+    "external_message_id": "wamid.HBgMMzkzMjAwMzgyODM4FQIAERgSQzZERjIyQTBDRTYxNzdFMzA3AA==",
+    "attachments": [],
+    "reply_to": null,
+    "metadata": {
+     "external_message_ids": [
+      "wamid.HBgMMzkzMjAwMzgyODM4FQIAERgSQzZERjIyQTBDRTYxNzdFMzA3AA==",
+      "wamid.HBgMMzkzMjAwMzgyODM4FQIAERgSRkEzNDMyNkJFOEMyMUZFQkQ3AA=="
+     ]
+    },
+    "created_at": "2026-09-15 08:07:11.366000"
+   },
+   {
+    "user_id": "sw8M9aBAsWO2qVph7xeH7wDy2ge2",
+    "lead_id": "a52d2d90-8dd0-4c7b-8088-c8d9e9c8f62a",
+    "sender": "lead",
+    "text": "Marketing per aziende di affitti brevi airbnb",
+    "state": "seen",
+    "channel": "whatsapp_cloud",
+    "external_message_id": null,
+    "attachments": [],
+    "reply_to": null,
+    "metadata": {
+     "type": "text",
+     "audio": null,
+     "text": {
+      "body": "Marketing per aziende di affitti brevi airbnb"
+     },
+     "id": "wamid.HBgMMzkzMjAwMzgyODM4FQIAEhgUM0EyQThBQURFRDI3MTA0NzEyQkIA"
+    },
+    "created_at": "2026-09-15 08:07:49.282000"
+   },
+   {
+    "user_id": "sw8M9aBAsWO2qVph7xeH7wDy2ge2",
+    "lead_id": "a52d2d90-8dd0-4c7b-8088-c8d9e9c8f62a",
+    "sender": "ai",
+    "text": "Grazie per avercelo condiviso!\n\nTi rassicuriamo che con Whappy sarai seguito step-by-step nello sviluppo e ottimizzazione delle tue campagne.",
+    "state": "delivered",
+    "channel": "whatsapp_cloud",
+    "external_message_id": "wamid.HBgMMzkzMjAwMzgyODM4FQIAERgSQzgzNjNBOUU1RTZDQzIzMjYzAA==",
+    "attachments": [],
+    "reply_to": null,
+    "metadata": {
+     "external_message_ids": [
+      "wamid.HBgMMzkzMjAwMzgyODM4FQIAERgSQzgzNjNBOUU1RTZDQzIzMjYzAA==",
+      "wamid.HBgMMzkzMjAwMzgyODM4FQIAERgSMzZDQzBBQkRBN0FGQjc0ODI3AA=="
+     ]
+    },
+    "created_at": "2026-09-15 08:09:02.450000"
+   },
+   {
+    "user_id": "sw8M9aBAsWO2qVph7xeH7wDy2ge2",
+    "lead_id": "a52d2d90-8dd0-4c7b-8088-c8d9e9c8f62a",
+    "sender": "ai",
+    "text": "Ti andrebbe di fissare una breve demo con un nostro consulente per vedere come possiamo aiutarti?",
+    "state": "delivered",
+    "channel": "whatsapp_cloud",
+    "external_message_id": "wamid.HBgMMzkzMjAwMzgyODM4FQIAERgSMjY0QjNCRkVDM0U4NjE1M0YwAA==",
+    "attachments": [],
+    "reply_to": null,
+    "metadata": {
+     "external_message_ids": [
+      "wamid.HBgMMzkzMjAwMzgyODM4FQIAERgSMjY0QjNCRkVDM0U4NjE1M0YwAA=="
+     ]
+    },
+    "created_at": "2026-09-15 08:09:09.968000"
+   },
+   {
+    "user_id": "sw8M9aBAsWO2qVph7xeH7wDy2ge2",
+    "lead_id": "a52d2d90-8dd0-4c7b-8088-c8d9e9c8f62a",
+    "sender": "lead",
+    "text": "Si va bene",
+    "state": "seen",
+    "channel": "whatsapp_cloud",
+    "external_message_id": null,
+    "attachments": [],
+    "reply_to": null,
+    "metadata": {
+     "type": "text",
+     "audio": null,
+     "text": {
+      "body": "Si va bene"
+     },
+     "id": "wamid.HBgMMzkzMjAwMzgyODM4FQIAEhgUM0E4NjY1MkM2QTVEOEVGNEQ5RjIA"
+    },
+    "created_at": "2026-09-15 08:12:50.603000"
+   },
+   {
+    "user_id": "sw8M9aBAsWO2qVph7xeH7wDy2ge2",
+    "lead_id": "a52d2d90-8dd0-4c7b-8088-c8d9e9c8f62a",
+    "sender": "ai",
+    "text": "Ottimo! Per quando preferiresti fissare la chiamata?\nAbbiamo disponibilit\u00e0 oggi o nei prossimi giorni.",
+    "state": "delivered",
+    "channel": "whatsapp_cloud",
+    "external_message_id": "wamid.HBgMMzkzMjAwMzgyODM4FQIAERgSM0RDNTM5MDEyRTc0MkYzMzczAA==",
+    "attachments": [],
+    "reply_to": null,
+    "metadata": {
+     "external_message_ids": [
+      "wamid.HBgMMzkzMjAwMzgyODM4FQIAERgSM0RDNTM5MDEyRTc0MkYzMzczAA==",
+      "wamid.HBgMMzkzMjAwMzgyODM4FQIAERgSQkJEOTZCMEE0OTBDNzgwMzYwAA=="
+     ]
+    },
+    "created_at": "2026-09-15 08:14:04.695000"
+   },
+   {
+    "user_id": "sw8M9aBAsWO2qVph7xeH7wDy2ge2",
+    "lead_id": "a52d2d90-8dd0-4c7b-8088-c8d9e9c8f62a",
+    "sender": "lead",
+    "text": "Oggi alle 15",
+    "state": "seen",
+    "channel": "whatsapp_cloud",
+    "external_message_id": null,
+    "attachments": [],
+    "reply_to": null,
+    "metadata": {
+     "type": "text",
+     "audio": null,
+     "text": {
+      "body": "Oggi alle 15"
+     },
+     "id": "wamid.HBgMMzkzMjAwMzgyODM4FQIAEhgUM0FDOTdDNEM3OTgzRkQwQ0M0QUQA"
+    },
+    "created_at": "2026-09-15 08:14:22.198000"
+   },
+   {
+    "user_id": "sw8M9aBAsWO2qVph7xeH7wDy2ge2",
+    "lead_id": "a52d2d90-8dd0-4c7b-8088-c8d9e9c8f62a",
+    "sender": "ai",
+    "text": "Ottimo! \n\nTi confermo quindi oggi alle 15:00 per la demo?",
+    "state": "delivered",
+    "channel": "whatsapp_cloud",
+    "external_message_id": "wamid.HBgMMzkzMjAwMzgyODM4FQIAERgSQTQxNTdCQzZCRDhEMTA2RURFAA==",
+    "attachments": [],
+    "reply_to": null,
+    "metadata": {
+     "external_message_ids": [
+      "wamid.HBgMMzkzMjAwMzgyODM4FQIAERgSQTQxNTdCQzZCRDhEMTA2RURFAA==",
+      "wamid.HBgMMzkzMjAwMzgyODM4FQIAERgSRkZFQkE3NTM2NDE1NEI4OTRDAA=="
+     ]
+    },
+    "created_at": "2026-09-15 08:15:07.056000"
+   },
+   {
+    "user_id": "sw8M9aBAsWO2qVph7xeH7wDy2ge2",
+    "lead_id": "a52d2d90-8dd0-4c7b-8088-c8d9e9c8f62a",
+    "sender": "lead",
+    "text": "Si",
+    "state": "seen",
+    "channel": "whatsapp_cloud",
+    "external_message_id": null,
+    "attachments": [],
+    "reply_to": null,
+    "metadata": {
+     "type": "text",
+     "audio": null,
+     "text": {
+      "body": "Si"
+     },
+     "id": "wamid.HBgMMzkzMjAwMzgyODM4FQIAEhgUM0E1QjA4Q0ZENUFCNUQxQkNDMTkA"
+    },
+    "created_at": "2026-09-15 08:15:20.111000"
+   },
+   {
+    "user_id": "sw8M9aBAsWO2qVph7xeH7wDy2ge2",
+    "lead_id": "a52d2d90-8dd0-4c7b-8088-c8d9e9c8f62a",
+    "sender": "ai",
+    "text": "Perfetto Enrico!\n\nTi confermo l'appuntamento per oggi alle 15:00.\n\nA brevissimo ti invieremo tutti i dettagli per collegarti.\n\nA tra poco!",
+    "state": "delivered",
+    "channel": "whatsapp_cloud",
+    "external_message_id": "wamid.HBgMMzkzMjAwMzgyODM4FQIAERgSOTEwNzZENDYzNTVDMkJCNDk1AA==",
+    "attachments": [],
+    "reply_to": null,
+    "metadata": {
+     "external_message_ids": [
+      "wamid.HBgMMzkzMjAwMzgyODM4FQIAERgSOTEwNzZENDYzNTVDMkJCNDk1AA==",
+      "wamid.HBgMMzkzMjAwMzgyODM4FQIAERgSMzY2RjM5MUEzMzI3RTI2MTExAA==",
+      "wamid.HBgMMzkzMjAwMzgyODM4FQIAERgSMzk1OUQxQzMxNTUzQzVENkZCAA==",
+      "wamid.HBgMMzkzMjAwMzgyODM4FQIAERgSMjZDMjY4MDRBM0FGQkExMjUwAA=="
+     ]
+    },
+    "created_at": "2026-09-15 08:16:48.119000"
+   }
+  ],
+  "completed_steps": [
+   {
+    "step_id": "e7d4ebe6-2c9b-4478-b848-0c29c33b1fe2",
+    "asked": false,
+    "replied": false,
+    "read": false,
+    "skipped": false,
+    "deflection_count": 0
+   },
+   {
+    "step_id": "30a11257-f15c-41f8-84a1-90472c11c439",
+    "asked": false,
+    "replied": false,
+    "read": false,
+    "skipped": false,
+    "deflection_count": 0
+   },
+   {
+    "step_id": "adcf64d9-f5d4-48a3-95ac-2477e4ee985c",
+    "asked": false,
+    "replied": false,
+    "read": false,
+    "skipped": false,
+    "deflection_count": 0
+   }
+  ],
+  "current_step": {
+   "step_id": "cbd1c41f-4fdd-4eec-b38d-bb4b7b827a7d",
+   "asked": true,
+   "replied": false,
+   "read": true,
+   "skipped": false,
+   "deflection_count": 0
+  },
+  "errors": null,
+  "template_name": "primo_contatto",
+  "is_test": false,
+  "is_e2e": false,
+  "config_epoch": "2026-09-15 07:29:02",
+  "followup_sent": false,
+  "dead_lead_sent": true,
+  "pending_transition": null,
+  "transition_done": false,
+  "transitioned_to_conversation_id": null,
+  "carried_over_info": [
+   {
+    "key": "purchase_timeline",
+    "label": "Tempistiche di acquisto",
+    "value": "immediately",
+    "type": "ENUM",
+    "collected_at": "2026-09-15 07:28:03.397000",
+    "source_campaign_id": "e7786bff-3065-4179-99f6-9c5b786370a4",
+    "source_conversation_id": "f18e9886-dc68-48c4-a81e-27400eb54af2"
+   },
+   {
+    "key": "estimated_budget",
+    "label": "Budget stimato",
+    "value": 100000.0,
+    "type": "FLOAT",
+    "collected_at": "2026-09-15 07:28:03.397000",
+    "source_campaign_id": "e7786bff-3065-4179-99f6-9c5b786370a4",
+    "source_conversation_id": "f18e9886-dc68-48c4-a81e-27400eb54af2"
+   },
+   {
+    "key": "target_location",
+    "label": "Regione o paese di interesse",
+    "value": "Dubai",
+    "type": "STRING",
+    "collected_at": "2026-09-15 07:28:03.397000",
+    "source_campaign_id": "e7786bff-3065-4179-99f6-9c5b786370a4",
+    "source_conversation_id": "f18e9886-dc68-48c4-a81e-27400eb54af2"
+   },
+   {
+    "key": "property_type",
+    "label": "Tipologia di immobile",
+    "value": "commercial",
+    "type": "ENUM",
+    "collected_at": "2026-09-15 07:28:03.397000",
+    "source_campaign_id": "e7786bff-3065-4179-99f6-9c5b786370a4",
+    "source_conversation_id": "f18e9886-dc68-48c4-a81e-27400eb54af2"
+   }
+  ],
+  "created_at": "2026-09-15 07:29:02",
+  "updated_at": "2026-09-15 09:17:13.180000",
+  "step_results_history": [
+   {
+    "status": "waiting_for_reply",
+    "processed_step_id": "e7d4ebe6-2c9b-4478-b848-0c29c33b1fe2",
+    "next_step_id": "30a11257-f15c-41f8-84a1-90472c11c439",
+    "needs_response": false,
+    "response_text": "Ti piacerebbe automatizzare i lead?\nCiao Enrico, come stai? Sono Alessandro di Whappy.ai. Ho notato la tua attivit\u00e0 e mi chiedevo se ti facesse piacere scoprire come automatizzare la gestione dei contatti e le prenotazioni su WhatsApp. Ti andrebbe di fare due chiacchiere veloci per vedere come funziona?",
+    "template_name": "primo_contatto",
+    "process_after": null,
+    "language": "it",
+    "error": "",
+    "metadata": {},
+    "external_message_ids": [
+     "wamid.HBgMMzkzMjAwMzgyODM4FQIAERgSQTA3NzA4NDk2RDBFODMxQ0YwAA=="
+    ]
+   },
+   {
+    "status": "waiting_for_reply",
+    "processed_step_id": "30a11257-f15c-41f8-84a1-90472c11c439",
+    "next_step_id": "adcf64d9-f5d4-48a3-95ac-2477e4ee985c",
+    "needs_response": false,
+    "response_text": "Grazie per aver provato la simulazione di Whappy!\n\nDi cosa si occupa la tua azienda o attivit\u00e0?",
+    "template_name": null,
+    "process_after": null,
+    "language": null,
+    "error": "",
+    "metadata": {},
+    "external_message_ids": []
+   },
+   {
+    "status": "pending_processing",
+    "processed_step_id": "adcf64d9-f5d4-48a3-95ac-2477e4ee985c",
+    "next_step_id": "cbd1c41f-4fdd-4eec-b38d-bb4b7b827a7d",
+    "needs_response": false,
+    "response_text": "Grazie per avercelo condiviso!\n\nTi rassicuriamo che con Whappy sarai seguito step-by-step nello sviluppo e ottimizzazione delle tue campagne.",
+    "template_name": null,
+    "process_after": null,
+    "language": null,
+    "error": "",
+    "metadata": {},
+    "external_message_ids": []
+   },
+   {
+    "status": "waiting_for_reply",
+    "processed_step_id": "cbd1c41f-4fdd-4eec-b38d-bb4b7b827a7d",
+    "next_step_id": "cbd1c41f-4fdd-4eec-b38d-bb4b7b827a7d",
+    "needs_response": false,
+    "response_text": "Ti andrebbe di fissare una breve demo con un nostro consulente per vedere come possiamo aiutarti?",
+    "template_name": null,
+    "process_after": null,
+    "language": null,
+    "error": "",
+    "metadata": {},
+    "external_message_ids": []
+   },
+   {
+    "status": "waiting_for_reply",
+    "processed_step_id": "cbd1c41f-4fdd-4eec-b38d-bb4b7b827a7d",
+    "next_step_id": "cbd1c41f-4fdd-4eec-b38d-bb4b7b827a7d",
+    "needs_response": false,
+    "response_text": "Ottimo! Per quando preferiresti fissare la chiamata?\nAbbiamo disponibilit\u00e0 oggi o nei prossimi giorni.",
+    "template_name": null,
+    "process_after": null,
+    "language": null,
+    "error": "",
+    "metadata": {},
+    "external_message_ids": []
+   },
+   {
+    "status": "waiting_for_reply",
+    "processed_step_id": "cbd1c41f-4fdd-4eec-b38d-bb4b7b827a7d",
+    "next_step_id": "cbd1c41f-4fdd-4eec-b38d-bb4b7b827a7d",
+    "needs_response": false,
+    "response_text": "Ottimo! \n\nTi confermo quindi oggi alle 15:00 per la demo?",
+    "template_name": null,
+    "process_after": null,
+    "language": null,
+    "error": "",
+    "metadata": {},
+    "external_message_ids": []
+   },
+   {
+    "status": "waiting_for_reply",
+    "processed_step_id": "cbd1c41f-4fdd-4eec-b38d-bb4b7b827a7d",
+    "next_step_id": "cbd1c41f-4fdd-4eec-b38d-bb4b7b827a7d",
+    "needs_response": false,
+    "response_text": "Perfetto Enrico!\n\nTi confermo l'appuntamento per oggi alle 15:00.\n\nA brevissimo ti invieremo tutti i dettagli per collegarti.\n\nA tra poco!",
+    "template_name": null,
+    "process_after": null,
+    "language": null,
+    "error": "",
+    "metadata": {},
+    "external_message_ids": []
+   }
+  ]
+ },
+ "appointment": {
+  "_id": "2d1f04a6-c68d-4460-a13d-4ddd3ebd730c",
+  "lead_id": "a52d2d90-8dd0-4c7b-8088-c8d9e9c8f62a",
+  "user_id": "sw8M9aBAsWO2qVph7xeH7wDy2ge2",
+  "campaign_id": "74f8f9a4-ea60-404f-85e7-1b1f630ff5f8",
+  "created_at": "2026-09-15 08:09:09.063000",
+  "event_integration": "calcom",
+  "reminder_sent": false,
+  "status": "REQUESTED",
+  "timezone": "America/Chicago",
+  "updated_at": "2026-09-15 08:16:46.246000",
+  "date": "2026-09-15",
+  "full_datetime": "2026-09-15 20:00:00",
+  "time": "15:00:00",
+  "utc_datetime": "2026-09-15 20:00:00"
+ }
+}
