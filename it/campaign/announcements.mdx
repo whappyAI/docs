@@ -24,6 +24,16 @@ Riceve il tuo template approvato, la breve apertura che hai scelto. Quando rispo
     Per questo il template non deve descrivere l'offerta. Il suo unico compito è riaprire la conversazione; tutto il resto è uno scambio vero.
 </Note>
 
+### Variabili del template
+
+Se il template ha delle variabili, vengono compilate per ogni cliente con quello che sai di lui:
+
+- `{{nome}}`, `{{name}}`, `{{nombre}}` e simili → il nome del cliente; `{{telefono}}` / `{{phone}}` e `{{email}}` allo stesso modo.
+- Qualsiasi altra variabile con un nome → la colonna corrispondente della tua importazione, cercata in modo tollerante: `{{Piano_Attivo}}` trova la colonna `piano attivo`.
+- Una variabile numerata `{{1}}` → il nome del cliente. Un template con `{{2}}` e oltre non si può annunciare, perché nulla dice cosa rappresentano: usa variabili con un nome.
+
+A un cliente senza valore per una variabile non viene mandato un vuoto: quell'invio viene segnato come non riuscito con il motivo, e tutti gli altri vengono raggiunti.
+
 ## Parte lentamente, di proposito
 
 Un annuncio a una base clienti ampia richiede ore o giorni, non minuti. Diverse cose lo rallentano, e tutte proteggono il tuo numero WhatsApp:

@@ -24,6 +24,16 @@ They get your approved template — the short opener you chose. When they reply,
     This is why the template does not need to describe the offer. Its only job is to reopen the conversation; everything after that is a real exchange.
 </Note>
 
+### Template variables
+
+If the template has variables, they are filled in for each customer from what you know about them:
+
+- `{{name}}`, `{{nome}}`, `{{nombre}}` and the like → the customer's name; `{{phone}}` / `{{telefono}}` and `{{email}}` likewise.
+- Any other named variable → the matching column from your import, matched loosely: `{{Piano_Attivo}}` finds a `piano attivo` column.
+- A numbered `{{1}}` → the customer's name. A template with `{{2}}` and beyond can't be announced, because nothing says what they stand for — use named variables instead.
+
+A customer who has no value for a variable is not sent a blank: that send is marked failed with the reason, and everyone else is reached.
+
 ## It goes out slowly, deliberately
 
 An announcement to a large customer base takes hours or days, not minutes. Several things pace it, and all of them are protecting your WhatsApp number:
