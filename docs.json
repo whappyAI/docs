@@ -119,6 +119,12 @@
                 ]
               },
               {
+                "group": "E-commerce",
+                "pages": [
+                  "integrations/shopify"
+                ]
+              },
+              {
                 "group": "AI clients",
                 "pages": [
                   "integrations/mcp"
@@ -252,6 +258,12 @@
                 "group": "Conversazioni",
                 "pages": [
                   "it/integrations/whatsapp"
+                ]
+              },
+              {
+                "group": "E-commerce",
+                "pages": [
+                  "it/integrations/shopify"
                 ]
               },
               {

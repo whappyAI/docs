@@ -1,0 +1,85 @@
+---
+title: "Shopify"
+description: "Scrivi ai clienti del tuo negozio su WhatsApp dopo un checkout, un ordine, una spedizione o una consegna, rispondi alle domande su ordini e prodotti e suggerisci prodotti correlati"
+icon: "shopify"
+---
+
+Collega il tuo negozio Shopify e l'AI di Whappy parla con i tuoi clienti su WhatsApp nei momenti che contano: un carrello abbandonato, un ordine pagato, spedito, consegnato. Risponde alle domande sui loro ordini e sui tuoi prodotti con i dati del tuo negozio, e può suggerire un prodotto correlato.
+
+## Collegare il negozio
+
+1. Installa l'app **Whappy** dall'admin di Shopify.
+2. Aprila da **App → Whappy**. Clicca **Inizia** per creare l'account Whappy con il tuo accesso Shopify, oppure **Collega** se ne hai già uno con la stessa email.
+3. Clicca **Apri Whappy** per andare alla dashboard. La pagina del negozio è **Integrazioni → Shopify**.
+
+I piani di un negozio Shopify sono fatturati da Shopify.
+
+## Chi diventa lead
+
+Diventano lead e ricevono messaggi solo i clienti che **hanno accettato il marketing via WhatsApp** nel tuo negozio. Puoi vedere e modificare lo stato del marketing WhatsApp di un cliente nella sua pagina cliente su Shopify.
+
+- Quando un cliente accetta il marketing via WhatsApp, diventa lead. Nome, email e telefono arrivano dal tuo negozio.
+- Quando lo revoca, smette di ricevere messaggi promozionali da Whappy.
+- Un cliente che scrive **STOP** su WhatsApp non riceve più messaggi per gli eventi del negozio, anche se su Shopify risulta iscritto.
+- Il consenso al marketing via SMS o email non conta.
+
+<Note>
+    Il checkout di Shopify chiede solo il consenso SMS, non quello WhatsApp. Un carrello abbandonato viene seguito solo per i clienti che hanno già accettato il marketing via WhatsApp nel tuo negozio.
+</Note>
+
+## Le campagne del negozio
+
+Quando colleghi il negozio, Whappy crea per te cinque campagne, spente, così puoi controllarle prima:
+
+| Campagna | Si avvia quando | Attesa prima del primo messaggio |
+|---|---|---|
+| Checkout abbandonato | Un checkout resta incompleto | 1 ora (almeno 15 minuti) |
+| Ordine pagato | Un ordine viene pagato | Nessuna |
+| Ordine spedito | Un ordine viene evaso | Nessuna |
+| Ordine consegnato | Una spedizione viene consegnata | 1 giorno |
+| Assistenza clienti | Un cliente ti scrive per primo | Nessuna |
+
+Ogni campagna legata a un evento parte con un template WhatsApp (invialo in approvazione dalla campagna), poi l'AI aiuta il cliente e chiude la conversazione quando non ha altro da chiedere. Puoi modificare ogni campagna come le altre: sono disponibili tutti i passaggi del funnel e puoi collegare Calendly o Cal.com per prenotare appuntamenti. Scegli quale evento del negozio avvia una campagna in **Si avvia quando** nelle **Opzioni** della campagna, oppure in **Integrazioni → Shopify**.
+
+Se un evento successivo raggiunge un cliente che è già in quella campagna (per esempio "spedito" dopo "pagato"), la campagna ricomincia per lui, a meno che non vi siate scritti entro le ore di pausa della campagna.
+
+### Dettagli dell'ordine nei messaggi
+
+Template e messaggi dell'AI possono usare i dati dell'ultimo ordine: **Inserisci variabile** nell'editor dei template li elenca.
+
+| Variabile | Esempio |
+|---|---|
+| `{{shopify_order_number}}` | #1042 |
+| `{{shopify_order_url}}` | La pagina dell'ordine, con il tracciamento |
+| `{{shopify_order_total}}` | 59.00 EUR |
+| `{{shopify_order_items}}` | 2 × Camicia di lino, 1 × Cintura |
+| `{{shopify_checkout_url}}` | Il link che riapre un carrello abbandonato |
+
+## Risposte sugli ordini
+
+Quando un cliente chiede "dov'è il mio ordine?", l'AI risponde con i dati del negozio sui suoi ordini recenti: numero, data, articoli, totale, stato, corriere e tracciamento, pagina dell'ordine. Non inventa mai un ordine o un numero di tracciamento; se non vede l'ordine lo dice e indirizza il cliente a te.
+
+## Risposte sui prodotti e suggerimenti
+
+L'AI conosce il tuo catalogo.
+
+- **Domande sui prodotti.** Quando un cliente chiede di un prodotto ("ce l'avete in blu?", "quanto costa la taglia grande?"), l'AI lo cerca nel tuo negozio e risponde con il prezzo e il link al prodotto. Riporta solo ciò che il negozio elenca, e lo dice quando non trova qualcosa.
+- **Suggerimenti.** Dopo aver risposto, l'AI può suggerire **un** prodotto correlato a ciò che il cliente ha comprato o ha nel carrello, con un link per acquistarlo con un tocco. I prodotti correlati arrivano dai consigli di Shopify, quindi non c'è nulla da configurare. Non suggerisce mai nulla quando il cliente ha un problema, né di nuovo dopo un rifiuto. Con un carrello abbandonato, prima aiuta il cliente a completarlo.
+
+I clienti che hanno rifiutato il marketing non ricevono mai suggerimenti; alle loro domande sui prodotti l'AI risponde comunque.
+
+### Disattivare i suggerimenti
+
+I suggerimenti sono attivi in ogni campagna. Per disattivarli in una campagna, apri le **Opzioni** della campagna e spegni **Suggerisci prodotti del tuo negozio**. Alle domande sui prodotti l'AI risponde in ogni caso.
+
+<Note>
+    Quando Shopify è molto carico, una risposta può arrivare un po' più tardi, oppure senza i dettagli dei prodotti. L'AI risponde sempre.
+</Note>
+
+## I dati dei tuoi clienti
+
+Whappy legge il negozio e non vi scrive mai. Usa nome, email e telefono dei clienti, i loro ordini recenti e i carrelli aperti, e il tuo catalogo; non usa gli indirizzi. Quando un cliente chiede a Shopify i propri dati o la loro cancellazione, Whappy gestisce la richiesta in automatico. Vedi l'[informativa sulla privacy](https://whappy.ai/legal/privacy) e l'[accordo sul trattamento dei dati](https://whappy.ai/legal/dpa).
+
+## Scollegare il negozio
+
+Disinstalla l'app Whappy dall'admin di Shopify. Whappy smette subito di ricevere gli eventi del negozio; i dati del negozio vengono cancellati quando Shopify invia la richiesta di cancellazione, 48 ore dopo la disinstallazione.

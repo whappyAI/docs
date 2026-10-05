@@ -1,0 +1,85 @@
+---
+title: "Shopify"
+description: "Message your store's customers on WhatsApp after a checkout, an order, a shipment or a delivery, answer their order and product questions, and suggest related products"
+icon: "shopify"
+---
+
+Connect your Shopify store and Whappy's AI talks to your customers on WhatsApp at the moments that matter: a cart left behind, an order paid, an order shipped, an order delivered. It answers questions about their orders and your products from your store's own data, and it can suggest a related product.
+
+## Connecting your store
+
+1. Install the **Whappy** app in your Shopify admin.
+2. Open it from **Apps → Whappy**. Click **Get started** to create your Whappy account from your Shopify login, or **Connect** if you already have one with the same email.
+3. Click **Open Whappy** to go to your dashboard. Your store's page is **Integrations → Shopify**.
+
+Plans for a Shopify store are billed through Shopify.
+
+## Who becomes a lead
+
+Only customers who **agreed to WhatsApp marketing** in your store become leads and receive messages. You can see and change a customer's WhatsApp marketing status on their customer page in Shopify.
+
+- When a customer agrees to WhatsApp marketing, they become a lead. Their name, email and phone come from your store.
+- When they withdraw it, they stop receiving marketing messages from Whappy.
+- A customer who sends **STOP** on WhatsApp is never messaged again by a store event, even if their status in Shopify says otherwise.
+- SMS and email marketing consent do not count.
+
+<Note>
+    Shopify's checkout asks only for SMS consent, not WhatsApp consent. An abandoned cart is followed up only for customers who already agreed to WhatsApp marketing in your store.
+</Note>
+
+## Your store's campaigns
+
+When you connect your store, Whappy creates five campaigns for you, switched off so you can review them first:
+
+| Campaign | Starts when | Waits before the first message |
+|---|---|---|
+| Abandoned checkout | A checkout is left unfinished | 1 hour (at least 15 minutes) |
+| Order paid | An order is paid | No wait |
+| Order shipped | An order is fulfilled | No wait |
+| Order delivered | A shipment is delivered | 1 day |
+| Customer support | A customer writes to you first | No wait |
+
+Each event campaign starts with a WhatsApp template (submit it for approval from the campaign), then the AI helps the customer and closes the conversation once they have nothing more to ask. You can edit every campaign like any other: all funnel steps are available, and you can connect Calendly or Cal.com to book appointments. Choose which store event starts a campaign under **Starts when** in the campaign's **Options**, or on **Integrations → Shopify**.
+
+If a later event reaches a customer who is already in that campaign (for example "shipped" after "paid"), the campaign starts over for them, unless they exchanged messages within the campaign's quiet hours.
+
+### Order details in your messages
+
+Templates and AI messages can use the latest order's details: **Insert variable** in the template editor lists them.
+
+| Variable | Example |
+|---|---|
+| `{{shopify_order_number}}` | #1042 |
+| `{{shopify_order_url}}` | The order page, which shows the tracking |
+| `{{shopify_order_total}}` | 59.00 EUR |
+| `{{shopify_order_items}}` | 2 × Linen shirt, 1 × Belt |
+| `{{shopify_checkout_url}}` | The link that reopens an abandoned cart |
+
+## Answers about orders
+
+When a customer asks "where is my order?", the AI answers from your store's record of their recent orders: number, date, items, total, status, carrier and tracking, and the order page. It never invents an order or a tracking number; if it cannot see the order, it says so and points the customer to you.
+
+## Answers about products and suggestions
+
+The AI knows your catalog.
+
+- **Product questions.** When a customer asks about a product ("do you have it in blue?", "how much is the large one?"), the AI looks it up in your store and answers with the price and a link to the product. It quotes only what your store lists, and says so when it cannot find something.
+- **Suggestions.** After answering, the AI may suggest **one** product related to what the customer bought or has in their cart, with a link to buy it in one tap. The related products come from Shopify's own recommendations, so there is nothing to set up. It never suggests anything when the customer has a problem, and never again after they decline. With an abandoned cart, it helps the customer finish the cart first.
+
+Customers who opted out of marketing never get suggestions; their product questions are still answered.
+
+### Turning suggestions off
+
+Suggestions are on for every campaign. To turn them off for one campaign, open the campaign's **Options** and switch off **Suggest products from your store**. Product questions are answered either way.
+
+<Note>
+    When Shopify is very busy, a reply may arrive a little later, or without product details. The AI always replies.
+</Note>
+
+## Your customers' data
+
+Whappy reads your store and never writes to it. It uses your customers' name, email and phone, their recent orders and open carts, and your catalog; it does not use addresses. When a customer asks Shopify for their data or for its deletion, Whappy handles the request automatically. See the [privacy policy](https://whappy.ai/legal/privacy) and the [data processing addendum](https://whappy.ai/legal/dpa).
+
+## Disconnecting
+
+Uninstall the Whappy app from your Shopify admin. Whappy stops receiving store events at once; your store's data is deleted when Shopify sends its deletion request, 48 hours after the uninstall.
