@@ -12,7 +12,7 @@ Connect your Shopify store and Whappy's AI talks to your customers on WhatsApp a
 2. Open it from **Apps → Whappy**. Click **Get started** to create your Whappy account from your Shopify login, or **Connect** if you already have one with the same email.
 3. Click **Open Whappy** to go to your dashboard. Your store's page is **Integrations → Shopify**.
 
-Plans for a Shopify store are billed through Shopify.
+Plans for a Shopify store are billed through Shopify. If you paid Whappy by card before, linking your store cancels that plan at once and refunds the days you had already paid for; then choose your plan from **Apps → Whappy** in your Shopify admin.
 
 ## Who becomes a lead
 
@@ -55,6 +55,37 @@ Templates and AI messages can use the latest order's details: **Insert variable*
 | `{{shopify_order_items}}` | 2 × Linen shirt, 1 × Belt |
 | `{{shopify_checkout_url}}` | The link that reopens an abandoned cart |
 
+## Chat button on your store
+
+Add a WhatsApp button to your storefront. A visitor who taps it opens WhatsApp (the app on a phone, WhatsApp Web on a computer) with a greeting ready to send to your number. On a product page the greeting names the product, for example "Hi My Store! I'm looking at Linen shirt", so the AI knows what they were looking at. The AI answers in **Customer support** and can answer product questions straight away.
+
+### Switching it on
+
+1. Connect a WhatsApp number in Whappy first: the button links to it.
+2. On **Integrations → Shopify**, switch on **Chat button on your store**. Whappy starts Customer support and sends the number's incoming messages to it.
+3. Click **Activate in your theme**. Your theme editor opens with the button switched on: click **Save**.
+
+To switch it on in your theme yourself instead of step 3:
+
+1. In your Shopify admin, go to **Online Store → Themes**.
+2. Click **Customize** on your current theme.
+3. Open **App embeds** (the icon in the left sidebar).
+4. Turn on **WhatsApp chat button**.
+5. Click **Save**.
+
+<Note>
+    Everyone who writes to that WhatsApp number reaches Customer support, not only the visitors who tap the button.
+</Note>
+
+### What you can change
+
+| Where | What |
+|---|---|
+| Whappy, **Integrations → Shopify** | On or off; WhatsApp logo or your own logo; the greeting; the greeting on product pages (`{product}` is replaced by the product's name) |
+| Shopify theme editor, **App embeds → WhatsApp chat button** | Position, colour, button text, your logo's image, every page or product pages only, distance from the bottom |
+
+Switching the button off in Whappy removes it from your store within a few minutes; Customer support keeps running. Visitors who arrive through the button are tagged **SHOPIFY_WIDGET** in your leads.
+
 ## Answers about orders
 
 When a customer asks "where is my order?", the AI answers from your store's record of their recent orders: number, date, items, total, status, carrier and tracking, and the order page. It never invents an order or a tracking number; if it cannot see the order, it says so and points the customer to you.
@@ -78,7 +109,7 @@ Suggestions are on for every campaign. To turn them off for one campaign, open t
 
 ## Your customers' data
 
-Whappy reads your store and never writes to it. It uses your customers' name, email and phone, their recent orders and open carts, and your catalog; it does not use addresses. When a customer asks Shopify for their data or for its deletion, Whappy handles the request automatically. See the [privacy policy](https://whappy.ai/legal/privacy) and the [data processing addendum](https://whappy.ai/legal/dpa).
+Whappy reads your store and never changes its data; the only thing it writes is the chat button's settings, which your theme reads. It uses your customers' name, email and phone, their recent orders and open carts, and your catalog; it does not use addresses. When a customer asks Shopify for their data or for its deletion, Whappy handles the request automatically. See the [privacy policy](https://whappy.ai/legal/privacy) and the [data processing addendum](https://whappy.ai/legal/dpa).
 
 ## Disconnecting
 

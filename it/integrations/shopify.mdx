@@ -12,7 +12,7 @@ Collega il tuo negozio Shopify e l'AI di Whappy parla con i tuoi clienti su What
 2. Aprila da **App → Whappy**. Clicca **Inizia** per creare l'account Whappy con il tuo accesso Shopify, oppure **Collega** se ne hai già uno con la stessa email.
 3. Clicca **Apri Whappy** per andare alla dashboard. La pagina del negozio è **Integrazioni → Shopify**.
 
-I piani di un negozio Shopify sono fatturati da Shopify.
+I piani di un negozio Shopify sono fatturati da Shopify. Se prima pagavi Whappy con la carta, collegare il negozio annulla subito quel piano e rimborsa i giorni già pagati; poi scegli il piano da **App → Whappy** nell'admin di Shopify.
 
 ## Chi diventa lead
 
@@ -55,6 +55,37 @@ Template e messaggi dell'AI possono usare i dati dell'ultimo ordine: **Inserisci
 | `{{shopify_order_items}}` | 2 × Camicia di lino, 1 × Cintura |
 | `{{shopify_checkout_url}}` | Il link che riapre un carrello abbandonato |
 
+## Pulsante chat sul negozio
+
+Aggiungi un pulsante WhatsApp al tuo negozio online. Chi lo tocca apre WhatsApp (l'app sul telefono, WhatsApp Web sul computer) con un saluto pronto da inviare al tuo numero. In una pagina prodotto il saluto nomina il prodotto, per esempio "Ciao My Store! Sto guardando Camicia di lino", così l'AI sa cosa stava guardando. Risponde l'AI in **Assistenza clienti**, che può rispondere subito alle domande sui prodotti.
+
+### Attivarlo
+
+1. Collega prima un numero WhatsApp in Whappy: il pulsante porta lì.
+2. In **Integrazioni → Shopify**, attiva **Pulsante chat sul negozio**. Whappy avvia Assistenza clienti e le manda i messaggi in arrivo su quel numero.
+3. Clicca **Attiva nel tema**. Si apre l'editor del tema con il pulsante già attivo: clicca **Salva**.
+
+Per attivarlo nel tema da solo, al posto del passo 3:
+
+1. Nell'admin di Shopify, vai su **Negozio online → Temi**.
+2. Clicca **Personalizza** sul tema attuale.
+3. Apri **Incorporamenti app** (l'icona nella barra a sinistra).
+4. Attiva **Pulsante chat WhatsApp**.
+5. Clicca **Salva**.
+
+<Note>
+    Chiunque scriva a quel numero WhatsApp arriva in Assistenza clienti, non solo chi tocca il pulsante.
+</Note>
+
+### Cosa puoi cambiare
+
+| Dove | Cosa |
+|---|---|
+| Whappy, **Integrazioni → Shopify** | Acceso o spento; logo WhatsApp o il tuo logo; il saluto; il saluto nelle pagine prodotto (`{product}` diventa il nome del prodotto) |
+| Editor del tema di Shopify, **Incorporamenti app → Pulsante chat WhatsApp** | Posizione, colore, testo del pulsante, l'immagine del tuo logo, tutte le pagine o solo le pagine prodotto, distanza dal basso |
+
+Se spegni il pulsante in Whappy, sparisce dal negozio entro pochi minuti; Assistenza clienti continua a funzionare. I visitatori arrivati dal pulsante hanno il tag **SHOPIFY_WIDGET** tra i tuoi lead.
+
 ## Risposte sugli ordini
 
 Quando un cliente chiede "dov'è il mio ordine?", l'AI risponde con i dati del negozio sui suoi ordini recenti: numero, data, articoli, totale, stato, corriere e tracciamento, pagina dell'ordine. Non inventa mai un ordine o un numero di tracciamento; se non vede l'ordine lo dice e indirizza il cliente a te.
@@ -78,7 +109,7 @@ I suggerimenti sono attivi in ogni campagna. Per disattivarli in una campagna, a
 
 ## I dati dei tuoi clienti
 
-Whappy legge il negozio e non vi scrive mai. Usa nome, email e telefono dei clienti, i loro ordini recenti e i carrelli aperti, e il tuo catalogo; non usa gli indirizzi. Quando un cliente chiede a Shopify i propri dati o la loro cancellazione, Whappy gestisce la richiesta in automatico. Vedi l'[informativa sulla privacy](https://whappy.ai/legal/privacy) e l'[accordo sul trattamento dei dati](https://whappy.ai/legal/dpa).
+Whappy legge il negozio e non ne modifica mai i dati; scrive solo le impostazioni del pulsante chat, che il tema legge. Usa nome, email e telefono dei clienti, i loro ordini recenti e i carrelli aperti, e il tuo catalogo; non usa gli indirizzi. Quando un cliente chiede a Shopify i propri dati o la loro cancellazione, Whappy gestisce la richiesta in automatico. Vedi l'[informativa sulla privacy](https://whappy.ai/legal/privacy) e l'[accordo sul trattamento dei dati](https://whappy.ai/legal/dpa).
 
 ## Scollegare il negozio
 
