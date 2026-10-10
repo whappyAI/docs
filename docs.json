@@ -285,7 +285,8 @@
                 "pages": [
                   "it/integrations/webhook",
                   "it/integrations/zapier",
-                  "it/integrations/zapier-developer"
+                  "it/integrations/zapier-developer",
+                  "it/integrations/make"
                 ]
               },
               {
