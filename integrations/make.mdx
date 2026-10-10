@@ -1,0 +1,193 @@
+---
+title: "Make"
+description: "Start Make scenarios from Whappy conversations and add leads to Whappy from any app. Setup guide and API reference."
+icon: "diagram-project"
+keywords:
+  - "make"
+  - "make.com"
+  - "integromat"
+  - "whatsapp make integration"
+  - "api"
+---
+
+Connect Whappy to Make (make.com) to start scenarios when something happens in a WhatsApp conversation, and to add leads to Whappy from forms, ads, sheets or any other app. The Whappy app on Make offers the same events and action as the Zapier app.
+
+## What the app does
+
+<CardGroup cols={2}>
+  <Card title="Triggers (Whappy → Make)" icon="arrow-right">
+    **Lead Closed**, **New Appointment**, **Dead Lead** and **Send Data Step** start your scenario the moment the event happens in Whappy.
+  </Card>
+
+  <Card title="Actions (Make → Whappy)" icon="arrow-left">
+    **Create Lead** adds a lead to a Whappy campaign. **Make an API Call** sends any authorized request to the Whappy API.
+  </Card>
+</CardGroup>
+
+| Module | Type | Fires when / does |
+| --- | --- | --- |
+| Lead Closed | Instant trigger | A conversation reaches its Close step. Optional: only one campaign. |
+| New Appointment | Instant trigger | A lead books an appointment. |
+| Dead Lead | Instant trigger | A lead has not replied for the number of hours you set. |
+| Send Data Step | Instant trigger | A conversation reaches a Send data step that uses this trigger name. |
+| Create Lead | Action | Adds a lead (phone, name, optional email, campaign and extra fields). |
+| Make an API Call | Universal | Any call to `https://api.whappy.ai/v1` with your key. |
+
+---
+
+## Setup
+
+<Steps>
+  <Step title="Install the Whappy app on Make">
+    In Whappy, open **Integrations → Make** and click **Get the Make link**. Open the link and install the app in your Make organization.
+  </Step>
+  <Step title="Copy your Make API key">
+    On the same page, copy the **Make API key**. It is separate from your Zapier key: revoking one never stops the other.
+  </Step>
+  <Step title="Create the connection">
+    In a Make scenario, add any Whappy module and click **Create a connection**. Paste the API key and save. Make checks the key immediately; a wrong or revoked key shows `[401] Invalid API key`.
+  </Step>
+  <Step title="Build your scenario">
+    - **Triggers**: add the trigger, click **Create a webhook**, fill in its fields (hours for Dead Lead, trigger name for Send Data Step) and save. Whappy starts sending events as soon as the scenario is on.
+    - **Create Lead**: map at least **Phone** (international format, e.g. `+393331234567`) and **Name**. Turn on **Test lead** while you try it.
+  </Step>
+</Steps>
+
+<Note>
+  For **Send Data Step**, add a Send data step to your campaign funnel, choose **Zapier or Make** and pick the trigger name you used in Make.
+</Note>
+
+---
+
+## API reference
+
+Everything the Make app does goes through the public Whappy API. You can call it directly too, for example with **Make an API Call**.
+
+**Base URL**: `https://api.whappy.ai/v1`
+
+**Authentication**: send your API key in the `X-API-Key` header on every request. Keys are created in **Integrations → Make** (or **Zapier**, **Webhook**) and belong to one Whappy account.
+
+### Subscribe to an event
+
+`POST /zap/triggers`
+
+```json
+{
+  "targetUrl": "https://hook.eu2.make.com/abc123",
+  "zap_type": "DEAD",
+  "hours": 24
+}
+```
+
+| Field | Type | Required | Notes |
+| --- | --- | --- | --- |
+| `targetUrl` | string | yes | Where Whappy POSTs the event payload. |
+| `zap_type` | string | yes | `CLOSE`, `APPOINTMENT`, `DEAD` or `SEND_DATA`. |
+| `hours` | integer | for `DEAD` | Hours without a reply before the event fires. |
+| `name` | string | for `SEND_DATA` | The trigger name chosen in the Send data step. |
+| `campaignName` | string | no | `CLOSE` only: limit to one campaign. |
+
+Response `201`:
+
+```json
+{ "id": "484ab94b-c9aa-43de-a086-c8cba3976998", "status": "success", "message": "Webhook registered successfully" }
+```
+
+### Unsubscribe
+
+`DELETE /zap/triggers/{id}` with the id returned above, or `DELETE /zap/triggers` with the body `{ "targetUrl": "...", "zap_type": "DEAD" }`. Both answer `200`: `{"status": "success"}`, or `{"status": "already_removed"}` when nothing matched.
+
+### List subscriptions
+
+`GET /zap/triggers` returns the account's active subscriptions. Make uses it to verify the connection.
+
+### Sample payload
+
+`GET /zap/sample/{name}` returns a sample event payload (`close`, `appointment`, `dead`, `send_data`).
+
+### Event payload
+
+Whappy POSTs this JSON to each `targetUrl` when the event happens:
+
+```json
+{
+  "lead_id": "f8e7d6c5-b4a3-9876-5432-1fedcba09876",
+  "created_at": "2026-10-08T09:00:00+00:00",
+  "phone": "+12025551234",
+  "name": "John Doe",
+  "campaign_name": "Test Campaign",
+  "appointment": { "full_date": "2026-10-09T14:30:00+00:00" },
+  "lead_info_json": "{\"name\": \"John Doe\"}",
+  "collected_info_json": "{\"Budget Range\": \"$5,000-$10,000\"}",
+  "conversation_json": "[{\"sender\": \"ai\", \"message\": \"Hello!\", \"datetime\": \"2026-10-08T09:00:00+00:00\"}]",
+  "appointment_json": "{\"datetime\": \"2026-10-09T14:30:00+00:00\"}"
+}
+```
+
+| Field | Description |
+| --- | --- |
+| `lead_id` | Whappy's id of the lead. |
+| `created_at` | When the lead was created (ISO 8601). |
+| `phone`, `name`, `campaign_name` | The lead and its campaign. |
+| `appointment.full_date` | The booked date and time, when there is one (ISO 8601). |
+| `lead_info_json` | What the lead arrived with (form fields, extra data), as a JSON string. |
+| `collected_info_json` | What the AI collected in the conversation, as a JSON string. |
+| `conversation_json` | The messages (`sender` is `ai` or `lead`), as a JSON string. |
+| `appointment_json` | Appointment details, as a JSON string. |
+
+In Make, use **Parse JSON** on the `*_json` fields to map their content.
+
+### Create a lead
+
+`POST /lead`
+
+```json
+{
+  "phone": "+393331234567",
+  "name": "Anna",
+  "is_test": true,
+  "email": "anna@example.com",
+  "campaign_name": "Spring offer",
+  "lead_data": { "budget": "5000", "city": "Milan" }
+}
+```
+
+| Field | Type | Required | Notes |
+| --- | --- | --- | --- |
+| `phone` | string | yes | International format. A local number works when the account has a default country. |
+| `name` | string | yes |  |
+| `is_test` | boolean | no | Marks the lead as a test lead in Whappy. Use it while you build a scenario. |
+| `email` | string | no |  |
+| `campaign_name` | string | no | The Whappy campaign; empty uses the account's default routing. |
+| `lead_data` | object | no | Extra fields; the AI and templates can read them. |
+
+Response `200`: `{ "status": "success", "message": "...", "data": { "_id": "...", "name": "Anna", "phone": "+393331234567", ... } }`
+
+### Errors
+
+Errors answer with a status code and a readable message, shown in Make as `[status] message`:
+
+| Status | When | Example message |
+| --- | --- | --- |
+| `400` | The request cannot be used, e.g. an unreadable phone number. | `Phone number '12' is not a valid number; add the international prefix (e.g. +48) or set a default country in Whappy settings` |
+| `401` | Missing, wrong or revoked API key. | `Invalid API key` |
+| `422` | A required field is missing or has the wrong type. | Field-level details. |
+| `500` | Unexpected error on Whappy's side; retry later. | `Failed to create lead` |
+
+---
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="The connection fails with [401]">
+    Copy the key again from **Integrations → Make**, with no spaces before or after it. A key revoked in Whappy stops working at once.
+  </Accordion>
+
+  <Accordion title="A trigger never fires">
+    Check the scenario is **on**: Make refuses events for a scenario that is off. Check the campaign is running and that leads reach the step (Close, appointment, Send data) the trigger listens to.
+  </Accordion>
+
+  <Accordion title="Create Lead fails with [400]">
+    The phone number cannot be read. Send it with the international prefix, or set a default country in Whappy's settings.
+  </Accordion>
+</AccordionGroup>

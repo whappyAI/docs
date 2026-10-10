@@ -142,7 +142,8 @@
                 "pages": [
                   "integrations/webhook",
                   "integrations/zapier",
-                  "integrations/zapier-developer"
+                  "integrations/zapier-developer",
+                  "integrations/make"
                 ]
               },
               {
@@ -284,7 +285,8 @@
                 "pages": [
                   "it/integrations/webhook",
                   "it/integrations/zapier",
-                  "it/integrations/zapier-developer"
+                  "it/integrations/zapier-developer",
+                  "it/integrations/make"
                 ]
               },
               {
