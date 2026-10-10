@@ -142,7 +142,8 @@
                 "pages": [
                   "integrations/webhook",
                   "integrations/zapier",
-                  "integrations/zapier-developer"
+                  "integrations/zapier-developer",
+                  "integrations/make"
                 ]
               },
               {
