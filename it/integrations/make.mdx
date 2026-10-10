@@ -16,22 +16,24 @@ Collega Whappy a Make (make.com) per avviare scenari quando succede qualcosa in 
 
 <CardGroup cols={2}>
   <Card title="Trigger (Whappy → Make)" icon="arrow-right">
-    **Lead Closed**, **New Appointment**, **Dead Lead** e **Send Data Step** avviano lo scenario nel momento in cui l'evento succede in Whappy.
+    **Watch closed leads**, **Watch new appointments**, **Watch dead leads** e **Watch Send data steps** avviano lo scenario nel momento in cui l'evento succede in Whappy.
   </Card>
 
   <Card title="Azioni (Make → Whappy)" icon="arrow-left">
-    **Create Lead** aggiunge un lead a una campagna Whappy. **Make an API Call** invia qualsiasi richiesta autorizzata all'API di Whappy.
+    **Create a lead** aggiunge un lead a una campagna Whappy. **Make an API call** invia qualsiasi richiesta autorizzata all'API di Whappy.
   </Card>
 </CardGroup>
 
 | Modulo | Tipo | Quando parte / cosa fa |
 | --- | --- | --- |
-| Lead Closed | Trigger istantaneo | Una conversazione arriva allo step di chiusura. Facoltativo: solo una campagna. |
-| New Appointment | Trigger istantaneo | Un lead prenota un appuntamento. |
-| Dead Lead | Trigger istantaneo | Un lead non risponde per le ore che imposti. |
-| Send Data Step | Trigger istantaneo | Una conversazione arriva a uno step Invia dati che usa questo nome di trigger. |
-| Create Lead | Azione | Aggiunge un lead (telefono, nome, email, campagna e campi extra facoltativi). |
-| Make an API Call | Universale | Qualsiasi chiamata a `https://api.whappy.ai/v1` con la tua chiave. |
+| Watch closed leads | Trigger istantaneo | Una conversazione arriva allo step di chiusura. Facoltativo: solo una campagna. |
+| Watch new appointments | Trigger istantaneo | Un lead prenota un appuntamento. |
+| Watch dead leads | Trigger istantaneo | Un lead non risponde per le ore che imposti. |
+| Watch Send data steps | Trigger istantaneo | Una conversazione arriva a uno step Invia dati che usa questo nome di trigger. |
+| Create a lead | Azione | Aggiunge un lead (telefono, nome, email, campagna e campi extra facoltativi). Restituisce il lead come lo salva Whappy. |
+| Make an API call | Universale | Qualsiasi chiamata a `https://api.whappy.ai` con la tua chiave, ad esempio `/v1/zap/triggers`. |
+
+Ogni trigger restituisce il lead (`lead_id`, `name`, `phone`, `campaign_name`, `created_at`, `appointment`) e, già interpretati così puoi collegarli direttamente: **Lead info**, **Collected info**, **Conversation** (l'elenco dei messaggi con mittente, testo e data) e **Appointment details**.
 
 ---
 
@@ -51,8 +53,8 @@ Collega Whappy a Make (make.com) per avviare scenari quando succede qualcosa in 
   </Step>
 
   <Step title="Costruisci lo scenario">
-    - **Trigger**: aggiungi il trigger, clicca **Create a webhook**, compila i campi (ore per Dead Lead, nome del trigger per Send Data Step) e salva. Whappy inizia a inviare eventi appena lo scenario è attivo.
-    - **Create Lead**: collega almeno **Phone** (formato internazionale, ad es. `+393331234567`) e **Name**. Attiva **Test lead** mentre fai le prove.
+    - **Trigger**: aggiungi il trigger, clicca **Create a webhook**, compila i campi (ore per Watch dead leads, nome del trigger per Watch Send data steps) e salva. Whappy inizia a inviare eventi appena lo scenario è attivo.
+    - **Create a lead**: collega almeno **Phone** (formato internazionale, ad es. `+393331234567`) e **Name**. Attiva **Test lead** mentre fai le prove.
   </Step>
 </Steps>
 
@@ -64,7 +66,7 @@ Collega Whappy a Make (make.com) per avviare scenari quando succede qualcosa in 
 
 ## Riferimento API
 
-Tutto ciò che fa l'app Make passa dall'API pubblica di Whappy. Puoi chiamarla anche direttamente, ad esempio con **Make an API Call**.
+Tutto ciò che fa l'app Make passa dall'API pubblica di Whappy. Puoi chiamarla anche direttamente, ad esempio con **Make an API call**.
 
 **URL base**: `https://api.whappy.ai/v1`
 
@@ -138,7 +140,7 @@ Quando l'evento succede, Whappy invia questo JSON (POST) a ogni `targetUrl`:
 | `conversation_json` | I messaggi (`sender` è `ai` o `lead`), come stringa JSON. |
 | `appointment_json` | I dettagli dell'appuntamento, come stringa JSON. |
 
-In Make usa **Parse JSON** sui campi `*_json` per collegarne il contenuto.
+L'API invia i quattro campi `*_json` come stringhe JSON. L'app Make li interpreta per te: in Make sono **Lead info**, **Collected info**, **Conversation** e **Appointment details**, e uno vuoto viene semplicemente omesso.
 
 ### Creare un lead
 
@@ -174,7 +176,7 @@ Gli errori rispondono con un codice di stato e un messaggio leggibile, mostrato 
 | --- | --- | --- |
 | `400` | La richiesta non si può usare, ad es. un numero di telefono illeggibile. | `Phone number '12' is not a valid number; add the international prefix (e.g. +48) or set a default country in Whappy settings` |
 | `401` | Chiave API mancante, sbagliata o revocata. | `Invalid API key` |
-| `422` | Manca un campo obbligatorio o ha il tipo sbagliato. | Dettagli per campo. |
+| `422` | Manca un campo obbligatorio o ha il tipo sbagliato. Il corpo contiene anche `detail`, l'elenco di ogni campo errato. | `zap_type: Field required` |
 | `500` | Errore imprevisto lato Whappy; riprova più tardi. | `Failed to create lead` |
 
 ---
@@ -190,7 +192,7 @@ Gli errori rispondono con un codice di stato e un messaggio leggibile, mostrato 
     Verifica che lo scenario sia **attivo**: Make rifiuta gli eventi di uno scenario spento. Verifica che la campagna sia in corso e che i lead arrivino allo step (chiusura, appuntamento, Invia dati) che il trigger ascolta.
   </Accordion>
 
-  <Accordion title="Create Lead fallisce con [400]">
+  <Accordion title="Create a lead fallisce con [400]">
     Il numero di telefono non è leggibile. Invialo con il prefisso internazionale, oppure imposta un paese predefinito nelle impostazioni di Whappy.
   </Accordion>
 </AccordionGroup>
