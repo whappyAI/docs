@@ -51,7 +51,7 @@ Every trigger outputs the lead (`lead_id`, `name`, `phone`, `campaign_name`, `cr
   </Step>
   <Step title="Build your scenario">
     - **Triggers**: add the trigger, click **Create a webhook**, fill in its fields (hours for Watch dead leads, trigger name for Watch Send data steps) and save. Whappy starts sending events as soon as the scenario is on.
-    - **Watch closed leads** also asks for a **Campaign name**. Whappy does not apply it yet: every closed conversation reaches the scenario. To keep one campaign, add a filter on `campaign_name` after the trigger.
+    - **Watch closed leads** also asks for a **Campaign name**. Fill it in and the scenario only gets that campaign's closed conversations; leave it empty for every campaign. The name must match the campaign's name in Whappy (capitals and surrounding spaces do not matter). If you rename the campaign, update the name in the trigger too.
     - **Create a lead**: map at least **Phone** (international format, e.g. `+393331234567`) and **Name**. Turn on **Test lead** while you try it.
   </Step>
 </Steps>
@@ -88,7 +88,7 @@ Everything the Make app does goes through the public Whappy API. You can call it
 | `zap_type` | string | yes | `CLOSE`, `APPOINTMENT`, `DEAD` or `SEND_DATA`. |
 | `hours` | integer | for `DEAD` | Hours without a reply before the event fires. With several `DEAD` subscriptions, the shortest wait applies to all of them. A `DEAD` subscription without `hours` never fires. |
 | `name` | string | for `SEND_DATA` | The trigger name chosen in the Send data step. |
-| `campaignName` | string | no | Stored, not applied yet: a `CLOSE` subscription receives every campaign's closed conversations. |
+| `campaignName` | string | no | `CLOSE` only: the subscription receives only this campaign's closed conversations (matched on the campaign's current name, case-insensitive, surrounding spaces ignored). Empty: every campaign. |
 
 Response `201`:
 

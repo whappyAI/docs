@@ -54,7 +54,7 @@ Ogni trigger restituisce il lead (`lead_id`, `name`, `phone`, `campaign_name`, `
 
   <Step title="Costruisci lo scenario">
     - **Trigger**: aggiungi il trigger, clicca **Create a webhook**, compila i campi (ore per Watch dead leads, nome del trigger per Watch Send data steps) e salva. Whappy inizia a inviare eventi appena lo scenario è attivo.
-    - **Watch closed leads** chiede anche un **Campaign name**. Whappy per ora non lo applica: ogni conversazione chiusa arriva allo scenario. Per tenere una sola campagna, aggiungi un filtro su `campaign_name` dopo il trigger.
+    - **Watch closed leads** chiede anche un **Campaign name**. Se lo compili, lo scenario riceve solo le conversazioni chiuse di quella campagna; lascialo vuoto per tutte le campagne. Il nome deve corrispondere al nome della campagna in Whappy (maiuscole e spazi all'inizio o alla fine non contano). Se rinomini la campagna, aggiorna il nome anche nel trigger.
     - **Create a lead**: collega almeno **Phone** (formato internazionale, ad es. `+393331234567`) e **Name**. Attiva **Test lead** mentre fai le prove.
   </Step>
 </Steps>
@@ -91,7 +91,7 @@ Tutto ciò che fa l'app Make passa dall'API pubblica di Whappy. Puoi chiamarla a
 | `zap_type` | string | sì | `CLOSE`, `APPOINTMENT`, `DEAD` o `SEND_DATA`. |
 | `hours` | integer | per `DEAD` | Ore senza risposta prima che l'evento parta. Con più iscrizioni `DEAD`, vale per tutte l'attesa più breve. Un'iscrizione `DEAD` senza `hours` non parte mai. |
 | `name` | string | per `SEND_DATA` | Il nome del trigger scelto nello step Invia dati. |
-| `campaignName` | string | no | Salvato, per ora non applicato: un'iscrizione `CLOSE` riceve le conversazioni chiuse di tutte le campagne. |
+| `campaignName` | string | no | Solo `CLOSE`: l'iscrizione riceve solo le conversazioni chiuse di questa campagna (confronto con il nome attuale della campagna, senza distinzione tra maiuscole e minuscole, spazi all'inizio o alla fine ignorati). Vuoto: tutte le campagne. |
 
 Risposta `201`:
 
