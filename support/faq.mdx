@@ -8,23 +8,21 @@ icon: "question"
 
 <AccordionGroup>
     <Accordion title="What is Whappy and how does it work?">
-        Whappy is a SaaS platform that automates WhatsApp conversations using AI to qualify leads and schedule appointments. It uses conversation flows (called "funnels") that guide prospects through a structured qualification process, collecting information and setting up meetings automatically.
+        Whappy is an AI assistant that talks to your leads and customers on WhatsApp and Instagram. You set it up in campaigns: you tell it about your business, choose what it asks each lead, and design the conversation as a funnel of steps. It asks your questions, answers theirs, books meetings and hands the conversation to you when you want. See [What is Whappy?](/introduction).
     </Accordion>
 
     <Accordion title="What are the system requirements to use Whappy?">
-        - A WhatsApp Business account
-        - Modern web browser (Chrome, Firefox, Safari, Edge)
-        - Active internet connection
-        - Business phone number verified with WhatsApp Business
-        - For integrations: Calendly, Cal.com, or Zapier accounts (optional)
+        - A modern web browser
+        - A WhatsApp Business number, an Instagram professional account, or both. See [WhatsApp](/integrations/whatsapp) and [Instagram](/integrations/instagram)
+        - An active plan for campaigns to run
+        - Optional: a calendar (Calendly, Cal.com or GoHighLevel) for booking meetings, and Zapier, Make or a webhook to bring in leads
     </Accordion>
 
     <Accordion title="How do I connect my WhatsApp Business account?">
-        1. Navigate to the Integrations page
-        2. Click on the WhatsApp integration card
-        3. Follow the OAuth flow to connect your WhatsApp Business account
-        4. Verify your business phone number and account details
-        5. Your WhatsApp integration will be active once verified
+        1. Go to **Integrations → WhatsApp**
+        2. Press **Add new number**, or **Connect existing WhatsApp Business app** for a number you already use in the WhatsApp Business app
+        3. In the Facebook window, log in, pick your Meta Business portfolio and WhatsApp Business account, and choose the number
+        4. The number appears in the **Accounts** tab: no IDs or tokens to type. See [WhatsApp](/integrations/whatsapp)
     </Accordion>
 </AccordionGroup>
 
@@ -32,44 +30,51 @@ icon: "question"
 
 <AccordionGroup>
     <Accordion title="What is a funnel and how do I create one?">
-        A funnel is a conversation flow that defines how your AI assistant interacts with leads. To create one:
+        A funnel is the conversation your assistant follows with each lead, step by step. To build one, open a campaign and:
 
-        1. Go to the **Funnel** tab
-        2. Configure your business context in the **Context** section
-        3. Define information fields to collect in the **Info** section
-        4. Build your conversation flow using the visual flow builder
-        5. Set your operating hours in the **Options** section
+        1. Describe your business on the **Context** page
+        2. Add the details to collect on the **Info** page
+        3. On the **Funnel** page, press **Generate from context**, or add steps with **Add node** and connect them
+        4. Press **Save changes**, then **Test**
+        5. Set your language and working hours on the **Options** page
+
+        See [Funnel](/campaign/funnel).
     </Accordion>
 
     <Accordion title="What types of nodes are available in the flow builder?">
-        - **Start Node**: Initiates the conversation with a welcome message
-        - **Info Node**: Collects specific information from leads (text, numbers, multiple choice)
-        - **Condition Node**: Creates branching logic based on collected information
-        - **Talk Node**: Sends custom messages or responses
-        - **Appointment Node**: Schedules meetings using Calendly, Cal.com or GoHighLevel
-        - **Send Data Node**: Sends collected data to a webhook, Zapier or a WhatsApp alert, mid-conversation
-        - **Send Document Node**: Sends PDFs or images from your [Assets](/campaign/assets) library
-        - **Send Voice Note Node**: Sends a pre-recorded voice message as a real WhatsApp voice note
-        - **Close Node**: Ends the conversation and optionally sends data to external systems
+        - **WhatsApp template**: the first message to a new lead (**Starts on Instagram** on an Instagram-only campaign)
+        - **Ask information**: asks the lead for one of your Info fields
+        - **Talk**: says something to the lead
+        - **Support agent**: answers the lead's questions until an exit condition is met
+        - **Send document**: sends PDFs or images from your [Assets](/campaign/assets)
+        - **Send voice note**: sends a pre-recorded voice message
+        - **Condition**: branches on a collected answer
+        - **A/B test**: splits new leads between two paths and compares them
+        - **Book meeting**: books on Calendly, Cal.com or GoHighLevel
+        - **Send data**: sends what was collected to a webhook, Zapier or Make, or a WhatsApp alert
+        - **Close**: ends the conversation, and can move the lead into another campaign
+
+        On Instagram, documents and voice notes arrive as links. See [Funnel](/campaign/funnel#steps).
     </Accordion>
 
     <Accordion title="How do I set up conditional logic in my funnel?">
-        1. Add a **Condition Node** to your flow
-        2. Select the information field to evaluate
-        3. Choose an operator (equals, greater than, less than, contains)
-        4. Set the comparison value
-        5. Connect the "true" and "false" outputs to different next steps
-        6. Optionally set a default path for unexpected values
+        1. Add a **Condition** step from **Add node**
+        2. Under **Check if**, pick the Info field to check
+        3. Choose the operator and the value: for a number, equals, greater than, less than and so on; for text, equals, contains, is empty, or a yes/no **Question**; for multiple choice, tick the options that count as true
+        4. Under **If unknown**, choose which path to take when the answer is not known
+        5. Connect the **True** and **False** outputs to the next steps
+
+        See [Condition](/campaign/funnel#condition).
     </Accordion>
 
     <Accordion title="Can I collect custom information from leads?">
-        Yes! In the **Info** tab, you can create custom information fields:
+        Yes. On a campaign's **Info** page, add a field with **Generate with AI** or **Add manually**:
 
-        - **Text fields**: For names, descriptions, or open-ended responses
-        - **Number fields**: For budgets, quantities, or numeric values
-        - **Multiple choice**: For predefined options like preferences or categories
-        - Each field can be marked as required or optional
-        - You can provide example questions to guide the AI's conversation
+        - **Text**, **Number** or **Multiple choice**
+        - Required (the assistant keeps asking) or optional (asked once)
+        - Optional example questions to guide the assistant
+
+        Then add an **Ask information** step for it in the funnel. See [Info](/campaign/info).
     </Accordion>
 </AccordionGroup>
 
@@ -77,27 +82,19 @@ icon: "question"
 
 <AccordionGroup>
     <Accordion title="How are leads added to my system?">
-        Leads can be added through:
-        - Manual entry in the Leads page
-        - CSV import, up to 1,000 rows per file — see [Adding & managing leads](/leads/lead-management)
-        - Zapier integration (automatic from forms, CRM, etc.)
-        - GoHighLevel contact sync
-        - Webhook integration from your own systems
-        - Direct API calls to your unique endpoint
+        - By hand, with **Add a lead** in the **⋮** menu of the campaign's Leads page
+        - From a CSV, up to 10,000 rows per file. See [Adding & managing leads](/leads/lead-management)
+        - From an integration: [Webhook](/integrations/webhook), [Zapier](/integrations/zapier), [Make](/integrations/make), [GoHighLevel](/integrations/gohighlevel), or a [Meta lead ad](/integrations/meta-conversions)
+        - On Instagram, leads arrive when they write to you
     </Accordion>
 
     <Accordion title="What's the difference between test and real leads?">
-        - **Test leads**: Used for testing your funnel without affecting real data or sending actual WhatsApp messages
-        - **Real leads**: Actual prospects that will receive WhatsApp messages from your AI assistant
-        - You can toggle between viewing test and real leads using the switch in the Leads page
+        - **Test leads** are created in the funnel's **Test** window. A test conversation never sends a message to a real phone, but a **Book meeting** step books real meetings, and **Send data** steps send their data unless **Skip test** is on.
+        - **Real leads** get real messages from your assistant, and only they count on Home and in Analytics.
     </Accordion>
 
     <Accordion title="How can I view conversation history with leads?">
-        1. Go to the **Leads** page
-        2. Find the lead you want to review
-        3. Click the message icon in the Actions column
-        4. The conversation modal will show the complete message history
-        5. You can also see collected information and appointment details
+        Open **Chats** in the left menu and pick a conversation. You see every message, what was collected, and you can take over from the AI. From a campaign's Leads page, **View conversation** on a lead's row opens it too. See [Chats](/leads/conversation-history).
     </Accordion>
 
     <Accordion title="Can I manually send messages to leads?">
@@ -111,47 +108,24 @@ icon: "question"
 
 <AccordionGroup>
     <Accordion title="What integrations does Whappy support?">
-        - **WhatsApp Business**: Core messaging platform (required)
-        - **Calendly**: For appointment scheduling
-        - **Cal.com**: Alternative appointment scheduling
-        - **Zapier**: Connect to 5000+ apps for lead import
-        - **Webhooks**: Direct integration with your systems
+        - **Channels**: [WhatsApp](/integrations/whatsapp) and [Instagram](/integrations/instagram)
+        - **Calendars**: [Calendly](/integrations/calendly), [Cal.com](/integrations/cal), [GoHighLevel](/integrations/gohighlevel)
+        - **Leads and automation**: [Webhook](/integrations/webhook), [Zapier](/integrations/zapier), [Make](/integrations/make), [GoHighLevel](/integrations/gohighlevel)
+        - **Ads**: [Meta Ads](/integrations/meta-conversions)
+        - **Stores**: [Shopify](/integrations/shopify)
+        - **AI clients**: [Claude and other MCP clients](/integrations/mcp)
     </Accordion>
 
     <Accordion title="How do I set up Calendly integration?">
-        1. Navigate to **Integrations** page
-        2. Click on the Calendly card
-        3. Click "Connect" and authenticate with your Calendly account
-        4. Your event types will be automatically imported
-        5. Use the Appointment node in your funnel to offer specific event types
+        Open **Integrations → Calendly** and connect your Calendly account. Its event types become available in the funnel's **Book meeting** step. See [Calendly](/integrations/calendly).
     </Accordion>
 
     <Accordion title="How does the Zapier integration work?">
-        1. Get your API key from the Zapier integration card
-        2. Create a Zap in Zapier with your trigger (form submission, CRM update, etc.)
-        3. Use "Webhooks by Zapier" as the action
-        4. Send lead data to your Whappy webhook URL with your API key
-        5. Configure optional triggers for appointments and conversation closures
+        Use the Whappy app on Zapier to add leads to Whappy from forms, ads, sheets or any other app, and to start a Zap when something happens in a conversation, such as a conversation closing or a **Send data** step. [Make](/integrations/make) offers the same. See [Zapier](/integrations/zapier).
     </Accordion>
 
     <Accordion title="What data format should I use for webhook integrations?">
-        Send a POST request to your webhook URL with this JSON format:
-
-        ```json
-        {
-            "name": "John Doe",
-            "phone": "+1234567890",
-            "email": "john@example.com",
-            "tags": ["website", "demo-request"],
-            "lead_info": {
-            "source": "website",
-            "budget": 5000
-        },
-            "is_test": false
-        }
-        ```
-
-        Include your API key in the `X-API-Key` header.
+        Send a POST request with the lead's name, phone and any other details as JSON, with your API key in the `X-API-Key` header. The endpoint and key are under **Integrations → Webhook**. See [Webhook](/integrations/webhook) for the exact format and examples.
     </Accordion>
 </AccordionGroup>
 
@@ -159,36 +133,38 @@ icon: "question"
 
 <AccordionGroup>
     <Accordion title="How do I start and stop my campaign?">
-        1. Ensure all requirements are met (WhatsApp connected, funnel configured)
-        2. Save any unsaved changes to your funnel
-        3. Click **Start Campaign** on the home page
-        4. To stop, click **Stop Campaign** and confirm
-        5. Stopping a campaign will close any ongoing conversations
+        On the **Campaigns** page, use the switch on the campaign's row. The switch stays off while the campaign is not ready: the **Ready** column says what to fix first.
+
+        While a campaign is stopped, nothing goes out and the assistant answers nobody. See [The campaigns list](/campaign/channel#the-campaigns-list).
     </Accordion>
 
     <Accordion title="What are operating hours and how do they work?">
-        Operating hours define when your AI assistant will respond to leads:
+        Working hours are set per campaign on its **Options** page: a time zone, and the days and hours.
 
-        - Set different hours for each day of the week
-        - Choose your timezone in the Options page
-        - Messages received outside operating hours will be queued
-        - Conversations will resume during the next operating period
+        - New contacts and follow-ups go out only in these hours
+        - Replies go out any time: a lead who writes at night gets an answer straight away
+        - Appointment reminders go out on time, whatever the hour
+
+        See [Options](/campaign/options#working-hours).
     </Accordion>
 
     <Accordion title="Can I run multiple campaigns simultaneously?">
-        Yes. The **Campaigns** page lists all your campaigns, each with its own funnel, leads, Coach and rehearsal, and each can be started and stopped independently.
+        Yes. The **Campaigns** page lists all your campaigns, each with its own funnel and leads, and each can be started and stopped on its own.
 
-        You can also **duplicate** a campaign to use it as a starting point, and mark one as your **default**.
+        From a row's menu you can **Rename**, **Duplicate** (not campaigns for existing customers), **Set as default** and **Delete** (not while it runs).
     </Accordion>
 
     <Accordion title="What does the Ready column mean?">
-        Each campaign row shows whether it can actually run. A campaign is ready only when three things are true:
+        Whether the campaign can start. A green tick means it can; an amber triangle means it can't, and hovering it shows the first thing to fix:
 
-        - You have an **active subscription**
-        - **WhatsApp is connected**
-        - The **funnel is complete**
+        - **No active subscription**
+        - **WhatsApp not connected**
+        - **Instagram not connected**
+        - **First message has no number**
+        - **Funnel incomplete**
+        - **Needs attention — open it**: something else, explained on the campaign's own page
 
-        If any are missing, the row names the one that is missing rather than just refusing to start.
+        See [The campaigns list](/campaign/channel#the-campaigns-list).
     </Accordion>
 </AccordionGroup>
 
@@ -196,29 +172,26 @@ icon: "question"
 
 <AccordionGroup>
     <Accordion title="Why isn't my WhatsApp integration working?">
-        Check these common issues:
-
-        - Ensure your WhatsApp Business account is verified
-        - Check that your phone number is properly connected
-        - Verify you have the necessary permissions on your WhatsApp Business account
-        - Try disconnecting and reconnecting the integration
-        - Contact support if issues persist
+        - Open **Integrations → WhatsApp** and check that the number is still connected
+        - Check that the template in your funnel's first step is still approved
+        - Open a failed message in **Chats**: it shows the reason Meta gave
+        - If a number was disconnected, reconnect it. See [WhatsApp](/integrations/whatsapp)
+        - Contact support if it persists
     </Accordion>
 
     <Accordion title="My funnel isn't saving changes. What should I do?">
-        - Check your internet connection
-        - Ensure all required fields are completed
-        - Try refreshing the page and making changes again
-        - Clear your browser cache and cookies
-        - If using condition nodes, verify all operators and values are set
+        - Check your internet connection and try **Save changes** again
+        - Open **Funnel issues** on the canvas: it lists steps that are not configured
+        - On a Condition step, check that a field, an operator and a value are set
+        - If the save says an A/B test was ended elsewhere, reload the page
+        - Reload the page and try again
     </Accordion>
 
     <Accordion title="How do I troubleshoot appointment scheduling issues?">
-        1. Verify your Calendly/Cal.com integration is properly connected
-        2. Check that your event types are active and visible
-        3. Ensure your calendar has available time slots
-        4. Test the booking process with a test lead
-        5. Check your appointment node configuration in the funnel
+        1. Check that your calendar is connected under **Integrations**
+        2. Check that the event type is active in your calendar and has free slots
+        3. Open the **Book meeting** step and check its **Meeting type**
+        4. Try it with a test conversation: it books a real meeting on your calendar
     </Accordion>
 
     <Accordion title="What should I do if leads aren't receiving messages?">
@@ -227,16 +200,18 @@ icon: "question"
         - Campaign is running (green status on home page)
         - Lead phone numbers are in correct international format (+1234567890)
         - Operating hours are configured and current time is within them
-        - WhatsApp Business account has sufficient credits/quota
+        - The WhatsApp number is still connected under **Integrations → WhatsApp**, and Meta has cleared it to send
+        - Open the conversation in **Chats**: a failed message shows the reason Meta gave and how to fix it
         - Lead is not marked as a test lead (unless testing)
     </Accordion>
 
     <Accordion title="How can I test my funnel before going live?">
-        1. Create test leads using the "Add Lead" button with test mode enabled
-        2. Ensure your campaign is running
-        3. Test leads will follow your funnel but won't send actual WhatsApp messages
-        4. Review the conversation flow and collected information
-        5. Iterate on your funnel configuration as needed
+        1. Save the funnel, then press **Test** on the canvas
+        2. Pick a test lead or **Add a test lead**, and press **Start**
+        3. Reply as the lead would. You see what the assistant says and what it collects
+        4. Press **Restart** to try another path
+
+        A test never messages a real phone. For a wider check, switch on [Rehearsal](/autopilot/rehearsal) in **Options → Sections**.
     </Accordion>
 </AccordionGroup>
 
@@ -244,17 +219,17 @@ icon: "question"
 
 <AccordionGroup>
     <Accordion title="Does Whappy provide an API for custom integrations?">
-        Yes, Whappy provides webhook endpoints for lead creation and status updates. Full REST API documentation is available for enterprise customers. Contact support for API access and documentation.
+        Yes. Send leads to Whappy through the [Webhook](/integrations/webhook) endpoint with your API key, receive data from the funnel with a **Send data** step, or connect an AI client through [MCP](/integrations/mcp).
     </Accordion>
 
     <Accordion title="How do I handle webhook authentication?">
-        All webhook requests must include your API key in the `X-API-Key` header:
+        Every request needs your API key in the `X-API-Key` header:
 
         ```
         X-API-Key: YOUR_API_KEY
         ```
 
-        Get your API key from the Integrations page. Keep this key secure and rotate it regularly for security.
+        The key is under **Integrations → Webhook**. Anyone with it can add leads to your account: keep it on your server. See [Webhook](/integrations/webhook).
     </Accordion>
 
     <Accordion title="Can I export my lead data?">
@@ -266,28 +241,15 @@ icon: "question"
 
 <AccordionGroup>
     <Accordion title="What are the usage limits for different plans?">
-        Usage limits vary by plan and may include:
-
-        - Number of leads per month
-        - Number of conversations per day
-        - WhatsApp message limits
-        - Integration capabilities
-
-        Check your current usage and limits in the billing section of your account.
+        Plans limit how many new leads you can start per day and per month. Home shows how many leads you have used this month out of your limit. See **Plans** in the account menu for the plans.
     </Accordion>
 
     <Accordion title="How is usage calculated?">
-        - **Leads**: Each unique lead added to your system
-        - **Conversations**: Each started conversation with a lead
-        - **Messages**: Each WhatsApp message sent by your AI assistant
-        - Usage resets according to your billing cycle
+        Each new lead whose conversation starts counts once. The monthly count follows your billing period.
     </Accordion>
 
     <Accordion title="What happens if I exceed my plan limits?">
-        - Your campaign may be paused to prevent overages
-        - You'll receive notifications about approaching limits
-        - Upgrade your plan to increase limits
-        - Contact support for temporary limit increases if needed
+        New leads are not started until the limit resets or you upgrade. Conversations already going continue. Upgrade under **Plans** in the account menu.
     </Accordion>
 </AccordionGroup>
 
@@ -302,7 +264,7 @@ icon: "question"
     </Accordion>
 
     <Accordion title="Can I delete lead data?">
-        Yes, you can delete individual leads from the Leads page. For bulk data deletion or account data removal, contact support. We comply with data deletion requests in accordance with privacy regulations.
+        Yes. On a campaign's Leads page, delete one lead with the bin button on its row, or tick several and use **Delete selected**. Their conversations are kept. For account data removal, [contact support](/support/contact-support).
     </Accordion>
 
     <Accordion title="Where is my data stored?">

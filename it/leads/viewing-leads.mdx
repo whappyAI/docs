@@ -10,20 +10,25 @@ Ogni campagna ha una scheda **Lead** che elenca tutte le persone che ne fanno pa
 
 | Colonna | Cosa mostra |
 | --- | --- |
-| **Nome** | Il nome del lead. |
-| **Numero di telefono** | In formato internazionale completo. |
+| **Nome** | Il nome del lead. Chi ha chiesto di non ricevere messaggi promozionali porta l'etichetta **Ha disdetto**: può comunque scriverti e l'assistente gli risponde. |
+| **Contatto** | Il numero di telefono in formato internazionale completo. Chi ha scritto su Instagram mostra invece il simbolo di Instagram e il suo @nome utente. |
 | **Email** | Se disponibile, altrimenti *N/D*. |
-| **Conversazione** | Lo stato e quanti messaggi sono stati scambiati. |
-| **Appuntamento** | La prenotazione, se è stata fatta. |
+| **Conversazione** | Lo stato della conversazione. |
+| **Appuntamento** | Data e ora della prenotazione, oppure *Nessun appuntamento*. |
+| **Etichette** | Solo nelle campagne per clienti esistenti: le etichette di questo cliente, modificabili sul posto. |
+| **Azioni** | Visualizza conversazione, visualizza info lead, elimina. |
+
+Un numero senza prefisso internazionale è mostrato in rosso con un avviso. Passaci sopra per vedere la forma corretta, perché un numero senza prefisso non è raggiungibile.
 
 ## Stati della conversazione
 
 | Stato | Significato |
 | --- | --- |
-| **Pronto** | Nella campagna, nessun messaggio ancora inviato. |
-| **Avviata** | Il primo messaggio è partito. |
+| **Pronta** | Nella campagna, nessun messaggio ancora inviato. |
+| **Iniziata** | Il primo messaggio è partito. |
 | **Attiva** | Una conversazione è in corso. |
-| **Qualificato** | Il lead ha risposto a tutto ciò che avevi chiesto. |
+| **In pausa** | La conversazione è stata fermata. |
+| **Completata** | Il lead è arrivato alla fine del funnel. |
 | **Errore** | Qualcosa è andato storto in questa conversazione. |
 
 ## Ricerca e filtri
@@ -32,22 +37,27 @@ La **ricerca** trova i lead per nome, telefono o email.
 
 I **filtri** restringono l'elenco per:
 
-- **Stato della conversazione** — uno qualsiasi fra quelli sopra, o tutti.
-- **Intervallo di date** — una data *da* e una *a*.
+- **Stato conversazione** — uno fra **Attiva**, **Pronta**, **Errore**, **Avviata** e **Qualificata** (una conversazione completata), oppure tutti.
+- **Intervallo date** — una data *da* e una *a*.
 
-I filtri attivi sono riassunti sopra la tabella, e **Cancella tutto** li rimuove in una volta.
+Il pulsante indica quanti filtri sono attivi, i filtri correnti sono riassunti al suo interno e **Rimuovi tutto** li toglie in una volta.
+
+Altri due filtri compaiono sotto la ricerca quando servono:
+
+- **Tutti / WhatsApp / Instagram**, su un account che usa entrambi i canali.
+- **Etichette**, quando almeno un lead ne porta una. Scegliendone diverse vedi i lead che ne hanno almeno una.
 
 ## Guardare un singolo lead
 
-Il menu azioni di ogni riga offre:
+Ogni riga termina con tre pulsanti:
 
-- **Vedi conversazione** — lo storico completo dei messaggi. Vedi [Storico conversazioni](/it/leads/conversation-history).
-- **Vedi informazioni lead** — tutte le risposte raccolte da questo lead.
+- **Visualizza conversazione** — lo storico completo dei messaggi. Vedi [Storico conversazioni](/it/leads/conversation-history).
+- **Visualizza info lead** — i recapiti, tutte le risposte raccolte da questo lead e la lingua in cui l'assistente gli scrive. Vedi [Lingua del lead](/it/leads/lead-management#lingua-del-lead).
 - **Elimina lead**.
 
 ## Esportazione
 
-**Esporta in CSV** scarica i lead attualmente elencati, comprese le informazioni raccolte.
+Apri il menu **⋮** e scegli **Esporta in CSV**. Scarica i lead attualmente elencati, comprese le informazioni raccolte.
 
 <Note>
     I numeri di telefono devono includere il prefisso internazionale. Whappy segnala un numero che ne è privo e suggerisce la forma corretta, perché un numero senza prefisso non è raggiungibile.

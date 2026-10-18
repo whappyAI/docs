@@ -1,168 +1,68 @@
 ---
 title: "Options"
-description: "Configure when your campaign sends messages with timezone and operating hours settings"
+description: "A campaign's language, channels, sending rules, working hours and extra sections"
 icon: "sliders"
 ---
 
-The Options tab controls **when** your WhatsApp campaign is active and sending messages to leads. This ensures you only contact prospects during appropriate business hours and respects different time zones.
+**Options** holds the settings that apply to the whole campaign: its language, where it talks, how messages go out, its working hours, and which extra pages it shows. On a [campaign for existing customers](/campaign/client-campaigns) the page is called **Settings**.
 
-## Campaign Timezone
+Most settings are kept when you press **Save** at the bottom. **Language**, **Channels** and **Sections** are saved as soon as you change them. If you try to close or reload the tab with unsaved changes, the browser asks first.
 
-Set the timezone for your campaign operations.
+## WhatsApp number
 
-**How it works:**
-- All operating hours are based on this timezone
-- Choose the timezone where your business operates
-- Leads will receive messages according to this schedule, regardless of their location
+On a campaign for existing customers only, the first card is **WhatsApp number**: which of your connected numbers the campaign sends from (**Send from**). Choose it first: the templates you can use for offers and announcements are those of the WhatsApp Business account the number belongs to.
 
-**Example:**
-```
-Business in New York → Select "America/New_York (EST/EDT)"
-Business in London → Select "Europe/London (GMT/BST)"
-Business in Sydney → Select "Australia/Sydney (AEST/AEDT)"
-```
+## Language
+
+**Campaign language** is the language the assistant writes in for every lead without a language of their own. It is saved as soon as you pick it. When it is not set, those leads are written to in English, and the campaign shows *No campaign language* among the things worth checking.
+
+Each lead can also have their own language: from an import, set by you, or guessed when they arrive and then followed from the messages they write. See [Lead language](/leads/lead-management#lead-language). How Whappy guesses the language of a new lead before they write is set once for your account, under **Profile → Language of new leads** in the account menu: it tries the language of the form or page they came from, their phone's country code, and their first name, in the order you choose. The name guess starts off. Instagram leads always write first, so Whappy uses the language they write in.
+
+## Channels
+
+**Channels** says where the campaign talks: WhatsApp, Instagram or both. It is shown on accounts where Instagram is offered, and saved as soon as you change it. See [Channel](/campaign/channel) for what each choice changes.
+
+## Sending
+
+The rows shown depend on the kind of campaign and its channels.
+
+| Setting | What it does | Shown on |
+| --- | --- | --- |
+| **Time gap between new leads** | Minimum gap, in minutes, between two new leads, so messages don't all go out at once. | Every campaign that talks on WhatsApp |
+| **Starts when** | Which store events send a customer to this campaign. See [Shopify](/integrations/shopify). | Campaigns for new customers on accounts with a Shopify store |
+| **Wait before the first message** | Minutes to wait before the first message to a new lead. Off sends at the next run. | Campaigns for new customers on WhatsApp |
+| **Restart the campaign for a lead that comes back** | When the same lead arrives again, the funnel restarts from the first message. Off, only the lead's details update. On by default. | Campaigns for new customers on WhatsApp |
+| **Stop when a lead asks not to be contacted** | When a lead clearly asks you to stop writing, the AI stops replying. Still in testing: for now these messages are only recorded and the AI still replies. | Campaigns for new customers |
+| **Suggest products from your store** | The AI can suggest one related product from your store in a reply. On unless you switch it off. Buyers who opted out of marketing never get suggestions; product questions are answered either way. See [Shopify](/integrations/shopify#answers-about-products-and-suggestions). | Accounts with a Shopify store |
+| **Leave recent conversations alone** | Announcements skip anyone in a conversation more recent than this many hours (24 by default; 0 turns it off). On a campaign started by store events, a later event does not start it over for a customer whose conversation had a message within this window. | Campaigns for existing customers, and campaigns started by store events |
+| **Follow-up** | If a lead stops replying, the AI writes to them again after this many hours. **Follow-up message** is optional: a guide the assistant adapts each time. | Campaigns for new customers |
+| **Appointment reminder** | A reminder this many minutes before a booked appointment. **Reminder message** is optional: a guide the assistant adapts each time. | Every campaign |
 
 <Note>
-    The timezone affects when messages are sent, not the content. Choose your business timezone, not your leads' timezones.
+    On Instagram, a follow-up or a reminder only goes out within 24 hours of the lead's last message. On a campaign that talks only on Instagram, a follow-up set to 24 hours or more never goes out, and the page warns you. A campaign that talks only on Instagram has no time gap, start wait or restart: its leads write first.
 </Note>
 
-## Operating Hours
+## Welcoming new customers
 
-Configure which days and times your campaign sends messages.
+On a campaign for existing customers, **How new customers are welcomed** sets the one message imported customers get from the assistant. See [The welcome](/campaign/client-campaigns#the-welcome).
 
-### Day Selection
-**Enable/Disable Days:**
-- Toggle each day on/off using the checkbox
-- Disabled days = no messages sent
-- Enabled days = messages sent during specified hours
+## Working hours
 
-**Typical Schedules:**
-- **Business Days Only**: Monday-Friday enabled, weekends disabled
-- **Full Week**: All days enabled with different weekend hours
-- **Custom**: Any combination based on your business needs
+**Time zone** and **Days and hours**: switch each day on or off, and set its start and end time. A day that is off shows **Closed**.
 
-### Time Ranges
-**Set Hours for Each Day:**
-- **Start Time**: When to begin sending messages
-- **End Time**: When to stop sending messages
-- Times are in 24-hour format (9:00 = 9 AM, 17:00 = 5 PM)
+**New contacts and follow-ups go out only in these hours. Replies go out any time.** A lead who writes at night gets an answer straight away; a new lead added at night gets their first message when your hours begin. Appointment reminders are sent on time, whatever the hour. Announcements also go out only in these hours.
 
-**Example Schedules:**
+Choose the time zone your business works in, not your leads'.
 
-**Standard Business Hours:**
-```
-Monday-Friday: 9:00 AM to 5:00 PM
-Saturday-Sunday: Disabled
-```
+## Sections
 
-**Extended Hours:**
-```
-Monday-Friday: 8:00 AM to 7:00 PM
-Saturday: 10:00 AM to 4:00 PM
-Sunday: Disabled
-```
+**Sections** switches extra pages on or off in the campaign's menu. Changes apply straight away.
 
-**International Business:**
-```
-Monday-Friday: 6:00 AM to 10:00 PM
-Saturday-Sunday: 9:00 AM to 6:00 PM
-```
+| Section | What it is |
+| --- | --- |
+| **Files** | Documents, images and voice notes your assistant may send when the conversation calls for them. See [Assets](/campaign/assets#files-the-ai-may-send-on-its-own). |
+| **Coach** | What your finished conversations show, and what could be improved. See [Coach](/autopilot/coach). |
+| **Rehearsal** | Try this campaign on invented customers. Nothing is sent to anybody. See [Rehearsal](/autopilot/rehearsal). |
+| **Ad reporting** | Tell Meta which leads turned out to be good, so it finds you more like them. See [Meta Ads](/integrations/meta-conversions). |
 
-## How Operating Hours Work
-
-### Message Timing
-- **During Hours**: Messages sent immediately when leads respond
-- **Outside Hours**: Messages queued until next operating period
-- **Conversations**: Ongoing chats pause when hours end, resume when they begin
-
-### Lead Experience
-- Leads receive natural response times during your business hours
-- No messages sent late at night or on disabled days
-- Conversations feel professional and respectful
-
-### Queue Management
-- Messages queued outside hours are sent when operations resume
-- Order preserved for fair lead handling
-- No messages lost due to timing restrictions
-
-## Best Practices
-
-### Timezone Selection
-- **Match Your Location**: Use your business's primary timezone
-- **Be Consistent**: Don't change timezone frequently once set
-- **Consider Coverage**: If serving multiple zones, choose your main office time
-
-### Operating Hours
-- **Respect Boundaries**: Don't send messages too early or late
-- **Match Expectations**: Align with when leads expect business contact
-- **Test Different Hours**: Monitor response rates at different times
-- **Cultural Awareness**: Consider local business customs in your market
-
-### Schedule Planning
-- **Start Conservative**: Begin with standard business hours
-- **Expand Gradually**: Add hours based on response patterns
-- **Monitor Performance**: Track when leads are most responsive
-- **Adjust Seasonally**: Different hours may work better at different times of year
-
-## Common Schedule Examples
-
-### Professional Services
-```
-Monday-Friday: 9:00 AM - 6:00 PM
-Saturday: 10:00 AM - 2:00 PM
-Sunday: Disabled
-Timezone: Your business location
-```
-
-### E-commerce/Retail
-```
-Monday-Friday: 8:00 AM - 8:00 PM
-Saturday-Sunday: 10:00 AM - 6:00 PM
-Timezone: Primary market timezone
-```
-
-### Global/SaaS Business
-```
-Monday-Friday: 6:00 AM - 10:00 PM
-Saturday-Sunday: 8:00 AM - 8:00 PM
-Timezone: Company headquarters
-```
-
-### Local Services
-```
-Monday-Friday: 8:00 AM - 6:00 PM
-Saturday: 9:00 AM - 3:00 PM
-Sunday: Disabled
-Timezone: Local timezone
-```
-
-## Important Notes
-
-### Campaign Behavior
-- **Active Campaign Required**: Hours only apply when your campaign is running
-- **Immediate Effect**: Changes apply to new messages immediately
-- **Existing Conversations**: Ongoing chats follow the new schedule
-
-### Technical Details
-- Hours are inclusive (9:00 AM start means messages can send at 9:00 AM)
-- End times are exclusive (5:00 PM end means last message at 4:59 PM)
-- System processes queued messages within minutes of hours beginning
-
-<Warning>
-    Changing timezone affects all scheduled messages. Be careful when adjusting timezone for active campaigns.
-</Warning>
-
-## Suggest products (Shopify stores)
-
-On a Shopify store's campaign, **Suggest products from your store** lets the AI suggest one product related to what the customer bought or has in their cart, with a link to buy it. It is on unless you switch it off. Customers who opted out of marketing never get suggestions, and questions about your products are answered either way. See [Shopify](/integrations/shopify#answers-about-products-and-suggestions).
-
-## Saving Changes
-
-Remember to **Save** your settings before leaving the Options tab:
-- Unsaved changes are highlighted with visual indicators
-- You'll be prompted to save when navigating away
-- Settings take effect immediately after saving
-
-<Tip>
-    Start with standard business hours and monitor your conversation analytics to find the optimal schedule for your leads.
-</Tip>
+All four are off until you switch them on. A campaign for existing customers offers only **Files**.

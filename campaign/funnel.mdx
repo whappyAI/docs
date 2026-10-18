@@ -1,295 +1,166 @@
 ---
 title: "Funnel"
-description: "Build conversation flows to qualify leads and book appointments automatically"
+description: "Build the conversation your assistant follows, step by step"
 icon: "diagram-nested"
 ---
 
-The Funnel is Whappy's visual conversation flow builder. It allows you to create automated WhatsApp conversation sequences that guide leads through qualification questions and actions like booking meetings.
+The **Funnel** is the conversation your assistant follows, step by step: the first message, the questions, the branches, and how it ends. You build it on a canvas, as steps joined by connections.
 
-## How Funnels Work
+A [campaign for existing customers](/campaign/client-campaigns) has no Funnel page: its conversations are generated from your offers.
 
-Your funnel defines the path a conversation takes with each lead. The AI follows this flow, asking questions, evaluating responses, and taking actions based on the logic you've built.
+## The editor
 
-**Flow Structure:**
-- **Nodes** represent actions or decisions in the conversation
-- **Edges** connect nodes to show the conversation path
-- **Conditions** create branching logic based on lead responses
-- **Actions** perform tasks like booking meetings or sending data
+- **Add node** (top left) opens the steps, grouped as **Conversation**, **Media**, **Logic**, **Actions** and **End**. A new step lands in the middle of the canvas, not yet connected.
+- **Connect** steps by dragging from the bottom of one step to the top of the next. A Condition has a **True** and a **False** output; an A/B test has an **A** and a **B** output.
+- **Click a connection** to delete it.
+- **Click a step** to open its settings on the side. **Delete step** removes it the next time you save. Deleting a Condition also deletes the steps on its False branch.
+- **End every path** with a Close step.
 
-## Node Types
+The bar at the bottom has **Save changes**, a pill with what the campaign still needs (for example *2 things to fix*), and **Generate from context**.
 
-### Start Node
-Every funnel begins with a Start node that sends the initial WhatsApp message.
+### Generate from context
 
-**Configuration:**
-- **WhatsApp Template**: Select an approved template for the first message
-- **Preview**: View the template content before sending
+**Generate from context** designs a whole flow from your [Business Context](/campaign/context#business-context). If the canvas already has a flow, or unsaved changes, it first asks **Replace the flow on the canvas?** The generated flow is a preview: check it, then press **Save changes** to keep it or **Discard** to go back. The preview says so if some branches don't end with a Close step yet.
 
-<Note>
-    WhatsApp requires approved templates for the first message to a contact. Configure templates in the Integrations section.
-</Note>
+### Funnel issues
 
-**Example Use:**
+When something is missing, a **Funnel issues** badge on the canvas lists it: a step that is not configured or not saved, or a missing Close step. A step that still needs something is marked on the canvas.
+
+## Steps
+
+### WhatsApp template (start)
+
+Every funnel starts here. On WhatsApp, this is the first message to a new lead.
+
+- **WhatsApp Business account**: the number the first message is sent from.
+- **Template**: one of that number's approved templates, with a preview. WhatsApp only allows an approved template as the first message. Templates are managed under [Integrations → WhatsApp](/integrations/whatsapp).
+- **First message for test conversations**: what test conversations show as the first message. Real leads get the template.
+
+On a campaign that talks only on Instagram the step is called **Starts on Instagram**: people who write to you start here, and there is no first message. On a campaign that talks on both channels, only leads you add or import get the template, on WhatsApp; people who write on Instagram skip it. See [Channel](/campaign/channel).
+
+### Ask information
+
+Asks the lead for one of your [Info](/campaign/info) fields. Pick the field; the assistant asks for it in its own words. A required field is asked again until answered; an optional one is asked once.
+
+### Talk
+
+Says something to the lead. Write **Instructions**: the assistant uses them as guidance, not a script. Tick **Wait for lead's reply** to wait for an answer before moving on.
+
+### Support agent
+
+Answers the lead's questions, from your instructions and your [Context](/campaign/context).
+
+- **Instructions**: how the assistant should help.
+- **Exit condition (optional)**: a yes/no question. The step ends once the assistant judges the answer is yes.
+
+### Send document
+
+Sends PDFs or images from your [Assets](/campaign/assets).
+
+- **Files to send**: up to 5 per step, sent in the order shown. PDFs up to 16 MB, JPEG and PNG up to 5 MB.
+- **Message (optional)**: sent with the first file only.
+- **Wait for the lead to reply before continuing**.
+
+The lead receives them as files on WhatsApp, and as links on Instagram.
+
+### Send voice note
+
+Sends a pre-recorded voice message from your [Assets](/campaign/assets).
+
+- **Recording to send**: one recording. Up to 5 minutes; audio files up to 16 MB are converted automatically.
+- **What to say before it (optional)**: say what the note is about, not its words. The assistant sends one short line before it, in the lead's language.
+- **Wait for the lead to reply before continuing**.
+
+It arrives as a voice note on WhatsApp, and as a link on Instagram.
+
+### Condition
+
+Checks a collected answer and sends the lead down the **True** or the **False** path.
+
+- **Check if**: the Info field to check. You need Info fields before you can create conditions.
+- **Operator** and **Value to compare**, depending on the field's type:
+
+| Field type | Operators |
+| --- | --- |
+| **Text** | Equals, Contains, Is empty, Is not empty, **Question** (a yes or no question the assistant answers about the lead's answer) |
+| **Number** | Equals, Greater than, Less than, Greater or equal to, Less or equal to, Is empty, Is not empty |
+| **Multiple choice** | Tick one or more options under **Select options**: true when the answer is one of them |
+
+- **If unknown**: whether to take the True or the False path when the answer is not known.
+
+### A/B test
+
+Splits new leads evenly between branch **A** and branch **B**. Each lead stays on its branch, so you can compare how the two paths convert. A funnel can have one A/B test at a time.
+
+- **Winner decided by**: **Replied**, **Reached the end**, **Booked an appointment** or **Marked as won**.
+- **Results**: how many leads entered each branch, and a verdict. No winner is shown until each branch has enough leads; then it says which branch is ahead (95% confidence) or that there is no clear difference yet.
+- **Keep A** / **Keep B**: ends the test. Every new lead follows the branch you keep, and the steps used only by the other branch are removed. Leads already in the test finish on their current path.
+
+If you edit a branch after the test started, its results mix both versions, and the step says so. While the test runs, [Coach](/autopilot/coach) waits before testing new wording on this campaign.
+
+### Book meeting
+
+Books an appointment on a calendar connected under Integrations: Calendly, Cal.com or GoHighLevel. The assistant reads its availability and books the meeting.
+
+- **Meeting type**: one of the calendar's active event types.
+- **Event description**: what the meeting is.
+- **Ask message example**: how the assistant proposes it.
+
+<Warning>
+    Test conversations book real meetings on this calendar too.
+</Warning>
+
+### Send data
+
+Sends everything collected so far to another system, without ending the conversation. **Connection type**:
+
+- **WhatsApp**: alerts a number of your choice with a notification template. Press **Create notification template** and Whappy creates it in your Meta Business account; the step shows when Meta has approved it. Needs a connected WhatsApp number.
+- **Webhook**: sends a JSON payload with the conversation and the lead's information to your **Endpoint URL**, with the **HTTP method** and **Headers** you choose. See [Webhook](/integrations/webhook).
+- **Zapier or Make**: fires a **Send data** trigger you created in the Whappy app on [Zapier](/integrations/zapier) or [Make](/integrations/make).
+
+Tick **Skip test (don't send during testing)** so test conversations don't alert your team or reach your CRM.
+
+**Test send data** (Webhook and Zapier or Make only) sends the step's data from a real conversation of this campaign that you pick, and shows the response and the payload sent. It uses the saved version of the step, so save first. Up to 10 tests per minute.
+
+### Close
+
+Ends the conversation. Every path must end with one.
+
+Turn on **Continue in another campaign** to move the lead into another campaign when this conversation closes:
+
+- **Campaign to move the lead into**. A paused campaign receives nobody while it stays paused. A campaign that doesn't talk on one of this campaign's channels won't receive leads from that channel, and the step says so.
+- **When the lead arrives**:
+  - **Send the new campaign's first message**: the new campaign opens with its own first message (WhatsApp only).
+  - **Wait for the lead to write**: the lead is moved silently, and the new campaign answers when they write again.
+  - **Continue without the template**: the new campaign picks up from the step after its first message, so the lead doesn't get a second opening.
+- **Carry over what has been collected**: the new conversation starts knowing what this one learned, marked with when it was collected.
+
+The move happens about two minutes after the conversation closes. See [Moving a lead to another campaign](/leads/conversation-history#moving-a-lead-to-another-campaign).
+
+## Testing
+
+**Test** (top right of the canvas) opens a test conversation. It needs a saved funnel with at least one step after the start, and no unfinished steps.
+
+Pick a test lead, or **Add a test lead**, and press **Start**. You play the lead in a chat window and see the information collected. On a campaign that talks on both channels, **Test as** lets you pick WhatsApp or Instagram; on Instagram you write first, as your customer would.
+
+A test conversation never sends a message to a real phone. But it is otherwise real: a **Book meeting** step books on your connected calendar, and **Send data** steps send their data unless **Skip test** is on.
+
+For a wider check, [Rehearsal](/autopilot/rehearsal) runs invented customers through the campaign. Switch it on under [Options → Sections](/campaign/options#sections).
+
+## Common patterns
+
 ```
-Template: "Hi {{name}}, thanks for your interest in our web design services! I'd love to learn more about your project."
-```
-
-### Info Node
-Collects specific information from leads during the conversation.
-
-**Configuration:**
-- **Information Field**: Choose which data to collect (from Info tab setup)
-- **AI Guidance**: The AI naturally asks for this information in conversation
-
-**Available Information Types:**
-- **Text**: Open-ended responses (company name, project description)
-- **Number**: Numeric values (budget, timeline, employee count)
-- **Multiple Choice**: Predefined options (priority level, industry type)
-
-**Example Use:**
-```
-Field: Budget Range
-AI asks: "What budget range are you working with for this project?"
-Stores: Lead's budget response for later use
-```
-
-### Condition Node
-Creates branching logic based on collected information.
-
-**Configuration:**
-- **Check Field**: Select which information to evaluate
-- **Operator**: How to compare the value (equals, greater than, contains, etc.)
-- **Value**: What to compare against
-- **Default Path**: Where to go if information is unknown
-
-**Available Operators:**
-- **Text**: Equals, Contains, Is empty, Is not empty
-- **Numbers**: Equals, Greater than, Less than, Greater/Less or equal
-- **Multiple Choice**: Equals, Is in list, Is not in list
-
-**Example Use:**
-```
-Condition: Budget > 5000
-True Path: → Book Meeting Node
-False Path: → Info Node (ask about timeline)
-Default: → True Path (if budget unknown)
-```
-
-### Talk Node
-Provides information or responses to leads without collecting data.
-
-**Configuration:**
-- **AI Examples**: Add examples of what the AI should say
-- **Multiple Examples**: AI uses these as guidelines for natural responses
-
-**Example Use:**
-```
-Examples:
-- "We specialize in modern, mobile-responsive websites for small businesses"
-- "Our typical project includes design, development, and basic SEO optimization"
-- "We can have your site live within 4-6 weeks of project start"
-```
-
-### Book Meeting Node
-Schedules appointments with qualified leads.
-
-**Configuration:**
-- **Meeting Type**: Select from your Calendly/Cal.com event types
-- **Event Description**: What kind of meeting this is
-- **Ask Message**: Example of how AI should propose the meeting
-
-**Requirements:**
-- Calendly or Cal.com integration must be configured
-- At least one active event type available
-
-**Example Use:**
-```
-Meeting Type: "30-min Discovery Call"
-Description: "Strategy session to discuss your web design needs"
-Ask Message: "I'd love to schedule a quick call to discuss your project. Are you available next week?"
-```
-
-### Close Node
-Ends the conversation and optionally sends lead data to external systems.
-
-**Configuration:**
-- **Webhook (Optional)**: Send lead data to your CRM or other tools
-- **Endpoint URL**: Where to send the data
-- **HTTP Method**: POST, PUT, or PATCH
-- **Custom Headers**: Authentication or content type headers
-
-**Example Use:**
-```
-Webhook: https://your-crm.com/api/leads
-Method: POST
-Headers: Authorization: Bearer your-token
-Data: All collected lead information sent as JSON
-```
-
-### Send Data Node
-Sends everything collected so far to an external system, mid-conversation, without ending the funnel.
-
-**Connection Types:**
-- **WhatsApp**: Whappy creates a notification template in your Meta Business Suite automatically and uses it to send an instant alert to a number you choose — useful for "a qualified lead just came in" pings to your sales team.
-- **Webhook**: A JSON payload containing all conversation data and lead info collected so far, sent to your endpoint. Choose the HTTP method and add custom headers for authentication.
-- **Zapier**: Fires a "Send Data" trigger you have created in the Whappy Zapier integration.
-
-**Testing:**
-Use **Test send data** to dispatch the step against a real conversation from this campaign, so you can see the exact payload your endpoint receives.
-
-- The test runs against the **most recently saved version** of the step — save your changes first if you want them included.
-- Results show the response body, the payload sent, and for Zapier how many triggers succeeded.
-- Limited to **10 tests per minute**.
-- Only Webhook and Zapier steps can be tested this way.
-
-Tick **Skip test** to stop this step firing during funnel tests, so trying a conversation does not alert your team or hit your CRM.
-
-### Send Document Node
-Sends PDFs or images to the lead.
-
-**Configuration:**
-- **Files to send**: Up to **5** files per step, sent in the order shown
-- **Message (optional)**: Sent with the first file only
-- **Wait for reply**: Pause the conversation until the lead responds
-
-Files come from your [Assets](/campaign/assets) library — upload once, reuse across any number of steps and campaigns. PDFs up to 16 MB, JPEG and PNG up to 5 MB.
-
-**Example Use:**
-```
-Files: pricing-2026.pdf, portfolio.pdf
-Message: "Here is the pricing you asked for."
-Wait for reply: yes
+Qualify and book
+WhatsApp template → Ask information (Budget) → Condition (Budget > 5000)
+    True  → Book meeting → Close
+    False → Talk (explain the entry offer) → Close
 ```
 
-### Send Voice Note Node
-Sends a pre-recorded voice message, which arrives as a real WhatsApp voice note — the same playable bubble a person sends.
-
-**Configuration:**
-- **Recording to send**: One recording from your [Assets](/campaign/assets) library
-- **What to say before it (optional)**: Describe what the voice note is about, *not* the exact words. The AI assistant writes one short line in the lead's own language to introduce it.
-- **Wait for reply**: Pause the conversation until the lead responds
-
-Up to 5 minutes per recording. Audio files up to 16 MB are converted automatically.
-
-**Example Use:**
 ```
-Recording: pricing-explained.ogg
-What to say before it: tell them this explains the pricing tiers
+Answer, then hand over
+WhatsApp template → Support agent (exit: "Is the lead ready to buy?") → Send data (WhatsApp alert to sales) → Close
 ```
-
-## Building Your Funnel
-
-### Getting Started
-1. **Start with Context**: Set up your campaign context first (Info tab)
-2. **Define Information**: Configure what data to collect (Info tab)
-3. **Build the Flow**: Use the visual builder to create your conversation path
-4. **Test Thoroughly**: Use the Test button to simulate conversations
-
-### Editing a live funnel
-Whappy keeps a copy of a step before the editor changes it, so a live campaign's earlier configuration is never lost to an edit. Conversations already in flight continue against the version they started on.
-
-### Adding Nodes
-- Click the **+** button after any node to add the next step
-- **Condition nodes** show two + buttons (True/False paths)
-- **Other nodes** show one + button for the next step
-
-### Connecting Logic
-1. **Linear Flow**: Start → Info → Info → Book Meeting → Close
-2. **Branching Flow**: Start → Info → Condition → Different paths based on response
-3. **Complex Flow**: Multiple conditions and paths based on various criteria
-
-### Visual Layout
-- Nodes are positioned automatically based on the flow
-- **Condition branches** spread horizontally (True left, False right)
-- **Linear nodes** flow vertically down the page
-
-## Testing Your Funnel
-
-### Test Button
-The Test button simulates a conversation with your funnel:
-- **Requirements**: Funnel must be saved and have at least 2 nodes
-- **Simulation**: Chat interface shows how the AI will respond
-- **Data Collection**: See what information gets collected
-- **Flow Paths**: Test different conversation branches
-
-### Test Scenarios
-Test these common scenarios:
-- **Happy Path**: Lead provides all information and books meeting
-- **Incomplete Info**: Lead skips questions or provides unclear answers
-- **Disqualified Lead**: Lead doesn't meet your criteria
-- **Different Conditions**: Various budget ranges, timelines, or other factors
-
-## Best Practices
-
-### Flow Design
-- **Keep it Simple**: Start with basic flows, add complexity gradually
-- **Limit Conditions**: Too many branches make flows hard to manage
-- **Test Frequently**: Check each change with the test feature
-- **Plan Paths**: Map out your ideal conversation before building
-
-### Information Collection
-- **Essential First**: Collect the most important qualifying information early
-- **Natural Order**: Ask questions in a logical sequence
-- **Clear Options**: For multiple choice, make options distinct and clear
-- **Default Paths**: Always set appropriate defaults for unknown information
-
-### Meeting Booking
-- **Qualify First**: Only offer meetings to qualified leads
-- **Clear Purpose**: Explain what the meeting will cover
-- **Flexible Scheduling**: Use calendar integration for easy booking
-- **Confirmation**: Set up email confirmations through your calendar tool
-
-### Webhook Integration
-- **Test Endpoints**: Verify your webhook URLs work before going live
-- **Authentication**: Use proper headers for secure API access
-- **Error Handling**: Your endpoint should handle the data format properly
-- **Data Mapping**: Plan how Whappy's data maps to your CRM fields
-
-## Common Flow Patterns
-
-### Lead Qualification Flow
-```
-Start → Get Budget → Budget Condition → Get Timeline → Book Meeting → Close
-                            ↓
-                    Talk (Explain Pricing) → Close
-```
-
-### Information Gathering Flow
-```
-Start → Get Company → Get Industry → Get Size → Condition (Size > 50) → Book Meeting
-                                                        ↓
-                                              Talk (SMB Services) → Close
-```
-
-### Multi-Stage Qualification
-```
-Start → Get Budget → Budget OK? → Get Timeline → Timeline OK? → Book Meeting
-           ↓             ↓              ↓            ↓
-        Close         Close          Close        Close
-```
-
-## Troubleshooting
-
-### Common Issues
-- **Test Button Disabled**: Save your funnel and ensure it has multiple nodes
-- **Template Errors**: Check WhatsApp integration and template approval status
-- **Booking Failures**: Verify Calendly/Cal.com connection and active event types
-- **Webhook Issues**: Test your endpoint URL and authentication headers
-
-### Flow Problems
-- **Dead Ends**: Every path should eventually reach a Close node
-- **Missing Conditions**: Ensure all condition branches are connected
-- **Unclear Logic**: Review condition operators and values
-- **Too Complex**: Simplify flows that have too many branches
-
-## Next Steps
-
-After building your funnel:
-1. **Configure Options**: Set operating hours and timezone
-2. **Test Thoroughly**: Try multiple conversation scenarios
-3. **Launch Campaign**: Start your automated conversations
-4. **Monitor Performance**: Review conversation data and optimize
 
 <Tip>
-    Start with a simple linear flow (Start → Info → Book Meeting → Close) and add complexity as you learn what works best for your leads.
+    Start with a short linear flow, test it, then add branches.
 </Tip>

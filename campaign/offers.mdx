@@ -4,80 +4,89 @@ description: "Write a promotion once and let the assistant tell customers about 
 icon: "tag"
 ---
 
-An offer is something you are currently promoting. Write it once, and the assistant will mention it to any customer it is relevant to — and can push it out to everybody when you decide to.
+An offer is something you are promoting: a discount, a new product, an event. Describe it once, and the assistant mentions it to any customer it is relevant to. When you decide to, you [announce](/campaign/announcements) it to everybody.
 
 Offers only exist on [campaigns for existing customers](/campaign/client-campaigns).
 
 ## Writing one
 
-Go to **Offers → New offer**. There are four things to fill in, and only the description is required.
+Go to **Offers** and press **Write an offer**. The **New offer** page has five parts. A phone beside them previews what your customer will see.
 
-### What the offer is
+### 1. What's the offer?
 
-Describe it the way you would explain it to a colleague:
+What you offer, to whom and on what terms, as you'd tell a colleague:
 
-> `20% off any subscription renewed before the end of the month`
+> `20% off any subscription renewed before the end of the month, for existing customers only.`
 
-> `Free delivery on orders over €50 until Friday`
+You are not writing the message your customer receives. You are telling the assistant what is true, and it writes the message from it.
 
-You are not writing the message your customer receives. You are telling the assistant what is true, and it works out how to say it in conversation. It will quote your terms as written — it will not invent a discount or extend a deadline you did not give it.
+### 2. Template
 
-### How the announcement opens (optional)
+The opening message WhatsApp approved in advance. It is needed to write to a customer who has not written to you recently. Once the customer replies, the assistant writes freely.
 
-Pick one of your approved WhatsApp templates. A template is an opening message WhatsApp has approved in advance: it is required to start a conversation with a customer who has not written to you recently, and once they reply the assistant speaks freely.
-
-You can leave this empty. An offer with no template is still mentioned whenever a customer asks about it; the template is only needed when you **announce** the offer, and the announcement screen asks for one if the offer does not carry it. Setting it here just saves choosing it every time.
+You can choose **No template for now**. You can pick one when you announce the offer; until then the assistant mentions it to people who write in.
 
 <Note>
-    The same generic template works for every offer. It only has to open the conversation; the assistant says what the offer actually is once your customer replies. You do not need Meta to approve a new template each time you run a promotion.
+    The same generic template works for every offer: it only has to open the conversation. You don't need a new template for each promotion. If you want the template itself to carry the offer, see [A template with the whole offer](#a-template-with-the-whole-offer).
 </Note>
 
-If the list is empty, the campaign either has no number chosen yet — do that in **Settings** — or the number has no approved templates, which you sort out under **Integrations**. The composer tells you which.
+If there is nothing to choose, the page says why: the campaign has no WhatsApp number yet (**Choose the number** takes you to Settings), or the number has no template approved by Meta (**Create one in Integrations**).
 
-### Photos and documents (optional)
+### 3. Photos and documents (optional)
 
-Attach up to five files from your library — product photos, a menu, a price list, a floor plan. They are sent **in the order you pick them**, so a photo followed by a floor plan is a different message from the other way round.
+Up to five files from your library: product photos, a menu, a price list. They are sent in this order **when the customer replies**, before the assistant's message, not with the template.
 
-<Warning>
-    These files go out **as soon as your customer replies**, not with the announcement itself.
+To put a photo in the template itself, give the template a header file: see [Opening with a photo or a file](/integrations/whatsapp#opening-with-a-photo-or-a-file).
 
-    To put a photo in the announcement itself, give its template a header file — see [opening with a photo or a file](/integrations/whatsapp#opening-with-a-photo-or-a-file). That one is fixed at approval time and travels with every message the template sends; these ones can change with the offer.
-</Warning>
+### 4. Anything to ask? (optional)
 
-### Anything to collect (optional)
+Information to collect from people who are interested, for example `preferred size` or `delivery day`. Type a question and press Enter. After presenting the offer, the assistant asks for these in conversation. The questions can't be changed after the offer is created.
 
-Add what you would like to know from an interested customer, one item at a time — type it and press Enter (or a comma): `preferred size`, `delivery date`, `which branch`. Pasting a list splits it for you.
+### 5. How long it runs
 
-Each becomes a question the assistant asks after presenting the offer. It asks conversationally, not as a form, and a customer who does not want to answer is left alone rather than chased.
+**Until I delete it**, or **Until** a date: the offer runs through the whole of its last day.
 
-## What happens when you save
+Press **Create offer**. Writing the offer takes a few seconds. If it fails, nothing is saved and your text is still there to try again.
 
-The assistant writes the offer's wording and builds the short conversation that presents it: your files, then the offer, then your questions, then back to normal.
+## Reading, correcting and trying it
 
-That takes a few seconds because the wording is being generated. If it fails, nothing is saved and **your description stays in the box** so you can adjust it and try again.
+Once created, the offer opens on its own page:
+
+- **Name**: for you to recognise it in your list of offers.
+- **Template**, with **A template with the whole offer** (below).
+- **Photos and documents**.
+- **The assistant's message**: how the assistant presents the offer when the customer replies. It uses it exactly as written, so correct it here.
+- **What it asks interested customers**: the questions, which can't be changed. To change them, create a new offer.
+- **How long it runs**.
+
+Press **Save changes** to keep your edits, or **Discard changes**.
+
+The phone beside the page has two tabs. **Preview** shows the conversation. **Try it** lets you receive the announcement as a test contact and reply as a customer would. Nothing goes out on WhatsApp, and photos and documents show in the preview only. The test uses the last saved version.
+
+### A template with the whole offer
+
+**Write it from this offer** turns the saved offer into a WhatsApp template, which you can edit, or **Write it myself**, before sending it for approval. WhatsApp requires the Marketing category and reviews it, usually in a few minutes and at most a day. The page shows whether it is in review, approved or rejected.
+
+Once approved, announcements of this offer open with it, and customers who reply go straight to your questions, without hearing the offer twice. You can announce the offer only once the template is approved.
 
 ## While an offer is running
 
-The assistant mentions a running offer whenever a customer asks something it is relevant to — "any deals on?", "how much is a renewal?" — whether or not you ever announced it.
+The assistant mentions a running offer whenever a customer asks something it is relevant to, whether or not you announced it.
 
 <Note>
-    Customers who have opted out of marketing are never told about offers, even if they ask a question an offer would answer.
+    Customers who opted out of marketing are never told about offers, even if they ask a question an offer would answer.
 </Note>
 
 ## When an offer ends
 
-Set **Runs until** and the offer stops being promoted on that date. Leave it empty and it runs until you delete it.
+On its end date the offer stops being promoted. For a few days after, the assistant still knows it existed, so a customer who asks is told it has ended rather than that it never existed.
 
-For a few days after it ends, the assistant still knows it existed — so a customer who says "I saw your 20% off" gets told honestly that it has finished, instead of being told the business has never heard of it.
+Ended offers stay on the Offers page, greyed out and marked **Ended**. You can still open and edit one, for example to extend its date.
 
-Ended offers stay on the Offers page, greyed out, so you can see what you have run.
+## Deleting an offer
 
-## Changing an offer
-
-You can edit an offer's **wording, end date, template and files** at any time.
-
-You cannot change the description or the questions, because the conversation was built from them. To change what an offer *is*, delete it and write a new one — deleting removes everything it generated and leaves your files in the library.
+**Delete** stops the assistant mentioning the offer and removes its questions. Your record of who responded is kept.
 
 ## Sending it out
 
-Writing an offer does not send anything. Every running offer has an **Announce** button on its card: it opens the announcement with that offer — and its template, if it has one — already chosen. See [Announcements](/campaign/announcements) for what happens next.
+Writing an offer sends nothing. A running offer has an **Announce** button on its card and on its page. It opens [Announcements](/campaign/announcements) with the offer already chosen. On the offer's page it waits while you have unsaved changes: an announcement sends the saved offer.

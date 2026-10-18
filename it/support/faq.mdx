@@ -8,23 +8,21 @@ icon: "question"
 
 <AccordionGroup>
     <Accordion title="Cos'è Whappy e come funziona?">
-        Whappy è una piattaforma SaaS che automatizza le conversazioni WhatsApp con l'AI per qualificare i lead e fissare appuntamenti. Usa flussi di conversazione (chiamati "funnel") che accompagnano i potenziali clienti in un percorso di qualificazione strutturato, raccogliendo informazioni e fissando incontri automaticamente.
+        Whappy è un assistente AI che parla con i tuoi lead e i tuoi clienti su WhatsApp e Instagram. Lo configuri in campagne: gli racconti la tua attività, scegli cosa chiede a ogni lead e disegni la conversazione come un funnel di step. Fa le tue domande, risponde alle loro, prenota appuntamenti e ti passa la conversazione quando vuoi. Vedi [Cos'è Whappy?](/it/introduction).
     </Accordion>
 
     <Accordion title="Quali sono i requisiti per usare Whappy?">
-        - Un account WhatsApp Business
-        - Un browser moderno (Chrome, Firefox, Safari, Edge)
-        - Una connessione internet attiva
-        - Un numero aziendale verificato su WhatsApp Business
-        - Per le integrazioni: account Calendly, Cal.com o Zapier (facoltativi)
+        - Un browser moderno
+        - Un numero WhatsApp Business, un account Instagram professionale, o entrambi. Vedi [WhatsApp](/it/integrations/whatsapp) e [Instagram](/it/integrations/instagram)
+        - Un piano attivo perché le campagne girino
+        - Facoltativi: un calendario (Calendly, Cal.com o GoHighLevel) per prenotare appuntamenti, e Zapier, Make o un webhook per portare i lead
     </Accordion>
 
     <Accordion title="Come collego il mio account WhatsApp Business?">
-        1. Vai alla pagina Integrazioni
-        2. Apri la scheda dell'integrazione WhatsApp
-        3. Segui il flusso OAuth per collegare l'account WhatsApp Business
-        4. Verifica il numero aziendale e i dati dell'account
-        5. L'integrazione sarà attiva una volta completata la verifica
+        1. Vai su **Integrazioni → WhatsApp**
+        2. Premi **Aggiungi nuovo numero**, oppure **Collega l'app WhatsApp Business esistente** per un numero che usi già nell'app WhatsApp Business
+        3. Nella finestra di Facebook accedi, scegli il portfolio Meta Business e l'account WhatsApp Business, poi seleziona il numero
+        4. Il numero compare nella scheda **Account**: nessun id o token da inserire. Vedi [WhatsApp](/it/integrations/whatsapp)
     </Accordion>
 </AccordionGroup>
 
@@ -32,44 +30,51 @@ icon: "question"
 
 <AccordionGroup>
     <Accordion title="Cos'è un funnel e come lo creo?">
-        Un funnel è un flusso di conversazione che definisce come il tuo assistente AI interagisce con i lead. Per crearne uno:
+        Un funnel è la conversazione che il tuo assistente segue con ogni lead, passo dopo passo. Per costruirne uno, apri una campagna e:
 
-        1. Vai alla scheda **Funnel**
-        2. Configura il contesto della tua attività nella sezione **Contesto**
-        3. Definisci i campi informativi da raccogliere nella sezione **Info**
-        4. Costruisci il flusso con il costruttore visuale
-        5. Imposta gli orari di attività nella sezione **Opzioni**
+        1. Descrivi la tua attività nella pagina **Contesto**
+        2. Aggiungi le informazioni da raccogliere nella pagina **Info**
+        3. Nella pagina **Funnel**, premi **Genera dal contesto**, oppure aggiungi gli step con **Aggiungi nodo** e collegali
+        4. Premi **Salva modifiche**, poi **Test**
+        5. Imposta lingua e orari di lavoro nella pagina **Opzioni**
+
+        Vedi [Funnel](/it/campaign/funnel).
     </Accordion>
 
     <Accordion title="Quali tipi di nodo sono disponibili?">
-        - **Nodo Avvio**: apre la conversazione con un messaggio di benvenuto
-        - **Nodo Info**: raccoglie informazioni specifiche dal lead (testo, numeri, scelta multipla)
-        - **Nodo Condizione**: crea diramazioni logiche in base alle informazioni raccolte
-        - **Nodo Dialogo**: invia messaggi o risposte personalizzate
-        - **Nodo Fissa appuntamento**: fissa incontri tramite Calendly, Cal.com o GoHighLevel
-        - **Nodo Invia dati**: invia i dati raccolti a un webhook, a Zapier o come avviso WhatsApp, a metà conversazione
-        - **Nodo Invia documento**: invia PDF o immagini dalla tua libreria [Risorse](/it/campaign/assets)
-        - **Nodo Invia nota vocale**: invia un messaggio vocale preregistrato come vera nota vocale WhatsApp
-        - **Nodo Chiusura**: chiude la conversazione e, facoltativamente, invia i dati a sistemi esterni
+        - **Template WhatsApp**: il primo messaggio a un nuovo lead (**Inizia su Instagram** in una campagna solo Instagram)
+        - **Chiedi informazioni**: chiede al lead uno dei tuoi campi Info
+        - **Conversa**: dice qualcosa al lead
+        - **Agente di supporto**: risponde alle domande del lead finché non si verifica una condizione di uscita
+        - **Invia documento**: invia PDF o immagini dalle tue [Risorse](/it/campaign/assets)
+        - **Invia nota vocale**: invia un messaggio vocale pre-registrato
+        - **Condizione**: si dirama in base a una risposta raccolta
+        - **Test A/B**: divide i nuovi lead tra due percorsi e li confronta
+        - **Prenota un appuntamento**: prenota su Calendly, Cal.com o GoHighLevel
+        - **Invia dati**: invia ciò che è stato raccolto a un webhook, a Zapier o Make, o come avviso WhatsApp
+        - **Chiudi**: termina la conversazione, e può spostare il lead in un'altra campagna
+
+        Su Instagram documenti e note vocali arrivano come link. Vedi [Funnel](/it/campaign/funnel).
     </Accordion>
 
     <Accordion title="Come imposto la logica condizionale nel funnel?">
-        1. Aggiungi un **nodo Condizione** al flusso
-        2. Seleziona il campo informativo da valutare
-        3. Scegli un operatore (uguale a, maggiore di, minore di, contiene)
-        4. Imposta il valore di confronto
-        5. Collega le uscite "vero" e "falso" a passaggi diversi
-        6. Facoltativamente, imposta un percorso predefinito per i valori imprevisti
+        1. Aggiungi uno step **Condizione** da **Aggiungi nodo**
+        2. In **Verifica se**, scegli il campo Info da controllare
+        3. Scegli operatore e valore: per un numero, uguale, maggiore di, minore di e così via; per un testo, uguale, contiene, è vuoto, oppure una **Domanda** sì/no; per una scelta multipla, spunta le opzioni che valgono come vero
+        4. In **Se sconosciuto**, scegli quale percorso prendere quando la risposta non è nota
+        5. Collega le uscite **Vero** e **Falso** agli step successivi
+
+        Vedi [Funnel](/it/campaign/funnel).
     </Accordion>
 
     <Accordion title="Posso raccogliere informazioni personalizzate dai lead?">
-        Sì. Nella scheda **Info** puoi creare campi informativi personalizzati:
+        Sì. Nella pagina **Info** di una campagna, aggiungi un campo con **Genera con l'AI** o **Aggiungi manualmente**:
 
-        - **Campi di testo**: per nomi, descrizioni o risposte aperte
-        - **Campi numerici**: per budget, quantità o valori numerici
-        - **Scelta multipla**: per opzioni predefinite come preferenze o categorie
-        - Ogni campo può essere obbligatorio o facoltativo
-        - Puoi fornire domande di esempio per guidare la conversazione dell'AI
+        - **Testo**, **Numero** o **Scelta multipla**
+        - Obbligatorio (l'assistente continua a chiedere) o facoltativo (chiesto una volta)
+        - Esempi di domande facoltativi per guidare l'assistente
+
+        Poi aggiungi uno step **Chiedi informazioni** nel funnel. Vedi [Info](/it/campaign/info).
     </Accordion>
 </AccordionGroup>
 
@@ -77,27 +82,19 @@ icon: "question"
 
 <AccordionGroup>
     <Accordion title="Come vengono aggiunti i lead?">
-        I lead possono arrivare da:
-        - Inserimento manuale nella pagina Lead
-        - Importazione CSV, fino a 1.000 righe per file — vedi [Aggiungere e gestire i lead](/it/leads/lead-management)
-        - Integrazione Zapier (automatica da moduli, CRM…)
-        - Sincronizzazione dei contatti GoHighLevel
-        - Integrazione webhook dai tuoi sistemi
-        - Chiamate API dirette al tuo endpoint
+        - A mano, con **Aggiungi un lead** nel menu **⋮** della pagina Lead della campagna
+        - Da un CSV, fino a 10.000 righe per file. Vedi [Aggiungere e gestire i lead](/it/leads/lead-management)
+        - Da un'integrazione: [Webhook](/it/integrations/webhook), [Zapier](/it/integrations/zapier), [Make](/it/integrations/make), [GoHighLevel](/it/integrations/gohighlevel), o un [annuncio lead di Meta](/it/integrations/meta-conversions)
+        - Su Instagram, i lead arrivano quando ti scrivono
     </Accordion>
 
-    <Accordion title="Che differenza c'è fra lead di prova e lead reali?">
-        - **Lead di prova**: servono per provare il funnel senza toccare i dati reali né inviare messaggi WhatsApp veri
-        - **Lead reali**: potenziali clienti veri, che riceveranno messaggi dal tuo assistente AI
-        - Puoi passare da una vista all'altra con l'interruttore nella pagina Lead
+    <Accordion title="Che differenza c'è fra lead di test e lead reali?">
+        - I **lead di test** si creano nella finestra **Test** del funnel. Una conversazione di prova non invia mai messaggi a un telefono reale, ma uno step **Prenota un appuntamento** prenota riunioni reali, e gli step **Invia dati** inviano i dati a meno che **Salta test** sia attivo.
+        - I **lead reali** ricevono messaggi veri dal tuo assistente, e solo loro contano nella Home e nelle Analisi.
     </Accordion>
 
     <Accordion title="Come consulto lo storico delle conversazioni?">
-        1. Vai alla pagina **Lead**
-        2. Trova il lead che ti interessa
-        3. Premi l'icona del messaggio nella colonna Azioni
-        4. La finestra della conversazione mostra lo storico completo
-        5. Puoi vedere anche le informazioni raccolte e i dettagli dell'appuntamento
+        Apri **Chat** nel menu a sinistra e scegli una conversazione. Vedi ogni messaggio, ciò che è stato raccolto, e puoi prendere il posto dell'AI. Dalla pagina Lead di una campagna, **Visualizza conversazione** sulla riga di un lead la apre a sua volta. Vedi [Chat](/it/leads/conversation-history).
     </Accordion>
 
     <Accordion title="Posso inviare messaggi manualmente ai lead?">
@@ -111,48 +108,24 @@ icon: "question"
 
 <AccordionGroup>
     <Accordion title="Quali integrazioni supporta Whappy?">
-        - **WhatsApp Business**: la piattaforma di messaggistica principale (obbligatoria)
-        - **Calendly**: per fissare appuntamenti
-        - **Cal.com**: alternativa per gli appuntamenti
-        - **GoHighLevel**: sincronizzazione contatti, calendari e ritorno dei risultati
-        - **Zapier**: collega oltre 5.000 app per importare lead
-        - **Webhook**: integrazione diretta con i tuoi sistemi
+        - **Canali**: [WhatsApp](/it/integrations/whatsapp) e [Instagram](/it/integrations/instagram)
+        - **Calendari**: [Calendly](/it/integrations/calendly), [Cal.com](/it/integrations/cal), [GoHighLevel](/it/integrations/gohighlevel)
+        - **Lead e automazioni**: [Webhook](/it/integrations/webhook), [Zapier](/it/integrations/zapier), [Make](/it/integrations/make), [GoHighLevel](/it/integrations/gohighlevel)
+        - **Annunci**: [Meta Ads](/it/integrations/meta-conversions)
+        - **Negozi**: [Shopify](/it/integrations/shopify)
+        - **Client AI**: [Claude e altri client MCP](/it/integrations/mcp)
     </Accordion>
 
     <Accordion title="Come configuro l'integrazione con Calendly?">
-        1. Vai alla pagina **Integrazioni**
-        2. Apri la scheda Calendly
-        3. Premi "Collega" e autenticati con il tuo account Calendly
-        4. I tuoi tipi di evento verranno importati automaticamente
-        5. Usa il nodo Fissa appuntamento nel funnel per proporre tipi di evento specifici
+        Apri **Integrazioni → Calendly** e collega il tuo account Calendly. I suoi tipi di evento diventano disponibili nello step **Prenota un appuntamento** del funnel. Vedi [Calendly](/it/integrations/calendly).
     </Accordion>
 
     <Accordion title="Come funziona l'integrazione con Zapier?">
-        1. Prendi la tua API key dalla scheda dell'integrazione Zapier
-        2. Crea uno Zap con il tuo trigger (invio di un modulo, aggiornamento CRM…)
-        3. Usa "Webhooks by Zapier" come azione
-        4. Invia i dati del lead all'URL webhook di Whappy con la tua API key
-        5. Configura i trigger facoltativi per appuntamenti e chiusura delle conversazioni
+        Usa l'app Whappy su Zapier per aggiungere lead a Whappy da moduli, annunci, fogli o qualsiasi altra app, e per avviare uno Zap quando succede qualcosa in una conversazione, come la chiusura di una conversazione o uno step **Invia dati**. [Make](/it/integrations/make) offre lo stesso. Vedi [Zapier](/it/integrations/zapier).
     </Accordion>
 
     <Accordion title="Che formato dati devo usare per i webhook?">
-        Invia una richiesta POST al tuo URL webhook con questo formato JSON:
-
-        ```json
-        {
-            "name": "Mario Rossi",
-            "phone": "+393441234567",
-            "email": "mario@esempio.it",
-            "tags": ["sito", "richiesta-demo"],
-            "lead_info": {
-            "source": "sito",
-            "budget": 5000
-        },
-            "is_test": false
-        }
-        ```
-
-        Includi la tua API key nell'header `X-API-Key`.
+        Invia una richiesta POST con nome, telefono e gli altri dati del lead in JSON, con la tua API key nell'intestazione `X-API-Key`. Endpoint e chiave sono in **Integrazioni → Webhook**. Vedi [Webhook](/it/integrations/webhook) per il formato esatto e gli esempi.
     </Accordion>
 </AccordionGroup>
 
@@ -160,36 +133,38 @@ icon: "question"
 
 <AccordionGroup>
     <Accordion title="Come avvio e fermo una campagna?">
-        1. Assicurati che tutti i requisiti siano soddisfatti (WhatsApp collegato, funnel configurato)
-        2. Salva le modifiche non salvate del funnel
-        3. Premi **Avvia campagna**
-        4. Per fermarla, premi **Ferma campagna** e conferma
-        5. Fermare una campagna chiude le conversazioni in corso
+        Nella pagina **Campagne**, usa l'interruttore sulla riga della campagna. L'interruttore resta spento finché la campagna non è pronta: la colonna **Pronta** dice cosa sistemare per primo.
+
+        Mentre una campagna è ferma non parte nulla e l'assistente non risponde a nessuno. Vedi [Canale](/it/campaign/channel).
     </Accordion>
 
     <Accordion title="Cosa sono gli orari di attività e come funzionano?">
-        Gli orari di attività definiscono quando il tuo assistente AI risponde ai lead:
+        Gli orari di lavoro si impostano per campagna, nella sua pagina **Opzioni**: un fuso orario, e i giorni e gli orari.
 
-        - Imposta orari diversi per ogni giorno della settimana
-        - Scegli il fuso orario nella pagina Opzioni
-        - I messaggi ricevuti fuori orario vengono messi in coda
-        - Le conversazioni riprendono nel periodo di attività successivo
+        - Nuovi contatti e follow-up partono solo in questi orari
+        - Le risposte partono sempre: un lead che scrive di notte riceve subito una risposta
+        - I promemoria degli appuntamenti partono puntuali, a qualsiasi ora
+
+        Vedi [Opzioni](/it/campaign/options).
     </Accordion>
 
     <Accordion title="Posso far girare più campagne contemporaneamente?">
-        Sì. La pagina **Campagne** elenca tutte le tue campagne, ciascuna con il proprio funnel, i propri lead, il proprio Coach e la propria prova generale, e ognuna si avvia e si ferma in modo indipendente.
+        Sì. La pagina **Campagne** elenca tutte le tue campagne, ognuna con il suo funnel e i suoi lead, e ognuna si avvia e si ferma per conto suo.
 
-        Puoi anche **duplicare** una campagna per usarla come punto di partenza, e indicarne una come **predefinita**.
+        Dal menu di una riga puoi **Rinomina**, **Duplica** (non le campagne per clienti esistenti), **Imposta come predefinita** ed **Elimina** (non mentre è in esecuzione).
     </Accordion>
 
     <Accordion title="Cosa significa la colonna Pronta?">
-        Ogni riga indica se la campagna può davvero partire. Una campagna è pronta solo quando sono vere tre cose:
+        Se la campagna può partire. Una spunta verde vuol dire sì; un triangolo arancione vuol dire no, e passandoci sopra vedi la prima cosa da sistemare:
 
-        - Hai un **abbonamento attivo**
-        - **WhatsApp è collegato**
-        - Il **funnel è completo**
+        - **Nessun abbonamento attivo**
+        - **WhatsApp non connesso**
+        - **Instagram non collegato**
+        - **Il primo messaggio non ha un numero**
+        - **Funnel incompleto**
+        - **Da sistemare — aprila**: altro, spiegato nella pagina della campagna
 
-        Se manca qualcosa, la riga indica cosa manca invece di limitarsi a rifiutare l'avvio.
+        Vedi [Canale](/it/campaign/channel).
     </Accordion>
 </AccordionGroup>
 
@@ -197,29 +172,26 @@ icon: "question"
 
 <AccordionGroup>
     <Accordion title="Perché l'integrazione WhatsApp non funziona?">
-        Controlla questi punti frequenti:
-
-        - Verifica che l'account WhatsApp Business sia verificato
-        - Controlla che il numero sia collegato correttamente
-        - Verifica di avere i permessi necessari sull'account WhatsApp Business
-        - Prova a scollegare e ricollegare l'integrazione
-        - Contatta l'assistenza se il problema persiste
+        - Apri **Integrazioni → WhatsApp** e controlla che il numero sia ancora collegato
+        - Controlla che il template nel primo step del funnel sia ancora approvato
+        - Apri un messaggio non riuscito nelle **Chat**: mostra il motivo dato da Meta
+        - Se un numero è stato scollegato, ricollegalo. Vedi [WhatsApp](/it/integrations/whatsapp)
+        - Se il problema resta, contatta l'assistenza
     </Accordion>
 
     <Accordion title="Il funnel non salva le modifiche. Cosa faccio?">
-        - Controlla la connessione internet
-        - Assicurati che tutti i campi obbligatori siano compilati
-        - Prova ad aggiornare la pagina e a rifare le modifiche
-        - Svuota cache e cookie del browser
-        - Se usi nodi condizione, verifica che operatori e valori siano impostati
+        - Controlla la connessione e premi di nuovo **Salva modifiche**
+        - Apri **Problemi del funnel** sulla tela: elenca gli step non configurati
+        - In uno step Condizione, controlla che campo, operatore e valore siano impostati
+        - Se il salvataggio dice che un test A/B è stato chiuso altrove, ricarica la pagina
+        - Ricarica la pagina e riprova
     </Accordion>
 
     <Accordion title="Come risolvo i problemi con gli appuntamenti?">
-        1. Verifica che l'integrazione Calendly/Cal.com sia collegata correttamente
-        2. Controlla che i tipi di evento siano attivi e visibili
-        3. Assicurati che il calendario abbia fasce libere
-        4. Prova la prenotazione con un lead di prova
-        5. Controlla la configurazione del nodo appuntamento nel funnel
+        1. Controlla che il calendario sia collegato in **Integrazioni**
+        2. Controlla che il tipo di evento sia attivo nel calendario e abbia posti liberi
+        3. Apri lo step **Prenota un appuntamento** e controlla il **Tipo di riunione**
+        4. Provalo con una conversazione di prova: prenota una riunione reale sul tuo calendario
     </Accordion>
 
     <Accordion title="Cosa faccio se i lead non ricevono messaggi?">
@@ -228,18 +200,18 @@ icon: "question"
         - La campagna è in esecuzione (stato verde)
         - I numeri dei lead sono in formato internazionale corretto (+393441234567)
         - Gli orari di attività sono configurati e l'ora attuale rientra
-        - L'account WhatsApp Business ha credito/quota sufficiente
+        - Il numero WhatsApp è ancora collegato in **Integrazioni → WhatsApp** e Meta lo ha abilitato all'invio
+        - Apri la conversazione in **Chat**: un messaggio non inviato mostra il motivo dato da Meta e come risolverlo
         - Il lead non è contrassegnato come lead di prova (se non stai facendo test)
     </Accordion>
 
     <Accordion title="Come provo il funnel prima di andare in produzione?">
-        1. Crea lead di prova con il pulsante "Aggiungi lead" e la modalità test attiva
-        2. Assicurati che la campagna sia in esecuzione
-        3. I lead di prova seguono il funnel senza inviare messaggi WhatsApp reali
-        4. Rivedi il flusso della conversazione e le informazioni raccolte
-        5. Correggi la configurazione del funnel secondo necessità
+        1. Salva il funnel, poi premi **Test** sulla tela
+        2. Scegli un lead di test oppure **Aggiungi un lead di test**, e premi **Avvia**
+        3. Rispondi come farebbe il lead. Vedi cosa dice l'assistente e cosa raccoglie
+        4. Premi **Riavvia** per provare un altro percorso
 
-        Per una prova più completa, usa la [prova generale](/it/autopilot/rehearsal): fa passare sei clienti inventati con comportamenti difficili nel funnel, senza contattare nessuno.
+        Un test non scrive mai a un telefono reale. Per un controllo più ampio, attiva la [Prova](/it/autopilot/rehearsal) in **Opzioni → Sezioni**.
     </Accordion>
 </AccordionGroup>
 
@@ -247,17 +219,17 @@ icon: "question"
 
 <AccordionGroup>
     <Accordion title="Whappy offre un'API per integrazioni personalizzate?">
-        Sì, Whappy fornisce endpoint webhook per la creazione dei lead e gli aggiornamenti di stato. La documentazione REST completa è disponibile per i clienti enterprise. Contatta l'assistenza per accesso e documentazione.
+        Sì. Invia lead a Whappy tramite l'endpoint [Webhook](/it/integrations/webhook) con la tua API key, ricevi dati dal funnel con uno step **Invia dati**, oppure collega un client AI tramite [MCP](/it/integrations/mcp).
     </Accordion>
 
     <Accordion title="Come funziona l'autenticazione dei webhook?">
-        Tutte le richieste devono includere la tua API key nell'header `X-API-Key`:
+        Ogni richiesta deve avere la tua API key nell'intestazione `X-API-Key`:
 
         ```
-        X-API-Key: LA_TUA_API_KEY
+        X-API-Key: YOUR_API_KEY
         ```
 
-        Trovi l'API key nella pagina Integrazioni. Custodiscila e ruotala periodicamente per sicurezza.
+        La chiave è in **Integrazioni → Webhook**. Chiunque la abbia può aggiungere lead al tuo account: tienila sul tuo server. Vedi [Webhook](/it/integrations/webhook).
     </Accordion>
 
     <Accordion title="Posso esportare i dati dei lead?">
@@ -269,29 +241,15 @@ icon: "question"
 
 <AccordionGroup>
     <Accordion title="Quali sono i limiti d'uso dei vari piani?">
-        I limiti variano in base al piano e possono comprendere:
-
-        - Numero di lead al mese
-        - Numero di conversazioni al giorno
-        - Limiti sui messaggi WhatsApp
-        - Numero di risorse (PDF, immagini, note vocali)
-        - Funzionalità di integrazione
-
-        Consulta consumi e limiti attuali nella sezione fatturazione del tuo account.
+        I piani limitano quanti nuovi lead puoi avviare al giorno e al mese. La Home mostra quanti lead hai usato questo mese rispetto al limite. Vedi **Piani** nel menu dell'account.
     </Accordion>
 
     <Accordion title="Come viene calcolato il consumo?">
-        - **Lead**: ogni lead unico aggiunto al sistema
-        - **Conversazioni**: ogni conversazione avviata con un lead
-        - **Messaggi**: ogni messaggio WhatsApp inviato dal tuo assistente AI
-        - Il consumo si azzera secondo il tuo ciclo di fatturazione
+        Ogni nuovo lead la cui conversazione parte conta una volta. Il conteggio mensile segue il tuo periodo di fatturazione.
     </Accordion>
 
     <Accordion title="Cosa succede se supero i limiti del piano?">
-        - La campagna può essere messa in pausa per evitare eccedenze
-        - Ricevi notifiche quando ti avvicini ai limiti
-        - Passa a un piano superiore per aumentare i limiti
-        - Contatta l'assistenza per aumenti temporanei, se necessario
+        I nuovi lead non vengono avviati finché il limite non si azzera o non passi a un piano superiore. Le conversazioni già in corso continuano. Cambia piano in **Piani** nel menu dell'account.
     </Accordion>
 </AccordionGroup>
 
@@ -306,7 +264,7 @@ icon: "question"
     </Accordion>
 
     <Accordion title="Posso cancellare i dati di un lead?">
-        Sì, puoi eliminare singoli lead dalla pagina Lead. Per cancellazioni massive o per la rimozione dei dati dell'account, contatta l'assistenza. Gestiamo le richieste di cancellazione nel rispetto delle normative sulla privacy.
+        Sì. Nella pagina Lead di una campagna, elimina un lead con il cestino sulla sua riga, oppure selezionane più di uno e usa **Elimina selezionati**. Le loro conversazioni restano. Per cancellare i dati dell'account, [contatta l'assistenza](/it/support/contact-support).
     </Accordion>
 
     <Accordion title="Dove sono conservati i miei dati?">

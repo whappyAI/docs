@@ -1,40 +1,165 @@
 ---
-title: "Storico conversazioni"
-description: "Leggi i messaggi di un lead, subentra all'AI e rispondi tu."
+title: "Chat"
+description: "Leggi i messaggi di un lead su WhatsApp o Instagram, subentra all'AI, rispondi tu, invia modelli e file."
 icon: "comments"
 ---
 
-**Chat** mostra tutte le conversazioni WhatsApp delle tue campagne. La apri dalla barra laterale, oppure salti direttamente alla conversazione di un lead dalla tabella Lead.
+**Chat** mostra tutte le conversazioni delle tue campagne, su WhatsApp e su Instagram. La apri dalla barra laterale.
+
+Finché non c'è ancora nessuna conversazione, la pagina lo dice e ti rimanda alle campagne.
 
 ## Trovare una conversazione
 
-- **Cerca** per lead.
-- Filtra per **una campagna** o guardale tutte.
-- Filtra solo per **non lette**.
+L'elenco a sinistra ha quattro controlli:
 
-<Note>
-    La ricerca copre la pagina su cui ti trovi, non tutte le conversazioni mai avute: per questo la conversazione che cerchi può trovarsi in un'altra pagina quando una campagna gira da molto tempo.
-</Note>
+- **Cerca** per lead. La ricerca copre tutte le tue conversazioni, non solo la pagina in cui ti trovi.
+- **Campagna**: una sola campagna, oppure *Tutte le campagne*.
+- **Canale**: *Tutti*, *WhatsApp* o *Instagram*. Compare solo quando il tuo account ha entrambi i canali collegati.
+- Interruttore **Tutte / Non lette**: con *Non lette* vedi solo le conversazioni in cui il lead ha scritto qualcosa che nessuno ha ancora aperto. Ogni riga di quel tipo mostra il numero dei messaggi non letti.
+
+Ogni riga mostra il nome del lead, quando è arrivato l'ultimo messaggio e cosa diceva: una foto o una nota vocale viene nominata, non lasciata vuota. Una conversazione Instagram porta il simbolo di Instagram sull'avatar del lead; quelle WhatsApp non hanno alcun simbolo. (Su un account che ha solo Instagram non compare nessun simbolo.)
+
+Gli elenchi lunghi sono divisi in pagine. `Ctrl`/`⌘` + `←` e `→` cambiano pagina, `Ctrl`/`⌘` + `K` porta alla casella di ricerca.
 
 ## Leggere una conversazione
 
 Seleziona una conversazione per vedere l'intero scambio. L'intestazione mostra:
 
-- Lo **stato** del lead: Pronto, Attiva, In elaborazione, Qualificato, Interrotta o Errore.
-- Le **informazioni chiave**: tutte le risposte raccolte finora, con quelle che hai reso obbligatorie contrassegnate e *Non fornito* accanto a quelle che mancano ancora.
-- Quando è arrivato l'**ultimo messaggio**.
+- Il **nome** del lead e, sotto, il suo numero di telefono oppure, su Instagram, il suo **@handle**.
+- Lo **stato** della conversazione: Pronta, Iniziata, Attiva, In attesa di risposta, In elaborazione, In pausa, Completata o Errore.
+- La **campagna** in cui si trova il lead, come link che la apre.
+- Un'etichetta che dice chi sta rispondendo adesso: **IA** o **Umano**.
+- In una chat Instagram, quando il lead ha scritto più di 24 ore fa: *Instagram: l'assistente risponde quando scriveranno di nuovo.*
 
-Questo pannello è il modo più rapido per capire perché una conversazione si è arenata: di solito il motivo è la risposta obbligatoria che manca.
+Il pulsante **Info** apre la scheda del lead: i contatti, le **informazioni chiave** raccolte finora (tutte le risposte, con quelle che hai reso obbligatorie contrassegnate *Obbl.* e *Non fornito* accanto a quelle che mancano ancora) e quando è arrivato l'**ultimo messaggio**. Un lead di prova è contrassegnato *Test*.
+
+Questa scheda è il modo più rapido per capire perché una conversazione si è arenata: di solito il motivo è la risposta obbligatoria che manca.
+
+### Cosa ti dicono i messaggi
+
+Oltre al testo, un messaggio può portare una piccola etichetta:
+
+| Etichetta | Significato |
+| --- | --- |
+| Icona del bot | Scritto dall'assistente AI. |
+| **Modello** | Un modello WhatsApp che hai inviato da Chat. |
+| **Inviato dall'app WhatsApp Business** | Qualcuno ha risposto dall'app sul telefono, non da Whappy. |
+| **Inviato da Instagram** | Qualcuno ha risposto dall'app di Instagram. |
+| **Inviato dall'assistente: …** | L'AI ha scelto di allegare questo file, e il perché. Vedi i file che l'AI può inviare da sola in [Risorse](/it/campaign/assets). |
+| **Nota vocale · trascritta** | Una nota vocale inviata dal lead, mostrata come testo. |
+| **Ha commentato il tuo post** | Un commento Instagram arrivato tramite una regola sui commenti: mostrato come citazione, non come messaggio. |
+| **Follow-up non inviato** / **Promemoria non inviato** | Una riga discreta nel filo: Instagram consente messaggi automatici solo entro 24 ore dall'ultimo messaggio del lead, quindi questo è stato trattenuto. |
+
+Le immagini sono mostrate come miniature; documenti e note vocali come una scheda con il nome del file.
+
+### Non consegnato
+
+Quando WhatsApp segnala che un messaggio non ha raggiunto il lead, sotto compare una riga rossa:
+
+| Riga | Cosa è successo |
+| --- | --- |
+| **Non consegnato: sono passate più di 24 ore dal loro ultimo messaggio.** | La finestra di 24 ore si era chiusa. Ora si può inviare solo un modello approvato: vedi sotto. |
+| **Non consegnato: WhatsApp non è riuscito a consegnarlo a questo numero.** | Il numero non è raggiungibile su WhatsApp. |
+| **Non consegnato.** | WhatsApp lo ha rifiutato per un altro motivo. |
+
+Su Instagram la riga corrispondente dice *Non inviato: …* e indica il motivo (finestra chiusa, Instagram non collegato, nessuna conversazione in cui rispondere).
 
 ## Subentrare all'AI
 
-Ogni conversazione è gestita dall'**AI** oppure da un **umano**, e l'intestazione indica quale.
+Ogni conversazione è gestita dall'**AI** oppure da un **umano**, e l'etichetta nell'intestazione indica quale.
 
-- **Interrompi conversazione AI** la passa a te. L'assistente AI smette di rispondere e prendi il controllo.
-- **Riprendi conversazione AI** gliela restituisce.
+- **Ferma la conversazione IA** (il pulsante con il quadrato) la passa a te. L'assistente smette di rispondere e lo stato diventa *In pausa*.
+- **Riprendi la conversazione IA** (il pulsante con il triangolo) gliela restituisce.
 
-Mentre la conversazione è tua, scrivi nella casella dei messaggi e rispondi direttamente. Il lead vede un'unica conversazione WhatsApp continua e non può capire dove è avvenuto il passaggio.
+<Warning>
+    Puoi scrivere nella casella dei messaggi solo mentre l'AI è ferma, oppure quando la conversazione è **Completata**. Mentre l'AI gestisce la chat, la casella è bloccata: ferma prima l'AI. Lo stesso vale per la graffetta.
+</Warning>
+
+Mentre la conversazione è tua, rispondi direttamente. Il lead vede un'unica conversazione continua e non può capire dove è avvenuto il passaggio. Le risposte inviate da Whappy non hanno etichetta; quelle inviate dall'app WhatsApp o Instagram sì.
 
 <Note>
     Subentrare è la mossa giusta quando un lead chiede qualcosa per cui il funnel non era stato costruito. Se succede spesso, vale la pena sistemarlo nella campagna: [Coach](/it/autopilot/coach) individua proprio questo schema e propone una formulazione che lo gestisce.
 </Note>
+
+## Cosa puoi inviare, e quando
+
+Entrambi i canali limitano quando un'azienda può scrivere. Chat applica le regole prima dell'invio e lo dice sotto la casella dei messaggi.
+
+### Su WhatsApp
+
+- Per **24 ore** dall'ultimo messaggio del lead puoi inviare qualsiasi cosa.
+- Dopo, oppure quando il lead **non ti ha mai scritto** (un lead che hai contattato per primo e che non ha risposto), WhatsApp accetta solo un **modello approvato**. La casella lo dice e propone **Invia un modello**.
+- Se il numero su cui gira questa chat è stato scollegato, non si può inviare nulla: *Il numero WhatsApp di questa chat non è più collegato.*
+
+### Su Instagram
+
+- Per **24 ore** dall'ultimo messaggio del lead puoi inviare qualsiasi cosa, e anche l'assistente può farlo.
+- Da 24 ore a **7 giorni** può rispondere solo una persona. La casella dice *Inviato come risposta di una persona*: l'assistente resta in silenzio finché il lead non scrive di nuovo.
+- Dopo 7 giorni non si può inviare nulla finché il lead non scrive di nuovo.
+- Un lead che ha solo **commentato un post** non ha ancora aperto una conversazione. Potrai rispondere quando risponderà alla risposta privata che la regola sui commenti gli ha inviato.
+- Se Instagram è scollegato, la casella resta bloccata finché non lo ricolleghi in Integrazioni.
+
+Le conversazioni di prova ignorano tutto questo: non viene inviato nulla a nessuno.
+
+## Inviare un modello da Chat
+
+Quando WhatsApp consente solo un modello, **Invia un modello** apre una finestra con i **modelli approvati del numero di questa chat**, con quelli nella lingua del lead per primi (*La sua lingua*). Scegline uno per vederlo come lo vedrà il lead, compresi il file di intestazione e i pulsanti.
+
+- Whappy compila ciò che sa del lead. Ciò che non può compilare viene chiesto sotto **Completa ciò che Whappy non sa**; ogni campo è obbligatorio.
+- Un modello che inizia con un file ha bisogno che quel file sia impostato prima in **Integrazioni → WhatsApp**.
+- Un modello che richiede un valore che Chat non può fornire (un codice monouso, un catalogo, un flow) è elencato ma non si può inviare da qui.
+- Se il lead non ha risposto al tuo ultimo messaggio, la finestra ti avvisa: inviarne un altro potrebbe essere segnalato come spam.
+
+<Note>
+    Per inviare un modello non serve fermare l'AI. Dopo l'invio la conversazione aspetta la risposta del lead; quando arriva, l'assistente continua, a meno che tu non l'abbia fermata.
+</Note>
+
+Puoi inviare **un modello per conversazione ogni 24 ore**. La casella ti dice quando sarà consentito il prossimo.
+
+Se il numero non ha ancora modelli approvati, la finestra lo dice e rimanda a **Integrazioni → WhatsApp**, dove li crei.
+
+## Inviare un file da Chat
+
+La **graffetta** accanto alla casella dei messaggi invia file dalla tua libreria [Risorse](/it/campaign/assets): documenti, immagini e note vocali.
+
+<Steps>
+    <Step title="Scegli i file">
+        Spunta fino a **5** file. Sono elencati solo i file il cui caricamento è terminato. Il numero accanto a ogni spunta è l'ordine in cui partiranno.
+    </Step>
+    <Step title="Aggiungi il tuo testo, se vuoi">
+        Ciò che c'è nella casella dei messaggi parte con il primo file: come didascalia di un documento o di un'immagine. Se il primo file è una nota vocale, il testo viene inviato come messaggio a sé, prima dei file.
+    </Step>
+    <Step title="Invia">
+        Ogni file arriva come messaggio a sé, nell'ordine scelto. Le bolle nel filo sono la conferma.
+    </Step>
+</Steps>
+
+- La graffetta segue le stesse regole di una risposta scritta: fuori dalla finestra di 24 ore di WhatsApp, o mentre l'AI gestisce la chat, è disattivata.
+- Su **Instagram** il lead riceve ogni file come messaggio con il nome del file e un **link** per aprirlo.
+- Se la libreria è vuota, trovi un link a Risorse; il caricamento resta su quella pagina.
+- Se un file successivo viene rifiutato dopo che i precedenti sono partiti, vedi *È stata inviata solo una parte del messaggio* e il filo mostra cosa ha raggiunto il lead.
+
+## Quando un invio viene rifiutato
+
+| Messaggio | Significato |
+| --- | --- |
+| **Sono passate più di 24 ore dal loro ultimo messaggio: ora WhatsApp consente solo un modello approvato.** | Usa **Invia un modello**. |
+| **Il numero WhatsApp di questa chat non è più collegato.** | Il numero è stato scollegato in Integrazioni. |
+| **WhatsApp non è riuscito a consegnare a questo numero.** | Il numero del lead non è raggiungibile su WhatsApp. |
+| **Troppi messaggi in questo momento. Riprova tra un minuto.** | WhatsApp sta limitando il tuo numero. |
+| **WhatsApp non risponde. Riprova tra poco.** | Un guasto temporaneo dalla parte di Meta. |
+| **È stata inviata solo una parte del messaggio.** | Un messaggio su più righe o un gruppo di file si è interrotto a metà; ciò che è partito è nel filo. |
+| **Non inviato: Instagram non consente di rispondere più di 7 giorni dopo il loro ultimo messaggio.** | Aspetta che il lead scriva di nuovo. |
+| **Quel file non è più nella tua libreria.** / **Quel file è ancora in caricamento.** | Scegli un altro file, o riprova tra un momento. |
+
+## Spostare un lead in un'altra campagna
+
+In una conversazione **In pausa** o **Completata**, il pulsante con le frecce (**Continua questo lead in un'altra campagna**) passa il lead a una campagna diversa.
+
+Scegli la campagna, poi cosa succede quando il lead arriva:
+
+- **Invia il primo messaggio della nuova campagna**: invia subito il suo template. Non è proposto in una conversazione Instagram, dove un'azienda non può scrivere per prima.
+- **Aspetta che sia il lead a scrivere**: spostato in silenzio; la nuova campagna risponde quando il lead scrive.
+- **Continua senza il template** (su Instagram: *Continua dal passaggio successivo*): la nuova campagna riprende dopo il suo primo passaggio.
+
+**Porta con te le informazioni raccolte** conserva le informazioni chiave già raccolte. Lo spostamento avviene alla scansione successiva, circa due minuti dopo; se la campagna di destinazione è in pausa, il lead non viene spostato finché non riparte.

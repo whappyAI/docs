@@ -1,199 +1,74 @@
 ---
 title: "Quick Setup"
 icon: "rocket"
-description: "Get your WhatsApp lead qualification automation up and running in minutes with this step-by-step guide."
+description: "From a new account to your first lead: the steps in the order Whappy shows them."
 ---
 
-# Getting Started with Whappy
+After you sign up you land on [Home](/home). At the foot of the left menu, a **Setup** card shows how far you are (for example *Setup · 1 of 4*) and the next step. Click it to unfold the checklist; each step opens the page where it is done. **Show me around** starts a short tour of the app. The card disappears once you have a lead and a way to talk to them.
 
-Whappy helps you automate WhatsApp conversations to qualify leads and book appointments. This guide walks you through setting up your first campaign, from initial context to managing qualified leads.
+The steps:
 
----
+1. **Build conversation**
+2. **Add knowledge** (optional)
+3. **Connect WhatsApp** (or **Connect WhatsApp or Instagram**, on accounts where Instagram is offered)
+4. **Go live**
+5. **First lead**
 
-## 1. Create Your First Campaign
+<Note>
+    An account set up from a Shopify store has its own list: **Connect your store**, **Connect WhatsApp**, **Choose a plan** and **Switch on your campaigns**. See [Shopify](/integrations/shopify).
+</Note>
 
-Start by navigating to **Dashboard → Campaign** to set up your WhatsApp automation campaign.
+## 1. Create a campaign
 
-### Set Your Context
+A campaign is one assistant talking to one group of leads. Open **Campaigns** and press **New campaign** (or **Create your first campaign**). Give it a name. Depending on your account you are also asked:
 
-Define the foundation of your AI assistant:
+- **What is this campaign for?**: **Find new customers**, the campaign this guide follows, or **Talk to existing customers**. See [Campaigns for existing customers](/campaign/client-campaigns).
+- **Where does it talk?**: WhatsApp, Instagram or both. See [Channel](/campaign/channel).
 
-- **WhatsApp Name**: The name your AI will use when messaging leads
-- **Business Activity**: Describe what your business does
-- **Conversation Objective**: What you want to achieve (qualify leads, book demos, etc.)
-- **Additional Information**: Any extra context the AI should know
+The campaign opens on its **Context** page.
 
-<img
-  src="/images/campaign/context.png"
-  alt="Setting up campaign context"
-  style={{ marginTop:"1rem",maxWidth:"100%" }}
-/>
+## 2. Tell the assistant about your business
+
+On [Context](/campaign/context), set the **Assistant name**, then press **Add source** to add your website, a document such as a price list, or a note. Press **Update context**: Whappy writes the **Business Context** the assistant reads before every message. Read it, correct it, and press **Save**.
+
+## 3. Choose what to collect
+
+On [Info](/campaign/info), add the details the assistant should find out from each lead, such as a budget or a timeline. **Generate with AI** creates a field from a sentence; **Add manually** lets you fill it in.
+
+## 4. Build the conversation
+
+On [Funnel](/campaign/funnel), press **Generate from context** to have a flow designed from your Business Context, or build it yourself with **Add node**. The first step is the WhatsApp template that opens the conversation; every path ends with a Close step. Press **Save changes**.
+
+Press **Test** to play the lead in a test conversation. It never messages a real phone, but a **Book meeting** step books real meetings on your calendar.
 
 <Tip>
-  Be specific about your business and objectives. The AI uses this information to have natural, relevant conversations with your leads.
+    For a wider check, switch on **Rehearsal** under the campaign's **Options → Sections**: [Rehearsal](/autopilot/rehearsal) runs six invented customers through the campaign. Nothing is sent to anybody.
 </Tip>
 
-<Note>
-  **You can skip the typing.** Press **Generate with AI** and give Whappy your website URL or a document you already have — a brochure, a price list — and it drafts the context for you to edit. See [Building context automatically](/campaign/context).
-</Note>
+## 5. Set the language and hours
 
----
+On [Options](/campaign/options), pick the **Campaign language**, then your **Time zone** and **Days and hours**. New contacts and follow-ups go out only in these hours; replies go out any time. Press **Save**.
 
-## 2. Define Lead Information Fields
+## 6. Connect WhatsApp or Instagram
 
-Navigate to the **Info** tab to specify what information you want to collect from leads during your WhatsApp conversations.
+- **WhatsApp**: open [Integrations → WhatsApp](/integrations/whatsapp) and connect your number through Facebook. Then add a message template and wait for Meta to approve it: on WhatsApp, the first message to a new lead must be an approved template. Pick it in the funnel's first step.
+- **Instagram**: open [Integrations → Instagram](/integrations/instagram). On Instagram people write to you first, so there is no template to approve.
 
-<img
-  src="/images/campaign/info.png"
-  alt="Defining lead information fields"
-  style={{ marginTop:"1rem",maxWidth:"100%" }}
-/>
+## 7. Go live
 
-**Example Fields:**
+Open **Campaigns** and turn on the campaign's switch. The switch stays off while the campaign is not ready: the **Ready** column shows a green tick when it can start, or an amber triangle with the first thing to fix. See [The campaigns list](/campaign/channel#the-campaigns-list).
 
-- Budget range (Multiple choice)
-- Project timeline (Text input)
-- Company size (Number)
+A running campaign answers people who write to you. It needs an active plan: see **Plans** in the account menu.
 
----
+## 8. Get your first lead
 
-## 3. Build Your Conversation Funnel
+- **WhatsApp**: on the campaign's **Leads** page, open the **⋮** menu and choose **Add a lead** or **Import from CSV**, or connect a lead source such as a form, your CRM or a [webhook](/integrations/webhook). See [Adding & managing leads](/leads/lead-management).
+- **Instagram**: your first lead arrives when someone writes to you on Instagram.
 
-In the **Funnel** tab, create the conversation flow using drag-and-drop nodes:
+Follow the conversations in [Chats](/leads/conversation-history), where you can also take over from the AI. Home shows what [needs you](/home#needs-you).
 
-Build your conversation flow using simple drag-and-drop nodes to guide leads through qualification and booking.
+## Next
 
-<img
-  src="/images/campaign/funnel.png"
-  alt="Building conversation funnel"
-  style={{ marginTop:"1rem",maxWidth:"100%" }}
-/>
-
-<Note>
-  Use the Test button to simulate conversations and refine your funnel before going live.
-</Note>
-
----
-
-## 4. Configure Campaign Options
-
-Set your **operating hours** and **timezone** in the **Options** tab:
-
-- **Timezone**: Select your business timezone
-- **Operating Days**: Choose which days to run campaigns
-- **Active Hours**: Set start and end times for each day
-
-  <img
-    src="/images/options/options.png"
-    alt="Configuring campaign schedule"
-    style={{ marginTop:"1rem",maxWidth:"100%" }}
-  />
-
----
-
-## 5. Set Up WhatsApp Integration
-
-Navigate to **Integrations → WhatsApp** to connect your WhatsApp Business account and configure message templates.
-
-<img
-  src="/images/integrations/whatsapp.png"
-  alt="WhatsApp integration setup"
-  style={{ marginTop:"1rem",maxWidth:"100%" }}
-/>
-
-<Warning>
-  WhatsApp templates must be approved before you can send messages. Set up your integration early in the process.
-</Warning>
-
----
-
-## 6. Test Your Campaign
-
-Before going live:
-
-1. **Test the Funnel**: Use the Test button in the funnel builder
-2. **Rehearse the campaign**: Run it against six invented customers
-3. **Verify Integrations**: Check WhatsApp connection status
-4. **Review Message Templates**: Ensure they're approved and working
-
-<Note>
-  **Rehearse before you launch.** [Rehearsal](/autopilot/rehearsal) drives six invented customers through your funnel — including the evasive one, the one who only wants a price, and the one who replies in another language. Nothing is sent to anybody and it takes a few minutes. It is the cheapest way to find out that your funnel only works on cooperative leads.
-</Note>
-
-<img
-  src="/images/campaign/test.png"
-  alt="Testing campaign conversation"
-  style={{ marginTop:"1rem",maxWidth:"70%" }}
-/>
-
----
-
-## 7. Launch and Manage Leads
-
-### Start Your Campaign
-
-Once everything is configured and tested:
-
-1. Go back to your **Campaign** page
-2. Click the **Start Campaign** button
-3. Your campaign status will show as "Running"
-
-### Add Leads to Your Campaign
-
-Navigate to **Leads** to add contacts to your campaign:
-
-- **Manual Entry**: Add leads individually
-- **Import**: Upload lead lists
-- **Automation**: Connect with Zapier or other tools
-
-### Monitor Conversations
-
-Track lead interactions in real-time:
-
-- View conversation history
-- See qualification status
-- Check appointment bookings
-- Export qualified leads
-
----
-
-## 8. Optional: Set Up Additional Integrations
-
-### Scheduling Integration
-
-Connect your calendar for appointment booking:
-
-- Sync your availability
-- Let leads book directly through WhatsApp
-
-### Zapier Integration
-
-Automate your workflow:
-
-- Send qualified leads to your CRM
-- Trigger follow-up sequences
-- Connect with other business tools
-
----
-
-## Next Steps
-
-🎉 Congratulations! Your WhatsApp lead qualification system is now live.
-
-**What happens next:**
-
-1. Leads will receive automated WhatsApp messages
-2. The AI qualifies them based on your criteria
-3. Qualified leads can book appointments automatically
-4. You receive notifications for high-priority leads
-
-**Optimization Tips:**
-
-- Let [Coach](/autopilot/coach) grade your finished conversations and tell you which questions leads skip most
-- Read the [weekly briefing](/autopilot/briefing) on your home page
-- Refine your funnel based on performance
-- Regularly update your lead qualification criteria
-
-> **Need Help?** Check out our detailed guides for [Campaign Setup](/campaign/context), [Lead Management](/leads/overview), or [Integration Configuration](/integrations/whatsapp).
-
-Your automated lead qualification system is ready to work 24/7! 🚀
+- [Analytics](/analytics): where you lose people, and when they answer.
+- [Coach](/autopilot/coach): what your finished conversations show, and what could be improved.
+- [Integrations](/integrations/calendly): connect a calendar so the assistant books meetings.

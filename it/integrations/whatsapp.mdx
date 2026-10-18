@@ -1,59 +1,91 @@
 ---
 title: "WhatsApp"
-description: "Collega il tuo account WhatsApp Business per inviare messaggi automatici ai lead"
+description: "Collega i tuoi numeri WhatsApp Business tramite Facebook, crea i template dei messaggi e invia messaggi di prova"
 icon: "whatsapp"
 ---
 
-L'integrazione WhatsApp è il cuore dell'automazione di Whappy. Permette al tuo assistente AI di inviare e ricevere messaggi con i lead tramite il tuo account WhatsApp Business.
+WhatsApp è il canale su cui scrivono le tue campagne. Collega un numero, fai approvare un template e le campagne possono aprire conversazioni con i lead; a chi scrive al numero risponde la campagna che scegli tu.
 
-## Per cominciare
+## Prima di iniziare
 
-### Requisiti
-- **Account WhatsApp Business** (non WhatsApp personale)
-- Accesso a **Meta Business Manager**
-- Abbonamento alle **API WhatsApp Business**
+La pagina elenca cosa chiede Meta prima di collegare il primo numero:
 
-### Cosa ti serve
-- **WhatsApp Number ID**: l'id del numero della tua attività, da Meta
-- **Business Account ID**: l'id del tuo Meta Business Account
-- **Token API**: token di autenticazione dalla Meta Business Platform
+- **Accesso amministratore a Meta Business**: amministri il portfolio Meta Business a cui appartiene il numero (oppure ne crei uno durante il collegamento).
+- **Account WhatsApp Business verificato**: l'account WhatsApp Business è verificato da Meta.
+- **Autorizzazione tramite Facebook**: il collegamento avviene in una finestra di Facebook, dove accedi e scegli l'attività e il numero.
 
-## Collegare l'account
+Non devi mai inserire in Whappy l'id del numero, l'id dell'account business o un token: è Facebook a passare tutto a Whappy quando dai l'autorizzazione.
 
-1. Vai su **Integrazioni → WhatsApp** nella dashboard di Whappy
-2. Apri la scheda **Impostazioni di base**
-3. Inserisci le credenziali:
-- **WhatsApp Number ID** dalla Meta Business Platform
-- **Meta Business Account ID**
-- **Token API** per l'autenticazione
-4. Premi **Prova connessione** per verificare che tutto funzioni
-5. Premi **Salva impostazioni** quando la prova va a buon fine
+## Collegare un numero
 
-<Warning>
-    Custodisci il token API. Chiunque lo possieda può inviare messaggi dal tuo account WhatsApp Business.
-</Warning>
+<Steps>
+  <Step title="Apri la pagina WhatsApp">
+    Vai su **Integrazioni → WhatsApp**. La scheda **Account** elenca i tuoi numeri; la prima volta è vuota.
+  </Step>
+  <Step title="Scegli come collegare">
+    - **Aggiungi nuovo numero** collega un numero alle API WhatsApp Cloud tramite Whappy.
+    - **Collega l'app WhatsApp Business esistente** collega un numero che usi già nell'app WhatsApp Business sul telefono. L'app continua a funzionare e Whappy risponde sullo stesso numero. Vedi [Continuare a usare l'app WhatsApp Business](#continuare-a-usare-lapp-whatsapp-business).
+  </Step>
+  <Step title="Autorizza nella finestra di Facebook">
+    Si apre una finestra di Facebook. Accedi, scegli o crea il portfolio Meta Business e l'account WhatsApp Business, poi seleziona il numero. Se chiudi la finestra o Facebook rifiuta, Whappy avvisa che la registrazione è stata annullata o non è riuscita: nulla viene salvato e puoi ricominciare.
+  </Step>
+  <Step title="Fatto">
+    Whappy mostra **Account WhatsApp Business collegato** e il numero compare nell'elenco con il nome, il numero e la qualità che gli attribuisce Meta (alta, media, bassa o sconosciuta).
+  </Step>
+</Steps>
+
+<Note>
+    Se il pulsante dice che Facebook non è pronto, aggiorna la pagina: la finestra di Facebook viene caricata da Facebook stesso e a volte ci mette un momento.
+</Note>
+
+### Continuare a usare l'app WhatsApp Business
+
+Un numero collegato con **Collega l'app WhatsApp Business esistente** compare nell'elenco con la dicitura **App Business + Cloud API**. Continui a usare l'app sul telefono, e Whappy invia e riceve sullo stesso numero.
+
+Quando rispondi tu a un lead dall'app, Whappy lo considera una tua presa in carico: l'AI si ferma su quella conversazione e non ti scrive sopra. Per far riprendere l'AI, apri la conversazione in **Chat** e premi **Riprendi la conversazione IA**.
+
+### Più numeri
+
+Puoi collegare più di un numero: la scheda diventa **Account (n)**. Le schede **Template** e **Test** lavorano su un numero alla volta; con più numeri, un selettore **Account** in cima a quelle schede sceglie quale.
+
+### Il menu di ogni numero
+
+Il menu in fondo a ogni riga offre:
+
+- **Verifica stato**: chiede a Meta lo stato attuale del numero e lo mostra.
+- **Apri in Meta Business**: apre l'account WhatsApp in Meta Business Suite.
+
+### Chi risponde a chi scrive per primo
+
+Quando hai una campagna aperta, ogni numero mostra un interruttore **In arrivo**. Se è attivo, a chi scrive per primo a quel numero (senza che una campagna gli abbia scritto) risponde quella campagna. La campagna deve parlare su WhatsApp (vedi le sue **Opzioni**).
 
 ## Creare i template dei messaggi
 
-WhatsApp richiede **template approvati** per iniziare una conversazione con un lead. Senza template approvati non puoi inviare il primo messaggio.
+WhatsApp richiede un **template approvato** per aprire una conversazione con un lead. Senza, le campagne non possono inviare il primo messaggio. I template appartengono a un numero: apri la scheda **Template** (se hai più numeri, scegli prima il numero).
 
-### Aggiungere template
+### Aggiungere un template
 
-1. Apri la scheda **Template messaggi**
-2. Premi **"Aggiungi template"**
-3. Compila i dettagli:
-- **Nome template**: usa i trattini bassi, niente spazi (es. `welcome_message`)
-- **Lingua**: seleziona la lingua del template
-- **Categoria**: scegli Utilità (per comunicazioni di servizio) o Marketing
-- **Messaggio**: scrivi il testo del template
+1. Premi **Aggiungi template**. In cima all'elenco si apre una nuova riga.
+2. Compilala:
+   - **Nome template**: solo lettere minuscole, numeri e trattini bassi, per esempio `welcome_message`.
+   - **Lingua**: la lingua in cui Meta lo esamina. Un template esiste per ogni lingua.
+   - **Categoria**: **Marketing** per le promozioni, **Utility** per aggiornamenti su qualcosa che il cliente ha già fatto. È disponibile anche **Authentication**.
+   - **Template del messaggio**: il testo, fino a 1024 caratteri. Il testo che cambia da persona a persona va fra doppie parentesi graffe, per esempio `{{name}}`.
+3. Dai un valore di esempio a ogni parametro in **Parametri**: WhatsApp lo usa per esaminare il template.
+4. Se vuoi, aggiungi un'**intestazione** o un **piè di pagina** (massimo 60 caratteri ciascuno, senza parametri), una foto o un file (vedi sotto) e dei **pulsanti**: risposte rapide che il cliente può toccare, fino a 10, massimo 25 caratteri ciascuna.
+5. Premi **Salva template**. Lo stato della riga passa da **Nuovo** a **In attesa** mentre Meta lo esamina.
+
+**Inserisci variabile** elenca i campi che Whappy compila per te: **Nome**, **Email** e **Telefono** del cliente e, su un negozio Shopify, i campi di ordine e carrello (vedi [Shopify](/it/integrations/shopify)). Puoi anche scrivere parametri con nomi tuoi.
+
+Un messaggio non può iniziare o finire con un parametro, e due parametri non possono stare uno accanto all'altro: metti qualche parola intorno. Whappy te lo dice prima che qualcosa arrivi a Meta.
 
 ### Aprire con una foto o un file
 
-Un template può aprirsi con un'immagine, un PDF o un video sopra al testo. Scegli **Foto o file** quando aggiungi il template e prendine uno dalla tua libreria.
+Un template può aprirsi con un'immagine, un PDF o un video sopra al testo. Premi **Aggiungi foto o file** sul template e scegline uno dalla tua libreria (**Risorse**).
 
-- **Immagine** — JPEG o PNG, fino a 5 MB
-- **Documento** — PDF, fino a 100 MB
-- **Video** — MP4, fino a 16 MB
+- **Immagine**: JPEG o PNG, fino a 5 MB
+- **Documento**: PDF, fino a 100 MB
+- **Video**: MP4, fino a 16 MB
 
 Il file fa parte di ciò che Meta approva, quindi resta fisso una volta approvato il template: per mandarne un altro serve un altro template. Ogni messaggio che usa il template porta con sé il file, [annunci](/it/campaign/announcements) compresi: è così che una foto arriva ai clienti *insieme* all'offerta, invece che dopo la loro risposta.
 
@@ -63,53 +95,35 @@ Il file fa parte di ciò che Meta approva, quindi resta fisso una volta approvat
 
 ### Generare un template con l'AI
 
-Invece di scrivere un template e scoprire al momento dell'approvazione che Meta lo rifiuta, premi **Genera con AI**.
+Invece di scrivere un template e scoprire al momento dell'approvazione che Meta lo rifiuta, premi **Genera con l'IA**.
 
-Whappy scrive un template conforme alle regole di WhatsApp partendo da quello che descrivi. **Lo rivedi tu prima che qualcosa venga inviato a Meta**: nulla viene sottoposto finché non premi Salva.
+Whappy scrive un template conforme alle regole di WhatsApp partendo da quello che descrivi. **Lo rivedi tu prima che qualcosa venga inviato a Meta**: compare come bozza in cima all'elenco, e nulla viene sottoposto finché non premi **Salva template**.
 
-**Configurazione:**
-- **Cosa deve dire il template?** — una richiesta in linguaggio naturale, per esempio *"Ricorda al cliente l'appuntamento di domani e chiedigli di confermare"*. È l'unica cosa da cui l'AI scrive, a meno che tu non aggiunga una campagna qui sotto.
-- **Usa il contesto di una campagna** *(facoltativo)* — scegli una campagna per aggiungere nome, descrizione e documenti di contesto dell'attività alle informazioni usate dall'AI. Parte vuoto: nessuna campagna viene usata se non la selezioni. Puoi scegliere qualsiasi campagna, anche se non è attiva su questo numero. Con una campagna selezionata puoi lasciare vuota la descrizione e generare solo dal suo contesto.
-- **Includi un'intestazione** — un titolo breve sopra il messaggio, massimo 60 caratteri, senza parametri.
-- **Includi un piè di pagina** — una riga sotto il messaggio, massimo 60 caratteri, senza parametri.
-- **Includi pulsanti di risposta rapida** — fino a tre risposte toccabili, massimo 25 caratteri ciascuna.
+- **Cosa deve dire il template?**: una richiesta in linguaggio naturale, per esempio *"Ricorda al cliente l'appuntamento di domani e chiedigli di confermare"*. È l'unica cosa da cui l'AI scrive, a meno che tu non aggiunga una campagna qui sotto.
+- **Usa il contesto di una campagna** *(facoltativo)*: scegli una campagna per aggiungere nome, descrizione e documenti di contesto a ciò da cui l'AI scrive. Vale qualsiasi campagna, anche se non è attiva su questo numero. Con una campagna selezionata puoi lasciare vuota la descrizione.
+- **Opzioni avanzate**: includi un'**intestazione** (massimo 60 caratteri, senza parametri), un **piè di pagina** (massimo 60 caratteri, senza parametri) o **pulsanti di risposta rapida** (fino a tre, massimo 25 caratteri ciascuno; nell'editor puoi aggiungerne altri).
 
 <Note>
-    Se il template generato ha richiesto modifiche per rispettare le regole di WhatsApp, Whappy ti dice quanti aggiustamenti sono stati fatti. Leggi il risultato prima di salvare: il template è tuo, ed è a te che Meta lo attribuisce.
+    Se il template generato ha richiesto modifiche per rispettare le regole di WhatsApp, Whappy ti dice quanti aggiustamenti sono stati fatti e li elenca sulla riga della bozza. Leggi il risultato prima di salvare: il template è tuo, ed è a te che Meta lo attribuisce.
 </Note>
 
-### Usare i parametri
+### Tradurre un template approvato
 
-Rendi i template dinamici con parametri fra doppie parentesi graffe:
+Un template approvato ha il pulsante **Traduci…**. Scegli fino a cinque lingue alla volta e Whappy scrive una bozza in ciascuna, lasciando invariati le parole fra doppie graffe, i link e i numeri di telefono. Controlla ogni bozza e premi **Invia**: WhatsApp esamina ogni lingua separatamente. Si possono tradurre solo i template marketing e utility, e per un template che si apre con una foto o un file potrebbe servire aggiungere la lingua a mano con **Aggiungi template**.
 
-```
-Ciao {{user_name}}, benvenuto in {{business_name}}!
-Come posso aiutarti oggi?
-```
+### Stato dei template
 
-**Parametri utilizzabili:**
-- `{{user_name}}` - nome del lead
-- `{{business_name}}` - nome della tua attività
-- `{{budget}}` - budget del lead (se raccolto)
-- Qualsiasi campo personalizzato dei tuoi dati lead
+Ogni riga mostra categoria e stato:
 
-### Esempio di template
+| Stato | Significato |
+|---|---|
+| **Bozza** | Preparato (per esempio dall'assistente) ma non ancora inviato a Meta |
+| **Nuovo** | Aggiunto qui e non ancora salvato |
+| **In attesa** | Inviato; Meta lo sta esaminando, di solito entro 24-48 ore |
+| **Approvato** | Pronto per le campagne e per la scheda Test |
+| **Rifiutato** | Respinto da Meta; eliminalo e creane uno nuovo con le correzioni |
 
-**Nome template**: `welcome_message`
-**Categoria**: Utilità
-**Messaggio**:
-```
-Ciao {{user_name}}! Sono {{business_name}}.
-Ho visto che ti interessano i nostri servizi.
-Come posso esserti utile?
-```
-
-### Processo di approvazione
-
-1. **Invio**: premi "Salva template" per sottoporlo all'approvazione
-2. **Revisione**: Meta esamina il template (di solito 24-48 ore)
-3. **Stato**: i template passano da In attesa → Approvato o Rifiutato
-4. **Utilizzo**: solo i template approvati possono essere usati nelle campagne
+Un template salvato è in sola lettura: per cambiarlo, creane uno nuovo. **Elimina template** lo rimuove dal numero (e da Meta); WhatsApp non permette di riusare per un po' il nome di un template eliminato.
 
 <Tip>
     Crea template che suonino naturali e offrano valore. Evita un linguaggio troppo promozionale per aumentare le probabilità di approvazione.
@@ -117,113 +131,48 @@ Come posso esserti utile?
 
 ## Usare i template nel funnel
 
-### Selezionare un template
+I template si usano nel passaggio **Template WhatsApp**, il primo del funnel di una campagna: apri **Campagna → Funnel**, clicca il primo passaggio e scegli un template approvato. Il testo del template diventa il primo messaggio, e l'anteprima mostra esattamente ciò che riceveranno i lead. Si possono scegliere solo i template approvati.
 
-I template si usano nel **nodo di avvio** del funnel:
+## Provare un numero
 
-1. Vai su **Campagna → Funnel**
-2. Apri il nodo **Avvio** (il primo del funnel)
-3. Seleziona un **template approvato** dal menu a tendina
-4. Il testo del template diventa il tuo messaggio di benvenuto
+La scheda **Test** invia messaggi veri dal numero a un telefono che digiti tu (con il prefisso internazionale, per esempio `+393331234567`):
 
-### Anteprima del template
+- **Test messaggio template**: scegli un template approvato, compila i parametri, controlla l'anteprima e invia. Serve almeno un template approvato.
+- **Test messaggio libero**: invia un messaggio di testo per verificare che le risposte arrivino in entrambe le direzioni.
 
-Quando selezioni un template vedi un'anteprima con esattamente il messaggio che riceveranno i lead.
+## Disconnettere un numero
 
-## Categorie di template
+**Disconnetti** è in fondo alla pagina WhatsApp. Con più numeri diventa **Disconnetti un numero** e la finestra chiede quale. Prima della conferma, la finestra dice cosa cambia:
 
-### **Template di utilità**
-- Per comunicazioni di servizio
-- Messaggi di assistenza clienti
-- Conferme di appuntamento
-- Solleciti
+- Se restano altri numeri, non cambia altro.
+- Se è l'unico numero e Instagram è collegato, le campagne smettono di scrivere per prime ai lead; Instagram continua a rispondere ai messaggi.
+- Se è l'unico numero e Instagram non c'è, le campagne attive si fermano: non resta nessun canale.
 
-**Esempio**:
-```
-Ciao {{user_name}}, grazie per l'interesse nei nostri {{service_type}}.
-Fissiamo una breve call per parlare delle tue esigenze.
-```
+## Ricollegare un numero
 
-### **Template di marketing**
-- Contenuti promozionali
-- Annunci di prodotto
-- Offerte speciali
-
-**Esempio**:
-```
-{{user_name}}, questo mese abbiamo un'offerta speciale su {{service_type}}.
-Vuoi saperne di più?
-```
-
-## Buone pratiche
-
-### **Creazione dei template**
-- Usa un linguaggio chiaro e colloquiale
-- Includi il nome del destinatario quando possibile
-- Evita emoji in eccesso e toni troppo promozionali
-- Prova i template con valori diversi nei parametri
-
-### **Uso dei parametri**
-- Fornisci sempre valori di esempio per i parametri
-- Usa parametri che corrispondono ai tuoi campi informativi
-- Mantieni nomi descrittivi e coerenti
-
-### **Consigli per l'approvazione**
-- Invia template che offrano un valore chiaro al destinatario
-- Evita linguaggio da spam o pressioni commerciali eccessive
-- Includi il nome della tua attività per trasparenza
-- Assicurati che il template abbia senso anche senza contesto precedente
-
-## Gestire i template
-
-### **Stato dei template**
-Ogni template ha uno di tre stati:
-- **🟡 In attesa**: sottoposto alla revisione di Meta
-- **🟢 Approvato**: pronto per essere usato nelle campagne
-- **🔴 Rifiutato**: va corretto e reinviato
-
-### **Modificare i template**
-- **Nuovi template**: modificabili prima del salvataggio
-- **Template esistenti**: in sola lettura una volta inviati
-- **Template rifiutati**: eliminali e creane di nuovi con le correzioni
-
-### **Limiti**
-- Puoi creare più template per scenari diversi
-- Nel costruttore di funnel compaiono solo quelli approvati
-- I template sono condivisi fra tutte le tue campagne
-
-## Verificare l'integrazione
-
-### **Prova di connessione**
-Usa il pulsante "Prova connessione" per verificare che:
-- Le credenziali siano corrette
-- Le API WhatsApp siano raggiungibili
-- I permessi dell'account siano impostati correttamente
-
-### **Prova dei template**
-Prima di andare in produzione:
-1. Crea e fai approvare almeno un template
-2. Costruisci un funnel semplice che lo usi
-3. Prova prima con un tuo numero personale
-4. Verifica che i messaggi partano e arrivino correttamente
+L'accesso concesso da Meta può scadere o essere revocato, per esempio quando la persona che l'ha autorizzato lascia l'attività. Una conversazione che fallisce per questo motivo mostra l'errore **il token di accesso di questo numero WhatsApp è scaduto o è stato revocato**, con il rimedio **ricollega il numero in Impostazioni > WhatsApp**: vai su **Integrazioni → WhatsApp**, premi **Aggiungi nuovo numero** (oppure **Collega l'app WhatsApp Business esistente** per un numero con la dicitura App Business + Cloud API) e autorizza di nuovo lo stesso numero.
 
 ## Risoluzione dei problemi
 
-### **Problemi di connessione**
-- Ricontrolla WhatsApp Number ID e Business Account ID
-- Verifica che il token API sia valido e abbia i permessi giusti
-- Assicurati che l'account WhatsApp Business sia attivo
-
-### **Problemi con i template**
-- **Non compare nel funnel**: controlla che sia approvato
-- **Rifiutato**: rendi il linguaggio meno promozionale
-- **Parametri che non funzionano**: verifica che i nomi corrispondano esattamente ai tuoi campi
-
-### **Problemi di invio**
-- Verifica che il template sia approvato e selezionato nel nodo di avvio
-- Controlla che la campagna sia in esecuzione e che i lead vengano elaborati
-- Assicurati che i numeri dei destinatari includano il prefisso internazionale
-
-Tutto pronto per collegare WhatsApp? Vai su **Integrazioni → WhatsApp**.
+<AccordionGroup>
+    <Accordion title="La finestra di Facebook si chiude e non si collega nulla">
+        Whappy avvisa che la registrazione è stata annullata. Ricomincia e completa tutti i passaggi della finestra di Facebook, compresa la scelta del numero. Se Facebook rifiuta, verifica di amministrare il portfolio Meta Business e che l'account WhatsApp Business sia verificato.
+    </Accordion>
+    <Accordion title="Facebook non è pronto">
+        La finestra di Facebook viene caricata da Facebook stesso. Aggiorna la pagina e riprova; anche un'estensione del browser che blocca gli script di Facebook la blocca.
+    </Accordion>
+    <Accordion title="Un template non compare nel funnel">
+        Si possono scegliere solo i template **Approvati**. Controlla lo stato nella scheda **Template** del numero giusto.
+    </Accordion>
+    <Accordion title="Un template è stato rifiutato">
+        Rendi il testo meno promozionale, assicurati che ogni parametro abbia un valore di esempio e che il messaggio abbia senso anche senza contesto, poi crea un nuovo template. Oppure premi **Genera con l'IA** e lascia che Whappy ne scriva uno conforme.
+    </Accordion>
+    <Accordion title="I messaggi non partono più">
+        Apri la conversazione in **Chat**: l'errore dice cosa è successo e come rimediare. Un token scaduto significa [ricollegare il numero](#ricollegare-un-numero); un errore di template significa scegliere, nel passaggio **Template WhatsApp**, un template che esiste per questo numero.
+    </Accordion>
+    <Accordion title="Nessuno risponde a chi scrive al numero">
+        Apri la campagna che deve rispondere, vai su **Integrazioni → WhatsApp** e attiva **In arrivo** su quel numero. La campagna deve parlare su WhatsApp nelle sue **Opzioni**.
+    </Accordion>
+</AccordionGroup>
 
 Ti serve aiuto? Consulta le [domande frequenti](/it/support/faq) o [contatta l'assistenza](/it/support/contact-support).

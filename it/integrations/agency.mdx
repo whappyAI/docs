@@ -1,62 +1,58 @@
 ---
 title: "Account agenzia"
-description: "Personalizzare la dashboard con il tuo marchio per i clienti che porti dal Marketplace GoHighLevel."
+description: "Gestisci Whappy per i clienti che porti dal Marketplace di GoHighLevel, da un'unica pagina Agenzia."
 icon: "buildings"
 ---
 
-Se installi Whappy sul sotto-account di un cliente tramite il Marketplace GoHighLevel, la sua dashboard può portare il tuo nome al posto del nostro, e il nostro al posto di quello del fornitore CRM.
+Un account agenzia gestisce Whappy per i suoi clienti da un unico posto: la pagina **Agenzia** nella barra laterale. Ogni cliente è un sotto-account GoHighLevel con l'app Whappy installata, e ha un suo account Whappy.
 
-## Cosa cambia con il marchio personalizzato
+## Creare l'agenzia
 
-Quando è attivo:
+Installare l'app come agenzia dal Marketplace di GoHighLevel crea l'agenzia per te (vedi [GoHighLevel](/it/integrations/gohighlevel)). Puoi anche aprire **Agenzia** e compilare **Crea la tua agenzia**: un **Nome dell'agenzia** e una **Valuta di fatturazione**. La valuta non potrà essere cambiata in seguito.
 
-- La dashboard mostra **il nome del tuo prodotto** e **il tuo logo**.
-- I link di assistenza puntano al **tuo indirizzo di supporto**, non al nostro.
-- Il CRM viene chiamato **"CRM"** ovunque, invece che con il nome del fornitore — nelle etichette, nei testi di aiuto e negli URL che il tuo cliente può leggere. Il callback su cui atterra è `/integrations/crm/callback`.
+L'account di un negozio Shopify non può gestire un'agenzia.
 
-Tutto il resto funziona in modo identico. Il marchio personalizzato cambia ciò che legge il tuo cliente, non ciò che fa la piattaforma.
+## Clienti
 
-## Quando si attiva
+I tuoi clienti sono i sotto-account GoHighLevel che hanno l'app. Ognuno compare da solo in **Clienti** appena l'app è installata; non c'è un pulsante per aggiungere un cliente a mano. Piani e fatture si impostano nel Marketplace di GoHighLevel.
 
-Ha tre stati, e la differenza fra quello centrale e gli altri conta:
+Sopra l'elenco, Whappy ti avvisa quando:
 
-| Impostazione | Comportamento |
+- alcuni sotto-account in GoHighLevel non hanno ancora l'app. Installala dove deve lavorare Whappy e compariranno qui.
+- un sotto-account ha l'app ma non è ancora configurato. Riprova fra qualche minuto.
+- alcuni clienti non hanno ancora niente in funzione (**Niente in funzione** nella loro riga). Usa il menu della riga per copiare una campagna.
+
+L'elenco mostra per ogni cliente **Piano**, **Stato** (**Attivo** o **Sospeso**), **Accesso** (**Entra il cliente** o **Solo agenzia**) e **Fatturazione** (**In fattura** o **Non ancora fatturato**).
+
+### Lavorare dentro un cliente
+
+Clicca **Entra** nella riga di un cliente. La dashboard passa all'account di quel cliente e un banner mostra **Stai gestendo:** e il nome del cliente. Clicca **Torna all'agenzia** per uscire.
+
+Dentro un cliente, **Integrazioni** offre WhatsApp, Instagram, il CRM, Meta Ads, Webhook e Make. Calendari, Zapier e Shopify non sono offerti: calendari e automazioni del cliente arrivano da GoHighLevel.
+
+### Azioni della riga
+
+Owner e admin hanno anche un menu in ogni riga:
+
+| Azione | Cosa fa |
 | --- | --- |
-| **Attivo** | Nomi dei fornitori sempre nascosti. |
-| **Disattivo** | Nomi dei fornitori sempre visibili. |
-| **Eredita** | Deciso da come è arrivato l'account. |
+| **Dai accesso al cliente** | Crea un accesso per il cliente all'account in cui lavora il tuo team. Inserisci l'email del cliente: non deve avere già un account Whappy. Copia il **Link di accesso** e invialo; il cliente ci sceglie una password. Il link si vede una sola volta e scade. |
+| **Genera un nuovo link** | Un link nuovo per un cliente che ha già accesso. |
+| **Togli l'accesso al cliente** | Il cliente non può più accedere. Il tuo team sì. |
+| **Copia qui una campagna** | Porta in questo cliente, come bozza, una campagna di un altro cliente. Arriva ferma, senza calendario, media né messaggio di apertura. |
+| **Sospendi** / **Riattiva** | In un cliente sospeso non si può entrare e il suo accesso viene chiuso. I dati restano. Riattivarlo non riapre l'accesso del cliente: dagli di nuovo accesso. |
+| **Elimina** | Elimina l'account e tutto il suo contenuto: campagne, conversazioni, lead, integrazioni. Non si può annullare. |
 
-**Eredita è l'impostazione predefinita**: con essa un cliente arrivato tramite **installazione dal Marketplace** riceve automaticamente il marchio personalizzato. Un account collegato in altro modo no.
+## Team
 
-Il caso più comune non richiede quindi alcuna configurazione: installa dal Marketplace e la dashboard del tuo cliente è già personalizzata. Imposta il valore esplicitamente solo se vuoi forzare il contrario.
+La scheda **Team** elenca chi lavora nell'agenzia, come **Owner**, **Admin** o **Membro**. Ogni membro vede i clienti e può entrarci. Owner e admin gestiscono anche clienti, fatturazione e team.
 
-<Note>
-    Metterlo esplicitamente su **disattivo** non equivale a lasciarlo su **eredita**. Disattivo significa "mostra i nomi dei fornitori anche se è un'installazione dal Marketplace".
-</Note>
+Per aggiungere qualcuno, inserisci l'email del suo account Whappy, scegli un **Ruolo** e clicca **Aggiungi**. Un membro rimosso perde l'accesso a tutti gli account cliente.
 
-## Cosa puoi impostare
+## Il nome del CRM negli account cliente
 
-| Campo | Limite |
-| --- | --- |
-| **Nome del prodotto** mostrato nella dashboard | 60 caratteri |
-| **Logo** — un URL assoluto `https://` | 2048 caratteri |
-| **Email di assistenza** a cui scrivono i tuoi clienti | 254 caratteri |
+Per impostazione predefinita, un account cliente gestito da un'agenzia non nomina GoHighLevel. L'integrazione si chiama **CRM**, la sua pagina si trova in `/integrations/crm` e anche i suoi messaggi dicono "CRM". L'opzione di collegamento con un token privato, che passa dalle schermate delle impostazioni di GoHighLevel, è nascosta.
 
-Lascia vuoto un campo per usare il valore predefinito di Whappy. I campi sono indipendenti: puoi impostare un nome senza un logo.
+## Collegare Claude a un cliente
 
-## Onboarding di un cliente
-
-<Steps>
-    <Step title="Attiva il suo sotto-account">
-        L'app si installa una volta sola per tutta l'agenzia, non una per cliente. Da **Agenzia → CRM**, attiva il sotto-account che vuoi far gestire a Whappy: solo i sotto-account attivati diventano clienti, e solo quelli vengono fatturati. La procedura completa è in [GoHighLevel](/it/integrations/gohighlevel).
-    </Step>
-    <Step title="Imposta il marchio">
-        Nome del prodotto, logo ed email di assistenza. Per un'installazione dal Marketplace il marchio personalizzato è già attivo.
-    </Step>
-    <Step title="Costruisci la campagna e fai la prova generale">
-        Fai la [prova generale](/it/autopilot/rehearsal) prima di consegnare l'account: non costa nulla ed è ciò che evita che il primo lead vero del cliente sia anche il primo test del funnel.
-    </Step>
-    <Step title="Imposta i permessi di Autopilot">
-        L'account di un cliente parte da **Sola lettura**. Decidi con attenzione quanto [Autopilot](/it/autopilot/trust-levels) concedergli.
-    </Step>
-</Steps>
+Un [collegamento Claude o MCP](/it/integrations/mcp) appartiene alla persona che l'ha approvato e lavora nel suo account. Entrare in un account cliente non lo porta con sé.

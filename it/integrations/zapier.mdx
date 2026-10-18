@@ -1,362 +1,169 @@
 ---
 title: "Zapier"
-description: "Collega Whappy a oltre 6.000 app per automatizzare il flusso dei lead. Invia i lead qualificati al tuo CRM o ricevi nuovi lead da moduli e inserzioni."
+description: "Avvia Zap dalle conversazioni Whappy e aggiungi lead a Whappy da qualsiasi app collegata a Zapier."
 icon: "bolt"
 ---
 
-Collega Whappy a più di 6.000 app tramite Zapier per automatizzare il flusso dei lead. Invia automaticamente i lead qualificati al tuo CRM, oppure ricevi nuovi lead da moduli e inserzioni per avviare conversazioni WhatsApp.
+Collega Whappy a Zapier per avviare uno Zap quando succede qualcosa in una conversazione e per aggiungere lead a Whappy da moduli, inserzioni, fogli o qualsiasi altra app su Zapier.
 
-## Come funziona
+Zapier è nella pagina **Integrazioni**, sotto **Automazioni**. Lo vedono tutti gli account tranne gli account cliente di un'agenzia, che usano invece il CRM dell'agenzia. [Make](/it/integrations/make) offre gli stessi eventi e la stessa azione.
+
+## Cosa fa
 
 <CardGroup cols={2}>
-    <Card title="Trigger (invio dei lead in uscita)" icon="arrow-right" color="#green">
-        **Whappy → altre app**: quando un lead completa la conversazione o fissa un appuntamento, i suoi dati vengono inviati automaticamente a CRM, strumenti email, calendari…
+    <Card title="Whappy avvia i tuoi Zap quando" icon="arrow-right">
+        - **Conversazione chiusa**: una conversazione arriva al suo step di chiusura.
+        - **Appuntamento prenotato**: un lead prenota un appuntamento.
+        - **Lead silenzioso**: un lead smette di rispondere per le ore che imposti nello Zap.
+        - **Invia dati**: si esegue uno step Invia dati nel funnel di una campagna.
     </Card>
-    <Card title="Azioni (ricezione dei lead in entrata)" icon="arrow-left" color="#blue">
-        **Altre app → Whappy**: quando ricevi nuovi lead da moduli, inserzioni o altre fonti, vengono aggiunti automaticamente a Whappy per avviare conversazioni WhatsApp.
+    <Card title="I tuoi Zap possono" icon="arrow-left">
+        - **Creare un lead**: aggiungere un lead alla campagna Whappy che scegli.
     </Card>
 </CardGroup>
 
 ---
 
-## Configurare le azioni (lead in entrata)
-
-Usa le azioni per aggiungere automaticamente nuovi lead a Whappy dagli altri tuoi strumenti e avviare le conversazioni WhatsApp.
-
-### Configurazione passo per passo
+## Collegare
 
 <Steps>
-    <Step title="Imposta l'app che fa da trigger">
-        1. Crea un nuovo Zap in Zapier
-        2. Scegli come trigger la tua fonte di lead (Typeform, Facebook Lead Ads, Google Sheets…)
-        3. Collega l'account e configura il trigger
-        4. Prova il trigger per assicurarti che funzioni
+    <Step title="Installa l'app Whappy su Zapier">
+        In Whappy apri **Integrazioni → Zapier** e clicca **Ottieni l'app Whappy su Zapier**. Zapier apre la pagina dell'app Whappy.
+    </Step>
+
+    <Step title="Copia la chiave API">
+        Nella stessa pagina clicca **Copia la chiave API** accanto alla chiave. Incollala quando Zapier ti chiede di collegare il tuo account Whappy.
+
+        <img src="/images/zapier/copy-api-key.png" alt="La chiave API Zapier in Whappy" />
+
+        <img src="/images/zapier/paste-api-key.png" alt="Incollare la chiave API in Zapier" />
+
+        <Note>
+            Una sola chiave vale per entrambe le direzioni: trigger e creazione dei lead. È diversa dalla chiave Make; revocarne una non ferma mai l'altra. Tienila riservata: chiunque abbia la chiave può aggiungere lead al tuo account.
+        </Note>
+    </Step>
+</Steps>
+
+Sotto i passaggi, la pagina mostra i template già pronti di Zapier per Whappy. Scegline uno per avviare uno Zap già configurato.
+
+---
+
+## Aggiungere lead a Whappy (Create Lead)
+
+<Steps>
+    <Step title="Imposta l'app da cui arrivano i lead">
+        Crea uno Zap e scegli come trigger la fonte dei lead: un modulo, una piattaforma di inserzioni, un foglio, un CRM.
     </Step>
 
     <Step title="Aggiungi Whappy come azione">
-        1. Nella sezione azione, cerca **"Whappy"**
-        2. Seleziona **Whappy** fra i risultati
-        3. Scegli **Create Lead** come evento
-        4. Premi **Continue**
+        Cerca **Whappy** e scegli **Create Lead** come evento dell'azione. Collega il tuo account Whappy con la chiave API, se non l'hai ancora fatto.
 
         <div style={{ textAlign: 'center' }}>
-            <img src="/images/zapier/setup-action.png" alt="Configurazione dell'azione" style={{ maxWidth: '350px', width: '100%', height: 'auto' }} />
+            <img src="/images/zapier/setup-action.png" alt="Scegliere Create Lead in Zapier" style={{ maxWidth: '350px', width: '100%', height: 'auto' }} />
         </div>
     </Step>
 
-    <Step title="Collega il tuo account Whappy">
-        1. Premi **Sign in to Whappy**
-        2. Copia la tua API key da **Integrazioni → Zapier** nella dashboard di Whappy
-        3. Incolla la chiave in Zapier
-        4. Aggiungi un'etichetta per l'account (utile per riconoscerlo se ne hai collegati più di uno)
-        5. Premi **Yes, Continue to Whappy**
-
-        <img src="/images/zapier/copy-api-key.png" alt="Collegamento dell'account Whappy per le azioni" />
-
-        <img src="/images/zapier/paste-api-key.png" alt="Incolla la API key in Zapier" />
-
-        <Note>
-            Usa la stessa API key che usi per i trigger. L'account va collegato una sola volta.
-        </Note>
-    </Step>
-
-    <Step title="Configura i dati del lead">
-        Mappa i campi dell'app di origine su Whappy. Questi sono i campi disponibili:
-
-        **Campi obbligatori:**
-        - **Phone** *(deve includere il prefisso internazionale, es. +393441234567)*
-        - **First Name**
-
-        **Campi facoltativi:**
-        - **Email**
-        - **Lead Data** *(formato JSON per le informazioni personalizzate)*
-        - **Is Test Lead** *(scegli "No" per i lead reali, "Yes" per i test)*
+    <Step title="Collega i campi del lead">
+        - Il numero di telefono, in formato internazionale, ad es. `+393331234567`. Un numero locale funziona se l'account ha un paese predefinito.
+        - Il nome.
+        - Facoltativi: l'email, la campagna Whappy in cui entra il lead (se vuota decide l'instradamento predefinito dell'account) e dati extra come budget o città, che l'AI e i tuoi template possono leggere.
+        - Segna il lead come lead di test mentre costruisci lo Zap.
 
         <div style={{ textAlign: 'center' }}>
-            <img src="/images/zapier/configure-action.png" alt="Configurazione dei campi del lead nell'azione Zapier" style={{ maxWidth: '350px', width: '100%', height: 'auto' }} />
+            <img src="/images/zapier/configure-action.png" alt="Collegare i campi del lead in Zapier" style={{ maxWidth: '350px', width: '100%', height: 'auto' }} />
         </div>
-
-        <Warning>
-            I numeri di telefono devono includere il prefisso internazionale (es. +39 per l'Italia) per funzionare con WhatsApp.
-        </Warning>
     </Step>
 
     <Step title="Prova e attiva">
-        1. Premi **Test action** per inviare un lead di esempio a Whappy
-        2. Controlla nella dashboard di Whappy, sezione **Lead**, che il lead sia stato creato
-        3. Se la prova riesce, attiva lo Zap per iniziare a ricevere lead automaticamente
+        Clicca **Test action**, poi controlla il lead nella scheda **Lead** della campagna su Whappy. Se c'è, attiva lo Zap.
 
         <div style={{ textAlign: 'center' }}>
-            <img src="/images/zapier/test-action.png" alt="Prova dell'azione e verifica della creazione del lead" style={{ maxWidth: '350px', width: '100%', height: 'auto' }} />
+            <img src="/images/zapier/test-action.png" alt="Provare l'azione in Zapier" style={{ maxWidth: '350px', width: '100%', height: 'auto' }} />
         </div>
-
     </Step>
 </Steps>
 
-### Casi d'uso frequenti (azioni)
+Cosa succede dopo:
 
-<Accordion title="Moduli del sito → follow-up su WhatsApp">
-    **Configurazione**:
-    - **Trigger**: nuovo invio da Typeform/Gravity Forms
-    - **Azione**: Create Lead in Whappy
-
-    **Vantaggi**:
-    - Follow-up immediato su WhatsApp per chi compila un modulo
-    - Tassi di risposta più alti rispetto all'email
-    - La qualificazione automatica parte subito
-</Accordion>
-
-<Accordion title="Facebook Lead Ads → qualificazione su WhatsApp">
-    **Configurazione**:
-    - **Trigger**: nuovo invio da Facebook Lead Ads
-    - **Azione**: Create Lead in Whappy
-
-    **Vantaggi**:
-    - Qualifichi subito i lead delle inserzioni via WhatsApp
-    - Riduci il costo per lead qualificato
-    - Filtri presto i contatti non in target
-</Accordion>
-
-<Accordion title="Contatti CRM → campagne di riattivazione">
-    **Configurazione**:
-    - **Trigger**: contatto nuovo o aggiornato nel CRM
-    - **Azione**: Create Lead in Whappy
-
-    **Vantaggi**:
-    - Riattivi i lead freddi su WhatsApp
-    - Dai seguito alle opportunità commerciali
-    - Coltivi i contatti con l'AI conversazionale
-</Accordion>
+- **La stessa persona di nuovo.** Se il lead è già in quella campagna, Whappy tiene un solo lead e aggiunge i nuovi dati. Se la campagna ha attivo **Riavvia la campagna per un lead che torna** (nelle **Opzioni** della campagna), la conversazione riparte da capo.
+- **Una campagna che non parla su WhatsApp** rifiuta il lead: un lead da Zapier ha un numero di telefono, e la campagna scrive per prima su WhatsApp. Attiva WhatsApp nei [canali](/it/campaign/channel) della campagna, oppure scegli un'altra campagna. I lead di test non vengono rifiutati.
+- **Nessun numero WhatsApp ancora.** Whappy scrive per primo solo su WhatsApp. Su un account senza numero WhatsApp collegato, il lead aspetta finché non ce n'è uno.
 
 ---
 
-## Configurare i trigger (lead in uscita)
-
-Usa i trigger per inviare automaticamente i dati dei lead qualificati da Whappy agli altri tuoi strumenti, quando una conversazione si conclude o viene fissato un appuntamento.
-
-### Trigger disponibili
-
-- **Lead Closed**: scatta quando un lead completa il funnel di conversazione
-- **Appointment Scheduled**: scatta quando un lead fissa un appuntamento nella conversazione
-
-### Configurazione passo per passo
+## Avviare Zap da Whappy (trigger)
 
 <Steps>
-    <Step title="Crea un nuovo Zap e trova Whappy">
-        1. Vai su [zapier.com](https://zapier.com) e premi **Create Zap**
-        2. Nella sezione trigger, cerca **"Whappy"**
-        3. Seleziona **Whappy** fra i risultati
+    <Step title="Scegli il trigger Whappy">
+        Crea uno Zap, cerca **Whappy** come app del trigger e scegli l'evento che ti serve.
 
-        <img src="/images/zapier/search-whappy.png" alt="Ricerca di Whappy fra i trigger di Zapier" />
+        <img src="/images/zapier/search-whappy.png" alt="Cercare Whappy in Zapier" />
     </Step>
 
-
-    <Step title="Scegli l'evento del trigger">
-        Scegli il trigger adatto al tuo flusso:
-
-        - **Lead Closed**: per inviare i lead completati/qualificati al CRM o agli strumenti di email marketing
-        - **Appointment Scheduled**: per creare eventi in calendario o inviare email di conferma
-
-        <div style={{ textAlign: 'center' }}>
-            <img src="/images/zapier/setup-lead-closed.png" alt="Selezione dell'evento trigger in Zapier" style={{ maxWidth: '350px', width: '100%', height: 'auto' }} />
-        </div>
-    </Step>
-
-    <Step title="Collega il tuo account Whappy">
-        1. Premi **Sign in to Whappy**
-        2. Nella dashboard di Whappy vai su **Integrazioni → Zapier**
-        3. Copia la tua API key dalla scheda dell'integrazione Zapier
-        4. Torna su Zapier e incollala nel modulo di connessione
-        5. Premi **Yes, Continue to Whappy**
-
-        <img src="/images/zapier/copy-api-key.png" alt="Collegamento dell'account Whappy in Zapier" />
-
-        <img src="/images/zapier/paste-api-key.png" alt="Incolla la API key in Zapier" />
-
-        Premi **Continue**.
-
-        <Note>
-            La tua API key è unica per il tuo account. Custodiscila e non condividerla pubblicamente.
-        </Note>
+    <Step title="Compila i campi del trigger">
+        - **Lead silenzioso** chiede le ore senza risposta. Ogni lead lo fa partire una sola volta. Se hai più Zap di questo tipo, vale per tutti l'attesa più breve.
+        - **Invia dati** chiede un nome del trigger. Usa lo stesso nome nello step Invia dati della campagna (vedi sotto).
     </Step>
 
     <Step title="Prova il trigger">
-        1. Premi **Test trigger** per recuperare dati di esempio da Whappy
-        2. Vedrai la struttura dei dati che verrà inviata all'app successiva
-        3. Controlla i dati di esempio e premi **Continue**
+        Clicca **Test trigger**. Zapier carica un lead di esempio, così puoi collegarne i campi nei passaggi successivi.
 
         <div style={{ textAlign: 'center' }}>
-            <img src="/images/zapier/test-trigger.png" alt="Prova del trigger e dati di esempio" style={{ maxWidth: '350px', width: '100%', height: 'auto' }} />
+            <img src="/images/zapier/test-trigger.png" alt="Provare il trigger in Zapier" style={{ maxWidth: '350px', width: '100%', height: 'auto' }} />
         </div>
-
-        <Tip>
-            Se non compaiono dati di esempio, assicurati di avere almeno una conversazione conclusa o un appuntamento in Whappy.
-        </Tip>
     </Step>
 
-    <Step title="Configura l'app di destinazione">
-        1. Scegli l'app a cui inviare i dati (HubSpot, Google Calendar, Mailchimp…)
-        2. Collega il tuo account per quell'app
-        3. Mappa i campi di Whappy sui campi dell'app di destinazione
-        4. Prova lo Zap completo
-        5. Attivalo per far partire l'automazione
+    <Step title="Aggiungi l'app che riceve i dati e attiva lo Zap">
+        Scegli l'app (un CRM, un foglio, uno strumento email), collega i campi Whappy e attiva lo Zap.
     </Step>
 </Steps>
 
-### Casi d'uso frequenti (trigger)
+### Step Invia dati
 
-<Accordion title="Invia i lead qualificati al CRM (HubSpot, Salesforce)">
-    **Configurazione**:
-    - **Trigger**: Lead Closed
-    - **Azione**: crea un contatto nel CRM
+**Invia dati** parte solo dove lo metti. Nel funnel della campagna aggiungi uno step **Invia dati**, scegli **Zapier o Make** come **Tipo di connessione** e seleziona il **Nome del trigger** impostato in Zapier. Se l'elenco è vuoto, crea prima il trigger in Zapier. Aggiungi lo step a ogni campagna che deve inviare i dati.
 
-    **Esempio di mappatura**:
-    - "Name" di Whappy → "Nome" / "Cognome" del CRM
-    - "Phone" di Whappy → "Telefono" del CRM
-    - "Email" di Whappy → "Email" del CRM
-    - "Collected Info" di Whappy → proprietà personalizzate del CRM
+### Cosa invia ogni evento
 
-    **Vantaggi**: popoli automaticamente il CRM con i lead qualificati e i dati della loro conversazione.
-</Accordion>
+Ogni trigger invia gli stessi campi:
 
-<Accordion title="Crea eventi in calendario per gli appuntamenti">
-    **Configurazione**:
-    - **Trigger**: Appointment Scheduled
-    - **Azione**: crea un evento su Google Calendar
+| Campo | Contenuto |
+| --- | --- |
+| `lead_id` | L'id del lead in Whappy. |
+| `name`, `phone` | Il lead. `phone` è vuoto per un lead senza numero di telefono, ad esempio un lead Instagram. |
+| `campaign_name` | La campagna del lead. |
+| `created_at` | Quando è stato creato il lead. |
+| `appointment` → `full_date` | Data e ora prenotate, oppure vuoto. |
+| `lead_info_json` | I dati con cui è arrivato il lead (campi del modulo, dati extra). |
+| `collected_info_json` | Ciò che l'AI ha raccolto nella conversazione, per nome del campo. |
+| `conversation_json` | I messaggi, ognuno con `sender` (`ai`, `lead`, oppure `user` per il tuo team), `message` e `datetime`. |
+| `appointment_json` | `datetime` ed `event_id` dell'appuntamento. |
 
-    **Esempio di mappatura**:
-    - "Appointment Date" di Whappy → orario di inizio dell'evento
-    - "Lead Name" di Whappy → titolo dell'evento
-    - "Phone" di Whappy → descrizione dell'evento
-
-    **Vantaggi**: blocchi automaticamente il tempo in agenda quando un lead prenota da WhatsApp.
-</Accordion>
-
-<Accordion title="Aggiungi alle liste di email marketing">
-    **Configurazione**:
-    - **Trigger**: Lead Closed
-    - **Azione**: aggiungi iscritto a Mailchimp/ConvertKit
-
-    **Esempio di mappatura**:
-    - "Email" di Whappy → email dell'iscritto
-    - "Name" di Whappy → nome dell'iscritto
-    - "Collected Info" di Whappy → tag o campi personalizzati
-
-    **Vantaggi**: coltivi automaticamente i lead qualificati con sequenze email mirate.
-</Accordion>
-
-
----
-
-## Gestire la tua API key
-
-La API key per Zapier si trova in **Integrazioni → Zapier** nella dashboard di Whappy. La stessa chiave vale sia per i trigger sia per le azioni.
-
-### Sicurezza della API key
-
-<CardGroup cols={2}>
-    <Card title="Custodiscila" icon="shield-check" color="#green">
-        - Non condividere la chiave pubblicamente
-        - Usala solo in automazioni Zapier affidabili
-        - Contatta l'assistenza se sospetti che sia compromessa
-    </Card>
-    <Card title="Monitora l'uso" icon="chart-line" color="#blue">
-        - Controlla regolarmente lo storico dei task su Zapier
-        - Rivedi i nuovi lead nella dashboard di Whappy
-        - Tieni d'occhio attività inattese
-    </Card>
-</CardGroup>
+I quattro campi `*_json` arrivano come testo JSON. In un evento **Invia dati** arrivano invece come testo leggibile (ad esempio `{'Budget': '5000'}`), che non è JSON valido. Il [riferimento per sviluppatori](/it/integrations/zapier-developer) ha un esempio completo.
 
 ---
 
 ## Risoluzione dei problemi
 
 <AccordionGroup>
-    <Accordion title="Problemi di connessione con l'API key">
-        **Problema**: errore "Failed to connect to Whappy"
-
-        **Soluzioni**:
-        - Verifica di aver copiato la chiave per intero
-        - Assicurati che non ci siano spazi prima o dopo
-        - Prova a scollegare e ricollegare l'account in Zapier
-        - Verifica di usare la chiave giusta, quella della scheda Zapier
+    <Accordion title="Zapier non riesce a collegarsi a Whappy">
+        Copia di nuovo la chiave da **Integrazioni → Zapier**, senza spazi prima o dopo. Verifica che sia la chiave Zapier e non quella Make.
     </Accordion>
 
-    <Accordion title="I trigger non scattano">
-        **Problema**: nessun dato inviato quando i lead concludono le conversazioni
-
-        **Soluzioni**:
-        - Verifica che lo Zap sia **attivo** in Zapier
-        - Controlla che i lead arrivino davvero al passaggio di chiusura o appuntamento
-        - Prova con conversazioni reali, non con dati in modalità test
-        - Consulta lo storico dei task di Zapier per eventuali errori
-        - Assicurati che la campagna sia in esecuzione
+    <Accordion title="Un trigger non parte mai">
+        - Verifica che lo Zap sia **attivo**.
+        - Verifica che i lead arrivino davvero allo step che il trigger ascolta: lo step di chiusura, un appuntamento prenotato o lo step Invia dati.
+        - **Invia dati**: il nome del trigger nello step del funnel deve essere quello dello Zap.
+        - **Lead silenzioso**: conta solo una conversazione in attesa della risposta del lead, e ogni lead lo fa partire una sola volta.
+        - Guarda la cronologia dello Zap in Zapier per gli errori dell'app che riceve i dati.
     </Accordion>
 
-    <Accordion title="L'azione di creazione lead fallisce">
-        **Problema**: errore "Failed to create lead"
-
-        **Soluzioni**:
-        - Assicurati che il numero includa il prefisso internazionale (+393441234567)
-        - Verifica che i campi Phone e First Name siano mappati correttamente
-        - Controlla che il formato del numero sia valido per WhatsApp
-        - Prova prima con i soli campi obbligatori
-        - Verifica che i dati del lead siano in formato JSON corretto se usi campi personalizzati
+    <Accordion title="Create Lead fallisce">
+        - **Il numero di telefono non è leggibile**: invialo con il prefisso internazionale, oppure imposta un paese predefinito in Whappy.
+        - **La campagna non parla su WhatsApp**: attiva WhatsApp nei canali della campagna, oppure invia il lead a un'altra campagna.
+        - **Nome della campagna sconosciuto**: il nome deve corrispondere a una campagna Whappy; altrimenti decide l'instradamento predefinito dell'account.
     </Accordion>
 
-    <Accordion title="Dati del lead mancanti o errati">
-        **Problema**: i lead vengono creati ma senza alcune informazioni
-
-        **Soluzioni**:
-        - Controlla la mappatura dei campi nell'azione Zapier
-        - Verifica che l'app di origine fornisca davvero quei dati
-        - Prova prima con valori fissi, poi con i dati dinamici del trigger
-        - Verifica il formato JSON del campo Lead Data
-        - Controlla se i campi facoltativi vengono effettivamente forniti dal trigger
+    <Accordion title="A un lead mancano delle informazioni">
+        Controlla la mappatura dei campi nello Zap e che l'app di origine invii i campi che hai collegato. I campi extra vanno nei dati extra del lead.
     </Accordion>
 </AccordionGroup>
-
----
-
-## Buone pratiche
-
-### Per cominciare
-- **Parti semplice**: comincia con automazioni di base prima di aggiungere complessità
-- **Prova a fondo**: verifica sempre con dati di esempio prima di andare in produzione
-- **Usa lead di prova**: contrassegnali come "test" durante la configurazione per non toccare i dati reali
-- **Monitora all'inizio**: controlla spesso le automazioni nei primi giorni
-
-### Ottimizzazione del flusso
-- **Usa i filtri**: aggiungi filtri Zapier per elaborare solo i lead rilevanti (budget, fonte…)
-- **Zap separati**: crea Zap diversi per fonti diverse, invece di un unico flusso complesso
-- **Gestione degli errori**: imposta notifiche email per i task Zapier falliti
-- **Manutenzione periodica**: rivedi e aggiorna gli Zap ogni mese
-
-### Qualità dei dati
-- **Valida i numeri**: assicurati che includano il prefisso e siano formattati correttamente
-- **Mantieni i dati coerenti**: usa formati standard per i campi personalizzati in tutte le fonti
-- **Controlla la qualità dei lead**: confronta regolarmente i lead automatici con quelli inseriti a mano
-
-<Tip>
-    Comincia con una sola automazione semplice (per esempio inviare i lead conclusi al CRM) prima di costruire flussi complessi a più passaggi. Ti aiuta a capire il flusso dei dati e a individuare presto i problemi.
-</Tip>
-
----
-
-## Passi successivi
-
-Pronto ad automatizzare il flusso dei lead?
-
-1. **Prendi la tua API key**: vai su **Integrazioni → Zapier** nella dashboard
-2. **Scegli la prima automazione**: comincia inviando i lead qualificati al CRM, oppure ricevendo lead dalla tua fonte più attiva
-3. **Segui le guide**: usa le istruzioni passo per passo qui sopra
-4. **Prova e monitora**: verifica sempre a fondo prima di andare in produzione
-
-<CardGroup cols={2}>
-    <Card title="Configurazione trigger" icon="arrow-right" href="#configurare-i-trigger-lead-in-uscita">
-        Invia automaticamente i lead qualificati al tuo CRM
-    </Card>
-    <Card title="Configurazione azioni" icon="arrow-left" href="#configurare-le-azioni-lead-in-entrata">
-        Aggiungi a Whappy chi compila i moduli, per il follow-up su WhatsApp
-    </Card>
-</CardGroup>

@@ -35,6 +35,13 @@
                 ]
               },
               {
+                "group": "Your workspace",
+                "pages": [
+                  "home",
+                  "analytics"
+                ]
+              },
+              {
                 "group": "Support",
                 "pages": [
                   "support/faq",
@@ -53,7 +60,8 @@
                   "campaign/context",
                   "campaign/info",
                   "campaign/funnel",
-                  "campaign/options"
+                  "campaign/options",
+                  "campaign/channel"
                 ]
               },
               {
@@ -115,7 +123,8 @@
               {
                 "group": "Conversations",
                 "pages": [
-                  "integrations/whatsapp"
+                  "integrations/whatsapp",
+                  "integrations/instagram"
                 ]
               },
               {
@@ -178,6 +187,13 @@
                 ]
               },
               {
+                "group": "Il tuo spazio di lavoro",
+                "pages": [
+                  "it/home",
+                  "it/analytics"
+                ]
+              },
+              {
                 "group": "Assistenza",
                 "pages": [
                   "it/support/faq",
@@ -196,7 +212,8 @@
                   "it/campaign/context",
                   "it/campaign/info",
                   "it/campaign/funnel",
-                  "it/campaign/options"
+                  "it/campaign/options",
+                  "it/campaign/channel"
                 ]
               },
               {
@@ -258,7 +275,8 @@
               {
                 "group": "Conversazioni",
                 "pages": [
-                  "it/integrations/whatsapp"
+                  "it/integrations/whatsapp",
+                  "it/integrations/instagram"
                 ]
               },
               {
@@ -335,5 +353,23 @@
       "github": "https://github.com/whappy-ai",
       "linkedin": "https://linkedin.com/company/whappy-ai"
     }
-  }
+  },
+  "redirects": [
+    {
+      "source": "/integrations/meta-ads",
+      "destination": "/integrations/meta-conversions"
+    },
+    {
+      "source": "/integrations/ghl",
+      "destination": "/integrations/gohighlevel"
+    },
+    {
+      "source": "/it/integrations/meta-ads",
+      "destination": "/it/integrations/meta-conversions"
+    },
+    {
+      "source": "/it/integrations/ghl",
+      "destination": "/it/integrations/gohighlevel"
+    }
+  ]
 }

@@ -1,99 +1,115 @@
 ---
 title: "Campagne per clienti esistenti"
-description: "Mantieni una conversazione WhatsApp continua con ogni cliente che hai già"
+description: "Mantieni una conversazione WhatsApp sempre aperta con ogni cliente che hai già"
 icon: "users"
 ---
 
-La maggior parte delle campagne si rivolge a chi non ha mai comprato da te. Questa è per chi l'ha già fatto.
+La maggior parte delle campagne si rivolge a persone che non hanno mai comprato da te. Questa è per chi l'ha già fatto.
 
-Una campagna per clienti esistenti mantiene **una conversazione per cliente, sempre aperta**. Non c'è un funnel da costruire né un momento in cui la conversazione è conclusa. Il cliente scrive quando ha bisogno, l'assistente risponde con quello che sa della tua attività, e quando hai un'offerta la mandi dentro una conversazione che esiste già.
+Una campagna per clienti esistenti tiene **una conversazione per cliente, aperta per sempre**. Non c'è un funnel da costruire e non c'è un momento in cui la conversazione è finita. Il cliente scrive quando ha bisogno di qualcosa, l'assistente risponde con quello che sa della tua attività, e quando hai un'offerta la mandi in una conversazione che esiste già.
 
 <Note>
-    Scegli il tipo di campagna quando la crei, e **non è più modificabile**. Le due funzionano in modo così diverso che convertire l'una nell'altra perderebbe o il funnel o lo storico delle conversazioni.
+    Scegli il tipo di campagna quando la crei, e **dopo non si può cambiare**. I due tipi funzionano in modo così diverso che convertirne uno nell'altro farebbe perdere il funnel o la cronologia delle conversazioni.
 </Note>
 
 ## Come crearla
 
-Clicca **Nuova campagna** e scegli **Per clienti esistenti**.
+Nella pagina **Campagne**, premi **Nuova campagna**. In **A cosa serve questa campagna?** scegli **Parlare con i clienti attuali** (l'altra scelta è **Trovare nuovi clienti**).
 
-La campagna ha pagine diverse da una normale:
+La scelta non compare su un account che ha collegato solo Instagram: queste campagne scrivono ai clienti su WhatsApp.
+
+La campagna ha pagine diverse da una campagna per nuovi clienti:
 
 | Pagina | A cosa serve |
 |---|---|
-| **Conoscenza** | Quello che l'assistente sa della tua attività: prezzi, condizioni, orari |
-| **Offerte** | Promozioni di cui l'assistente può parlare ai clienti |
-| **Clienti** | I clienti stessi |
-| **Annunci** | Mandare un'offerta ai clienti |
-| **Impostazioni** | Ritmo, orari e comportamento dell'assistente |
+| **Conoscenza** | Quello che l'assistente sa della tua attività: cosa vendi, gli orari, le tue regole. È la stessa pagina del [Contesto](/it/campaign/context). |
+| **File** | Documenti, immagini e note vocali che l'assistente può inviare quando la conversazione lo richiede. Compare quando la attivi in Impostazioni → **Sezioni**. Vedi [Risorse](/it/campaign/assets). |
+| **Offerte** | Quello di cui vuoi parlare ai tuoi clienti. Vedi [Offerte](/it/campaign/offers). |
+| **Clienti** | I clienti con cui parla questa campagna, e chi ha chiesto di non ricevere promozioni. |
+| **Annunci** | Mandare un'offerta ai clienti. Vedi [Annunci](/it/campaign/announcements). |
+| **Impostazioni** | Il numero da cui invia, la lingua, il ritmo, il benvenuto e gli orari. Vedi [Opzioni](/it/campaign/options). |
 
-Non c'è la pagina Funnel né la pagina Domande: entrambe vengono generate quando scrivi un'offerta.
+Non ci sono le pagine Funnel e Info: la conversazione e le sue domande vengono generate da ogni offerta.
 
 ### La lista di configurazione
 
-Finché la campagna non è configurata del tutto, in cima a ogni sua pagina c'è una breve lista: **scegli il numero → racconta all'assistente chi sei → aggiungi i clienti → scrivi un'offerta → annunciala**. Ogni passo porta alla pagina in cui si fa e viene spuntato man mano. Sparisce quando è tutto fatto.
+Finché la campagna non è configurata, in cima a ogni sua pagina c'è una lista intitolata **Configurazione: N su 6**:
 
-Una campagna appena creata si apre su **Impostazioni**, perché la prima cosa da fare è scegliere da quale dei tuoi numeri WhatsApp invia. I template approvati appartengono a quel numero, quindi finché non lo scegli non si può scegliere altro.
+1. **Scegli il numero**
+2. **Racconta all'assistente chi sei**
+3. **Aggiungi i tuoi clienti**
+4. **Scrivi un'offerta**
+5. **Annunciala**
+6. **Avvia la campagna**
+
+Ogni passo porta alla pagina in cui si fa e viene spuntato man mano. **Avvia la campagna** ha un suo pulsante **Avvia**. La lista sparisce quando è tutto spuntato.
+
+Una campagna nuova si apre su **Impostazioni**, perché la prima cosa da fare è scegliere da quale dei tuoi numeri WhatsApp invia: i template approvati appartengono a quel numero. Una volta scelto il numero, la campagna si apre su **Conoscenza**.
 
 ## Prima di iniziare
 
-Ti serve un **numero WhatsApp collegato**, come per qualsiasi campagna, e almeno un **template WhatsApp approvato**. Un template è un messaggio di apertura approvato in anticipo da WhatsApp. Serve per iniziare una conversazione con un cliente che non ti contatta da un po': WhatsApp non consente testo libero verso chi è rimasto in silenzio, ed è una loro regola, non nostra. Quando il cliente risponde, l'assistente parla liberamente.
+Ti servono un **numero WhatsApp collegato** e almeno un **template WhatsApp approvato**. Senza un numero, ogni pagina della campagna lo segnala, con **Collega WhatsApp**.
 
-Un solo template approvato basta per iniziare. Non ne serve uno diverso per ogni offerta.
+Un template è un messaggio di apertura approvato in anticipo da WhatsApp. Serve per scrivere a un cliente che non ti ha scritto nelle ultime 24 ore. È una regola di WhatsApp. Quando il cliente risponde, l'assistente scrive liberamente.
+
+Un template approvato basta per iniziare. Non serve un template diverso per ogni offerta.
 
 ## Importare i clienti
 
-Vai su **Clienti → Importa** e carica un CSV.
+Nella pagina **Clienti**, apri il menu **⋮** e scegli **Importa da CSV**.
 
-Il file deve avere una colonna `phone`. Tutto il resto che includi — nome, tag, piano — viene conservato e l'assistente può usarlo.
+Il file deve avere una colonna **phone**. **name**, **tags** e **language** sono facoltative; ogni altra colonna diventa un'informazione che l'assistente conosce su quel cliente.
 
 ```
-phone,name,plan
-+393331234567,Marco,Premium
-+393339876543,Giulia,Basic
+phone,name,tags,piano
++393331234567,Marco,Premium,Annuale
++393339876543,Giulia,Milano,Mensile
 ```
 
-Prima dell'importazione devi confermare che **questi clienti hanno acconsentito a ricevere messaggi WhatsApp dalla tua attività**. Non è una formalità: importare una lista che non ha acconsentito è il modo più rapido per far segnalare e bloccare un numero, e la conferma viene registrata con il tuo account e la data.
+- Se il file contiene numeri locali senza prefisso, imposta il **Prefisso internazionale predefinito**.
+- Un file può avere fino a 10.000 righe. Il tuo piano stabilisce quanti clienti puoi aggiungere ogni mese, e l'importazione ti avvisa se il file lo supera. Serve un piano attivo.
+- Prima che l'importazione parta confermi: *Questi clienti hanno acconsentito a ricevere messaggi WhatsApp dalla mia attività.* Non è una formalità. Importare una lista che non ha acconsentito è il modo in cui un numero viene segnalato e bloccato.
 
-Al termine ricevi un resoconto riga per riga: quanti aggiunti, quanti già presenti e aggiornati, e il motivo di ogni riga rifiutata.
+Il riepilogo dice quanti sono stati **importati**, **aggiornati** e **saltati**. Puoi scaricare le righe saltate per vedere perché. Chi è già nella lista viene aggiornato, non duplicato, e non viene ricontattato.
 
-<Note>
-    Reimportare una lista che hai già non crea clienti doppi. Le righe che corrispondono a un numero esistente lo aggiornano.
-</Note>
+Lo stesso menu offre **Importa da un'altra campagna**: porta le persone da un'altra delle tue campagne. Iniziano una conversazione nuova, e chi si è escluso resta escluso.
 
 ## Il benvenuto
 
-Puoi configurare un messaggio che i nuovi clienti ricevono all'importazione. **È facoltativo**: se lo salti, i clienti vengono aggiunti in silenzio e ti sentiranno la prima volta che annunci un'offerta.
+Puoi impostare un messaggio che l'assistente manda ai nuovi clienti quando vengono importati. **È facoltativo**: senza, i clienti importati restano in attesa finché non annunci un'offerta.
 
-Vai su **Impostazioni → Benvenuto**. Descrivilo a parole tue, scegli il template con cui si apre e, se vuoi, aggiungi cosa ti farebbe comodo chiedere — "orario preferito", "quale sede usi" — una cosa alla volta, premendo Invio dopo ognuna. L'assistente lo chiede una volta, in conversazione, e se il cliente non vuole rispondere smette di chiedere invece di insistere.
+In **Impostazioni**, sotto **Come accogliamo i nuovi clienti**, premi **Imposta il benvenuto**:
+
+- **Cosa deve dire?**: descrivilo a parole, per esempio *Saluta da parte del Bar Rossi, di' che siamo aperti fino alle 20 e che possono ordinare qui quando vogliono.*
+- **Messaggio di apertura**: il template approvato con cui si apre.
+- **Qualcosa da chiedere?**: domande facoltative, premendo Invio dopo ognuna. Se qualcuno preferisce non rispondere, l'assistente va avanti e non insiste.
 
 ### Perché il benvenuto richiede giorni
 
-È la parte che più spesso sembra un malfunzionamento, quindi vale la pena spiegarla.
+Un'importazione grande non parte in un pomeriggio. Parte pochi messaggi alla volta, solo nei tuoi orari di lavoro, al ritmo impostato in **Impostazioni**.
 
-Un'importazione di tremila clienti non parte in un pomeriggio. Esce poco alla volta nell'arco di giorni, al ritmo impostato in **Impostazioni**.
+Quel ritmo è la protezione. Mandare migliaia di messaggi da un numero in un'ora è il modo più rapido per farlo segnalare da WhatsApp, e un numero segnalato smette di funzionare per tutti, compresi i clienti che ti stanno già scrivendo.
 
-Quel ritmo **è** la protezione. Mandare tremila messaggi da un numero in un'ora è il modo più rapido per farlo segnalare da WhatsApp, e un numero segnalato smette di funzionare per tutti, compresi i clienti che ti stanno già scrivendo. La pagina **Clienti** mostra a che punto è la coda e più o meno quando finirà, proprio sopra l'elenco dei clienti, e si aggiorna dopo ogni importazione.
+La pagina **Clienti** mostra **Come accogliamo i nuovi clienti**: quanti sono stati contattati su quanti, e più o meno quando finirà.
 
-Se ti serve raggiungere prima un cliente specifico, scrivigli tu. L'assistente prosegue da lì.
+Se ti serve raggiungere prima un cliente in particolare, scrivigli tu dalle [Chat](/it/leads/conversation-history). L'assistente riprende la conversazione da lì.
 
 ## Etichette
 
-Le etichette sono il modo in cui un annuncio sceglie i destinatari: `Premium`, `Milano`, `inattivi`. Arrivano con la colonna `tags` del CSV, e puoi impostarle a mano nella pagina **Clienti**.
+Le etichette sono il modo in cui un annuncio sceglie il suo pubblico: `Premium`, `Milano`, `inattivi`. Arrivano con la colonna `tags` del CSV, e puoi impostarle nella pagina **Clienti**.
 
-- **Un cliente**: la colonna Etichette sulla sua riga. Scrivi un'etichetta e premi Invio, oppure scegline una già in uso.
-- **Più clienti insieme**: seleziona i clienti e usa **Aggiungi etichetta** / **Rimuovi etichetta** nella barra che compare.
-- **Tutti**: **Gestisci etichette** nel menu azioni della pagina elenca ogni etichetta con quanti clienti ce l'hanno. Rinominarne una la rinomina per tutti; eliminarne una la toglie a tutti. Nessun cliente viene eliminato, solo l'etichetta.
+- **Un cliente**: la colonna **Etichette** della sua riga.
+- **Più clienti insieme**: selezionali e usa **Aggiungi etichetta** o **Rimuovi etichetta** nella barra che compare.
+- **Tutti**: **Gestisci etichette** nel menu **⋮** elenca ogni etichetta con quanti clienti la portano. Rinominarne una la rinomina per tutti; rinominarla con il nome di un'etichetta già esistente unisce le due. Eliminarne una la toglie a tutti. Nessuno viene eliminato, solo l'etichetta.
 
-Le etichette appartengono alla campagna. Rinominarne una qui non cambia nulla in un'altra campagna, e un annuncio già inviato conserva il nome che ha usato.
+Le etichette appartengono alla campagna. Un annuncio già inviato tiene il nome che ha usato.
 
 ## Quando un cliente chiede di smettere
 
-Un cliente che risponde STOP — o una delle solite parole — viene escluso subito e non riceve più offerte.
+Un cliente che chiede di non ricevere più promozioni viene segnato **Ha disdetto** nella pagina **Clienti**, e non riceve più offerte né annunci.
 
-**Non** viene tagliato fuori. L'assistente continua a rispondere alle sue domande, ad aiutarlo, a sapere chi è. L'esclusione ferma il marketing, non il servizio. È una distinzione che conta legalmente e conta per il cliente.
+**Non** viene tagliato fuori. Può comunque scriverti, e l'assistente continua a rispondergli, ad aiutarlo, a sapere chi è. Disdire chiude il marketing, non il servizio.
 
-Vedi chi si è escluso nella pagina **Clienti**, e puoi riattivarlo se te lo chiede.
+## E adesso
 
-## E poi
-
-Una volta dentro i clienti, [scrivi un'offerta](/it/campaign/offers) e l'assistente può iniziare a parlarne.
+Quando i clienti sono dentro, [scrivi un'offerta](/it/campaign/offers) e l'assistente può iniziare a parlarne.

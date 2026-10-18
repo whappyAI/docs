@@ -12,7 +12,20 @@ Connect your Shopify store and Whappy's AI talks to your customers on WhatsApp a
 2. Open it from **Apps → Whappy**. Click **Get started** to create your Whappy account from your Shopify login, or **Connect** if you already have one with the same email.
 3. Click **Open Whappy** to go to your dashboard. Your store's page is **Integrations → Shopify**.
 
+To link the store to a Whappy account with a different email, click **Use a different account**. Whappy opens in a new tab: sign in with that account, check the store and the account, and click **Link store**.
+
 Plans for a Shopify store are billed through Shopify. If you paid Whappy by card before, linking your store cancels that plan at once and refunds the days you had already paid for; then choose your plan from **Apps → Whappy** in your Shopify admin.
+
+### What changes for a store's account
+
+Once linked, the account is a Shopify store's account for good, even if you disconnect the store later:
+
+- Your plan is billed through Shopify. **Integrations → Shopify** shows it under **Plan**; change it from Whappy in your Shopify admin.
+- No CRM integration.
+- No lead imports: your customers come from the store. You can still add test leads by hand.
+- No agency features.
+
+An agency's account, or an account an agency manages, cannot link a store. Neither can an account with a CRM connected: disconnect it first.
 
 ## Who becomes a lead
 
@@ -39,9 +52,19 @@ When you connect your store, Whappy creates five campaigns for you, switched off
 | Order delivered | A shipment is delivered | 1 day |
 | Customer support | A customer writes to you first | No wait |
 
-Each event campaign starts with a WhatsApp template (submit it for approval from the campaign), then the AI helps the customer and closes the conversation once they have nothing more to ask. You can edit every campaign like any other: all funnel steps are available, and you can connect Calendly or Cal.com to book appointments. Choose which store event starts a campaign under **Starts when** in the campaign's **Options**, or on **Integrations → Shopify**.
+On **Integrations → Shopify**, **Your campaigns** lists the five campaigns, the event that starts each one, and whether it is **On** or **Off**. While Whappy is still preparing them, it says so; this takes a minute or two.
+
+Each event campaign's first message is a WhatsApp template approved by Meta. Under **Your campaigns**, click **Prepare message templates**: Whappy drafts one template per event campaign and sets it as that campaign's first message. It needs a WhatsApp number connected first. Then click **Review templates**: the drafts open on **Integrations → WhatsApp**, where you check them and send them to Meta for approval. After the first message, the AI helps the customer and closes the conversation once they have nothing more to ask. You can edit every campaign like any other: all funnel steps are available, and you can connect Calendly or Cal.com to book appointments.
 
 If a later event reaches a customer who is already in that campaign (for example "shipped" after "paid"), the campaign starts over for them, unless they exchanged messages within the campaign's quiet hours.
+
+### Store events
+
+**Store events** on **Integrations → Shopify** sets which campaign each store event starts: **New customer**, **Abandoned checkout**, **Order paid**, **Order shipped** and **Order delivered**. Each event starts one campaign, and one campaign can start on several events. Pick **No campaign** to start nothing on that event. You can also set it under **Starts when** in the campaign's **Options**. The abandoned-checkout campaign must wait at least 15 minutes before its first message: set its start delay on its **Options** page first.
+
+**Create leads from new customers** decides whether a new customer who agreed to WhatsApp marketing becomes a lead. When it is off, checkouts and orders still start their campaigns.
+
+A store event only starts a campaign that talks on WhatsApp (see [Channel](/campaign/channel)). If the event's campaign does not, the event starts nothing; a new customer becomes a lead with no campaign.
 
 ### Order details in your messages
 
@@ -86,6 +109,12 @@ To switch it on in your theme yourself instead of step 3:
 
 Switching the button off in Whappy removes it from your store within a few minutes; Customer support keeps running. Visitors who arrive through the button are tagged **SHOPIFY_WIDGET** in your leads.
 
+## What the AI knows about your store
+
+When you connect your store, Whappy turns it into knowledge sources on each campaign's **Context** page (called **Knowledge** in Customer support): the store's name, web address, currency and time zone; its home page; up to 50 of your active products with their description, price and product page; and your policies. A home page behind a password, as before launch, is skipped. From these sources Whappy writes the **Business Context** that every one of the five campaigns uses.
+
+These are ordinary knowledge sources: add your own and press **Update context** like in any campaign (see [Context](/campaign/context)). A Business Context you edited is never replaced by Whappy. The products source is a copy taken when you connected; the AI still looks up prices and products live when a customer asks (see below).
+
 ## Answers about orders
 
 When a customer asks "where is my order?", the AI answers from your store's record of their recent orders: number, date, items, total, status, carrier and tracking, and the order page. It never invents an order or a tracking number; if it cannot see the order, it says so and points the customer to you.
@@ -113,4 +142,6 @@ Whappy reads your store and never changes its data; the only thing it writes is 
 
 ## Disconnecting
 
-Uninstall the Whappy app from your Shopify admin. Whappy stops receiving store events at once; your store's data is deleted when Shopify sends its deletion request, 48 hours after the uninstall.
+To stop creating leads from your store, click **Disconnect** at the end of **Integrations → Shopify** and confirm. The chat button disappears from your store. Open Whappy again in your Shopify admin to reconnect.
+
+To remove Whappy completely, uninstall the Whappy app from your Shopify admin. Whappy stops receiving store events at once; your store's data is deleted when Shopify sends its deletion request, 48 hours after the uninstall.

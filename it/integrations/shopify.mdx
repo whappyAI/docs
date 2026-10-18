@@ -12,7 +12,20 @@ Collega il tuo negozio Shopify e l'AI di Whappy parla con i tuoi clienti su What
 2. Aprila da **App → Whappy**. Clicca **Inizia** per creare l'account Whappy con il tuo accesso Shopify, oppure **Collega** se ne hai già uno con la stessa email.
 3. Clicca **Apri Whappy** per andare alla dashboard. La pagina del negozio è **Integrazioni → Shopify**.
 
+Per collegare il negozio a un account Whappy con un'altra email, clicca **Usa un altro account**. Whappy si apre in una nuova scheda: accedi con quell'account, controlla negozio e account e clicca **Collega negozio**.
+
 I piani di un negozio Shopify sono fatturati da Shopify. Se prima pagavi Whappy con la carta, collegare il negozio annulla subito quel piano e rimborsa i giorni già pagati; poi scegli il piano da **App → Whappy** nell'admin di Shopify.
+
+### Cosa cambia per l'account di un negozio
+
+Una volta collegato, l'account resta per sempre l'account di un negozio Shopify, anche se in seguito scolleghi il negozio:
+
+- Il piano è fatturato da Shopify. **Integrazioni → Shopify** lo mostra in **Piano**; lo cambi da Whappy nell'admin di Shopify.
+- Niente integrazione CRM.
+- Niente importazione di lead: i clienti arrivano dal negozio. Puoi comunque aggiungere a mano lead di test.
+- Niente funzioni per agenzie.
+
+L'account di un'agenzia, o un account gestito da un'agenzia, non può collegare un negozio. Nemmeno un account con un CRM collegato: prima scollegalo.
 
 ## Chi diventa lead
 
@@ -39,9 +52,19 @@ Quando colleghi il negozio, Whappy crea per te cinque campagne, spente, così pu
 | Ordine consegnato | Una spedizione viene consegnata | 1 giorno |
 | Assistenza clienti | Un cliente ti scrive per primo | Nessuna |
 
-Ogni campagna legata a un evento parte con un template WhatsApp (invialo in approvazione dalla campagna), poi l'AI aiuta il cliente e chiude la conversazione quando non ha altro da chiedere. Puoi modificare ogni campagna come le altre: sono disponibili tutti i passaggi del funnel e puoi collegare Calendly o Cal.com per prenotare appuntamenti. Scegli quale evento del negozio avvia una campagna in **Si avvia quando** nelle **Opzioni** della campagna, oppure in **Integrazioni → Shopify**.
+In **Integrazioni → Shopify**, **Le tue campagne** elenca le cinque campagne, l'evento che avvia ciascuna e se è **Attiva** o **Spenta**. Finché Whappy le sta preparando, lo dice; ci vuole un minuto o due.
+
+Il primo messaggio di ogni campagna legata a un evento è un template WhatsApp approvato da Meta. In **Le tue campagne**, clicca **Prepara i template dei messaggi**: Whappy prepara una bozza di template per ogni campagna legata a un evento e la imposta come primo messaggio della campagna. Serve prima un numero WhatsApp collegato. Poi clicca **Controlla i template**: le bozze si aprono in **Integrazioni → WhatsApp**, dove le controlli e le invii a Meta per l'approvazione. Dopo il primo messaggio, l'AI aiuta il cliente e chiude la conversazione quando non ha altro da chiedere. Puoi modificare ogni campagna come le altre: sono disponibili tutti i passaggi del funnel e puoi collegare Calendly o Cal.com per prenotare appuntamenti.
 
 Se un evento successivo raggiunge un cliente che è già in quella campagna (per esempio "spedito" dopo "pagato"), la campagna ricomincia per lui, a meno che non vi siate scritti entro le ore di pausa della campagna.
+
+### Eventi del negozio
+
+**Eventi del negozio** in **Integrazioni → Shopify** stabilisce quale campagna avvia ogni evento del negozio: **Nuovo cliente**, **Checkout abbandonato**, **Ordine pagato**, **Ordine spedito** e **Ordine consegnato**. Ogni evento avvia una sola campagna e una campagna può partire da più eventi. Scegli **Nessuna campagna** perché un evento non avvii nulla. Puoi impostarlo anche in **Si avvia quando** nelle **Opzioni** della campagna. La campagna di checkout abbandonato deve attendere almeno 15 minuti prima del primo messaggio: imposta prima il ritardo di avvio nella sua pagina **Opzioni**.
+
+**Crea lead dai nuovi clienti** decide se un nuovo cliente che ha accettato il marketing via WhatsApp diventa lead. Se è disattivato, checkout e ordini avviano comunque le loro campagne.
+
+Un evento del negozio avvia solo una campagna che parla su WhatsApp (vedi [Canale](/it/campaign/channel)). Se la campagna dell'evento non lo fa, l'evento non avvia nulla; un nuovo cliente diventa lead senza campagna.
 
 ### Dettagli dell'ordine nei messaggi
 
@@ -86,6 +109,12 @@ Per attivarlo nel tema da solo, al posto del passo 3:
 
 Se spegni il pulsante in Whappy, sparisce dal negozio entro pochi minuti; Assistenza clienti continua a funzionare. I visitatori arrivati dal pulsante hanno il tag **SHOPIFY_WIDGET** tra i tuoi lead.
 
+## Cosa sa l'AI del tuo negozio
+
+Quando colleghi il negozio, Whappy lo trasforma in fonti di conoscenza nella pagina **Contesto** di ogni campagna (che in Assistenza clienti si chiama **Conoscenza**): nome, indirizzo web, valuta e fuso orario del negozio; la sua home page; fino a 50 prodotti attivi con descrizione, prezzo e pagina prodotto; e le tue policy. Una home page protetta da password, come prima del lancio, viene saltata. Da queste fonti Whappy scrive il **Contesto aziendale** che usano tutte e cinque le campagne.
+
+Sono normali fonti di conoscenza: aggiungine di tue e premi **Aggiorna contesto** come in qualsiasi campagna (vedi [Contesto](/it/campaign/context)). Un Contesto aziendale che hai modificato non viene mai sostituito da Whappy. La fonte dei prodotti è una copia presa al momento del collegamento; quando un cliente chiede, l'AI cerca comunque prezzi e prodotti in tempo reale (vedi sotto).
+
 ## Risposte sugli ordini
 
 Quando un cliente chiede "dov'è il mio ordine?", l'AI risponde con i dati del negozio sui suoi ordini recenti: numero, data, articoli, totale, stato, corriere e tracciamento, pagina dell'ordine. Non inventa mai un ordine o un numero di tracciamento; se non vede l'ordine lo dice e indirizza il cliente a te.
@@ -113,4 +142,6 @@ Whappy legge il negozio e non ne modifica mai i dati; scrive solo le impostazion
 
 ## Scollegare il negozio
 
-Disinstalla l'app Whappy dall'admin di Shopify. Whappy smette subito di ricevere gli eventi del negozio; i dati del negozio vengono cancellati quando Shopify invia la richiesta di cancellazione, 48 ore dopo la disinstallazione.
+Per smettere di creare lead dal negozio, clicca **Scollega** in fondo a **Integrazioni → Shopify** e conferma. Il pulsante chat sparisce dal negozio. Riapri Whappy nell'admin di Shopify per ricollegarlo.
+
+Per rimuovere Whappy del tutto, disinstalla l'app Whappy dall'admin di Shopify. Whappy smette subito di ricevere gli eventi del negozio; i dati del negozio vengono cancellati quando Shopify invia la richiesta di cancellazione, 48 ore dopo la disinstallazione.

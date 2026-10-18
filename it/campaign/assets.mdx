@@ -1,10 +1,10 @@
 ---
 title: "Risorse"
-description: "PDF, immagini e note vocali che i tuoi funnel possono inviare ai lead."
+description: "PDF, immagini e note vocali che i tuoi funnel, il tuo assistente e tu potete inviare ai lead."
 icon: "folder-open"
 ---
 
-Le risorse sono i file che le tue campagne inviano: un listino, una brochure, la foto di un immobile o una nota vocale con la tua voce. Carichi un file una volta sola e qualsiasi passaggio di qualsiasi funnel può inviarlo.
+Le risorse sono i file che le tue campagne inviano: un listino, una brochure, la foto di un immobile o una nota vocale con la tua voce. Carichi un file una volta sola, e poi qualsiasi passaggio di qualsiasi funnel può inviarlo, l'assistente può sceglierlo quando la conversazione lo richiede, e tu puoi allegarlo da Chat.
 
 Le trovi nella barra laterale sotto **Risorse**.
 
@@ -14,9 +14,15 @@ Le trovi nella barra laterale sotto **Risorse**.
 | --- | --- | --- |
 | **Documenti** | PDF | 16 MB |
 | **Immagini** | JPEG, PNG | 5 MB |
-| **Audio** | Registrato nel browser, oppure caricato come MP3, M4A, WAV, OGG, AAC | 16 MB, fino a 5 minuti |
+| **Audio** | Registrato nel browser, oppure caricato come MP3, M4A, AAC, OGG, WebM, WAV | 16 MB, fino a 5 minuti |
 
 Il limite sulle immagini è quello di Meta, non nostro. Consentire un file più grande permetterebbe a un caricamento di riuscire qui e fallire al momento dell'invio, che è il posto peggiore per scoprirlo.
+
+Ogni file nell'elenco dice dove è usato: *usato in N passaggi* per i passaggi del funnel, *proposto dall'assistente in N campagne* per i file che una campagna lascia inviare all'assistente. Un file in uso non si può eliminare.
+
+<Note>
+    Se il tuo account parla su Instagram, la pagina ti ricorda che **su Instagram file e note vocali vengono inviati come link**: il lead li apre nel browser. L'unica eccezione è un file che l'assistente sceglie da solo, descritto più sotto.
+</Note>
 
 ## Note vocali
 
@@ -36,10 +42,54 @@ Nel [costruttore di funnel](/it/campaign/funnel), aggiungi un passaggio **Invia 
 
 - **Invia documento** accetta fino a **5 file** per passaggio, inviati nell'ordine mostrato.
 - Puoi aggiungere un **messaggio** facoltativo, inviato solo con il primo file.
-- **Invia nota vocale** accetta una registrazione, e la sua riga facoltativa descrive di cosa parla la registrazione invece di dettare le parole esatte: l'introduzione la scrive l'assistente AI, nella lingua del lead.
+- **Invia nota vocale** accetta una registrazione, e la sua riga facoltativa descrive di cosa parla la registrazione invece di dettare le parole esatte: l'assistente AI scrive una breve riga di introduzione, nella lingua del lead.
 - Puoi far **attendere la risposta del lead** prima che la conversazione prosegua.
+- Su WhatsApp il lead riceve file e note vocali come tali; su Instagram, come link.
 
 Lo stesso file può essere riutilizzato in quanti passaggi e campagne vuoi: viene archiviato una volta sola.
+
+## Inviare una risorsa da Chat
+
+In [Chat](/it/leads/conversation-history), la **graffetta** accanto alla casella dei messaggi invia al lead fino a **5** file della libreria, nell'ordine in cui li scegli. Il testo nella casella parte come didascalia del primo documento o immagine; se il primo file è una nota vocale, il testo viene inviato prima come messaggio a sé. Su Instagram ogni file arriva come messaggio con il suo nome e un link.
+
+La graffetta segue le stesse regole di una risposta scritta: è bloccata mentre l'AI gestisce la chat e fuori dalla finestra di 24 ore di WhatsApp.
+
+## File che l'AI può inviare da sola
+
+Oltre ai file che un passaggio del funnel invia in un punto fisso, una campagna può lasciare che sia l'assistente a **scegliere** quando un file è adatto: il lead chiede i prezzi, l'assistente allega il listino alla sua risposta.
+
+<Steps>
+    <Step title="Attiva la sezione File">
+        Apri le **Opzioni** della campagna e, sotto **Sezioni**, attiva **File**. Nella barra laterale della campagna compare la scheda **File**.
+    </Step>
+    <Step title="Scegli i file">
+        La scheda File elenca tutti i file della tua libreria. Attiva quelli che l'assistente può inviare. (Se la libreria è vuota, la scheda ti rimanda a Risorse.)
+    </Step>
+    <Step title="Indica quando ciascuno è adatto">
+        Per ogni file attivo compila **Invialo quando**: una frase con parole tue, fino a 300 caratteri: *il lead chiede i prezzi, o vuole vedere cosa offriamo*. È obbligatoria: un file senza frase non si può salvare.
+    </Step>
+    <Step title="Imposta il limite per conversazione">
+        **Per conversazione** è quante volte il file può raggiungere lo stesso lead: *una volta* oppure *fino a N volte*, al massimo 5. Il conteggio include lo stesso file inviato dai passaggi del funnel e dalle offerte, così una brochure già consegnata da un passaggio non viene rimandata perché il lead l'ha chiesta.
+    </Step>
+    <Step title="Salva">
+        La pagina si salva con il suo pulsante **Salva**; se esci con modifiche non salvate, ti viene chiesto prima.
+    </Step>
+</Steps>
+
+### Cosa ne fa l'assistente
+
+- Allega **al massimo un file per risposta**, e solo quando la conversazione corrisponde chiaramente alla frase che hai scritto. Non invia mai un file "per sicurezza" e non nomina mai un file che non sta allegando.
+- Gli vengono proposti solo i file attivi, completamente caricati e ancora sotto il loro limite.
+- Su **WhatsApp**, un documento o un'immagine parte **insieme alla risposta, come sua didascalia**: un solo messaggio. Se la risposta è troppo lunga per una didascalia, prima il testo e poi il file. Una nota vocale segue sempre il testo.
+- Su **Instagram**, immagini e PDF vengono inviati come **allegati** dopo il testo, e solo entro 24 ore dall'ultimo messaggio del lead. **Le note vocali non vengono mai proposte su Instagram.** La scheda File lo dice in una campagna che parla lì.
+- In una **conversazione di prova** il file compare nel filo ma non viene inviato nulla.
+- Il limite riparte da zero quando il lead passa a un'altra campagna.
+
+### Come appare in Chat
+
+Un messaggio che l'assistente ha inviato con un file porta il file e la riga **Inviato dall'assistente: …** seguita dalla frase che hai scritto per quel file, così vedi a colpo d'occhio perché è partito.
+
+La sezione File è disponibile su ogni tipo di campagna, comprese le [campagne per clienti esistenti](/it/campaign/client-campaigns).
 
 ## Il tuo limite
 
@@ -52,10 +102,11 @@ Eliminare una risorsa libera subito la quota.
 | Messaggio | Significato |
 | --- | --- |
 | **Il tuo piano consente N risorse** | Eliminane una, o passa a un piano superiore. |
-| **Lo spazio del tuo piano è esaurito** | Qui il limite è la dimensione totale, non il numero. Elimina qualcosa di grande. |
-| **Questa risorsa è usata da N passaggi** | Rimuovila da quei passaggi prima di eliminarla. |
+| **Lo spazio per le risorse del tuo piano è esaurito** | Qui il limite è la dimensione totale, non il numero. Elimina qualcosa di grande. |
+| **Questo asset è usato in N step del funnel o campagne** | Rimuovilo da quei passaggi, e disattivalo nella scheda File di quelle campagne, prima di eliminarlo. |
 | **Il file è troppo grande** | Confrontalo con la tabella dei limiti qui sopra. |
-| **Tipo di file non supportato** | Carica un PDF, un JPEG o un PNG. |
-| **La registrazione supera i 5 minuti** | Registrane una più breve. |
-| **Impossibile leggere il file come audio** | Il file è danneggiato o non è davvero audio. Prova a registrare di nuovo. |
-| **Elaborazione audio non disponibile** | Un guasto temporaneo dalla nostra parte. Riprova tra poco. |
+| **Tipo di file non supportato** | Carica un PDF, un'immagine JPEG o PNG, o un file audio in uno dei formati qui sopra. |
+| **Questa registrazione supera i 5 minuti** | Registrane una più breve. |
+| **Non è stato possibile leggere il file come audio** | Il file è danneggiato o non è davvero audio. Prova a registrare di nuovo. |
+| **L'elaborazione audio non è disponibile al momento** | Un guasto temporaneo dalla nostra parte. Riprova tra poco. |
+| **Il caricamento non è stato completato** | Riprova. |

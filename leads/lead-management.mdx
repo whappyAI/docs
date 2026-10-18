@@ -4,33 +4,37 @@ description: "Add leads one at a time or import them in bulk from a CSV file."
 icon: "user-plus"
 ---
 
-Leads reach a campaign in one of four ways: you add them by hand, you import a CSV, they arrive from an [integration](/integrations/webhook), or they come in from a [Meta lead ad](/integrations/meta-conversions).
+Leads reach a campaign in one of four ways: you add them by hand, you import a CSV, they arrive from an [integration](/integrations/webhook), or they come in from a [Meta lead ad](/integrations/meta-conversions). On Instagram, leads appear on their own when they message you or comment on a post.
 
 ## Adding a single lead
 
-From the campaign's Leads tab, open the actions menu and choose **Add single lead**. You need a name and a phone number in full international format; email and any of your own information fields are optional.
+From the campaign's Leads tab, open the **⋮** menu and choose **Add a lead** (on a campaign that talks on both channels, **Add a WhatsApp contact**). You need a name and a phone number in full international format; email is optional. Under **Additional information**, **Add field** adds any of your own fields as a name and a value, so the assistant knows it in conversation.
+
+On a campaign that talks on Instagram only there is nothing to add or import: its leads arrive when they write to you.
 
 ## Importing from CSV
 
-Choose **Import from CSV**. The import runs in five steps.
+Choose **Import from CSV** (on a campaign that talks on both channels, **Import WhatsApp contacts**). The import runs in five steps.
+
+An account built on a Shopify store has no import at all: its customers come from the store.
 
 <Steps>
     <Step title="Upload">
         Select your file. The first row must contain column headers.
     </Step>
     <Step title="Map columns">
-        Tell Whappy what each column is: **Name**, **Phone**, **Email**, one of your own information fields, or **Do not import**.
+        Tell Whappy what each column is: **Name**, **Phone**, **Email**, **Custom lead info**, or **Don't import**.
 
         Name and phone are required. Any other column can be mapped onto a custom field so the imported value is available to the AI assistant in conversation.
     </Step>
-    <Step title="Preview and validate">
-        Whappy checks the mapping and the data, and reports two kinds of problem: **mapping issues**, which send you back a step, and **validation warnings** on individual rows.
+    <Step title="Preview and check">
+        Whappy checks the mapping and the data, and reports two kinds of problem: **mapping issues**, which send you back a step, and **data warnings** on individual rows. Rows with invalid data are skipped during the import.
     </Step>
     <Step title="Import">
-        Rows are added to the campaign.
+        Rows are added to the campaign, with a count of successful and failed rows as it runs.
     </Step>
     <Step title="Complete">
-        A summary of what was imported.
+        How many leads were imported and how many could not be.
     </Step>
 </Steps>
 
@@ -39,23 +43,40 @@ Choose **Import from CSV**. The import runs in five steps.
 - First row must contain **column headers**.
 - **Name** and **Phone** columns are required.
 - **Email** and custom information columns are optional.
-- Phone numbers must include **country codes** — for example `+34644123456`.
-- Maximum **1,000 rows** per import.
+- Phone numbers must start with the **country code** — for example `+34644123456`.
+- Maximum **10,000 rows** per import.
 
 <Note>
-    Split a larger list into several files of up to 1,000 rows. Importing the same lead twice does not create a duplicate when the lead arrives from a connected integration, but a CSV row is taken at face value — check before re-importing a file.
+    Split a larger list into several files of up to 10,000 rows. Importing the same lead twice does not create a duplicate when the lead arrives from a connected integration, but a CSV row is taken at face value — check before re-importing a file.
 </Note>
+
+### Campaigns for existing customers
+
+A [campaign for existing customers](/campaign/client-campaigns) imports differently. **Import from CSV** opens one dialog instead of the wizard:
+
+- The file needs a **phone** column. **name**, **tags** and **language** are optional; every other column becomes a fact the assistant knows about that customer.
+- You confirm that these customers agreed to receive WhatsApp messages from your business.
+- If the file holds local numbers without a country code, set the **default country code** and Whappy completes them.
+- Someone already on your list is updated, not duplicated, and is not messaged again.
+
+The summary says how many were imported, updated and skipped, and you can download the skipped rows to see why. The same menu also offers **Import from another campaign**, which brings people over from one of your other campaigns: they start a fresh conversation, and anyone who opted out stays opted out.
+
+## Labels
+
+On a campaign for existing customers every lead can carry labels, which is how an [announcement](/campaign/announcements) picks its audience. Edit them in the row's **Labels** column, or tick several leads and use **Add label** and **Remove label** in the selection bar. **Manage labels** in the **⋮** menu renames or deletes a label for every customer at once.
 
 ## Deleting leads
 
-Delete one lead from its row's actions menu, or tick several and use **Delete selected**. The selection bar shows how many are selected and lets you clear the selection.
+Delete one lead with the bin button on its row, or tick several and use **Delete selected**. The selection bar shows how many are selected and lets you clear the selection.
 
-Deleting a lead removes its conversation history with it.
+Deleting a lead removes it from your list. Its conversation is kept. This cannot be undone.
 
-## Test leads
+## Lead language
 
-A campaign can hold test leads alongside real ones so you can try a funnel end to end without messaging a real person.
+The assistant writes to each lead in that lead's language. Open **View lead info** to see it under **Language**, with where it came from: from the form that sent the lead, from the phone number, guessed from the name, detected from their messages, from an import, or set by you. When nothing is known yet, the lead is written to in the campaign's language until their own messages show otherwise.
+
+A language guessed at intake is provisional: once the lead writes, Whappy follows the language they write in. A language set by you, or one that came with an import, is final: their messages will not change it. **Change** opens the picker; choosing **Campaign language** clears your choice and lets the lead's messages decide again.
 
 <Note>
-    For testing a whole funnel against realistic, difficult customers rather than one lead of your own, use [Rehearsal](/autopilot/rehearsal) instead — it runs six personas through the campaign and contacts nobody.
+    To try a whole funnel against realistic, difficult customers without messaging a real person, use [Rehearsal](/autopilot/rehearsal) — it runs six personas through the campaign and contacts nobody.
 </Note>

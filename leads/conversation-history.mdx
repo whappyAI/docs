@@ -1,40 +1,165 @@
 ---
-title: "Conversation history"
-description: "Read a lead's messages, take over from the AI, and reply yourself."
+title: "Chats"
+description: "Read a lead's messages on WhatsApp or Instagram, take over from the AI, reply yourself, send templates and files."
 icon: "comments"
 ---
 
-**Chats** shows every WhatsApp conversation your campaigns are having. Open it from the sidebar, or jump straight to one lead's conversation from the Leads table.
+**Chats** shows every conversation your campaigns are having, on WhatsApp and on Instagram. Open it from the sidebar.
+
+Until your first conversation happens, the page says so and points you to your campaigns.
 
 ## Finding a conversation
 
-- **Search** by lead.
-- Filter to **one campaign** or view all of them.
-- Filter to **unread** only.
+The list on the left has four controls:
 
-<Note>
-    Search covers the page you are currently on rather than every conversation you have ever had, which is why the conversation you want may be on another page when a campaign has run for a long time.
-</Note>
+- **Search** by lead. The search runs across all your conversations, not just the page you are on.
+- **Campaign**: one campaign, or *All campaigns*.
+- **Channel**: *All*, *WhatsApp* or *Instagram*. This control appears only when your account has both channels connected.
+- **All / Unread** switch: unread shows only conversations where the lead wrote something nobody has opened yet. Each of those rows carries a count of the unread messages.
+
+Each row shows the lead's name, when the last message arrived, and what it said — a photo or a voice note is named rather than left blank. An Instagram conversation carries the Instagram mark on the lead's avatar; WhatsApp conversations carry no mark. (On an account that only has Instagram, no mark is shown at all.)
+
+Long lists are paged. `Ctrl`/`⌘` + `←` and `→` change page, and `Ctrl`/`⌘` + `K` jumps to the search box.
 
 ## Reading a conversation
 
 Select a conversation to see the full exchange. The header shows:
 
-- The lead's **status** — Ready, Active, Processing, Qualified, Stopped or Error.
-- **Key information**: every answer collected so far, with the ones you marked required flagged, and *Not provided* against the ones still missing.
-- When the **last message** was.
+- The lead's **name**, and under it their phone number or, for Instagram, their **@handle**.
+- The **status** of the conversation: Ready, Started, Active, Waiting for reply, Processing, Paused, Completed or Error.
+- The **campaign** the lead is in, as a link that opens it.
+- A chip saying who is answering right now: **AI** or **Human**.
+- On an Instagram chat, when the lead last wrote more than 24 hours ago: *Instagram: the assistant replies when they write again.*
 
-This panel is the fastest way to see why a conversation stalled — the missing required answer is usually the reason.
+The **Info** button opens the lead card: contact details, the **key information** collected so far (every answer, the ones you marked required flagged *Req*, and *Not provided* against the ones still missing), and when the **last message** was. A test lead is marked *Test*.
+
+This card is the fastest way to see why a conversation stalled — the missing required answer is usually the reason.
+
+### What the messages tell you
+
+Besides the text, a message can carry a small label:
+
+| Label | Meaning |
+| --- | --- |
+| Bot icon | Written by the AI assistant. |
+| **Template** | A WhatsApp template you sent from Chats. |
+| **Sent from the WhatsApp Business app** | Somebody answered from the phone app, not from Whappy. |
+| **Sent from Instagram** | Somebody answered from the Instagram app. |
+| **Sent by the assistant: …** | The AI chose to attach this file, and why. See [Files the AI may send on its own](/campaign/assets#files-the-ai-may-send-on-its-own). |
+| **Voice note · transcribed** | A voice note the lead sent, shown as text. |
+| **Commented on your post** | An Instagram comment that reached you through a comment rule — shown as a quoted card, not a message. |
+| **Follow-up not sent** / **Reminder not sent** | A quiet line in the thread: Instagram allows automatic messages only within 24 hours of the lead's last message, so this one was held back. |
+
+Images are shown as thumbnails; documents and voice notes as a chip with the file name.
+
+### Not delivered
+
+When WhatsApp reports that a message did not reach the lead, a red line appears under it:
+
+| Line | What happened |
+| --- | --- |
+| **Not delivered: more than 24 hours since they last wrote.** | The 24-hour window had closed. Only an approved template can be sent now — see below. |
+| **Not delivered: WhatsApp couldn't deliver to this number.** | The number is not reachable on WhatsApp. |
+| **Not delivered.** | WhatsApp refused it for another reason. |
+
+On Instagram the equivalent line reads *Not sent: …* and names the reason (window closed, Instagram not connected, no conversation to reply in).
 
 ## Taking over from the AI
 
-Every conversation is handled either by the **AI** or by a **human**, and the header shows which.
+Every conversation is handled either by the **AI** or by a **human**, and the chip in the header shows which.
 
-- **Stop AI conversation** hands it to you. The AI assistant stops replying and you take over.
-- **Continue AI conversation** gives it back.
+- **Stop AI conversation** (the square button) hands it to you. The assistant stops replying and the status becomes *Paused*.
+- **Continue AI conversation** (the play button) gives it back.
 
-While the conversation is yours, type in the message box and reply directly. The lead sees one continuous WhatsApp conversation and cannot tell where the handover happened.
+<Warning>
+    You can only type in the message box while the AI is stopped, or once the conversation is **Completed**. While the AI is handling the chat, the box is locked — stop the AI first. The same applies to the paperclip.
+</Warning>
+
+While the conversation is yours, reply directly. The lead sees one continuous conversation and cannot tell where the handover happened. Replies you send from Whappy are not shown with a label; replies sent from the WhatsApp or Instagram app are.
 
 <Note>
     Taking over is the right move when a lead asks something your funnel was not built for. If it keeps happening, that is worth fixing in the campaign — [Coach](/autopilot/coach) spots exactly this pattern and proposes wording that handles it.
 </Note>
+
+## What you can send, and when
+
+Both channels limit when a business may write. Chats applies the rules before you send and says so under the message box.
+
+### On WhatsApp
+
+- For **24 hours** after the lead's last message you can send anything.
+- After that, or when the lead has **never written to you** (a lead you contacted first and who has not answered), WhatsApp only accepts an **approved template**. The box says so and offers **Send a template**.
+- If the number this chat runs on has been disconnected, nothing can be sent: *This chat's WhatsApp number isn't connected anymore.*
+
+### On Instagram
+
+- For **24 hours** after the lead's last message you can send anything, and so can the assistant.
+- From 24 hours to **7 days**, only a person can reply. The box says *Sent as a human reply* — the assistant stays silent until the lead writes again.
+- After 7 days, nothing can be sent until the lead writes again.
+- A lead who has only **commented on a post** has not opened a conversation yet. You can reply once they answer the private reply the comment rule sent them.
+- If Instagram is disconnected, the box is locked until you reconnect it under Integrations.
+
+Test conversations ignore all of this: nothing is sent to anybody.
+
+## Sending a template from Chats
+
+When WhatsApp only allows a template, **Send a template** opens a dialog listing the **approved templates of this chat's number**, with the ones in the lead's language first (*Their language*). Pick one to see it as the lead will see it, including its header file and buttons.
+
+- Whappy fills in what it knows about the lead. Anything it cannot fill is asked for under **Fill in what Whappy doesn't know**; every field is required.
+- A template that opens with a file needs that file set under **Integrations → WhatsApp** first.
+- A template that needs a value Chats cannot provide (a one-time code, a catalogue, a flow) is listed but cannot be sent from here.
+- If the lead has not answered your last message, the dialog warns you: sending another one may be marked as spam.
+
+<Note>
+    Sending a template does not need the AI to be stopped. After the template goes out, the conversation waits for the lead's reply; when it arrives, the assistant continues — unless you had stopped it.
+</Note>
+
+You can send **one template per conversation every 24 hours**. The box tells you when the next one is allowed.
+
+If the number has no approved templates yet, the dialog says so and links to **Integrations → WhatsApp**, where you create them.
+
+## Sending a file from Chats
+
+The **paperclip** next to the message box sends files from your [Assets](/campaign/assets) library — documents, images and voice notes.
+
+<Steps>
+    <Step title="Pick the files">
+        Tick up to **5** files. Only files that have finished uploading are listed. The number next to each tick is the order they will be sent in.
+    </Step>
+    <Step title="Add your text, if you want">
+        Whatever is in the message box goes out with the first file: as the caption of a document or an image. If the first file is a voice note, your text is sent as a message of its own, before the files.
+    </Step>
+    <Step title="Send">
+        Each file arrives as its own message, in the order you picked. The bubbles in the thread are the confirmation.
+    </Step>
+</Steps>
+
+- The paperclip is held under the same rules as a typed reply: outside the WhatsApp 24-hour window, or while the AI is handling the chat, it is disabled.
+- On **Instagram** the lead receives each file as a message with the file name and a **link** to it.
+- An empty library offers a link to Assets; uploading stays on that page.
+- If a later file is refused after earlier ones went out, you are told *Only part of the message was sent* and the thread shows what reached the lead.
+
+## When a send is refused
+
+| Message | What it means |
+| --- | --- |
+| **More than 24 hours since they last wrote: WhatsApp only allows an approved template now.** | Use **Send a template**. |
+| **This chat's WhatsApp number isn't connected anymore.** | The number was disconnected under Integrations. |
+| **WhatsApp couldn't deliver to this number.** | The lead's number is not reachable on WhatsApp. |
+| **Too many messages right now. Try again in a minute.** | WhatsApp is rate-limiting your number. |
+| **WhatsApp isn't responding. Try again shortly.** | A temporary fault on Meta's side. |
+| **Only part of the message was sent.** | A multi-line message or a batch of files failed part-way; what went out is in the thread. |
+| **Not sent: Instagram doesn't allow a reply more than 7 days after their last message.** | Wait for the lead to write again. |
+| **That file isn't in your library anymore.** / **That file is still uploading.** | Pick another file, or try again in a moment. |
+
+## Moving a lead to another campaign
+
+On a **Paused** or **Completed** conversation, the arrows button (**Continue this lead in another campaign**) hands the lead to a different campaign.
+
+Choose the campaign, then what happens when the lead arrives:
+
+- **Send the new campaign's first message** — it sends its own template right away. Not offered on an Instagram conversation, where a business cannot write first.
+- **Wait for the lead to write** — moved silently; the new campaign answers when the lead writes.
+- **Continue without the template** (on Instagram: *Continue from the next step*) — the new campaign picks up after its first step.
+
+**Carry over what has been collected** keeps the key information already gathered. The move happens on the next scan, about two minutes later; if the target campaign is paused, the lead is not moved until it runs again.

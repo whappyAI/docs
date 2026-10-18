@@ -6,7 +6,7 @@ icon: "sparkles"
 
 Whappy può essere collegato a Claude, o a qualsiasi altro client che parla il Model Context Protocol, come **connettore personalizzato**. Una volta collegato, descrivi in chat quello che vuoi e lui costruisce la campagna nel tuo account Whappy: "costruiscimi un agente WhatsApp per example.com" basta per ottenere un funnel, le domande da fare e la conoscenza della tua attività.
 
-Il collegamento lo autorizzi tu e lo revochi tu. Decidi cosa può fare prima che faccia qualsiasi cosa, e tutto quello che fa avviene dentro il tuo account a tuo nome.
+Il collegamento lo autorizzi tu e lo revochi tu. Non succede nulla finché non lo consenti, e tutto quello che fa avviene dentro il tuo account a tuo nome.
 
 ## Collegare
 
@@ -24,7 +24,7 @@ Il collegamento lo autorizzi tu e lo revochi tu. Decidi cosa può fare prima che
     Il client apre una pagina Whappy nel browser. Accedi con l'account in cui vuoi che il client lavori, oppure creane uno.
   </Step>
   <Step title="Scegli cosa può fare">
-    Vedrai chi sta chiedendo e potrai scegliere cosa consentire: **Sola lettura**, **Bozza** o **Costruzione**. Scegli e consenti, oppure nega.
+    Vedrai chi sta chiedendo e potrai scegliere cosa consentire: **Sola lettura**, **Bozza** o **Costruisci**. Scegline uno e clicca **Consenti**, oppure **Rifiuta**.
   </Step>
   <Step title="Inizia a costruire">
     Torna nel client e di' cosa vuoi. Un buon primo messaggio è l'indirizzo di un sito e a chi vuoi rivolgerti.
@@ -33,45 +33,40 @@ Il collegamento lo autorizzi tu e lo revochi tu. Decidi cosa può fare prima che
 
 ## Cosa puoi consentire
 
-A un collegamento puoi dare uno dei primi tre livelli descritti in [Permessi](/it/autopilot/trust-levels):
+La pagina di consenso mostra quale client sta chiedendo, l'account con cui hai effettuato l'accesso e dove verrai rimandato. Chiede **Cosa può fare questa connessione?**, offre **Sola lettura**, **Bozza** o **Costruisci** e ricorda che una connessione non avvia mai campagne, non scrive a persone e non cambia la fatturazione. Clicca **Consenti** o **Rifiuta**.
 
-| Livello | Il collegamento può |
-| --- | --- |
-| **Sola lettura** | Guardare campagne, lead e risultati, e rispondere alle tue domande. |
-| **Bozza** | Anche scrivere cose che nessun cliente vedrà mai: campagne in bozza, documenti di contesto, le informazioni da raccogliere. |
-| **Costruzione** | Anche costruire una campagna completa e collegare i tuoi account. |
+Oggi il livello che scegli non cambia quello che il collegamento può fare: ogni collegamento ha gli stessi strumenti, elencati sotto. **Avvia** e **Gestisci** non sono mai offerti a un collegamento.
 
-**Avvio** e **Operatività** non sono mai disponibili per un collegamento, qualunque sia il livello del tuo account. Avviare una campagna significa che persone reali ricevono messaggi reali: resta una decisione che prendi tu, dalla dashboard.
-
-Due cose da sapere prima di consentire:
-
-<Note>
-  Consentire a un certo livello alza anche il livello del tuo **account**, se era più basso. Non lo abbassa mai. Quindi dopo aver consentito un collegamento a **Costruzione**, il tuo account resta a **Costruzione** — puoi riportarlo indietro da **Account → Assistente AI**.
-</Note>
-
-Il livello effettivo è sempre il più basso tra i due: quello che hai consentito a questo collegamento e quello che il tuo account permette. Se stringi il livello dell'account, stringi immediatamente anche tutti i collegamenti.
+La pagina di consenso vale 10 minuti. Se dice che la richiesta è scaduta, ricomincia dal client.
 
 ## Cosa può e non può fare un client collegato
 
-Può studiare un'attività da un sito o da una descrizione, costruire la campagna e il suo funnel, scrivere la conoscenza e le domande, provare la conversazione con un lead sintetico e dirti cosa manca ancora prima del lancio.
+Un client collegato può:
+
+- Costruire una campagna da un sito o da una descrizione dell'attività, e creare, rinominare, duplicare o eliminare campagne.
+- Leggere, generare e modificare il funnel.
+- Scrivere la conoscenza della campagna e le informazioni che raccoglie.
+- Preparare template WhatsApp, tradurli, inviarli a Meta e mandare un template di prova a un numero di telefono.
+- Scegliere quale campagna risponde ai messaggi in arrivo su un numero WhatsApp.
+- Cambiare orari di lavoro, fuso orario e ritardo di avvio di una campagna.
+- Provare una campagna con clienti inventati.
+- Leggere lead, conversazioni, risultati e report del Coach, le impostazioni dei calendari e il tuo piano.
 
 Alcune cose restano fuori dalla sua portata, per scelta:
 
-- **Avviare una campagna** — lo fai tu, dalla dashboard.
-- **Fatturazione, abbonamenti e modifiche all'account** — mai disponibili a un collegamento.
-- **Collegare un numero WhatsApp** — la registrazione di Meta avviene nel browser, quindi il client ti passa un link e finisci lì.
+- **Avviare o fermare una campagna.** Lo fai tu, dalla dashboard.
+- **Scrivere ai tuoi lead** e **aggiungere lead.**
+- **Fatturazione, abbonamenti e modifiche all'account.**
+- **Collegare WhatsApp o Instagram.** La registrazione di Meta avviene nel browser, quindi il client ti passa un link e finisci lì.
 
-Un client collegato vede anche un insieme di strumenti più ristretto rispetto all'assistente dentro la dashboard Whappy. L'assistente in-app lavora con i permessi del tuo account; un collegamento lavora dentro quello che gli hai concesso.
+Quando un client chiede qualcosa fuori da questo elenco, Whappy rifiuta e dice che si fa dalla dashboard. L'assistente dentro la dashboard Whappy può fare di più di un collegamento.
 
 ## Limiti
 
 Delimitano quanto può succedere mentre non stai guardando. Valgono per account, non per collegamento.
 
-- **30 richieste di generazione AI all'ora.** Costruire campagne, scrivere conoscenza e generare domande contano tutte, a ogni livello, anche in **Sola lettura**.
-- **Attivazioni di campagne e modifiche non presidiate a settimana**, come descritto in [Permessi](/it/autopilot/trust-levels).
+- **30 richieste di generazione AI all'ora.** Contano la costruzione di campagne, la generazione dei funnel e le prove. L'assistente in-app e tutti i collegamenti condividono lo stesso limite. Quando lo raggiungi, aspetta che passi l'ora e riprova.
 - **20 nuove registrazioni di client all'ora** dallo stesso indirizzo di rete. Non lo incontrerai, a meno che qualcosa non stia funzionando male.
-
-Se una richiesta viene rifiutata, il messaggio ti dice quale dei due limiti l'ha fermata: ricollegarti a un livello più alto, oppure cambiare i permessi dell'account dalla dashboard.
 
 ## Restare collegati
 

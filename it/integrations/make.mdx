@@ -10,7 +10,7 @@ keywords:
   - "api"
 ---
 
-Collega Whappy a Make (make.com) per avviare scenari quando succede qualcosa in una conversazione WhatsApp e per aggiungere lead a Whappy da moduli, annunci, fogli o qualsiasi altra app. L'app Whappy su Make offre gli stessi eventi e la stessa azione dell'app Zapier.
+Collega Whappy a Make (make.com) per avviare scenari quando succede qualcosa in una conversazione e per aggiungere lead a Whappy da moduli, annunci, fogli o qualsiasi altra app. L'app Whappy su Make offre gli stessi eventi e la stessa azione dell'[app Zapier](/it/integrations/zapier). La possono usare tutti i tipi di account, compresi gli account cliente di un'agenzia.
 
 ## Cosa fa l'app
 
@@ -26,9 +26,9 @@ Collega Whappy a Make (make.com) per avviare scenari quando succede qualcosa in 
 
 | Modulo | Tipo | Quando parte / cosa fa |
 | --- | --- | --- |
-| Watch closed leads | Trigger istantaneo | Una conversazione arriva allo step di chiusura. Facoltativo: solo una campagna. |
+| Watch closed leads | Trigger istantaneo | Una conversazione arriva allo step di chiusura. |
 | Watch new appointments | Trigger istantaneo | Un lead prenota un appuntamento. |
-| Watch dead leads | Trigger istantaneo | Un lead non risponde per le ore che imposti. |
+| Watch dead leads | Trigger istantaneo | Un lead non risponde per le ore che imposti. Ogni lead lo fa partire una sola volta. |
 | Watch Send data steps | Trigger istantaneo | Una conversazione arriva a uno step Invia dati che usa questo nome di trigger. |
 | Create a lead | Azione | Aggiunge un lead (telefono, nome, email, campagna e campi extra facoltativi). Restituisce il lead come lo salva Whappy. |
 | Make an API call | Universale | Qualsiasi chiamata a `https://api.whappy.ai` con la tua chiave, ad esempio `/v1/zap/triggers`. |
@@ -41,11 +41,11 @@ Ogni trigger restituisce il lead (`lead_id`, `name`, `phone`, `campaign_name`, `
 
 <Steps>
   <Step title="Installa l'app Whappy su Make">
-    In Whappy apri **Integrazioni → Make** e clicca **Ottieni il link Make**. Apri il link e installa l'app nella tua organizzazione Make.
+    In Whappy apri **Integrazioni → Make**. Sotto **Installa l'app Whappy su Make** clicca **Apri in Make** (oppure **Copia il link di invito** per aprirlo altrove) e installa l'app nella tua organizzazione Make. L'app non è nella directory di Make: il link di invito è il modo per installarla.
   </Step>
 
   <Step title="Copia la chiave API Make">
-    Nella stessa pagina copia la **chiave API Make**. È diversa dalla chiave Zapier: revocarne una non ferma mai l'altra.
+    Nella stessa pagina, sotto **Quando Make chiede una chiave, incolla questa**, clicca **Copia la chiave API**. La chiave Make è diversa dalla chiave Zapier: revocarne una non ferma mai l'altra.
   </Step>
 
   <Step title="Crea la connessione">
@@ -54,6 +54,7 @@ Ogni trigger restituisce il lead (`lead_id`, `name`, `phone`, `campaign_name`, `
 
   <Step title="Costruisci lo scenario">
     - **Trigger**: aggiungi il trigger, clicca **Create a webhook**, compila i campi (ore per Watch dead leads, nome del trigger per Watch Send data steps) e salva. Whappy inizia a inviare eventi appena lo scenario è attivo.
+    - **Watch closed leads** chiede anche un **Campaign name**. Whappy per ora non lo applica: ogni conversazione chiusa arriva allo scenario. Per tenere una sola campagna, aggiungi un filtro su `campaign_name` dopo il trigger.
     - **Create a lead**: collega almeno **Phone** (formato internazionale, ad es. `+393331234567`) e **Name**. Attiva **Test lead** mentre fai le prove.
   </Step>
 </Steps>
@@ -88,9 +89,9 @@ Tutto ciò che fa l'app Make passa dall'API pubblica di Whappy. Puoi chiamarla a
 | --- | --- | --- | --- |
 | `targetUrl` | string | sì | Dove Whappy invia (POST) il payload dell'evento. |
 | `zap_type` | string | sì | `CLOSE`, `APPOINTMENT`, `DEAD` o `SEND_DATA`. |
-| `hours` | integer | per `DEAD` | Ore senza risposta prima che l'evento parta. |
+| `hours` | integer | per `DEAD` | Ore senza risposta prima che l'evento parta. Con più iscrizioni `DEAD`, vale per tutte l'attesa più breve. Un'iscrizione `DEAD` senza `hours` non parte mai. |
 | `name` | string | per `SEND_DATA` | Il nome del trigger scelto nello step Invia dati. |
-| `campaignName` | string | no | Solo `CLOSE`: limita a una campagna. |
+| `campaignName` | string | no | Salvato, per ora non applicato: un'iscrizione `CLOSE` riceve le conversazioni chiuse di tutte le campagne. |
 
 Risposta `201`:
 
@@ -108,7 +109,7 @@ Risposta `201`:
 
 ### Payload di esempio
 
-`GET /zap/sample/{name}` restituisce un payload di esempio (`close`, `appointment`, `dead`, `send_data`).
+`GET /zap/sample/{name}` restituisce un elenco con un payload di esempio. Ogni `name` restituisce lo stesso esempio, e l'esempio non contiene `campaign_name`.
 
 ### Payload dell'evento
 
@@ -133,12 +134,12 @@ Quando l'evento succede, Whappy invia questo JSON (POST) a ogni `targetUrl`:
 | --- | --- |
 | `lead_id` | L'id del lead in Whappy. |
 | `created_at` | Quando è stato creato il lead (ISO 8601). |
-| `phone`, `name`, `campaign_name` | Il lead e la sua campagna. |
-| `appointment.full_date` | Data e ora prenotate, se presenti (ISO 8601). |
+| `phone`, `name`, `campaign_name` | Il lead e la sua campagna. `phone` è vuoto per un lead senza numero di telefono, ad esempio un lead Instagram. |
+| `appointment.full_date` | Data e ora prenotate (ISO 8601), oppure vuoto se non c'è un appuntamento. |
 | `lead_info_json` | I dati con cui è arrivato il lead (campi del modulo, dati extra), come stringa JSON. |
 | `collected_info_json` | Ciò che l'AI ha raccolto nella conversazione, come stringa JSON. |
-| `conversation_json` | I messaggi (`sender` è `ai` o `lead`), come stringa JSON. |
-| `appointment_json` | I dettagli dell'appuntamento, come stringa JSON. |
+| `conversation_json` | I messaggi, come stringa JSON. `sender` è `ai`, `lead`, oppure `user` per un messaggio inviato dal tuo team da Chat. |
+| `appointment_json` | I dettagli dell'appuntamento (`datetime`, `event_id`), come stringa JSON. |
 
 L'API invia i quattro campi `*_json` come stringhe JSON. L'app Make li interpreta per te: in Make sono **Lead info**, **Collected info**, **Conversation** e **Appointment details**, e uno vuoto viene semplicemente omesso.
 
@@ -168,6 +169,14 @@ L'API invia i quattro campi `*_json` come stringhe JSON. L'app Make li interpret
 
 Risposta `200`: `{ "status": "success", "message": "...", "data": { "_id": "...", "name": "Anna", "phone": "+393331234567", ... } }`
 
+`message` dice cosa è successo:
+
+- `Lead created successfully`: un lead nuovo.
+- `Lead already exists; details merged`: la stessa persona era già in quella campagna. Whappy tiene un solo lead e aggiunge i nuovi dati.
+- `Lead already exists; details merged and campaign restart requested`: come sopra, e la conversazione riparte da capo perché la campagna ha attivo **Riavvia la campagna per un lead che torna** (nelle **Opzioni** della campagna).
+
+Un lead per una campagna che non parla su WhatsApp viene rifiutato con `409` (i lead di test non vengono rifiutati).
+
 ### Errori
 
 Gli errori rispondono con un codice di stato e un messaggio leggibile, mostrato in Make come `[stato] messaggio`:
@@ -176,8 +185,9 @@ Gli errori rispondono con un codice di stato e un messaggio leggibile, mostrato 
 | --- | --- | --- |
 | `400` | La richiesta non si può usare, ad es. un numero di telefono illeggibile. | `Phone number '12' is not a valid number; add the international prefix (e.g. +48) or set a default country in Whappy settings` |
 | `401` | Chiave API mancante, sbagliata o revocata. | `Invalid API key` |
+| `409` | Create a lead: la campagna non parla su WhatsApp. Il corpo è `{"detail": {"code": "campaign_not_on_whatsapp", "message": "..."}}`. | `This campaign does not talk on WhatsApp, so it cannot take people by phone number. Turn on WhatsApp in the campaign's options, or send the lead to a campaign that talks on WhatsApp.` |
 | `422` | Manca un campo obbligatorio o ha il tipo sbagliato. Il corpo contiene anche `detail`, l'elenco di ogni campo errato. | `zap_type: Field required` |
-| `500` | Errore imprevisto lato Whappy; riprova più tardi. | `Failed to create lead` |
+| `500` | Errore imprevisto lato Whappy; riprova più tardi. | `An unexpected error occurred: ...` |
 
 ---
 
@@ -189,10 +199,14 @@ Gli errori rispondono con un codice di stato e un messaggio leggibile, mostrato 
   </Accordion>
 
   <Accordion title="Un trigger non parte mai">
-    Verifica che lo scenario sia **attivo**: Make rifiuta gli eventi di uno scenario spento. Verifica che la campagna sia in corso e che i lead arrivino allo step (chiusura, appuntamento, Invia dati) che il trigger ascolta.
+    Verifica che lo scenario sia **attivo**: Make rifiuta gli eventi di uno scenario spento. Verifica che la campagna sia in corso e che i lead arrivino allo step (chiusura, appuntamento, Invia dati) che il trigger ascolta. Per **Watch Send data steps**, il nome del trigger in Make deve coincidere con quello scelto nello step Invia dati.
   </Accordion>
 
   <Accordion title="Create a lead fallisce con [400]">
     Il numero di telefono non è leggibile. Invialo con il prefisso internazionale, oppure imposta un paese predefinito nelle impostazioni di Whappy.
+  </Accordion>
+
+  <Accordion title="Create a lead fallisce con [409]">
+    La campagna non parla su WhatsApp, quindi non può ricevere un lead per numero di telefono. Attiva WhatsApp nelle **Opzioni → Canali** della campagna (vedi [Canale](/it/campaign/channel)), oppure invia il lead a un'altra campagna.
   </Accordion>
 </AccordionGroup>

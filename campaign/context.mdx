@@ -1,149 +1,67 @@
 ---
 title: "Context"
-description: "Set up your campaign's basic information and AI conversation context"
+description: "What your assistant knows about your business: its name, its sources, and the Business Context written from them"
 icon: "files"
 ---
 
-Campaign Context is the foundation of your WhatsApp automation. This is where you define who your AI assistant is and what it's trying to achieve in conversations with leads.
+**Context** is what your assistant knows about your business. A campaign opens on this page. On a [campaign for existing customers](/campaign/client-campaigns) the same page is called **Knowledge**.
 
-## Setting Up Your Context
+The page has three sections, top to bottom: the assistant's name, your sources, and the Business Context written from them. Press **Save** at the bottom to keep your changes, or **Reset** to throw them away.
 
-Navigate to **Campaign → Context** to configure these essential details:
+## Assistant name
 
-### WhatsApp Name
-This is the name that appears on your lead's phone when they receive messages.
+The name the assistant introduces itself with, up to 30 characters.
 
-**Examples:**
-- `Sarah from TechCorp`
-- `Mike - Web Design`
-- `+1-555-0123` (your business number)
-- `Lisa | Marketing Agency`
+**Examples:** `Sarah from TechCorp`, `Mike - Web Design`, `Lisa | Marketing Agency`
 
-<Note>
-    This name shows up in the lead's WhatsApp contact list, so make it professional and recognizable.
-</Note>
+## Sources
 
-### Business Activity
-Describe what your business does so the AI understands your industry and services.
+Web pages, documents and notes the assistant learns your business from. Only their text is kept.
 
-**Examples:**
-- `We provide web design and development services for small businesses`
-- `Digital marketing agency specializing in Facebook and Google ads`
-- `Real estate agent helping first-time home buyers in Austin, Texas`
-- `Business consultant for e-commerce companies looking to scale`
+Press **Add source** and pick one:
 
-### Conversation Objective
-Tell the AI what you want to accomplish in these conversations.
+| Option | What it does | Limit |
+| --- | --- | --- |
+| **Add web page** | Reads one page at the address you give. Add other pages one by one. | 8 pages |
+| **Upload document** | Reads a price list, a brochure, a menu: PDF, Word, photo, spreadsheet or text, up to 15 MB. The file itself is not kept, only its text. | 10 documents |
+| **Write a note** | Anything the assistant should know that your pages and documents don't say, for example your opening hours. Up to 20,000 characters. | 20 notes |
 
-**Examples:**
-- `Qualify leads for our web design services and book discovery calls`
-- `Find out their marketing budget and schedule strategy sessions`
-- `Understand their home buying needs and arrange property viewings`
-- `Assess their business challenges and offer consultation packages`
+On a campaign for existing customers, the menu also offers **Import from another campaign**: it copies what the assistant knows from another campaign. Items with the same name are replaced; offers stay.
 
-### Additional Information *(Optional)*
-Any extra context that helps the AI have better conversations.
+Each source shows how many characters of text it gave. A very long source is marked *shortened to fit*. A web page that could not be read says why, for example that the page couldn't be reached or has almost no readable text.
 
-**Examples:**
-- `We work with budgets starting from $5,000. Focus on clients in the US and Canada`
-- `Our typical project timeline is 4-8 weeks. We specialize in Shopify stores`
-- `I've been in real estate for 10 years and focus on properties under $500K`
+Next to each source:
 
-## Building Context Automatically
-
-You do not have to write any of this from scratch. Press **Generate with AI** and Whappy will draft your context from something you already have.
-
-<Tabs>
-    <Tab title="From your website">
-        Paste your website URL. Whappy reads the site and drafts your business activity, conversation objective and supporting detail from it.
-    </Tab>
-    <Tab title="From a document">
-        Drop in a file you already have — a brochure, a price list, a service description. PDFs, photos, spreadsheets and text files up to 15 MB.
-
-        You can add an instruction to focus the result, for example *"only the prices, ignore the staff list"*.
-    </Tab>
-</Tabs>
+- **Read again** (web pages): reads the page again, for when your site has changed.
+- **Edit note** (notes).
+- **Remove source**. The Business Context keeps what it learned from it until you update the context again.
 
 <Note>
-    The file itself is not stored. Whappy reads it, keeps only what it learned, and discards the document.
+    Adding or removing a source does not change what the assistant knows yet. **Update context** does.
 </Note>
 
-Whatever is generated is a **draft you edit**. Read it before launching — it is written from your material, but it is your business the AI assistant will be describing.
+## Business Context
 
-## How the AI Uses This Information
+What the assistant reads before every message. It is written from your sources, and you can edit it as you like, up to 16,000 characters.
 
-### **Conversation Style**
-The AI uses your business context to speak appropriately for your industry and maintain a consistent personality throughout conversations.
+Press **Update context** to write it from your sources. The button needs at least one source that could be read. After an update, the page may tell you:
 
-### **Qualification Questions**
-Based on your objectives, the AI knows what information to collect and how to steer conversations toward your goals.
+- **Not in your sources**: things the assistant may be asked about that your sources don't answer. Add them to a source and update again.
+- That your sources say more than fits, so the least important details were left out.
+- Later, when you add or change a source: *Your sources changed since the last update.* Update the context so the assistant knows.
 
-### **Natural Responses**
-The additional information helps the AI answer common questions about your services, pricing, and process naturally.
-
-## Best Practices
-
-### **WhatsApp Name**
-- **Keep it personal**: Use a real name when possible
-- **Add context**: Include your business or role if helpful
-- **Stay professional**: Avoid nicknames or casual language
-- **Be consistent**: Use the same name across all communications
-
-### **Business Description**
-- **Be specific**: "Web design" is better than "technology services"
-- **Include your niche**: Mention your specialty or target market
-- **Keep it conversational**: Write how you'd explain it to a friend
-- **Focus on benefits**: What problems do you solve?
-
-### **Conversation Goals**
-- **Be clear about the outcome**: What happens when qualification is successful?
-- **Include next steps**: Mention calls, meetings, or demos you want to book
-- **Set expectations**: What level of interest or budget you're looking for
-
-### **Additional Context**
-- **Mention typical budgets**: Helps AI qualify leads appropriately
-- **Include timelines**: When do projects usually start or complete?
-- **Add geographic focus**: If you serve specific locations
-- **Note key differentiators**: What makes you unique?
-
-## Examples by Industry
-
-### **Web Design Agency**
-- **Name**: `Sarah - Web Design`
-- **Activity**: `We create custom websites for small businesses and startups`
-- **Objective**: `Qualify leads for web design projects and schedule discovery calls`
-- **Additional**: `Projects typically range from $3K-15K with 4-6 week timelines`
-
-### **Business Consultant**
-- **Name**: `Mike | Business Growth`
-- **Activity**: `Business consultant helping companies scale their operations`
-- **Objective**: `Identify growth challenges and book strategy consultations`
-- **Additional**: `I work with businesses doing $500K+ annually looking to double revenue`
-
-### **Real Estate Agent**
-- **Name**: `Lisa Chen - Austin Realtor`
-- **Activity**: `Real estate agent specializing in Austin area home sales`
-- **Objective**: `Understand home buying needs and schedule property viewings`
-- **Additional**: `I focus on first-time buyers with budgets $200K-500K`
-
-## Testing Your Context
-
-After setting up your context:
-
-1. **Review for clarity**: Does each field clearly explain your business?
-2. **Check the tone**: Does it match how you normally communicate?
-3. **Consider lead perspective**: Would this make sense to someone unfamiliar with your business?
-4. **Test with others**: Have colleagues review for clarity and professionalism
-
-## Next Steps
-
-Once your context is set up:
-- Define what **information to collect** from leads in the Info section
-- Build your **conversation flow** in the Funnel builder
-- Configure your **operating hours** in Options
-
-Your campaign context provides the foundation for all AI conversations, so take time to make it clear and comprehensive!
+If you edited the Business Context yourself, **Update context** first asks **Replace the current text?** Choose **Keep my version** to stop, or **Replace** to write a new version from your sources.
 
 <Tip>
-    You can update your context anytime, but changes will only apply to new conversations. Existing conversations continue with the original context.
+    Changes apply from the assistant's next message, in conversations already going as well as new ones.
 </Tip>
+
+## The campaign language
+
+The language the assistant writes in is not set here. It is on the campaign's [Options](/campaign/options#language) page.
+
+## Next steps
+
+- Choose what to [collect from each lead](/campaign/info).
+- Build the [funnel](/campaign/funnel), or press **Generate from context** there to have one designed from your Business Context.
+- Add [files the assistant may send on its own](/campaign/assets#files-the-ai-may-send-on-its-own).

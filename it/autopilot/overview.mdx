@@ -1,57 +1,64 @@
 ---
 title: "Autopilot"
-description: "Il lavoro che Whappy svolge sulle tue campagne senza che tu lo chieda, e quanto gliene concedi."
+description: "Il lavoro che Whappy svolge sulle tue campagne invece che sui tuoi lead: Coach, Prova e i limiti dell'assistente."
 icon: "wand-magic-sparkles"
 ---
 
-Autopilot è la parte di Whappy che lavora sulle tue campagne, non sui tuoi lead. Può costruire una campagna, provarla con clienti inventati, osservare come vanno le conversazioni reali, proporre miglioramenti e — se glielo permetti — applicarli.
+Autopilot è la parte di Whappy che lavora sulle tue campagne, non sui tuoi lead. Prova una campagna con clienti inventati, valuta le conversazioni concluse e propone modifiche. Se glielo permetti, mette anche alla prova da solo le riformulazioni.
 
 <Note>
-    **In Whappy due cose diverse si chiamano "AI", e fanno lavori diversi.**
+    **In Whappy tre cose diverse usano l'AI, e fanno lavori diversi.**
 
-    Il tuo **assistente AI** parla con i lead su WhatsApp. Segue il funnel che hai costruito, pone le tue domande e fissa appuntamenti. Tutto ciò che sta in [Campagna](/it/campaign/context) lo configura.
+    L'**AI che parla con i tuoi lead** segue il funnel che hai costruito, pone le tue domande e fissa appuntamenti. Tutto ciò che sta in [Campagna](/it/campaign/context) la configura.
 
-    **Autopilot** lavora sulla campagna in sé: la costruisce, la mette alla prova e la migliora. Non parla mai con un lead. Tutto ciò che sta in questa sezione configura Autopilot.
+    L'**Assistente** è il pannello di chat nella dashboard. Risponde alle tue domande e fa le modifiche quando glielo chiedi. Vedi [Limiti dell'assistente](/it/autopilot/trust-levels).
+
+    **Coach** e **Prova** lavorano sulla campagna in sé. Non parlano mai con un lead vero.
 </Note>
 
 ## Di cosa è fatto Autopilot
 
 <CardGroup cols={2}>
-    <Card title="Permessi" icon="shield-halved" href="/it/autopilot/trust-levels">
-        Cinque livelli che stabiliscono cosa Autopilot può fare per tuo conto, da sola lettura fino alla gestione di campagne attive.
-    </Card>
     <Card title="Coach" icon="chart-line-up" href="/it/autopilot/coach">
         Valuta le conversazioni concluse, individua le debolezze ricorrenti e propone correzioni citando i tuoi stessi lead.
     </Card>
-    <Card title="Prova generale" icon="masks-theater" href="/it/autopilot/rehearsal">
+    <Card title="Prova" icon="masks-theater" href="/it/autopilot/rehearsal">
         Fa passare sei clienti inventati nel tuo funnel prima che arrivino quelli veri. Non viene inviato nulla a nessuno.
     </Card>
+    <Card title="Limiti dell'assistente" icon="shield-halved" href="/it/autopilot/trust-levels">
+        Cosa può fare da solo l'Assistente, i limiti che restano e il registro di ciò che ha modificato.
+    </Card>
     <Card title="Riepilogo settimanale" icon="newspaper" href="/it/autopilot/briefing">
-        Le due o tre cose della settimana che non avresti pensato di andare a cercare.
+        Al momento non compare nella dashboard.
     </Card>
 </CardGroup>
 
-## Nulla è attivo per impostazione predefinita
+## Attiva le pagine campagna per campagna
 
-Un account nuovo parte con Autopilot al minimo:
+Coach e Prova sono pagine facoltative. Una campagna non le mostra finché non le attivi:
 
-- I permessi sono impostati su **Sola lettura**. Autopilot può rispondere a domande sulle tue campagne e non modifica nulla.
-- Coach è **spento** su ogni campagna. Le conversazioni vengono comunque valutate — non costa nulla e accumula elementi utili — ma non viene proposto niente.
-- La prova generale parte solo quando premi **Prova**.
+<Steps>
+    <Step title="Apri le Opzioni della campagna">
+        **Campagne → la tua campagna → Opzioni**.
+    </Step>
+    <Step title="Trova Sezioni">
+        **Sezioni** elenca le pagine extra della barra laterale della campagna.
+    </Step>
+    <Step title="Attiva Coach, Prova o entrambe">
+        La modifica vale subito. La pagina compare nella barra laterale della campagna.
+    </Step>
+</Steps>
 
-Alzi ogni impostazione quando te la senti, una alla volta.
+Una campagna che parla con i tuoi clienti esistenti (una [campagna clienti](/it/campaign/client-campaigns)) non offre Coach né Prova.
 
-## Concedere non è lo stesso che essere pronti
+## Per impostazione predefinita non cambia nulla
 
-I due livelli di permesso più alti richiedono qualcosa in più del tuo consenso. Puoi concedere **Avvio**, ma Autopilot resta su **Costruzione** finché il tuo account non ha dimostrato di essere pronto: tre campagne avviate a mano senza problemi e una prova generale superata.
-
-È voluto. Significa che nessuno arriva a "il sistema scrive a clienti veri senza supervisione" cliccando su una finestra il primo giorno. In [Permessi](/it/autopilot/trust-levels) trovi i requisiti esatti.
+- Coach parte **Disattivato** su ogni campagna. Continua comunque a valutare le conversazioni concluse, così quando lo accendi parte da ciò che sa già. Finché è disattivato non propone nulla.
+- La prova parte solo quando premi **Prova**.
+- Coach cambia da solo i tuoi testi solo se imposti la modalità **Applica automaticamente**. Solo tu puoi sceglierla; l'Assistente non può farlo al posto tuo.
 
 ## Come i pezzi si tengono insieme
 
-Le parti di Autopilot sono collegate, e vale la pena conoscere i collegamenti:
-
-- Una **prova generale superata** è una delle due condizioni che sbloccano il livello **Avvio**.
-- **Coach** può applicare modifiche da solo unicamente al livello **Operatività**, il più alto.
-- Il **riepilogo settimanale** racconta cosa ha fatto Autopilot, incluse le modifiche di Coach mantenute e quelle annullate.
-- Se un controllo automatico rileva un problema — per esempio la qualità del tuo mittente WhatsApp che cala — Autopilot viene **messo in pausa automaticamente** e riportato a Costruzione finché non intervieni.
+- Usa **Prova** prima che arrivino i lead veri. L'elenco delle domande più difficili per i personaggi è lo stesso segnale che Coach usa sulle conversazioni reali.
+- Usa **Coach** quando le prime conversazioni reali sono concluse. Mette alla prova una riformulazione contro il tuo testo originale e tiene la migliore.
+- In **Applica automaticamente**, Coach avvia da solo solo le prove delle riformulazioni. Tutto il resto aspetta te. Vedi [Coach](/it/autopilot/coach).

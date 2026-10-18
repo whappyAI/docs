@@ -1,0 +1,73 @@
+---
+title: "Channel"
+description: "Where a campaign talks — WhatsApp, Instagram or both — and what changes with each."
+icon: "tower-broadcast"
+---
+
+A campaign talks on **WhatsApp**, on **Instagram**, or on both. The choice decides how leads reach it, whether it can write first, and what it still needs before it can start.
+
+## Choosing the channel
+
+When you create a campaign, **Where does it talk?** offers WhatsApp and Instagram, pre-ticked with whatever your account has connected. The line under the boxes says what the choice means:
+
+- **WhatsApp only**: it sends the first message from your number.
+- **Instagram only**: no first message — leads write first.
+- **Both**: it sends first messages on WhatsApp and answers people who write on Instagram.
+
+<Note>
+    The question is asked only on accounts where Instagram is offered. Everywhere else a campaign talks on WhatsApp, as every campaign did before.
+</Note>
+
+You can change it later under the campaign's **Options → Channels**. The change is saved as soon as you click. Two things are refused:
+
+- **No channel at all.** Pick at least one.
+- **Turning off a channel that still sends people to this campaign.** If this is the campaign your Instagram settings route DMs to, or the one a WhatsApp number sends inbound messages to, pick another campaign there first. The message tells you which.
+
+A [campaign for existing customers](/campaign/client-campaigns) always keeps WhatsApp: it reaches customers with WhatsApp templates.
+
+## What differs per channel
+
+| | WhatsApp | Instagram |
+| --- | --- | --- |
+| **How leads arrive** | Forms, imports and integrations give you a phone number; the campaign writes first. People who write to your number are answered too. | People write first: a DM, a reply to your story, a mention, or a comment that matches one of your comment rules. Which campaign answers them is set under **Integrations → Instagram**. |
+| **First message** | An approved WhatsApp template, sent from your number. | None. An Instagram conversation cannot be started by a business. |
+| **Replying** | Freely within 24 hours of the lead's last message; after that only an approved template, which you can send from [Chats](/leads/conversation-history#sending-a-template-from-chats). | The assistant replies within 24 hours of the lead's last message. A person can reply up to 7 days. After that, nothing until the lead writes again. |
+| **Follow-ups and reminders** | Follow-ups go out in your working hours. | Follow-ups and appointment reminders go out only within 24 hours of the lead's last message. One held back is noted in the chat. |
+| **Documents, images, voice notes from funnel steps or Chats** | Arrive as files and voice notes. | Arrive as a link. |
+| **Files the assistant picks on its own** | Document or image with the reply, voice note after it. | Images and PDFs as attachments, within 24 hours. Voice notes are never offered. |
+| **Moving a lead to another campaign** | The new campaign can send its first message. | Not possible to write first: the lead waits for its next step or writes again. |
+
+Working hours, time zone and the other [Options](/campaign/options) are set once per campaign; there is no separate setting per channel.
+
+<Note>
+    A lead who has only a phone number can only be reached on WhatsApp. Sending such a lead to a campaign that does not talk on WhatsApp is refused by the API and by integrations, and a campaign holding such leads shows the warning *Some leads can only be reached on WhatsApp*.
+</Note>
+
+When a person writes to a number or an Instagram account whose campaign does not talk on that channel, the conversation goes to your **default campaign** instead.
+
+## What a campaign needs before it can start
+
+The campaign's own page lists what still needs fixing (**Before this campaign can start**) and what is worth checking while it runs. The channel changes that list:
+
+| | WhatsApp only | Instagram only | Both |
+| --- | --- | --- | --- |
+| **No WhatsApp number connected** | Blocks | Not needed | Blocks |
+| **Instagram isn't connected** | — | Blocks | Worth checking: WhatsApp still runs |
+| **Some leads can only be reached on WhatsApp** | — | Worth checking | — |
+
+An active plan and a finished funnel are needed on every channel. Whatever the channel, a **Close** step that moves leads into a campaign which does not talk on one of this campaign's channels shows *A move to another campaign skips some leads*: leads from the missing channel stay here.
+
+## The campaigns list
+
+The **Campaigns** page is a table with one row per campaign:
+
+| Column | What it shows |
+| --- | --- |
+| **Channel** | The WhatsApp and/or Instagram mark. |
+| **Campaign** | Its name. Click the row to open it. |
+| **Leads** | How many leads it has. |
+| **Chats** | How many conversations. |
+| **Ready** | A green tick when the campaign can start; an amber triangle when it cannot. Hover it to read the first thing to fix: *No active subscription*, *WhatsApp not connected*, *Instagram not connected*, *First message has no number*, *Funnel incomplete*, or *Needs attention — open it*. |
+| Switch and menu | The switch starts and stops the campaign (it stays off while the campaign is not ready). The menu offers **Rename**, **Duplicate** (not for campaigns for existing customers), **Set as default**, and **Delete** (not while it runs). |
+
+Rows are ordered so that what needs you comes first: campaigns that **cannot start** at the top, then the **running** ones, then the **paused** ones that are ready to go.

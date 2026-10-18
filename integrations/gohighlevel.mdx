@@ -1,113 +1,110 @@
 ---
 title: "GoHighLevel"
-description: "Sync contacts into Whappy, offer GoHighLevel calendars, and write results back to the contact."
+description: "Bring GoHighLevel contacts into WhatsApp conversations and write the results back to the contact."
 icon: "arrows-rotate"
 ---
 
-Connecting GoHighLevel lets new contacts start a WhatsApp conversation automatically, offers your GoHighLevel calendars on the appointment step, and writes the outcome of every finished conversation back onto the contact.
+Connecting GoHighLevel lets new contacts start a WhatsApp conversation automatically, offers your GoHighLevel calendars on the appointment step, and writes the outcome of each conversation back onto the contact.
 
-Find it in **Integrations**.
+The integration is offered in the client accounts an agency manages (see [Agency accounts](/integrations/agency)). Find it under **Integrations**, in **Automations**.
 
 <Note>
-    If your dashboard was set up by an agency, this integration may appear under a different name. The functionality is the same — see [Agency accounts](/integrations/agency).
+    In an agency's client accounts the dashboard does not name the vendor: the card and the page are called **CRM**, and the page lives at `/integrations/crm`. Everything on this page applies the same way.
 </Note>
 
-## Two ways to connect
+## Connecting
 
-<Tabs>
-    <Tab title="Install the app (recommended)">
-        The app is installed **once, by the agency**, from the GoHighLevel Marketplace — not per sub-account. One install covers every client you have.
+The app is installed from the GoHighLevel Marketplace. An agency installs it **once**, and GoHighLevel asks which sub-accounts to put it on.
 
-        <Steps>
-            <Step title="Install from the Marketplace">
-                GoHighLevel asks which of your sub-accounts to put the app on. That choice is yours and can be changed later.
-            </Step>
-            <Step title="Land back in Whappy">
-                If GoHighLevel can tell us who you are, Whappy offers **Continue as you** and creates your account on the spot — there is nothing to fill in. Otherwise you sign in or sign up as usual, and the install waits for you.
-            </Step>
-            <Step title="Choose which clients Whappy runs">
-                Your sub-accounts are listed. Activating one turns it into a Whappy client. **Only the ones you activate are billed** — installing alone never creates a client or an invoice line.
-            </Step>
-        </Steps>
+<Steps>
+    <Step title="Install from the Marketplace">
+        Choose the sub-accounts Whappy should run. You can add the app to more sub-accounts later, in GoHighLevel.
+    </Step>
+    <Step title="Land back in Whappy">
+        If you are not signed in, Whappy asks you to **Sign in** or **Create an account**. The installation stays valid for 60 minutes.
+    </Step>
+    <Step title="Confirm">
+        Whappy asks **Connect this installation?** and names the agency or sub-account and your account. Click **Connect** only if you started the installation yourself.
+    </Step>
+</Steps>
 
-        This is the better route:
+For an agency install, every sub-account that carries the app becomes a client account in Whappy on its own, and appears under **Agency → Clients**. There is nothing to activate by hand. A sub-account you add the app to later appears too.
 
-        - Webhooks are wired up automatically — there is no URL or secret to copy anywhere.
-        - The connection refreshes itself, so it does not expire.
-        - Inbound webhooks are verified by GoHighLevel's own app signature.
-        - New sub-accounts can be picked up automatically as you create them.
+With the app:
 
-        Whappy reads each activated sub-account's contacts, calendars and custom fields.
+- Webhooks are set up automatically: there is no URL or secret to copy.
+- The connection renews itself, so it does not expire.
+- Inbound webhooks are signed by GoHighLevel.
 
-        <Note>
-            Your plan for each client is chosen and charged **in GoHighLevel**, and your free trial runs there too. Changing a client's plan in the Marketplace moves their limits in Whappy — there is nothing to change here.
-        </Note>
-    </Tab>
-    <Tab title="Connect manually">
-        For a single sub-account, without the Marketplace: connect with a Private Integration Token. Billing for this route is handled in Whappy rather than in GoHighLevel.
+Whappy reads each client's contacts, calendars and custom fields.
 
-        <Steps>
-            <Step title="Find your Location ID">
-                In GoHighLevel: **Settings → Business Profile**. Each sub-account has its own id, and it looks something like `ve9EPM428h8vShlRW1KT`.
-            </Step>
-            <Step title="Create a Private Integration Token">
-                In GoHighLevel: **Settings → Private Integrations**. Grant the **contacts** scope at minimum. The token starts with `pit-`.
-            </Step>
-            <Step title="Paste both into Whappy and connect">
-                The token is stored server-side and is never shown again.
-            </Step>
-            <Step title="Copy your webhook details">
-                Whappy shows a webhook URL and a secret. **Copy the secret now** — it is shown only once and cannot be retrieved later. You can generate a new one if you lose it.
-            </Step>
-            <Step title="Finish setup in GoHighLevel">
-                Open the workflow that should hand contacts to Whappy. Add a **Webhook** action with the URL above using method **POST**, add a custom header with the secret as its value, publish the workflow, and send a test contact to confirm it arrives.
-            </Step>
-        </Steps>
-    </Tab>
-</Tabs>
+<Note>
+    Your plan for each client is chosen and charged **in GoHighLevel**. Changing a client's plan in the Marketplace moves their limits in Whappy: there is nothing to change here.
+</Note>
+
+<Note>
+    The page can also connect a single sub-account with a Location ID and a Private Integration Token instead of the app. That option is shown only when the dashboard names GoHighLevel, so in an agency's client accounts it is hidden. Use the Marketplace install.
+</Note>
 
 ## What connecting gives you
 
-- **New contacts start a conversation automatically.**
-- **No duplicates.** Contacts are matched by their GoHighLevel id, so re-running a workflow never creates a second lead.
+- **New contacts start a WhatsApp conversation automatically.**
+- **No duplicates.** Contacts are matched by their GoHighLevel id, so running a workflow again never creates a second lead.
 - **Routing by tag.** Send contacts to different campaigns based on their GoHighLevel tags.
-- **Calendars on the appointment step.** Your GoHighLevel calendars become selectable alongside Cal.com and Calendly.
+- **Calendars on the appointment step.** Your GoHighLevel calendars can be picked on the appointment step.
 
-## Writing results back
+Once connected, the page has three tabs: **Connection**, **Contacts** and **Results**.
 
-Open the **Writeback** tab and turn on **Send results back**. When a conversation ends, Whappy will:
+## Connection
 
-- Add the **transcript as a note** on the contact.
-- **Tag the contact** with the outcome — either *funnel completed* or *conversation halted*.
-- **Fill the fields** you have mapped.
+Shows the connected sub-account. If an agency set up the connection, the tab says your agency manages it and there is nothing to configure; use **Contacts** and **Results**.
 
-### Field mapping
+If GoHighLevel refuses a change Whappy sends, the tab shows **Needs attention**: results or bookings are not reaching GoHighLevel, usually because the connection is missing a permission. Check its permissions in GoHighLevel, then connect again.
 
-Choose which collected answer goes into which GoHighLevel field. Answers you do not map stay in Whappy and are not sent.
+If the app was removed from the sub-account in GoHighLevel, the page says so: reinstall it from the Marketplace. Routing and field mappings are kept.
 
-If the picker says no custom fields were found, create them in GoHighLevel first, then reopen the tab.
+## Contacts: which contacts Whappy writes to
 
-<Note>
-    The transcript and the outcome tag are sent whether or not you map any fields. Mapping is only about the individual answers.
-</Note>
+Whappy reads the tags on your GoHighLevel contacts. Under **Which contacts**, choose:
 
-### Pipelines and opportunities
+- **Only contacts with a tag below.** Other contacts are ignored. If you add one of these tags later, the contact comes in then.
+- **Every new contact.** Contacts with a tag below follow its rule; all others go to your default campaign.
 
-Optionally move the deal into a pipeline when the conversation ends. Choose the pipeline and the stage.
+Under **Tag rules**, click **Add a rule**, type a tag and pick a **Campaign**. If a contact has two of these tags, the rule higher in the list wins: reorder them with **Move up** and **Move down**. A tag added after the first message does not move the contact. Click **Save**.
 
-Leave it set to **Don't create opportunities** and your pipeline is never touched — this is the default, and nothing is created behind your back.
+A contact whose campaign does not talk on WhatsApp is not brought in (see [Channel](/campaign/channel)).
 
-## Rotating the secret and disconnecting
+## Results: writing back to GoHighLevel
 
-**Rotate webhook secret** generates a new one. Your GoHighLevel workflow keeps sending the old secret until you update it there, so update the workflow immediately after rotating.
+Turn on **Send results to GoHighLevel**. Whappy updates the contact when a conversation ends, a person takes over, the lead opts out, or the lead stays silent for 24 hours. The contact gets:
 
-**Disconnect account** stops Whappy receiving contacts from that sub-account. Existing leads and conversations are kept — you are disconnecting a source, not deleting history. Reconnecting later requires a new token.
+- A **note** with the conversation.
+- A **tag** with the result: `whappy-closed`, `whappy-human-takeover`, `whappy-no-reply` or `whappy-opted-out`.
+- The **answers you link**, in your own fields.
+- The **deal moved** in your pipeline, if you choose one.
+
+Click **Save** when you are done.
+
+### Answers to GoHighLevel fields
+
+Click **Link an answer**, pick a **Whappy answer** and the **GoHighLevel field** it should fill. Answers you do not link stay in Whappy. The note and the tag are sent either way.
+
+If the tab says no contact custom fields were found, create them in GoHighLevel first, then reopen the tab.
+
+### Pipeline
+
+Choose a **Pipeline** to move the deal when the conversation ends, then a **Stage** for **When the conversation finishes** and for **When a person takes over**. **Leave the stage as it is** skips one of them.
+
+Leave the pipeline on **Don't create or move deals** and your pipeline is never touched. This is the default.
 
 ## If the install fails
 
 | Message | What to check |
 | --- | --- |
-| **Could not start the install** | The app credentials are not configured. Contact support. |
-| **Authorization denied** | The install was declined in GoHighLevel, or GoHighLevel returned an error. Try again. |
-| **Missing required parameters** | The callback arrived incomplete. Start the install again from Integrations. |
-| **Could not connect. Check the Location ID and that the token can access it** | The manual route: either the id is wrong or the token has no access to that sub-account. |
+| **Could not start the GoHighLevel install** | The app credentials are not configured. Contact support. |
+| **Authorization denied or an error occurred with GoHighLevel** | The install was declined in GoHighLevel, or GoHighLevel returned an error. Try again. |
+| **Missing required parameters for the GoHighLevel installation** | The callback arrived incomplete. Start the install again. |
+| **This installation expired** | More than 60 minutes passed. Install the app again from the Marketplace. |
+| **This link doesn't match the GoHighLevel connection started in this browser** | Nothing was connected. Start the connection again from **Integrations**. |
+
+In an agency's client accounts these messages say **CRM** instead of GoHighLevel.

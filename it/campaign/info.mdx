@@ -1,180 +1,79 @@
 ---
 title: "Info"
-description: "Definisci quali informazioni il tuo assistente AI raccoglierà dai lead durante le conversazioni"
+description: "Definisci quali informazioni il tuo assistente AI raccoglie da ogni lead"
 icon: "clipboard-list"
 ---
 
-Qui definisci quali informazioni il tuo assistente AI deve raccogliere dai lead nelle conversazioni WhatsApp. Questi campi diventano disponibili nel funnel per qualificare i lead e raccogliere dati.
+**Info** elenca le informazioni che il tuo assistente raccoglie da ogni lead durante la conversazione: un budget, una tempistica, un tipo di progetto. Ognuna è un campo. Uno step del funnel la chiede e la risposta viene salvata sul lead.
+
+Una [campagna per clienti esistenti](/it/campaign/client-campaigns) non ha la pagina Info: le domande vengono da ogni offerta.
 
 ## Come funziona
 
-1. **Crea i campi informativi** per i dati che vuoi raccogliere (budget, tempistiche, esigenze…)
-2. **Usa i campi nel funnel** aggiungendo nodi Info che chiedono informazioni specifiche
-3. **L'AI raccoglie i dati** durante le conversazioni con i lead
-4. **Consulta le informazioni raccolte** nella sezione Lead
+1. **Crea un campo** per ogni cosa che vuoi sapere.
+2. **Aggiungi uno step Chiedi informazioni** al tuo [funnel](/it/campaign/funnel) e scegli il campo.
+3. **L'assistente la chiede** con parole sue durante la conversazione.
+4. **Leggi le risposte** nei dettagli del lead. Vedi [Consultare i lead](/it/leads/viewing-leads).
 
-## Aggiungere campi informativi
+## Aggiungere un campo
 
-Premi **"Aggiungi campo info"** per creare un nuovo campo di qualificazione.
+Ci sono due modi:
 
-### Dettagli del campo
+- **Genera con l'AI**: descrivi in una frase cosa deve scoprire l'assistente. Whappy crea il campo da qui.
+- **Aggiungi manualmente**: compili tu il campo.
 
-**Titolo del campo**
-- Quello che vedrai nella dashboard dei lead e nel costruttore di funnel
-- Esempi: "Budget", "Tempistiche", "Dimensione azienda", "Tipo di progetto"
+Un campo ha:
 
-**Descrizione**
-- Istruzioni per l'AI su cosa chiedere
-- Esempi:
-- "Chiedi il budget del cliente per questo progetto"
-- "Scopri entro quando serve il progetto completato"
-- "Capisci che tipo di sito web gli serve"
+| Impostazione | Cos'è |
+| --- | --- |
+| **Titolo del campo** | Il nome che vedi nella tabella, nel funnel e nei dettagli del lead. Per esempio `Budget`. |
+| **Descrizione** | Cosa deve chiedere l'assistente. Per esempio *Chiedi del budget del cliente per questo progetto*. |
+| **Tipo di informazione** | **Testo**, **Numero** o **Scelta multipla**. |
+| **Esempi di domande** | Facoltativi. Modi di chiedere che guidano l'assistente. |
+| **Questa informazione è obbligatoria** | Se l'assistente continua a chiedere finché non ottiene una risposta. |
 
-**Tipo di informazione**
-Scegli in che forma i lead devono fornire l'informazione:
+I campi sono elencati in una tabella con **Titolo**, **Descrizione**, **Tipo** e **Obbligatorio**, e un pulsante per modificare e uno per eliminare.
 
-- **Testo**: risposte libere
-- **Numero**: valori numerici (importi di budget, dimensione azienda…)
-- **Scelta multipla**: opzioni predefinite fra cui scegliere
+## Tipi di informazione
 
-## I tipi di campo
+### Testo
+Risposte aperte: una descrizione del progetto, la sfida più grande, l'indirizzo di un sito.
 
-### Campi di testo
-Ideali per domande aperte in cui vuoi risposte articolate.
+### Numero
+Risposte numeriche: un budget, un numero di dipendenti. Uno step [Condizione](/it/campaign/funnel) può confrontarlo con maggiore di, minore di e così via.
 
-**Esempi:**
-- **Descrizione azienda**: "Parlami della tua attività e dei servizi che offri"
-- **Dettagli del progetto**: "Descrivi cosa cerchi in questo progetto"
-- **Difficoltà attuali**: "Qual è la tua sfida di marketing più grande in questo momento?"
+### Scelta multipla
+Un insieme fisso di opzioni. Ogni opzione ha:
 
-### Campi numerici
-Perfetti per budget, quantità, dimensioni e altri dati numerici.
+- **Chiave opzione**: usata internamente, per esempio `budget_basso`.
+- **Spiegazione**: il testo mostrato, per esempio *Meno di 5.000 €*.
 
-**Esempi:**
-- **Fascia di budget**: "Qual è il tuo budget per questo progetto?"
-- **Dimensione azienda**: "Quanti dipendenti ha la tua azienda?"
-- **Fatturato mensile**: "Qual è il tuo fatturato mensile attuale?"
+Un campo a scelta multipla richiede almeno un'opzione, e ogni opzione richiede sia la chiave sia la spiegazione.
 
-### Campi a scelta multipla
-Ottimi per qualificare i lead in base a criteri o preferenze precise.
+**Esempio: Fascia di budget**
+- `budget_basso`: Meno di 5.000 €
+- `budget_medio`: Da 5.000 a 15.000 €
+- `budget_alto`: Oltre 15.000 €
 
-**Configurazione:**
-- **Chiave opzione**: identificatore interno (es. `small_budget`, `large_budget`)
-- **Testo visualizzato**: quello che vede il lead (es. "Sotto 5.000 €", "Oltre 20.000 €")
+## Obbligatorio e facoltativo
 
-**Esempi:**
+- **Obbligatorio**: se il lead non risponde, l'assistente chiede di nuovo finché non ottiene una risposta.
+- **Facoltativo**: l'assistente chiede una volta e va avanti.
 
-**Fascia di budget:**
-- Sotto 5.000 € → `small_budget`
-- 5.000 € - 15.000 € → `medium_budget`
-- Oltre 15.000 € → `large_budget`
+## Eliminare un campo
 
-**Tempistiche del progetto:**
-- Il prima possibile → `urgent`
-- Entro 3 mesi → `normal`
-- Tempi flessibili → `flexible`
+Un campo usato da uno step del funnel non si può eliminare: il pulsante dice *Impossibile eliminare: l'info è usata nel funnel.* Toglilo prima dal funnel.
 
-**Settore:**
-- E-commerce → `ecommerce`
-- Servizi professionali → `services`
-- Produzione → `manufacturing`
+Quando elimini un campo, l'assistente smette di chiederlo. Le risposte già raccolte restano sui lead.
 
-## Domande di esempio
+## Campi d'esempio
 
-Aggiungi domande di esempio per aiutare l'AI a chiedere le informazioni in modo naturale:
-
-**Per il budget:**
-- "Qual è la tua fascia di budget per questo progetto?"
-- "Quanto pensi di investire?"
-- "Hai già un budget in mente?"
-
-**Per le tempistiche:**
-- "Entro quando ti serve?"
-- "Qual è la tempistica ideale per questo progetto?"
-- "Con quanta urgenza vorresti partire?"
-
-## Usare i campi nel funnel
-
-Dopo aver creato i campi informativi:
-
-1. Vai su **Campagna → Funnel**
-2. Aggiungi un nodo **Info** al flusso
-3. Seleziona quale campo raccogliere
-4. L'AI chiederà quell'informazione durante la conversazione
-
-### Esempio di flusso
-
-```
-Dialogo: "Ciao! Mi piacerebbe saperne di più sul tuo progetto."
-↓
-Info: raccogli "Tipo di progetto"
-↓
-Info: raccogli "Fascia di budget"
-↓
-Info: raccogli "Tempistiche"
-↓
-Condizione: se budget > 10.000 € → Fissa appuntamento
-```
-
-## Buone pratiche
-
-### **Creazione dei campi**
-- **Usa titoli chiari**: "Budget" invece di "Quanti soldi"
-- **Scrivi descrizioni specifiche**: dì all'AI esattamente cosa chiedere
-- **Aggiungi più esempi**: dai all'AI modi diversi di porre la stessa domanda
-- **Ordina per importanza**: crea prima i campi di qualificazione più critici
-
-### **Esempi di domande**
-- **Sii colloquiale**: "Qual è il tuo budget?" e non "Fornisci informazioni sul budget"
-- **Dai contesto**: "Per consigliarti la soluzione giusta, qual è la tua fascia di budget?"
-- **Rendile naturali**: scrivi come le porresti di persona
-
-### **Opzioni a scelta multipla**
-- **Copri tutti gli scenari**: includi opzioni che intercettino la maggior parte delle risposte
-- **Usa etichette chiare**: rendi le opzioni facili da capire
-- **Mantieni chiavi semplici**: usa trattini bassi, niente spazi (es. `high_priority`, `low_priority`)
-- **Aggiungi un'opzione "altro"**: per le risposte che non rientrano nelle scelte previste
-
-## Esempi di campi per settore
-
-### **Agenzia di web design**
-- **Tipo di progetto** (scelta multipla): Nuovo sito, Restyling, E-commerce, Landing page
-- **Fascia di budget** (scelta multipla): Sotto 5.000 €, 5.000-15.000 €, Oltre 15.000 €
-- **Tempistiche** (testo): "Entro quando ti serve?"
-- **Sito attuale** (testo): "Hai già un sito? Se sì, qual è l'indirizzo?"
-
-### **Consulente aziendale**
-- **Dimensione azienda** (numero): "Quanti dipendenti ha la tua azienda?"
-- **Fatturato annuo** (scelta multipla): Sotto 1 M€, 1-5 M€, Oltre 5 M€
-- **Difficoltà principale** (testo): "Qual è la tua sfida aziendale più grande in questo momento?"
-- **Urgenza** (scelta multipla): Urgente, Entro 3 mesi, Nessuna fretta
-
-### **Agente immobiliare**
-- **Fascia di budget** (scelta multipla): Sotto 300.000 €, 300.000-500.000 €, Oltre 500.000 €
-- **Tipo di immobile** (scelta multipla): Indipendente, Appartamento, Villetta a schiera
-- **Tempistiche** (scelta multipla): Pronto adesso, Entro 6 mesi, Sto solo guardando
-- **Zona preferita** (testo): "Quali zone o quartieri ti interessano?"
-
-## Campi obbligatori e facoltativi
-
-**Campi obbligatori**: l'AI continua a chiedere finché non ottiene una risposta
-- Da usare per le informazioni di qualificazione critiche
-- Essenziali per capire se una persona è adatta
-
-**Campi facoltativi**: l'AI chiede una volta e prosegue se non ottiene risposta
-- Informazioni utili ma non indispensabili
-- Contesto aggiuntivo che aiuta senza essere obbligatorio
-
-## Consultare le informazioni raccolte
-
-Quando i lead iniziano a conversare:
-1. Vai nella sezione **Lead**
-2. Apri un lead per vedere la sua conversazione
-3. Consulta tutte le informazioni raccolte in modo ordinato
-4. Esporta i dati o integrali nel tuo CRM
-
-I campi informativi sono la base per qualificare i lead e capire le loro esigenze tramite conversazioni WhatsApp automatiche.
+| Attività | Campi |
+| --- | --- |
+| **Agenzia di web design** | Tipo di progetto (Scelta multipla), Fascia di budget (Scelta multipla), Tempistica (Testo) |
+| **Consulente aziendale** | Dimensione dell'azienda (Numero), Fatturato annuo (Scelta multipla), Sfida principale (Testo) |
+| **Agente immobiliare** | Fascia di budget (Scelta multipla), Tipo di casa (Scelta multipla), Zona preferita (Testo) |
 
 <Tip>
-    Parti da 3-5 campi essenziali. Potrai sempre aggiungerne altri man mano che affini il processo di qualificazione.
+    Parti con tre-cinque campi. Ognuno è una domanda a cui il lead deve rispondere.
 </Tip>

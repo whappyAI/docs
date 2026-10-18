@@ -1,67 +1,115 @@
 ---
-title: "Reportistica pubblicitaria"
-description: "Dì a Meta quali lead si sono rivelati buoni, così te ne compra altri simili."
+title: "Meta Ads"
+description: "Porta in una campagna i lead dei moduli Facebook Lead Ads e indica a Meta quali si sono rivelati buoni"
 icon: "bullseye-arrow"
 ---
 
-Meta ottimizza la tua spesa pubblicitaria in base a ciò che le indichi come risultato positivo. Se l'unica cosa che le comunichi è "qualcuno ha compilato il modulo", diventerà bravissima a trovare persone che compilano moduli e si fermerà lì.
+Meta Ads lavora in due punti:
 
-La reportistica pubblicitaria rimanda indietro gli esiti successivi — chi ha risposto, chi ha risposto a tutte le domande, chi ha prenotato — così Meta smette di comprarti lead economici e inizia a comprarti lead veri.
+- **Integrazioni → Meta Ads** collega le tue pagine Facebook. Ogni lead che compila uno dei loro moduli Lead Ads entra nella campagna che scegli, e la campagna avvia la conversazione su WhatsApp.
+- **Report annunci**, dentro una campagna, rimanda a Meta gli esiti successivi (chi ha risposto, chi ha risposto a tutte le domande, chi ha prenotato), così Meta ti trova altri lead simili a quelli buoni.
 
-La apri da una campagna: **Campagne → la tua campagna → Reportistica pubblicitaria**.
+Meta Ads è disponibile per ogni tipo di account.
 
-## I cinque stadi
+## Porta i lead di Lead Ads in una campagna
 
-Scegli quali stadi comunicare e come si chiama ciascuno nel tuo account pubblicitario.
+### Collega una pagina Facebook
 
-| Stadio | Significato |
+1. Vai su **Integrazioni**. Meta Ads è nel gruppo **Ottimizzazione annunci**.
+2. Attiva il suo interruttore, poi apri **Integrazioni → Meta Ads**.
+3. In **Pagine connesse**, premi **Aggiungi pagina**. Si apre una finestra di Facebook: accedi e consenti l'accesso alle tue pagine e ai loro lead.
+
+Ogni pagina collegata compare con immagine, nome e ID. **Visualizza pagina** la apre su Facebook.
+
+<Note>
+    Se Whappy dice **Facebook SDK non pronto**, aggiorna la pagina: la finestra di Facebook viene caricata da Facebook stesso e a volte ci mette un momento.
+</Note>
+
+### Scegli una campagna per ogni modulo
+
+Quando una pagina è collegata, compare **Mappatura moduli**.
+
+1. Apri una pagina. Compaiono i suoi moduli Lead Ads.
+2. Accanto a un modulo, scegli una campagna e premi **Salva**. Ogni modulo si salva per conto suo.
+
+Un modulo senza campagna (**Non selezionata**) manda i suoi lead alla campagna predefinita. La scegli nella pagina **Campagne**: apri il menu di una campagna e scegli **Imposta come predefinita**.
+
+### Cosa succede a ogni lead
+
+- Whappy legge le risposte del modulo. I campi nome, email e telefono riempiono nome, email e telefono del lead; ogni altra risposta viene salvata sul lead, dove l'AI può leggerla.
+- Un lead il cui modulo non ha un campo nome si chiama "Unknown Lead".
+- La campagna deve parlare su WhatsApp. Un lead mandato a una campagna che parla solo su Instagram non viene aggiunto.
+- Chi compila di nuovo un modulo è lo stesso lead: i suoi dati vengono aggiornati. Se l'opzione **Riavvia la campagna per un lead che torna** della campagna è attiva e la conversazione era già iniziata, la campagna riparte da capo con lui.
+
+### Scollega una pagina
+
+Premi **Disconnetti** (l'icona del cestino) sulla riga della pagina e conferma. I nuovi lead da quella pagina smettono di arrivare; quelli già importati restano.
+
+## Report annunci
+
+Meta ottimizza la tua spesa pubblicitaria in base a ciò che le indichi come risultato positivo. Se l'unica cosa che sente è "qualcuno ha compilato il modulo", diventa bravissima a trovare persone che compilano moduli.
+
+Report annunci rimanda indietro gli esiti successivi, così Meta impara quali lead valevano la pena.
+
+Riguarda solo i lead dei moduli Meta Lead Ads. I lead di altre fonti, compresi i messaggi Instagram, non vengono mai segnalati.
+
+### Aprilo
+
+Report annunci è una pagina facoltativa. Nella campagna apri **Opzioni**, cerca **Sezioni** e attiva **Report annunci**. La pagina compare nella barra laterale della campagna. Le campagne per i clienti esistenti non hanno questa pagina.
+
+### Le cinque fasi
+
+In **Cosa segnalare, e quando**, attiva **Segnala questa fase** per ogni fase che vuoi segnalare e scrivi il suo **Nome evento Meta**: il nome dell'evento corrispondente nel tuo account pubblicitario.
+
+| Fase | Significato |
 | --- | --- |
 | **Ha compilato il modulo** | Meta lo sa già. |
 | **Ti ha risposto** | Ha scritto almeno una volta. |
-| **Ha risposto a tutte le domande** | Di solito è quello su cui conviene ottimizzare. |
-| **Ha fissato un appuntamento** | C'è una prenotazione nel tuo calendario. |
-| **È diventato cliente** | Comunicato dai tuoi sistemi. |
+| **Ha risposto a tutte le domande** | Ogni domanda obbligatoria della campagna ha una risposta. Di solito quella su cui conviene ottimizzare. |
+| **Ha fissato un appuntamento** | C'è una prenotazione in calendario. |
+| **È diventato cliente** | Segnalato dai tuoi sistemi. |
 
-Ogni stadio ha il proprio nome evento, che deve corrispondere a un evento del tuo account pubblicitario.
+Ogni lead viene segnalato una volta per fase, e solo quando va avanti. Se un lead avanza di due fasi tra un controllo e l'altro, si segnala solo la più avanzata.
 
 <Note>
-    **Ha risposto a tutte le domande** è lo stadio su cui la maggior parte delle aziende dovrebbe ottimizzare. È abbastanza avanti nel funnel da significare qualcosa e, a differenza di *è diventato cliente*, accade abbastanza spesso e abbastanza presto perché l'algoritmo di Meta possa impararci sopra.
+    **Ha risposto a tutte le domande** è la fase su cui la maggior parte delle attività dovrebbe ottimizzare. È abbastanza avanti nel funnel da significare qualcosa e, a differenza di **È diventato cliente**, succede abbastanza spesso e abbastanza presto perché Meta possa impararci.
 </Note>
 
-## Collegare l'account pubblicitario
+### Il tuo account pubblicitario
+
+- **ID dataset**: da Gestione eventi di Meta.
+- **Token di accesso**: incollalo. Viene conservato in sicurezza e non viene più mostrato. Più avanti lascia il campo vuoto per mantenere il token salvato, o scrivine uno nuovo per sostituirlo.
+
+### Modalità prova e attivazione
 
 <Steps>
-    <Step title="Dataset ID">
-        Lo trovi in **Gestione eventi** di Meta.
+    <Step title="Abbina le fasi">
+        Attiva le fasi che ti interessano e dai a ciascuna il suo nome evento.
     </Step>
-    <Step title="Token di accesso">
-        Incollalo. Viene conservato in modo sicuro e non è più mostrato: lascia il campo vuoto per mantenere quello salvato, o scrivine uno nuovo per sostituirlo.
+    <Step title="Lascia attiva la Modalità prova">
+        La **Modalità prova** è attiva in partenza. Whappy registra cosa invierebbe, senza inviarlo.
     </Step>
-    <Step title="Scegli gli stadi">
-        Attiva gli stadi da comunicare e dai a ciascuno il nome evento.
+    <Step title="Attiva i report">
+        Attiva **Attiva i report** e premi **Salva**. Finché non è attivo non succede nulla, nemmeno in modalità prova.
     </Step>
-    <Step title="Verifica prima in modalità prova">
-        Vedi sotto.
+    <Step title="Controlla Report recenti">
+        Whappy controlla i lead della campagna ogni ora. **Report recenti** elenca ogni fase raggiunta da un lead; le voci registrate in modalità prova sono segnate **prova**.
     </Step>
-    <Step title="Attiva la reportistica">
-        Finché non è attiva non viene inviato assolutamente nulla.
+    <Step title="Disattiva la Modalità prova">
+        Quando l'elenco ti convince, disattiva la **Modalità prova** e premi **Salva**.
     </Step>
 </Steps>
 
-## Modalità prova
-
-**Lascia attiva la modalità prova finché l'elenco non ti sembra corretto.**
-
-In modalità prova Whappy registra esattamente ciò che *avrebbe* inviato, senza inviarlo. L'elenco **Invii recenti** si riempie man mano che le conversazioni si concludono, e ogni voce è contrassegnata come prova.
-
-Esiste perché una configurazione sbagliata qui è costosa e silenziosa. Gli eventi inviati al tuo account pubblicitario insegnano a Meta cosa comprare, e nulla nella dashboard ti dirà che ha imparato la lezione sbagliata: riceverai semplicemente lead peggiori, qualche settimana dopo, per motivi che sembreranno sfortuna.
-
-Verifica che gli stadi che scattano siano quelli che ti aspetti e che i nomi evento corrispondano al tuo account pubblicitario, prima di disattivare la modalità prova.
+Whappy non permette di disattivare la modalità prova finché nessuna fase è abbinata. Se qualcosa impedisce l'invio degli eventi reali, la pagina dice cosa: nessuna fase abbinata a un evento Meta, nessun ID dataset o nessun token di accesso.
 
 <Warning>
-    Una volta disattivata la modalità prova, gli eventi vanno davvero al tuo account pubblicitario e non possono essere ritirati.
+    Una volta disattivata la modalità prova, gli eventi arrivano davvero al tuo account pubblicitario e non si possono ritirare. Una configurazione sbagliata insegna a Meta a trovare lead peggiori, e in Whappy non sembrerà rotto nulla: i lead peggiori arrivano qualche settimana dopo.
 </Warning>
 
-## Invii recenti
+## Risoluzione dei problemi
 
-Il registro mostra ciò che è stato inviato, o in modalità prova ciò che sarebbe stato inviato. Usalo per confermare che gli eventi scattino quando te lo aspetti: se i lead completano il funnel e qui non compare nulla, probabilmente lo stadio è disattivato oppure la reportistica non è accesa.
+**I lead di Lead Ads non arrivano.** Controlla che la pagina sia in **Pagine connesse** e che la campagna del modulo parli su WhatsApp.
+
+**Report recenti resta vuoto.** Controlla che **Attiva i report** sia attivo, che almeno una fase sia attiva con un nome evento e che la campagna abbia lead dai moduli Lead Ads.
+
+Serve aiuto? Consulta le [FAQ](/it/support/faq) o [contatta l'assistenza](/it/support/contact-support).

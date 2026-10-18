@@ -1,0 +1,89 @@
+---
+title: "Analisi"
+description: "Dove perdi le persone e quando rispondono: ogni blocco della pagina Analisi e come leggerlo."
+icon: "chart-simple"
+---
+
+La pagina Analisi risponde a due domande: dove perdi le persone e quando rispondono. Legge tutte le tue campagne, a meno che tu non restringa il campo, e conta solo i lead reali. I lead di prova e le chat di prova non compaiono mai qui.
+
+Quando nel periodo scelto non è arrivato nessun lead, la pagina dice **Ancora nessun dato**. Se i tuoi lead sono più vecchi degli ultimi 30 giorni, allarga il periodo.
+
+## Filtri
+
+I filtri stanno sulla riga del titolo e valgono per tutti i blocchi sotto.
+
+- **Periodo**: **7 giorni**, **30 giorni** o **90 giorni**, contati all'indietro da oggi. La pagina si apre su 30 giorni. **Personalizzato** mostra due selettori di data per scegliere inizio e fine; la fine non può precedere l'inizio.
+- **Campagna**: una campagna, oppure **Tutte le campagne**.
+- **Canale**: **Tutti**, **WhatsApp** o **Instagram**. Questi pulsanti compaiono solo su un account che usa entrambi i canali.
+
+Un lead appartiene al periodo se è arrivato in quel periodo; una chat se si è aperta in quel periodo. Entrambi gli estremi sono inclusi.
+
+## Funnel
+
+Cinque righe, dall'alto in basso, ognuna con una barra, un conteggio e una percentuale.
+
+| Riga | Cosa conta |
+| --- | --- |
+| **Lead in entrata** | I lead arrivati nel periodo. |
+| **Chat iniziate** | Le chat con almeno un messaggio. |
+| **Hanno risposto** | Le chat in cui il lead ti ha risposto (vedi [come si conta "hanno risposto"](#come-si-conta-hanno-risposto)). |
+| **Qualificati** | Le chat arrivate alla fine del funnel. |
+| **Appuntamenti** | Gli appuntamenti fissati nel periodo. |
+
+La barra è in proporzione ai **Lead in entrata**, così vedi a colpo d'occhio quanto del punto di partenza arriva a ogni riga. Il conteggio mostra **—** quando è zero. La percentuale a destra è la riga come quota della riga sopra: Chat iniziate come quota dei Lead in entrata, Hanno risposto come quota delle Chat iniziate, e così via. È vuota sulla prima riga e quando la riga sopra è vuota.
+
+La riga Appuntamenti arriva da una lettura separata e viene omessa, invece di mostrare zero, finché quella lettura non riesce.
+
+### La riga dei fatti
+
+Sotto le righe, una riga di fatti separati da punti:
+
+- **X% dei lead qualificati**: la quota delle chat concluse che si sono concluse qualificate. "Concluse" vuol dire qualificate, rimaste in silenzio o finite in errore. Una chat ancora in corso non conta in nessun senso.
+- **X h per qualificare in media**: dall'apertura della chat alla qualificazione, in media sulle chat qualificate. Compare solo se almeno una chat si è qualificata.
+- **X messaggi per chat, Y% scritti dall'AI**: la lunghezza media delle tue chat e quanta parte di tutti i messaggi l'ha scritta l'assistente invece di te o del lead. Compare solo se almeno una chat è iniziata.
+- **N chat finite in errore**: compare se ce n'è almeno una.
+- **N rimaste in silenzio**: chat in attesa della risposta del lead il cui ultimo messaggio ha più di tre giorni. Compare se ce n'è almeno una.
+
+### Come si conta "hanno risposto"
+
+Una chat conta come "ha risposto" quando il lead ha scritto dopo il tuo primo messaggio. Una chat aperta dal lead a cui nessuno ha ancora risposto resta fuori dal calcolo del tutto, su ogni canale.
+
+La nota sotto il funnel riporta la data da cui vale questa regola. Ogni tasso di risposta della pagina, storico compreso, è stato ricalcolato con questa regola: un gradino in un grafico in quella data è la regola che cambia, non i tuoi lead.
+
+## Nel tempo
+
+Tre linee sul periodo, un punto per giorno:
+
+- **Lead in entrata**: nel giorno in cui il lead è arrivato.
+- **Chat iniziate**: nel giorno in cui la chat si è aperta.
+- **Qualificati**: nel giorno in cui la chat si è qualificata, che può essere giorni dopo l'apertura.
+
+Un giorno senza niente su nessuna linea vale zero. Quando il periodo è vuoto, il blocco dice **Ancora niente in questo periodo.**
+
+## Per campagna
+
+Le tue campagne una accanto all'altra, prima quella con più lead. Ogni riga mostra le icone dei canali della campagna, il nome, **Lead**, **Chat**, **Hanno risposto** (come quota delle sue chat) e **Qualificati** (le sue chat concluse che si sono concluse qualificate, come sopra). Una riga apre la campagna.
+
+Il blocco segue il periodo e il filtro canale, mai il filtro campagna: sparisce quando la pagina è filtrata su una campagna, e non compare su un account con una sola campagna, dove non c'è niente da confrontare.
+
+## Per canale
+
+WhatsApp accanto a Instagram: **Chat**, **Hanno risposto** (una barra corta e il tasso) e **Appuntamenti** per ciascuno. Il blocco compare solo su un account che usa entrambi i canali.
+
+Segue tutti i filtri, compreso quello del canale: con **WhatsApp** o **Instagram** premuto mostra quella sola riga. Gli appuntamenti vanno al canale da cui è arrivato il lead. Le chat precedenti all'introduzione dei canali contano come WhatsApp.
+
+## Quando rispondono
+
+Una griglia con i sette giorni della settimana per le 24 ore del giorno. Ogni cella è il tasso di risposta delle chat aperte in quel giorno a quell'ora: più il colore è intenso, più grande è la quota di quei lead che ha risposto. Una cella grigia non ha avuto chat.
+
+Sotto la griglia, **Momento migliore** indica il giorno della settimana e la finestra di tre ore in cui le persone rispondono di più. Un'ora con meno di tre chat vale zero in questo calcolo, così un'ora fortunata non batte tre ore buone. Se nessuna ora arriva a tre chat, la riga viene omessa.
+
+<Note>
+    Le ore di questa griglia sono in UTC, non nel tuo fuso orario.
+</Note>
+
+## Template
+
+Una riga per ogni template WhatsApp che ha aperto una chat nel periodo: **Inviati** (le chat aperte con quel template), **Hanno risposto** (come quota di quelle chat) e **Qualificati** (come quota di quelle chat), prima il template che qualifica di più.
+
+I template sono di WhatsApp, quindi il blocco non compare su un account solo Instagram, né quando il filtro canale è su **Instagram**. Su un account con entrambi i canali si intitola **Template WhatsApp**.

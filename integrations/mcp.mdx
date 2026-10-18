@@ -6,7 +6,7 @@ icon: "sparkles"
 
 Whappy can be attached to Claude, or to any other client that speaks the Model Context Protocol, as a **custom connector**. Once connected, you describe what you want in the chat and it builds the campaign in your Whappy account: "build me a WhatsApp agent for example.com" is enough to get a funnel, the questions it asks, and its knowledge of your business.
 
-The connection is yours to grant and yours to withdraw. You decide what it may do before it does anything, and everything it does happens inside your account under your name.
+The connection is yours to grant and yours to withdraw. Nothing happens until you allow it, and everything it does happens inside your account under your name.
 
 ## Connecting
 
@@ -24,7 +24,7 @@ The connection is yours to grant and yours to withdraw. You decide what it may d
     The client opens a Whappy page in your browser. Sign in with the account you want the client to work in, or create one.
   </Step>
   <Step title="Choose what it may do">
-    You will see who is asking and a choice of what to allow: **Read only**, **Draft** or **Build**. Pick one and allow, or deny.
+    You will see who is asking and a choice of what to allow: **Read only**, **Draft** or **Build**. Pick one and click **Allow**, or **Deny**.
   </Step>
   <Step title="Start building">
     Back in the client, say what you want. A good first message is a website address and who you want to reach.
@@ -33,45 +33,40 @@ The connection is yours to grant and yours to withdraw. You decide what it may d
 
 ## What you can allow
 
-A connection can be given any of the first three levels from [Permissions](/autopilot/trust-levels):
+The consent page shows which client is asking, the account you are signed in with, and where you will be sent back. It asks **What may this connection do?** and offers **Read only**, **Draft** or **Build**, and says that a connection never starts campaigns, messages people or changes billing. Click **Allow** or **Deny**.
 
-| Level | The connection can |
-| --- | --- |
-| **Read only** | Look at your campaigns, leads and results, and answer questions about them. |
-| **Draft** | Also write things no customer will ever see: draft campaigns, context documents, the questions you collect. |
-| **Build** | Also build a complete campaign and connect your accounts. |
+Today the level you pick does not change what the connection can do: every connection gets the same tools, listed below. **Launch** and **Operate** are never offered to a connection.
 
-**Launch** and **Operate** are never available to a connection, whatever your account level is. Starting a campaign means real people receive real messages, so it stays a decision you make in the dashboard.
-
-Two things are worth knowing before you click Allow:
-
-<Note>
-  Allowing at a level also raises your **account** level to match, if it was lower. It never lowers it. So allowing a connection at **Build** leaves your account at **Build** afterwards — you can change it back under **Account → AI assistant**.
-</Note>
-
-The level in force is always the lower of the two: what you allowed for this connection, and what your account permits. Tightening your account level tightens every connection with it, immediately.
+The consent page is valid for 10 minutes. If it says the request has expired, start again from your client.
 
 ## What a connected client can and cannot do
 
-It can research a business from a website or a description, build the campaign and its funnel, write the knowledge and the questions, rehearse the conversation against a synthetic lead, and tell you what is still missing before launch.
+A connected client can:
+
+- Build a campaign from a website or a description of the business, and create, rename, duplicate or delete campaigns.
+- Read, generate and edit the funnel.
+- Write the campaign's knowledge and the questions it collects.
+- Draft WhatsApp templates, translate them, submit them to Meta, and send a test template to a phone number.
+- Choose which campaign answers a WhatsApp number's incoming messages.
+- Change a campaign's working hours, time zone and start delay.
+- Rehearse a campaign against invented customers.
+- Read your leads, conversations, results and Coach reports, your calendar settings and your plan.
 
 Some things stay out of its reach by design:
 
-- **Starting a campaign** — done by you, in the dashboard.
-- **Billing, subscriptions and account changes** — never available to a connection.
-- **Connecting a WhatsApp number** — Meta's sign-up runs in a browser, so the client hands you a link and you finish it there.
+- **Starting or stopping a campaign.** You do that in the dashboard.
+- **Messaging your leads** and **adding leads.**
+- **Billing, subscriptions and account changes.**
+- **Connecting WhatsApp or Instagram.** Meta's sign-up runs in a browser, so the client gives you a link and you finish it there.
 
-A connected client also sees a smaller set of capabilities than the assistant inside the Whappy dashboard. The in-app assistant works within your account's own permissions; a connection works within what you granted it.
+When a client asks for something outside this list, Whappy refuses and says it happens in the dashboard. The assistant inside the Whappy dashboard can do more than a connection.
 
 ## Limits
 
 These bound what can happen while you are not watching. They are per account, not per connection.
 
-- **30 AI generation requests per hour.** Building campaigns, writing knowledge and generating questions all count, at every level including **Read only**.
-- **Campaign activations and unattended changes per week**, as described in [Permissions](/autopilot/trust-levels).
+- **30 AI generation requests per hour.** Building campaigns, generating funnels and rehearsals count. The in-app assistant and every connection share the same limit. When it is reached, wait for the hour to roll over and try again.
 - **20 new client registrations per hour** from one network address. You will not meet this one unless something is misbehaving.
-
-If a request is refused, the message tells you which of the two limits stopped it: reconnect at a higher level, or change your account permissions in the dashboard.
 
 ## Staying connected
 

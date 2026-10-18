@@ -1,231 +1,183 @@
 ---
 title: "Webhook"
-description: "Add leads to your Whappy campaign automatically using webhooks"
+description: "Add leads to a Whappy campaign from your own systems with one HTTP request"
 icon: "webhook"
 ---
 
-Webhooks provide an automated way to add leads to your Whappy campaigns. Instead of manually importing leads or using other integrations, you can send lead data directly to Whappy via HTTP POST requests.
+The webhook adds leads from your own systems: a form on your website, your CRM, an app you built. You send one HTTP request per lead, the lead enters a campaign, and the campaign starts the WhatsApp conversation.
 
-## When to Use Webhooks
+Every account type can use the webhook.
 
-Webhooks are perfect for:
-- **Website Forms**: Automatically add leads when someone fills out a contact form
-- **Custom Applications**: Integrate with your existing software systems
-- **Third-party Tools**: Connect services that aren't directly supported
-- **Real-time Lead Import**: Add leads immediately as they're generated
+## Open the webhook page
 
-## Setting Up Your Webhook
+1. Go to **Integrations**. The webhook is in the **Automations** group.
+2. Turn on its switch. The webhook gets an entry in the sidebar and its card opens its page.
+3. Open **Integrations → Webhook**.
 
-### 1. Get Your API Key
-
-Navigate to **Integrations → Webhook** in your Whappy dashboard to find your unique API key. This key authenticates your requests and ensures leads are added to your account.
+The **Connection** section shows the **Endpoint** and your **API key**. The eye button shows the key, the copy button copies it.
 
 <Warning>
-    Keep your API key secure and never share it publicly. Anyone with this key can add leads to your account.
+    Anyone with your API key can add leads to your account. Keep it on your server, never in a web page's code.
 </Warning>
 
-### 2. API Endpoint
+## Send a lead
 
-Send POST requests to:
 ```
 POST https://api.whappy.ai/v1/lead
 ```
 
-### 3. Required Headers
+### Headers
 
-Include these headers in your requests:
 ```
 Content-Type: application/json
-X-API-Key: your-api-key-here
+X-API-Key: YOUR_API_KEY
 ```
 
-## Request Format
+### Body
 
-### Required Fields
-- **name**: Lead's full name
-- **phone**: Lead's phone number (including country code)
-
-### Optional Fields
-- **email**: Lead's email address
-- **company**: Lead's company name
-- **source**: Where the lead came from (e.g., "Website", "Facebook")
-- **custom_fields**: Additional data as key-value pairs
-
-### Example Request Body
 ```json
 {
-  "name": "John Doe",
-  "phone": "+1234567890",
-  "email": "john@example.com",
-  "company": "Acme Inc.",
-  "source": "Website",
-  "custom_fields": {
-    "budget": "10000",
-    "interest": "Product A"
-  }
+  "name": "Mario Rossi",
+  "phone": "+393331234567",
+  "email": "mario@example.com",
+  "campaign": "Spring promo",
+  "tags": ["website"],
+  "budget": "5000"
 }
 ```
 
-## Code Examples
+| Field | What it does |
+| --- | --- |
+| `name` | The lead's name. |
+| `phone` | The WhatsApp number. Write it with its international prefix (`+39…`), or set a default country (see below). |
+| `email` | Optional. |
+| `campaign` or `campaign_id` | Optional. The campaign's name, or its id. Leave both out to use your default campaign. |
+| `tags` | Optional. A list, or text separated by commas. The tags are saved on the lead. |
+| `language` | Optional. The lead's language, as a code (`es`, `es-ES`) or an English name (`Spanish`). Used when **Form or page language** is on under **Language of new leads** (in **Profile**). An unknown value is ignored. |
+| any other field | Saved on the lead, like `budget` above. The AI reads it, and WhatsApp templates can use it as `{{budget}}`. |
+
+`name` and `phone` are what a conversation needs. Fields inside a `lead_data` object are read as if they were at the top level.
+
+### Which campaign gets the lead
+
+1. `campaign_id`, when you send it.
+2. Otherwise the campaign whose name matches `campaign`.
+3. Otherwise your default campaign. You choose it on the **Campaigns** page: open a campaign's menu and pick **Set as default**.
+
+The campaign must talk on WhatsApp. A campaign that talks only on Instagram cannot take a lead by phone number, and the request is refused (see [Errors](#errors)).
+
+### Phone numbers without a prefix
+
+Open **Profile** and find **Lead phone numbers**. With a **Default country** set, a number that arrives without a prefix gets that country's code. A number Whappy cannot read as a phone number is refused.
+
+## Code examples
 
 <Tabs>
     <Tab title="cURL">
         ```bash
         curl -X POST https://api.whappy.ai/v1/lead \
-        -H "Content-Type: application/json" \
-        -H "X-API-Key: your-api-key-here" \
-        -d '{
-        "name": "John Doe",
-        "phone": "+1234567890",
-        "email": "john@example.com",
-        "company": "Acme Inc.",
-        "source": "Website"
-    }'
+          -H "Content-Type: application/json" \
+          -H "X-API-Key: YOUR_API_KEY" \
+          -d '{
+            "name": "Mario Rossi",
+            "phone": "+393331234567",
+            "email": "mario@example.com",
+            "campaign": "Spring promo",
+            "tags": ["website"],
+            "budget": "5000"
+          }'
         ```
     </Tab>
 
     <Tab title="JavaScript">
         ```javascript
-        fetch('https://api.whappy.ai/v1/lead', {
-        method: 'POST',
-        headers: {
-        'Content-Type': 'application/json',
-        'X-API-Key': 'your-api-key-here'
-    },
-        body: JSON.stringify({
-        name: 'John Doe',
-        phone: '+1234567890',
-        email: 'john@example.com',
-        company: 'Acme Inc.',
-        source: 'Website'
-    })
-    })
-        .then(response => response.json())
-        .then(data => console.log(data))
-        .catch(error => console.error('Error:', error));
+        const response = await fetch("https://api.whappy.ai/v1/lead", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "X-API-Key": "YOUR_API_KEY",
+          },
+          body: JSON.stringify({
+            name: "Mario Rossi",
+            phone: "+393331234567",
+            email: "mario@example.com",
+            campaign: "Spring promo",
+            tags: ["website"],
+            budget: "5000",
+          }),
+        });
+        console.log(await response.json());
         ```
     </Tab>
 
     <Tab title="Python">
         ```python
         import requests
-        import json
 
-        url = "https://api.whappy.ai/v1/lead"
-        headers = {
-        "Content-Type": "application/json",
-        "X-API-Key": "your-api-key-here"
-    }
-        payload = {
-        "name": "John Doe",
-        "phone": "+1234567890",
-        "email": "john@example.com",
-        "company": "Acme Inc.",
-        "source": "Website"
-    }
-
-        response = requests.post(url, headers=headers, data=json.dumps(payload))
+        response = requests.post(
+            "https://api.whappy.ai/v1/lead",
+            headers={"X-API-Key": "YOUR_API_KEY"},
+            json={
+                "name": "Mario Rossi",
+                "phone": "+393331234567",
+                "email": "mario@example.com",
+                "campaign": "Spring promo",
+                "tags": ["website"],
+                "budget": "5000",
+            },
+        )
         print(response.json())
         ```
     </Tab>
 </Tabs>
 
-## Response Format
+## Response
 
-### Successful Response
+A `200` answer means the lead is in. `data` is the lead as Whappy saved it (shortened here):
+
 ```json
 {
   "status": "success",
+  "message": "Lead created successfully",
   "data": {
-    "id": "lead_12345",
-    "name": "John Doe",
-    "phone": "+1234567890",
-    "created_at": "2025-01-15T10:30:00Z"
+    "name": "Mario Rossi",
+    "phone": "+393331234567",
+    "email": "mario@example.com",
+    "tags": ["website"],
+    "lead_info": {"budget": "5000"}
   }
 }
 ```
 
-### Error Response
-```json
-{
-  "status": "error",
-  "message": "Invalid phone number format"
-}
-```
+The same person sent again to the same campaign (same phone) is not duplicated: the lead's details are updated, and the answer is still `200`. `message` says what happened:
 
-## Using Custom Fields
+| `message` | Meaning |
+| --- | --- |
+| `Lead created successfully` | A new lead. |
+| `Lead already exists; details merged` | The lead was already there; its details were updated. |
+| `Lead already exists; details merged and campaign restart requested` | As above, and the campaign starts over with this lead. This happens only when the campaign's **Restart the campaign for a lead that comes back** option is on and the conversation had already started. |
 
-Custom fields you include in your webhook payload can be used as variables in your WhatsApp message templates. For example:
+## Errors
 
-If you send:
-```json
-{
-  "name": "John Doe",
-  "phone": "+1234567890",
-  "custom_fields": {
-    "budget": "50000",
-    "timeline": "3 months"
-  }
-}
-```
+| Status | Body | Cause |
+| --- | --- | --- |
+| `401` | `{"status": "error", "message": "Invalid API key"}` | The `X-API-Key` header holds a key Whappy does not know. |
+| `401` | `{"status": "error", "message": "Authentication required. Provide a valid API key (X-API-Key header) or Bearer token."}` | No `X-API-Key` header. |
+| `400` | `{"detail": "Phone number '…' is not a valid number…"}` | The phone cannot be read as a number. Add the international prefix, or set a default country. |
+| `409` | `{"detail": {"code": "campaign_not_on_whatsapp", "message": "…"}}` | The campaign does not talk on WhatsApp. Turn on WhatsApp in the campaign's options, or send the lead to another campaign. |
+| `422` | `{"detail": [...]}` | The body is not a JSON object. |
+| `500` | `{"detail": "…"}` | Whappy could not save the lead. Try again. |
 
-You can use `{{budget}}` and `{{timeline}}` in your WhatsApp templates:
-```
-Hi {{name}}, I see you're looking for a solution with a {{budget}} budget and {{timeline}} timeline. Let's discuss!
-```
+## Test it
 
-## Testing Your Webhook
-
-1. **Use the API Key from your dashboard**
-2. **Test with a simple cURL request** to verify connectivity
-3. **Check the Leads section** to confirm the lead was added
-4. **Verify your campaign processes the lead** correctly
-
-<Tip>
-    Start with a simple test request using just the required fields (name and phone) before adding custom fields.
-</Tip>
-
-## Common Use Cases
-
-### Website Contact Forms
-Add this JavaScript to your website forms:
-```javascript
-// After form submission
-const formData = {
-  name: document.getElementById('name').value,
-  phone: document.getElementById('phone').value,
-  email: document.getElementById('email').value,
-  source: 'Website Contact Form'
-};
-
-// Send to Whappy
-fetch('https://api.whappy.ai/v1/lead', {
-  method: 'POST',
-  headers: {
-    'Content-Type': 'application/json',
-    'X-API-Key': 'your-api-key-here'
-  },
-  body: JSON.stringify(formData)
-});
-```
-## Security Best Practices
-
-- **Use HTTPS only** for all webhook requests
-- **Store API keys securely** (environment variables, not in code)
-- **Validate data** before sending to prevent errors
-- **Handle errors gracefully** in your application
-- **Monitor webhook usage** to detect unusual activity
+1. Send one request with just `name` and your own `phone`.
+2. Check the answer is `200`.
+3. Open the campaign's **Leads** tab and find the new lead.
 
 ## Troubleshooting
 
-**Lead not appearing?**
-- Check your API key is correct
-- Verify the phone number format includes country code
-- Ensure your campaign is running
+**The lead went to the wrong campaign.** The `campaign` value has to be the campaign's name, spelled the same (capitals do not matter). When no campaign matches, the lead goes to your default campaign.
 
-**Getting errors?**
-- Confirm all required fields are included
-- Check the request format matches the examples
-- Verify your API key has the correct permissions
+**The lead is in, but no message arrives.** The campaign has to be running, and your account needs a connected WhatsApp number. See [WhatsApp](/integrations/whatsapp).
 
-Need help? Check our [FAQ](/support/faq) or [contact support](/support/contact-support).
+Need help? See the [FAQ](/support/faq) or [contact support](/support/contact-support).

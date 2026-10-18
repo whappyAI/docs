@@ -1,57 +1,64 @@
 ---
 title: "Autopilot"
-description: "The work Whappy does on your campaigns without being asked, and how much of it you allow."
+description: "The work Whappy does on your campaigns rather than on your leads: Coach, Rehearsal and the limits on the assistant."
 icon: "wand-magic-sparkles"
 ---
 
-Autopilot is the part of Whappy that works on your campaigns rather than on your leads. It can build a campaign, rehearse it against invented customers, watch how real conversations go, propose improvements, and — if you let it — apply them.
+Autopilot is the part of Whappy that works on your campaigns rather than on your leads. It rehearses a campaign against invented customers, grades the conversations that have finished, and proposes changes. If you let it, it also tests rewordings by itself.
 
 <Note>
-    **Two different things are called "AI" in Whappy, and they do different jobs.**
+    **Three different things in Whappy use AI, and they do different jobs.**
 
-    Your **AI assistant** talks to leads on WhatsApp. It follows the funnel you built, asks your questions, and books appointments. Everything under [Campaign](/campaign/context) configures it.
+    The **AI that talks to your leads** follows the funnel you built, asks your questions and books appointments. Everything under [Campaign](/campaign/context) configures it.
 
-    **Autopilot** works on the campaign itself — building it, testing it, and improving it. It never talks to a lead. Everything on this tab configures Autopilot.
+    The **Assistant** is the chat panel in the dashboard. It answers your questions and makes changes for you when you ask. See [Assistant limits](/autopilot/trust-levels).
+
+    **Coach** and **Rehearsal** work on a campaign itself. They never talk to a real lead.
 </Note>
 
 ## What Autopilot is made of
 
 <CardGroup cols={2}>
-    <Card title="Permissions" icon="shield-halved" href="/autopilot/trust-levels">
-        Five levels controlling what Autopilot may do on your behalf, from read-only to running live campaigns.
-    </Card>
     <Card title="Coach" icon="chart-line-up" href="/autopilot/coach">
         Grades finished conversations, spots repeated weaknesses, and proposes fixes backed by quotes from your own leads.
     </Card>
     <Card title="Rehearsal" icon="masks-theater" href="/autopilot/rehearsal">
         Runs six invented customers through your funnel before real ones arrive. Nothing is sent to anybody.
     </Card>
+    <Card title="Assistant limits" icon="shield-halved" href="/autopilot/trust-levels">
+        What the Assistant may do on its own, the limits that still apply, and the record of what it changed.
+    </Card>
     <Card title="Weekly briefing" icon="newspaper" href="/autopilot/briefing">
-        The two or three things from the past week you would not have known to look for.
+        Not shown in the dashboard at the moment.
     </Card>
 </CardGroup>
 
-## Nothing is on by default
+## Switch the pages on per campaign
 
-A brand-new account starts with Autopilot at its lowest setting:
+Coach and Rehearsal are optional pages. A campaign shows neither until you switch it on:
 
-- Permissions are set to **Read only**. Autopilot can answer questions about your campaigns and change nothing.
-- Coach is **Off** on every campaign. Conversations are still graded — that costs you nothing and builds up evidence — but no proposals are made.
-- Rehearsal only runs when you press **Rehearse**.
+<Steps>
+    <Step title="Open the campaign's Options">
+        **Campaigns → your campaign → Options**.
+    </Step>
+    <Step title="Find Sections">
+        **Sections** lists the extra pages for this campaign's sidebar.
+    </Step>
+    <Step title="Switch on Coach, Rehearsal, or both">
+        The change applies straight away. The page appears in the campaign's sidebar.
+    </Step>
+</Steps>
 
-You raise each of these when you are ready, one at a time.
+A campaign that talks to your existing customers (a [client campaign](/campaign/client-campaigns)) does not offer Coach or Rehearsal.
 
-## Permission is not the same as readiness
+## Nothing changes by default
 
-The two highest permission levels need more than your consent. You can grant **Launch**, but Autopilot stays at **Build** until your account has also demonstrated it is ready — three campaigns launched by hand without problems, and a rehearsal that passed.
+- Coach starts **Off** on every campaign. It still grades finished conversations, so when you switch it on it starts with what it already knows. It proposes nothing while it is off.
+- Rehearsal runs only when you press **Rehearse**.
+- Coach changes your wording by itself only if you set its mode to **Apply automatically**. Only you can choose that mode; the Assistant cannot choose it for you.
 
-This is deliberate. It means nobody reaches "the system messages real customers unattended" by clicking through a dialog on their first day. See [Permissions](/autopilot/trust-levels) for exactly what is required.
+## How the pieces fit together
 
-## How the pieces feed each other
-
-Autopilot's parts are connected, and the connections are worth knowing:
-
-- A **passing rehearsal** is one of the two things that unlocks the **Launch** permission level.
-- **Coach** can only apply changes by itself when permissions are at **Operate** — the highest level.
-- The **weekly briefing** reports what Autopilot did, including changes Coach kept and changes it reverted.
-- If a watchdog notices something wrong — your WhatsApp sender quality falling, for instance — Autopilot is **paused automatically** back down to Build until you clear it.
+- Use **Rehearsal** before real leads arrive. Its list of the questions personas struggled with is the same signal Coach uses on real conversations.
+- Use **Coach** once real conversations have finished. It tests a rewording against your original and keeps the better one.
+- In **Apply automatically**, Coach only starts tests of rewordings by itself. Everything else waits for you. See [Coach](/autopilot/coach#the-three-modes).

@@ -1,62 +1,58 @@
 ---
 title: "Agency accounts"
-description: "White-labelling the dashboard for clients you onboard through the GoHighLevel Marketplace."
+description: "Run Whappy for the clients you bring in through the GoHighLevel Marketplace, from one Agency page."
 icon: "buildings"
 ---
 
-If you install Whappy on a client's sub-account through the GoHighLevel Marketplace, their dashboard can carry your name instead of ours and ours instead of the CRM vendor's.
+An agency account runs Whappy for its clients from one place: the **Agency** page in the sidebar. Each client is a GoHighLevel sub-account with the Whappy app installed, and gets its own Whappy account.
 
-## What white-label changes
+## Creating your agency
 
-When white-label is on:
+Installing the app as an agency from the GoHighLevel Marketplace creates the agency for you (see [GoHighLevel](/integrations/gohighlevel)). You can also open **Agency** and fill in **Create your agency**: an **Agency name** and a **Billing currency**. The currency cannot be changed later.
 
-- The dashboard shows **your product name** and **your logo**.
-- Support links point at **your support address**, not ours.
-- The CRM is referred to as **"CRM"** everywhere instead of by the vendor's name — in labels, help text and the URLs your client can see. The callback your client lands on is `/integrations/crm/callback`.
+A Shopify store's account cannot run an agency.
 
-Everything else works identically. White-label changes what your client reads, not what the platform does.
+## Clients
 
-## When it switches on
+Your clients are your GoHighLevel sub-accounts that carry the app. Each one appears under **Clients** on its own once the app is on it; there is no button to add a client by hand. Plans and invoices are set in GoHighLevel's Marketplace.
 
-White-label has three states, and the difference between the middle one and the others matters:
+Above the list, Whappy tells you when:
 
-| Setting | Behaviour |
+- sub-accounts in GoHighLevel have no app yet. Install it where Whappy should run, and they appear here.
+- a sub-account has the app but is not set up yet. Try again in a few minutes.
+- clients have nothing running yet (**Nothing running** on their row). Use the row menu to copy a campaign.
+
+The list shows each client's **Plan**, **Status** (**Active** or **Suspended**), **Access** (**Client signs in** or **Agency only**) and **Billing** (**On invoice** or **Not billed yet**).
+
+### Working inside a client
+
+Click **Enter** on a client's row. The dashboard switches to that client's account and a banner shows **Managing:** and the client's name. Click **Back to agency** to leave.
+
+Inside a client, **Integrations** offers WhatsApp, Instagram, the CRM, Meta Ads, Webhook and Make. Calendars, Zapier and Shopify are not offered: the client's calendars and automations come from GoHighLevel.
+
+### Row actions
+
+Owners and admins also have a menu on each row:
+
+| Action | What it does |
 | --- | --- |
-| **On** | Vendor names hidden, always. |
-| **Off** | Vendor names shown, always. |
-| **Inherit** | Decided by how the account arrived. |
+| **Give the client access** | Creates a sign-in for the client into the account your team works in. Enter the client's email: it must not already have a Whappy account. Copy the **Access link** and send it; the client sets a password with it. The link is shown once and expires. |
+| **Send a new access link** | A fresh link for a client who already has access. |
+| **Remove the client's access** | The client can no longer sign in. Your team still can. |
+| **Copy a campaign here** | Brings a campaign from another client into this one as a draft. It arrives stopped, without calendar, media or opening line. |
+| **Suspend** / **Resume** | A suspended client cannot be entered and its own sign-in is closed. Its data is kept. Resuming does not reopen the client's sign-in: give access again. |
+| **Delete** | Deletes the account and everything in it: campaigns, conversations, leads, integrations. This cannot be undone. |
 
-**Inherit is the default**, and under it a tenant who arrived through a **Marketplace install** is white-labelled automatically. An account that connected any other way is not.
+## Team
 
-This means the common case needs no configuration: install through the Marketplace and your client's dashboard is already white-labelled. Set it explicitly only when you want to override that.
+The **Team** tab lists who works in the agency, as **Owner**, **Admin** or **Member**. Every member can see the clients and enter them. Owners and admins also manage clients, billing and the team.
 
-<Note>
-    Turning it explicitly **off** is not the same as leaving it on **inherit**. Off means "show vendor names even though this was a Marketplace install".
-</Note>
+To add someone, enter the email of their Whappy account, pick a **Role** and click **Add**. A removed member loses access to every client account.
 
-## What you can set
+## The CRM's name in client accounts
 
-| Field | Limit |
-| --- | --- |
-| **Product name** shown in the dashboard | 60 characters |
-| **Logo** — an absolute `https://` URL | 2048 characters |
-| **Support email** where your clients ask for help | 254 characters |
+By default, a client account an agency manages does not name GoHighLevel. The integration is called **CRM**, its page lives at `/integrations/crm`, and its messages say "CRM" too. The option to connect with a private token, which walks through GoHighLevel's own settings screens, is hidden.
 
-Leave a field empty to use the Whappy default for it. The fields are independent, so you can set a name without a logo.
+## Connecting Claude to a client
 
-## Onboarding a client
-
-<Steps>
-    <Step title="Activate their sub-account">
-        You install the app once for the whole agency, not once per client. From **Agency → CRM**, activate the sub-account you want Whappy to run; only activated sub-accounts become clients, and only they are billed. See [GoHighLevel](/integrations/gohighlevel) for the full flow.
-    </Step>
-    <Step title="Set the branding">
-        Product name, logo and support email. White-label is already on by default for a Marketplace install.
-    </Step>
-    <Step title="Build and rehearse the campaign">
-        [Rehearse](/autopilot/rehearsal) before handing the account over — it costs nothing and it is what stops a client's first real lead being the first test of the funnel.
-    </Step>
-    <Step title="Set their Autopilot permissions">
-        A client account starts at **Read only**. Decide deliberately how much [Autopilot](/autopilot/trust-levels) they should have.
-    </Step>
-</Steps>
+A [Claude or MCP connection](/integrations/mcp) belongs to the person who approved it and works in their own account. Entering a client account does not carry it over.

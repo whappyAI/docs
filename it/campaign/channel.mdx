@@ -1,0 +1,73 @@
+---
+title: "Canale"
+description: "Dove parla una campagna — WhatsApp, Instagram o entrambi — e cosa cambia con ciascuno."
+icon: "tower-broadcast"
+---
+
+Una campagna parla su **WhatsApp**, su **Instagram** o su entrambi. La scelta decide come i lead la raggiungono, se può scrivere per prima e cosa le serve ancora prima di partire.
+
+## Scegliere il canale
+
+Quando crei una campagna, **Dove parla?** propone WhatsApp e Instagram, già spuntati in base a ciò che il tuo account ha collegato. La riga sotto le caselle dice cosa significa la scelta:
+
+- **Solo WhatsApp**: invia il primo messaggio dal tuo numero.
+- **Solo Instagram**: nessun primo messaggio, i contatti scrivono per primi.
+- **Entrambi**: invia i primi messaggi su WhatsApp e risponde a chi scrive su Instagram.
+
+<Note>
+    La domanda compare solo sugli account in cui Instagram è disponibile. Ovunque altro una campagna parla su WhatsApp, come tutte le campagne hanno sempre fatto.
+</Note>
+
+Puoi cambiarlo in seguito nelle **Opzioni → Canali** della campagna. La modifica si salva appena clicchi. Due cose vengono rifiutate:
+
+- **Nessun canale.** Scegline almeno uno.
+- **Spegnere un canale che manda ancora persone a questa campagna.** Se è la campagna a cui le impostazioni di Instagram inviano i messaggi diretti, o quella a cui un numero WhatsApp manda i messaggi in arrivo, scegli prima un'altra campagna lì. Il messaggio ti dice quale.
+
+Una [campagna per clienti esistenti](/it/campaign/client-campaigns) mantiene sempre WhatsApp: raggiunge i clienti con i template WhatsApp.
+
+## Cosa cambia per canale
+
+| | WhatsApp | Instagram |
+| --- | --- | --- |
+| **Come arrivano i lead** | Moduli, importazioni e integrazioni ti danno un numero di telefono; la campagna scrive per prima. Anche chi scrive al tuo numero riceve risposta. | Le persone scrivono per prime: un messaggio diretto, una risposta a una tua storia, una menzione, o un commento che corrisponde a una delle tue regole sui commenti. Quale campagna risponde si imposta in **Integrazioni → Instagram**. |
+| **Primo messaggio** | Un template WhatsApp approvato, inviato dal tuo numero. | Nessuno. Un'azienda non può aprire una conversazione Instagram. |
+| **Rispondere** | Liberamente entro 24 ore dall'ultimo messaggio del lead; dopo, solo un modello approvato, che puoi inviare da [Chat](/it/leads/conversation-history). | L'assistente risponde entro 24 ore dall'ultimo messaggio del lead. Una persona può rispondere fino a 7 giorni. Dopo, nulla finché il lead non scrive di nuovo. |
+| **Follow-up e promemoria** | I follow-up partono nei tuoi orari di lavoro. | Follow-up e promemoria degli appuntamenti partono solo entro 24 ore dall'ultimo messaggio del lead. Uno trattenuto viene segnalato nella chat. |
+| **Documenti, immagini, note vocali dai passaggi del funnel o da Chat** | Arrivano come file e note vocali. | Arrivano come link. |
+| **File che l'assistente sceglie da solo** | Documento o immagine insieme alla risposta, nota vocale dopo. | Immagini e PDF come allegati, entro 24 ore. Le note vocali non vengono mai proposte. |
+| **Spostare un lead in un'altra campagna** | La nuova campagna può inviare il suo primo messaggio. | Non si può scrivere per primi: il lead aspetta il passaggio successivo o scrive di nuovo. |
+
+Orari di lavoro, fuso orario e le altre [Opzioni](/it/campaign/options) si impostano una volta per campagna; non esiste un'impostazione separata per canale.
+
+<Note>
+    Un lead che ha solo un numero di telefono si può raggiungere solo su WhatsApp. Mandare un lead così a una campagna che non parla su WhatsApp viene rifiutato dall'API e dalle integrazioni, e una campagna che contiene lead di questo tipo mostra l'avviso *Alcuni lead si possono contattare solo su WhatsApp*.
+</Note>
+
+Quando una persona scrive a un numero o a un account Instagram la cui campagna non parla su quel canale, la conversazione va invece alla tua **campagna predefinita**.
+
+## Cosa serve a una campagna prima di partire
+
+La pagina della campagna elenca cosa va ancora sistemato (**Prima che la campagna possa partire**) e cosa vale la pena controllare mentre gira. Il canale cambia quell'elenco:
+
+| | Solo WhatsApp | Solo Instagram | Entrambi |
+| --- | --- | --- | --- |
+| **Nessun numero WhatsApp collegato** | Blocca | Non serve | Blocca |
+| **Instagram non è collegato** | — | Blocca | Da controllare: WhatsApp continua a funzionare |
+| **Alcuni lead si possono contattare solo su WhatsApp** | — | Da controllare | — |
+
+Un piano attivo e un funnel completo servono su ogni canale. Qualunque sia il canale, un passaggio **Chiudi** che sposta i lead in una campagna che non parla su uno dei canali di questa mostra *Uno spostamento in un'altra campagna salta alcuni lead*: i lead dal canale mancante restano qui.
+
+## L'elenco delle campagne
+
+La pagina **Campagne** è una tabella con una riga per campagna:
+
+| Colonna | Cosa mostra |
+| --- | --- |
+| **Canale** | Il simbolo di WhatsApp e/o di Instagram. |
+| **Campagna** | Il nome. Clicca sulla riga per aprirla. |
+| **Lead** | Quanti lead ha. |
+| **Chat** | Quante conversazioni. |
+| **Pronta** | Una spunta verde quando la campagna può partire; un triangolo ambra quando non può. Passaci sopra per leggere la prima cosa da sistemare: *Nessun abbonamento attivo*, *WhatsApp non connesso*, *Instagram non collegato*, *Il primo messaggio non ha un numero*, *Funnel incompleto* oppure *Da sistemare — aprila*. |
+| Interruttore e menu | L'interruttore avvia e ferma la campagna (resta spento finché la campagna non è pronta). Il menu offre **Rinomina**, **Duplica** (non per le campagne per clienti esistenti), **Imposta come predefinita** ed **Elimina** (non mentre è in esecuzione). |
+
+Le righe sono ordinate in modo che ciò che ha bisogno di te venga prima: in alto le campagne che **non possono partire**, poi quelle **in esecuzione**, poi quelle **ferme** ma pronte a partire.

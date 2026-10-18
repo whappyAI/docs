@@ -1,199 +1,74 @@
 ---
 title: "Configurazione rapida"
 icon: "rocket"
-description: "Metti in funzione l'automazione WhatsApp per la qualificazione dei lead in pochi minuti, passo per passo."
+description: "Da un account nuovo al primo lead: i passaggi nell'ordine in cui Whappy li mostra."
 ---
 
-# Iniziare con Whappy
+Dopo la registrazione arrivi sulla [Home](/it/home). In fondo al menu a sinistra, una scheda **Configurazione** mostra a che punto sei (per esempio *Configurazione · 1 di 4*) e il prossimo passo. Cliccala per aprire la lista; ogni passo porta alla pagina in cui si fa. **Fammi fare un giro** avvia un breve tour dell'app. La scheda sparisce quando hai un lead e un modo per parlargli.
 
-Whappy ti aiuta ad automatizzare le conversazioni WhatsApp per qualificare i lead e fissare appuntamenti. Questa guida ti accompagna nella creazione della prima campagna, dal contesto iniziale alla gestione dei lead qualificati.
+I passi:
 
----
+1. **Crea la conversazione**
+2. **Aggiungi informazioni** (facoltativo)
+3. **Collega WhatsApp** (oppure **Collega WhatsApp o Instagram**, sugli account in cui Instagram è disponibile)
+4. **Attiva la campagna**
+5. **Primo lead**
 
-## 1. Crea la tua prima campagna
+<Note>
+    Un account creato da un negozio Shopify ha una lista sua: **Collega il negozio**, **Collega WhatsApp**, **Scegli un piano** e **Attiva le campagne**. Vedi [Shopify](/it/integrations/shopify).
+</Note>
 
-Comincia da **Dashboard → Campagna** per impostare la campagna di automazione WhatsApp.
+## 1. Crea una campagna
 
-### Imposta il contesto
+Una campagna è un assistente che parla con un gruppo di lead. Apri **Campagne** e premi **Nuova campagna**. Dagli un nome. A seconda del tuo account ti viene chiesto anche:
 
-Definisci le basi del tuo assistente AI:
+- **A cosa serve questa campagna?**: **Trovare nuovi clienti**, la campagna che segue questa guida, oppure **Parlare con i clienti attuali**. Vedi [Campagne per clienti esistenti](/it/campaign/client-campaigns).
+- **Dove parla?**: WhatsApp, Instagram o entrambi. Vedi [Canale](/it/campaign/channel).
 
-- **Nome WhatsApp**: il nome con cui l'AI scriverà ai lead
-- **Attività**: cosa fa la tua azienda
-- **Obiettivo della conversazione**: cosa vuoi ottenere (qualificare lead, fissare demo…)
-- **Informazioni aggiuntive**: qualsiasi contesto utile all'AI
+La campagna si apre sulla pagina **Contesto**.
 
-<img
-  src="/images/campaign/context.png"
-  alt="Impostazione del contesto della campagna"
-  style={{ marginTop:"1rem",maxWidth:"100%" }}
-/>
+## 2. Racconta all'assistente la tua attività
+
+Nel [Contesto](/it/campaign/context), imposta il **Nome dell'assistente**, poi premi **Aggiungi fonte** per aggiungere il tuo sito, un documento come un listino, o una nota. Premi **Aggiorna contesto**: Whappy scrive il **Contesto aziendale** che l'assistente legge prima di ogni messaggio. Rileggilo, correggilo e premi **Salva**.
+
+## 3. Scegli cosa raccogliere
+
+In [Info](/it/campaign/info), aggiungi le informazioni che l'assistente deve scoprire da ogni lead, come un budget o una tempistica. **Genera con l'AI** crea un campo da una frase; **Aggiungi manualmente** te lo fa compilare.
+
+## 4. Costruisci la conversazione
+
+Nel [Funnel](/it/campaign/funnel), premi **Genera dal contesto** per farti progettare un flusso dal Contesto aziendale, oppure costruiscilo tu con **Aggiungi nodo**. Il primo step è il template WhatsApp che apre la conversazione; ogni percorso finisce con uno step Chiudi. Premi **Salva modifiche**.
+
+Premi **Test** per fare tu il lead in una conversazione di prova. Non scrive mai a un telefono reale, ma uno step **Prenota un appuntamento** prenota riunioni reali sul tuo calendario.
 
 <Tip>
-  Sii specifico su attività e obiettivi. L'AI usa queste informazioni per avere conversazioni naturali e pertinenti con i tuoi lead.
+    Per un controllo più ampio, attiva **Prova** nelle **Opzioni → Sezioni** della campagna: la [Prova](/it/autopilot/rehearsal) fa passare sei clienti inventati nella campagna. Non viene inviato niente a nessuno.
 </Tip>
 
-<Note>
-  **Puoi evitare di scrivere tutto.** Premi **Genera con AI** e passa a Whappy l'URL del tuo sito o un documento che hai già — una brochure, un listino — e prepara il contesto che poi modifichi tu. Vedi [Costruire il contesto automaticamente](/it/campaign/context).
-</Note>
+## 5. Imposta lingua e orari
 
----
+Nelle [Opzioni](/it/campaign/options), scegli la **Lingua della campagna**, poi il **Fuso orario** e **Giorni e orari**. Nuovi contatti e follow-up partono solo in questi orari; le risposte partono sempre. Premi **Salva**.
 
-## 2. Definisci i campi informativi
+## 6. Collega WhatsApp o Instagram
 
-Vai alla scheda **Info** per indicare quali informazioni vuoi raccogliere dai lead durante le conversazioni WhatsApp.
+- **WhatsApp**: apri [Integrazioni → WhatsApp](/it/integrations/whatsapp) e collega il tuo numero tramite Facebook. Poi aggiungi un template di messaggio e aspetta che Meta lo approvi: su WhatsApp il primo messaggio a un nuovo lead deve essere un template approvato. Sceglilo nel primo step del funnel.
+- **Instagram**: apri [Integrazioni → Instagram](/it/integrations/instagram). Su Instagram sono le persone a scriverti per prime, quindi non c'è un template da approvare.
 
-<img
-  src="/images/campaign/info.png"
-  alt="Definizione dei campi informativi"
-  style={{ marginTop:"1rem",maxWidth:"100%" }}
-/>
+## 7. Attiva la campagna
 
-**Campi di esempio:**
+Apri **Campagne** e accendi l'interruttore della campagna. L'interruttore resta spento finché la campagna non è pronta: la colonna **Pronta** mostra una spunta verde quando può partire, oppure un triangolo arancione con la prima cosa da sistemare. Vedi [Canale](/it/campaign/channel).
 
-- Fascia di budget (scelta multipla)
-- Tempistiche del progetto (testo libero)
-- Dimensione dell'azienda (numero)
+Una campagna attiva risponde a chi ti scrive. Serve un piano attivo: vedi **Piani** nel menu dell'account.
 
----
+## 8. Ottieni il primo lead
 
-## 3. Costruisci il funnel
+- **WhatsApp**: nella pagina **Lead** della campagna, apri il menu **⋮** e scegli **Aggiungi un lead** o **Importa da CSV**, oppure collega una fonte di lead come un modulo, il tuo CRM o un [webhook](/it/integrations/webhook). Vedi [Aggiungere e gestire i lead](/it/leads/lead-management).
+- **Instagram**: il primo lead arriva quando qualcuno ti scrive su Instagram.
 
-Nella scheda **Funnel**, crea il flusso di conversazione con nodi da trascinare:
+Segui le conversazioni nelle [Chat](/it/leads/conversation-history), dove puoi anche prendere il posto dell'AI. La Home mostra cosa [richiede il tuo intervento](/it/home).
 
-Costruisci il flusso con semplici nodi trascinabili per guidare i lead attraverso qualificazione e prenotazione.
+## Poi
 
-<img
-  src="/images/campaign/funnel.png"
-  alt="Costruzione del funnel di conversazione"
-  style={{ marginTop:"1rem",maxWidth:"100%" }}
-/>
-
-<Note>
-  Usa il pulsante Test per simulare conversazioni e perfezionare il funnel prima di andare in produzione.
-</Note>
-
----
-
-## 4. Configura le opzioni della campagna
-
-Imposta **orari di attività** e **fuso orario** nella scheda **Opzioni**:
-
-- **Fuso orario**: seleziona quello della tua attività
-- **Giorni di attività**: scegli in quali giorni far girare le campagne
-- **Orari attivi**: imposta inizio e fine per ogni giorno
-
-  <img
-    src="/images/options/options.png"
-    alt="Configurazione degli orari della campagna"
-    style={{ marginTop:"1rem",maxWidth:"100%" }}
-  />
-
----
-
-## 5. Configura l'integrazione WhatsApp
-
-Vai su **Integrazioni → WhatsApp** per collegare il tuo account WhatsApp Business e configurare i template dei messaggi.
-
-<img
-  src="/images/integrations/whatsapp.png"
-  alt="Configurazione dell'integrazione WhatsApp"
-  style={{ marginTop:"1rem",maxWidth:"100%" }}
-/>
-
-<Warning>
-  I template WhatsApp devono essere approvati prima di poter inviare messaggi. Configura l'integrazione presto nel processo.
-</Warning>
-
----
-
-## 6. Metti alla prova la campagna
-
-Prima di andare in produzione:
-
-1. **Prova il funnel**: usa il pulsante Test nel costruttore
-2. **Fai la prova generale**: mettila alla prova con sei clienti inventati
-3. **Verifica le integrazioni**: controlla lo stato della connessione WhatsApp
-4. **Rivedi i template**: assicurati che siano approvati e funzionanti
-
-<Note>
-  **Fai la prova generale prima di lanciare.** La [prova generale](/it/autopilot/rehearsal) fa passare sei clienti inventati nel tuo funnel — compreso quello sfuggente, quello che vuole solo il prezzo e quello che risponde in un'altra lingua. Non viene inviato nulla a nessuno e richiede pochi minuti. È il modo più economico per scoprire che il tuo funnel funziona solo con i lead collaborativi.
-</Note>
-
-<img
-  src="/images/campaign/test.png"
-  alt="Test della conversazione della campagna"
-  style={{ marginTop:"1rem",maxWidth:"70%" }}
-/>
-
----
-
-## 7. Lancia e gestisci i lead
-
-### Avvia la campagna
-
-Quando è tutto configurato e verificato:
-
-1. Torna alla pagina **Campagna**
-2. Premi **Avvia campagna**
-3. Lo stato della campagna passerà a "In esecuzione"
-
-### Aggiungi lead alla campagna
-
-Vai su **Lead** per aggiungere contatti:
-
-- **Inserimento manuale**: aggiungi i lead uno alla volta
-- **Importazione**: carica liste di lead
-- **Automazione**: collega Zapier o altri strumenti
-
-### Monitora le conversazioni
-
-Segui le interazioni in tempo reale:
-
-- Consulta lo storico delle conversazioni
-- Verifica lo stato di qualificazione
-- Controlla gli appuntamenti fissati
-- Esporta i lead qualificati
-
----
-
-## 8. Facoltativo: altre integrazioni
-
-### Integrazione con il calendario
-
-Collega il calendario per la prenotazione degli appuntamenti:
-
-- Sincronizza la tua disponibilità
-- Lascia che i lead prenotino direttamente da WhatsApp
-
-### Integrazione con Zapier
-
-Automatizza il flusso di lavoro:
-
-- Invia i lead qualificati al tuo CRM
-- Attiva sequenze di follow-up
-- Collega altri strumenti aziendali
-
----
-
-## Passi successivi
-
-🎉 Fatto! Il tuo sistema di qualificazione dei lead su WhatsApp è attivo.
-
-**Cosa succede adesso:**
-
-1. I lead ricevono messaggi WhatsApp automatici
-2. L'AI li qualifica secondo i tuoi criteri
-3. I lead qualificati possono fissare appuntamenti automaticamente
-4. Ricevi notifiche per i lead prioritari
-
-**Consigli per migliorare:**
-
-- Lascia che [Coach](/it/autopilot/coach) valuti le conversazioni concluse e ti dica quali domande i lead saltano più spesso
-- Leggi il [riepilogo settimanale](/it/autopilot/briefing) sulla tua home page
-- Perfeziona il funnel in base ai risultati
-- Aggiorna regolarmente i criteri di qualificazione
-
-> **Serve aiuto?** Consulta le guide dettagliate su [Configurazione campagna](/it/campaign/context), [Gestione lead](/it/leads/overview) o [Configurazione integrazioni](/it/integrations/whatsapp).
-
-Il tuo sistema automatico di qualificazione è pronto a lavorare 24 ore su 24! 🚀
+- [Analisi](/it/analytics): dove perdi le persone, e quando rispondono.
+- [Coach](/it/autopilot/coach): cosa mostrano le conversazioni concluse e cosa si può migliorare.
+- [Integrazioni](/it/integrations/calendly): collega un calendario perché l'assistente prenoti gli appuntamenti.

@@ -1,60 +1,61 @@
 ---
 title: "Leads"
-description: "Manage and track your WhatsApp conversation leads and their qualification status"
+description: "Manage and track the leads in your campaigns and the state of their conversations"
 icon: "users"
 ---
 
-The Leads page is your central hub for managing all contacts that have engaged with your WhatsApp campaigns. Here you can view conversation history, track qualification progress, and manage lead information.
+Each campaign has a **Leads** tab listing every contact in it. Here you can see the state of each conversation, read the message history, check the information the assistant collected, and keep contact details current.
 
-## Lead Overview Table
+## The leads table
 
-### Lead Information Displayed
+### Lead information displayed
 
-**Contact Details:**
-- **Name**: Lead's full name
-- **Phone Number**: WhatsApp number used for conversations
-- **Email**: Email address (if provided)
-- **Tags**: Custom labels for organizing leads
+**Contact details:**
+- **Name**: the lead's name, with an **Opted out** badge when they asked not to receive promotional messages
+- **Contact**: the phone number, or the Instagram @username for a lead who wrote on Instagram
+- **Email**: the email address, if you have one
+- **Labels**: on campaigns for existing customers only, the labels on this customer
 
-**Status Indicators:**
-- **Conversation**: ✅ Has messages / ❌ No conversation yet
-- **Appointment**: 📅 Meeting scheduled / ❌ No appointment
+**Status indicators:**
+- **Conversation**: Ready, Started, Active, Paused, Completed or Error
+- **Appointment**: the date and time of the booking, or *No appointment*
 
 **Actions:**
-- **💬 View Conversation**: See WhatsApp chat history and collected information
-- **ℹ️ View Lead Info**: See detailed lead profile and edit information
+- **View conversation**: the message history and the information collected
+- **View lead info**: the lead's profile, with every answer collected and the language the assistant writes to them in
 
-### Search and Filtering
+### Search and filtering
 
-**Search Bar:**
-- Search by name, phone number, or email
-- Results update instantly as you type
-- Clear search to see all leads
+**Search bar:**
+- Search by name, phone number or email
+- Results update as you type
+- Clear the search to see all leads
 
-**Lead Type Toggle:**
-- **Real Leads**: Actual prospects from your campaigns
-- **Test Leads**: Leads marked for testing purposes
-- Toggle between views using the Real/Test switch
+**Filters:**
+- **Conversation state** and a **date range**, from the Filters button
+- **All / WhatsApp / Instagram**, on an account that uses both channels
+- **Tags**, once at least one lead carries a label
 
-## Adding New Leads
+See [Viewing leads](/leads/viewing-leads) for every column, state and filter.
 
-Click **+ Add Lead** to manually add contacts to your system.
+## Adding new leads
 
-### Required Information
-- **Name**: Lead's full name *(required)*
-- **Phone or Email**: At least one contact method *(required)*
+Open the **⋮** menu and choose **Add a lead** to add one contact by hand, or **Import from CSV** for a list. See [Adding & managing leads](/leads/lead-management).
 
-### Optional Information
-- **Tags**: Custom labels for organization
-- **Additional Information**: Custom fields with any extra data
-- **Test Lead**: Mark as test lead for campaign testing
+### Required information
+- **Name** *(required)*
+- **Phone number** in full international format *(required)*
 
-### Adding Custom Information
-- Click **Add Field** to create custom data fields
-- Enter field name and value
-- Useful for storing budget, company size, project details, etc.
+### Optional information
+- **Email**
+- **Additional information**: your own fields with any extra data
 
-**Example Custom Fields:**
+### Adding custom information
+- Click **Add field** to create a custom field
+- Enter the field name and its value
+- Useful for storing budget, company size, project details, and anything else the assistant should know
+
+**Example custom fields:**
 ```
 Company: "TechCorp Inc"
 Budget: "$10,000"
@@ -62,109 +63,86 @@ Industry: "SaaS"
 Priority: "High"
 ```
 
-## Viewing Lead Details
+## Viewing lead details
 
-### Conversation Modal
-Click the **💬** button to view complete conversation details in three tabs:
+### Conversation
+Click **View conversation** to read the whole exchange between the lead and the assistant, with the information collected along the way. See [Conversation history](/leads/conversation-history).
 
-**Messages Tab:**
-- Full WhatsApp conversation history
-- Messages from both lead and AI assistant
-- Timestamps for each message
-- Visual distinction between lead and bot messages
+### Lead info
+Click **View lead info** to see the lead's profile:
 
-**Collected Info Tab:**
-- All information gathered during the conversation
-- Data organized by information field type
-- Shows current conversation status
-- Displays qualification progress
+**Contact details:**
+- Name, phone and email
+- How the lead is known on each channel, when they are on more than one
+- **Language**: the language the assistant writes to them in and where it came from, with **Change** to set it yourself
 
-**Appointment Tab:**
-- Scheduled meeting details (date, time)
-- Appointment-related information collected
-- Meeting status and confirmation details
+**Other lead information:**
+- Every custom field and every answer collected in conversation
 
-### Lead Info Modal
-Click the **ℹ️** button to view and edit lead profile:
+## Lead status indicators
 
-**Contact Details:**
-- Name, phone, email (editable)
-- Tags assigned to the lead
-- Test/Real lead designation
+### Conversation status
 
-**Additional Information:**
-- Custom fields and collected data
-- Edit existing information
-- Add new custom fields
-- Remove unnecessary fields
+| State | Meaning |
+| --- | --- |
+| **Ready** | In the campaign, no message sent yet |
+| **Started** | The first message has gone out |
+| **Active** | A conversation is under way |
+| **Paused** | The conversation has been stopped |
+| **Completed** | The lead reached the end of the funnel |
+| **Error** | Something went wrong on this conversation |
 
-## Lead Status Indicators
+### Appointment status
+- **Calendar icon and date**: a meeting is booked, shown at that date and time
+- **No appointment**: nothing booked yet
 
-### Conversation Status
-- **Green Checkmark**: Lead has engaged in conversation
-- **Gray X**: No conversation started yet
-- **Hover tooltip**: Shows number of messages exchanged
+## Managing your leads
 
-### Appointment Status
-- **Blue Calendar**: Meeting successfully scheduled
-- **Gray X**: No appointment booked
-- **Hover tooltip**: Shows appointment date and time
+### Organisation tips
+- **Use labels**: on campaigns for existing customers, labels choose who an announcement goes to
+- **Regular review**: check conversation progress regularly
+- **Follow up**: use the appointment date for meeting preparation
+- **Data quality**: keep contact information updated
 
-## Managing Your Leads
-
-### Organization Tips
-- **Use Tags**: Organize leads by source, priority, or status
-- **Regular Review**: Check conversation progress regularly
-- **Follow Up**: Use appointment info for meeting preparation
-- **Data Quality**: Keep contact information updated
-
-### Common Actions
-- **Search**: Find specific leads quickly by any contact detail
-- **Filter**: Switch between real and test leads as needed
-- **Review Conversations**: Check qualification progress and AI performance
-- **Edit Information**: Update lead details as you learn more
-- **Export**: Copy important information for external use
+### Common actions
+- **Search**: find a lead quickly by any contact detail
+- **Filter**: narrow the list by state, date, channel or label
+- **Review conversations**: check qualification progress and how the assistant performs
+- **Delete**: one lead from its row, or several at once with **Delete selected**; conversations are kept
+- **Export**: **Export to CSV** in the **⋮** menu downloads the leads currently listed
 
 ## Pagination
 
-When you have many leads:
-- **Page Numbers**: Jump to specific pages
-- **Previous/Next**: Navigate sequentially through pages
-- **Ellipsis (...)**: Indicates additional pages available
-- **Current Page**: Highlighted page number shows your current location
+When you have many leads, the pager at the bottom of the tab moves between pages. It is only shown when there is more than one page.
 
-## Best Practices
+## Best practices
 
-### Lead Management
-- **Regular Monitoring**: Check new conversations daily
-- **Tag Consistently**: Use standard tags across similar leads
-- **Update Information**: Keep lead data current as you learn more
-- **Test vs Real**: Keep test leads separate to avoid confusion
+### Lead management
+- **Regular monitoring**: check new conversations daily
+- **Label consistently**: use the same labels across similar customers
+- **Update information**: keep lead data current as you learn more
+- **Country codes**: a number without one is flagged in red and cannot be messaged
 
-### Conversation Review
-- **Check AI Performance**: Review how well the AI is qualifying leads
-- **Identify Patterns**: Look for common questions or concerns from leads
-- **Optimize Flows**: Use conversation insights to improve your funnel
-- **Follow Up**: Act on qualified leads and scheduled appointments
+### Conversation review
+- **Check the assistant's performance**: review how well it qualifies leads
+- **Identify patterns**: look for common questions or concerns from leads
+- **Optimise flows**: use what you learn to improve your funnel
+- **Follow up**: act on completed conversations and booked appointments
 
-### Data Organization
-- **Meaningful Tags**: Use tags that help with follow-up and prioritization
-- **Custom Fields**: Track information specific to your qualification process
-- **Clean Data**: Remove or correct incomplete or incorrect information
-- **Regular Cleanup**: Archive or delete old test leads periodically
+### Data organisation
+- **Meaningful labels**: use labels that help with follow-up and targeting
+- **Custom fields**: track information specific to your qualification process
+- **Clean data**: remove or correct incomplete or incorrect information
 
-## Lead Sources
+## Lead sources
 
-Leads appear in your table from several sources:
-- **Campaign Conversations**: Leads who engage with your active campaigns
-- **Manual Addition**: Contacts you add through the Add Lead form
-- **API/Webhook**: Leads imported from external systems
-- **Integrations**: Contacts from connected tools like Zapier
-
-<Note>
-    Test leads are visually distinguished with a light background and "Test Lead" badge to prevent confusion with real prospects.
-</Note>
+Leads appear in the table from several sources:
+- **Instagram**: people who message you or comment on a post, on a campaign that talks on Instagram
+- **Manual addition**: contacts you add with **Add a lead**
+- **CSV import**: lists you import
+- **API/Webhook**: leads sent from your own systems
+- **Integrations**: contacts from connected tools such as Zapier, Make, your CRM, Meta lead ads or Shopify
 
 <Tip>
-    Use the search function to quickly find leads before important calls or meetings. Search works across names, phone numbers, and email addresses.
+    Use the search to find a lead quickly before an important call or meeting. It works across names, phone numbers and email addresses.
 </Tip>

@@ -6,89 +6,100 @@ icon: "chart-line-up"
 
 Coach legge le conversazioni concluse, le valuta e cerca la stessa debolezza che si ripete. Quando il fenomeno è abbastanza solido, propone una modifica precisa, usando come argomento le frasi dei tuoi stessi lead.
 
-Lo apri da una campagna: **Campagne → la tua campagna → Coach**.
+## Aprire Coach
+
+Coach è una pagina facoltativa. Prima attivala: **Campagne → la tua campagna → Opzioni → Sezioni → Coach**. Poi compare nella barra laterale della campagna come **Coach**.
+
+Una [campagna clienti](/it/campaign/client-campaigns) non offre Coach.
 
 ## Le tre modalità
 
-La modalità si imposta per campagna e vale solo per quella.
+Scegli la modalità in **Modalità coach** in cima alla pagina. Vale solo per quella campagna.
 
 <AccordionGroup>
-    <Accordion title="Spento — l'impostazione predefinita">
+    <Accordion title="Disattivato (l'impostazione predefinita)">
         Le conversazioni vengono comunque valutate e le debolezze registrate. Non viene proposto nulla e non cambia nulla.
 
-        Vale la pena lasciarlo così: misurare non costa niente, e accendere Coach più avanti parte da tutto ciò che ha già imparato invece che da zero.
+        Misurare non costa niente, e accendere Coach più avanti parte da tutto ciò che ha già imparato.
     </Accordion>
-    <Accordion title="Proponi modifiche">
-        Le proposte vengono generate e messe in coda per te. Non cambia nulla finché non premi **Provala** su una di esse.
+    <Accordion title="Suggerisci modifiche">
+        I suggerimenti vengono elencati per te. Non cambia nulla finché non premi **Prova** su uno di essi.
     </Accordion>
     <Accordion title="Applica automaticamente">
-        Le proposte si applicano da sole, come esperimenti confrontati con la tua formulazione originale.
+        Coach avvia da solo la prova di una riformulazione di una domanda, contro il tuo testo originale, senza aspettarti. I suggerimenti che richiedono una persona aspettano comunque te: un dettaglio da aggiungere ai tuoi documenti e una modifica a cosa raccogli.
 
-        Richiede il livello di [permesso](/it/autopilot/trust-levels) **Operatività**, che va guadagnato. Coach non può essere messo in automatico da un account nuovo.
+        Solo tu puoi scegliere questa modalità, dalla pagina Coach della campagna. L'[Assistente](/it/autopilot/trust-levels) non può attivarla al posto tuo.
+
+        Mentre sul funnel della campagna è in corso un test A/B, Coach non avvia prove da solo. I suggerimenti che non ha provato restano nell'elenco per te.
     </Accordion>
 </AccordionGroup>
 
 ## Cosa ti mostra Coach
 
-In alto: quante conversazioni sono state valutate, quale quota delle tue domande ha ricevuto risposta, quanti funnel sono arrivati in fondo e quanti messaggi serve in media una conversazione.
+In cima alla pagina:
 
-Sotto, **le domande che i tuoi lead saltano più spesso** — il dato più utile che Coach produce, perché una domanda a cui nessuno risponde di solito è una domanda formulata male, non un lead disinteressato.
+| Dato | Significato |
+| --- | --- |
+| **Conversazioni** | Quante conversazioni concluse Coach ha valutato. |
+| **Risposte raccolte** | La quota delle tue domande che ha ricevuto risposta. |
+| **Completate** | La quota di conversazioni arrivate in fondo al funnel. |
+| **Messaggi ciascuna** | Quanti messaggi serve in media una conversazione. |
 
-## Tipi di proposta
+Sotto, **Domande che i lead saltano di più**, con il numero di conversazioni in cui è mancata ciascuna. Una domanda a cui nessuno risponde di solito è una domanda formulata male, non un lead disinteressato.
 
-Coach propone a diversi livelli di impegno, e ti dice sempre di che tipo si tratta:
+Poi **In prova** elenca le modifiche sotto test, e **Suggerimenti** quello che Coach propone.
+
+## Tipi di suggerimento
+
+Ogni suggerimento dice di che tipo è:
 
 | Tipo | Cosa cambia |
 | --- | --- |
-| **Riformulazione** | Il testo di un singolo passaggio. Il più comune e il più sicuro. |
-| **Dettaglio aggiunto** | Un'informazione aggiunta al contesto, tratta da una frase dei tuoi documenti. |
-| **Cosa raccogli** | Se una domanda è obbligatoria per proseguire oppure solo posta. |
+| **Riformulazione** | Il testo di una domanda. Il più comune e il più sicuro. |
+| **Dettaglio aggiunto** | Un'informazione per il tuo contesto, tratta da una frase dei tuoi documenti. |
+| **Cosa raccogli** | Se una domanda è **Obbligatorio per proseguire** oppure **Chiesto, ma non obbligatorio**. |
 
-Ogni proposta mostra **La tua** e **Suggerita** una accanto all'altra, con il numero di conversazioni che la sostengono e le citazioni degli scambi reali.
+Ogni suggerimento mostra **Ora** e **Suggerito** uno accanto all'altro, con il motivo. Apri **citazioni dalle tue conversazioni** per leggere gli scambi che lo sostengono.
 
-### Il dettaglio aggiunto mostra sempre la fonte
+### Il dettaglio aggiunto mostra la fonte
 
-Quando Coach propone di aggiungere un'informazione, mostra anche la frase dei tuoi documenti da cui proviene.
+Sotto **Dai tuoi appunti** vedi la frase dei tuoi documenti da cui viene l'informazione. Coach aggiunge solo fatti già presenti nei tuoi documenti.
 
-È il motivo per cui puoi accettare un'aggiunta senza doverla verificare di nuovo: vedi che è una tua frase. Coach non inventa mai un fatto sulla tua attività.
+Coach non modifica mai i tuoi documenti. Per un dettaglio aggiunto il pulsante dice **L'ho aggiunto**: aggiungi tu il testo alle note, poi premilo. Coach non lo proporrà più.
 
-### Le proposte strutturali si spiegano
+### Cosa raccogli
 
-Quando Coach suggerisce di cambiare *cosa* raccogli invece di come lo chiedi, ti dice prima che la riformulazione è già stata tentata e non ha funzionato.
+Coach propone questo tipo solo quando riformulare la domanda non è servito. Se la prova vince, la modifica la fai tu: Coach non cambia mai cosa si raccoglie.
 
-Senza quel dato la proposta sembrerebbe Coach che decide che dovresti chiedere di meno. Con quel dato è un ragionamento: abbiamo provato la soluzione più semplice, ecco com'è andata, ecco l'opzione successiva.
+## Come viene provata una modifica
 
-<Note>
-    Coach non modifica mai i tuoi documenti di contesto. Una modifica a un documento non è testabile — le due versioni risulterebbero identiche per un lead — quindi in quel caso la applichi tu e premi **L'ho aggiunto**.
-</Note>
-
-## Come viene testata una modifica
-
-Applicare una proposta non sostituisce il tuo testo. Avvia un esperimento:
+Premere **Prova** non sostituisce il tuo testo. Avvia una prova:
 
 <Steps>
-    <Step title="Entrambe le versioni vanno in produzione">
-        I lead vedono l'una o l'altra, a caso.
+    <Step title="Entrambe le versioni sono attive">
+        I lead ricevono l'una o l'altra, a caso.
     </Step>
     <Step title="Coach le confronta">
-        Con le stesse misure che hanno fatto emergere la debolezza.
+        Ogni versione ha bisogno di 30 conversazioni prima che la differenza conti. Fino ad allora la riga in **In prova** dice **in raccolta**, poi **dati sufficienti**.
     </Step>
-    <Step title="Vince la migliore">
-        Se la nuova formulazione vince viene promossa. Se fa peggio, torna la tua. Se il risultato non è chiaro, non cambia nulla.
+    <Step title="Resta la migliore">
+        Se la nuova formulazione va meglio, sostituisce la tua. Se va peggio, resta l'originale. Se il risultato non è chiaro, non cambia nulla.
     </Step>
 </Steps>
 
-Vengono eseguiti al massimo **3 esperimenti per campagna a settimana**. Quel limite esiste perché tu possa continuare a riconoscere la tua campagna: una riscrittura che non hai mai letto è molto più difficile da notare quando ne stanno girando cinque insieme.
+Una campagna può avviare al massimo **3 prove a settimana** con **Prova**, così continui a riconoscere la tua campagna.
+
+Mentre sul funnel della campagna è in corso un test A/B, **Prova** aspetta. La pagina dice **Su questo funnel è in corso un test A/B. I test di nuove formulazioni aspettano che finisca.**
 
 ## Quando Coach non ha niente da dire
 
-La pagina distingue diversi stati di quiete invece di mostrare una schermata vuota, perché significano cose diverse:
+La pagina dice perché è vuota:
 
-- **Spento su questa campagna** — sta misurando, non proponendo.
-- **Nessuna conversazione ancora conclusa** — Coach impara solo da conversazioni finite.
-- **Sta osservando, ma non ha visto abbastanza** — una debolezza è monitorata ma non si è ripetuta abbastanza.
-- **Nulla da cambiare al momento** — conversazioni sufficienti, nessuno schema trovato. È un buon risultato, non un errore.
+- **Coach è disattivato per questa campagna**: misura, ma non propone nulla.
+- **Nessuna conversazione è ancora terminata**: Coach impara solo dalle conversazioni concluse.
+- **Coach sta osservando, ma non ha visto abbastanza**: una debolezza è seguita ma non si è ripetuta abbastanza. La pagina dice quanto manca.
+- **Nulla da cambiare al momento**: conversazioni sufficienti, nessuno schema trovato. È un buon risultato, non un errore.
 
-## Rifiutare una proposta
+## Scartare un suggerimento
 
-Premi **No, grazie** e spiega a Coach perché. Non ti proporrà più quella modifica. Il motivo viene usato per evitare proposte simili, quindi una frase vale più di un rifiuto secco.
+Premi **No grazie**, scrivi perché non va bene e premi **Scarta**. Coach non proporrà più quella modifica.

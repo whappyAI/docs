@@ -1,0 +1,89 @@
+---
+title: "Analytics"
+description: "Where you lose people, and when they answer: every block on the Analytics page and how to read it."
+icon: "chart-simple"
+---
+
+The Analytics page answers two questions: where you lose people, and when they answer. It reads across all your campaigns unless you narrow it down, and it only counts real leads. Test leads and test chats never appear here.
+
+When no lead arrived in the selected period, the page says **No data yet**. If your leads are older than the last 30 days, widen the period.
+
+## Filters
+
+The filters sit on the title line and apply to every block below.
+
+- **Period**: **7 days**, **30 days** or **90 days**, counted back from today. The page opens on 30 days. **Custom** shows two date pickers so you can choose a start and an end date; the end date cannot be before the start.
+- **Campaign**: one campaign, or **All campaigns**.
+- **Channel**: **All**, **WhatsApp** or **Instagram**. These buttons only appear on an account that uses both channels.
+
+A lead belongs to the period if it arrived in it; a chat belongs to it if it opened in it. Both ends of the period are included.
+
+## Funnel
+
+Five rows, top to bottom, each with a bar, a count and a percentage.
+
+| Row | What it counts |
+| --- | --- |
+| **Leads in** | Leads that arrived in the period. |
+| **Chats started** | Chats with at least one message. |
+| **Replied** | Chats where the lead answered you (see [how "replied" is counted](#how-replied-is-counted)). |
+| **Qualified** | Chats that reached the end of the funnel. |
+| **Appointments** | Appointments booked in the period. |
+
+The bar is drawn against **Leads in**, so you see at a glance how much of the top survives to each row. The count reads **—** when it is zero. The percentage on the right is the row as a share of the row above it: Chats started as a share of Leads in, Replied as a share of Chats started, and so on. It is blank on the first row and when the row above is empty.
+
+The Appointments row comes from a separate read and is left out, rather than shown as zero, until that read succeeds.
+
+### The facts line
+
+Under the rows, one line of facts separated by dots:
+
+- **X% of leads qualified**: the share of chats that have ended which ended qualified. "Ended" means qualified, gone silent, or in error. A chat still under way does not count either way.
+- **X h to qualify on average**: from the chat opening to it being qualified, averaged over the qualified chats. Shown only when at least one chat qualified.
+- **X messages per chat, Y% written by the AI**: the average length of your chats, and how much of all messages the assistant wrote rather than you or the lead. Shown only when at least one chat started.
+- **N chats ended in error**: shown when at least one did.
+- **N went silent**: chats waiting for the lead's reply whose last message is more than three days old. Shown when at least one did.
+
+### How "replied" is counted
+
+A chat counts as replied when the lead wrote after your first message. A chat the lead opened and nobody has answered yet is left out of the rate altogether, on every channel.
+
+The note under the funnel gives the date this rule took effect. Every response rate on the page, history included, was recalculated with it, so a step in a chart on that date is the rule changing, not your leads.
+
+## Over time
+
+Three lines over the period, one point per day:
+
+- **Leads in**: on the day the lead arrived.
+- **Chats started**: on the day the chat opened.
+- **Qualified**: on the day the chat was qualified, which can be days after it opened.
+
+A day with nothing on any line is drawn as zero. When the period holds nothing at all, the block says **Nothing in this period yet.**
+
+## By campaign
+
+Your campaigns side by side, most leads first. Each row shows the campaign's channel icons, its name, **Leads**, **Chats**, **Replied** (as a share of its chats) and **Qualified** (its ended chats that ended qualified, as above). A row opens the campaign.
+
+The block follows the period and the channel filter, never the campaign filter: it disappears while the page is filtered to one campaign, and it is not shown on an account with a single campaign, where there is nothing to compare.
+
+## By channel
+
+WhatsApp next to Instagram: **Chats**, **Replied** (a short bar and the rate) and **Appointments** for each. The block only appears on an account that uses both channels.
+
+It follows every filter, the channel filter included, so with **WhatsApp** or **Instagram** pressed it shows that one row. Appointments are attributed to the channel the lead came in on. Chats from before channels existed count as WhatsApp.
+
+## When people reply
+
+A grid of the seven weekdays by the 24 hours of the day. Each cell is the response rate of the chats that opened on that weekday at that hour: the deeper the colour, the larger the share of those leads who answered. A grey cell had no chat.
+
+Under the grid, **Best moment** names the weekday and the three-hour window where people answer most. An hour with fewer than three chats counts as zero in that calculation, so one lucky hour cannot beat three good ones. When no hour has three chats, the line is left out.
+
+<Note>
+    The hours in this grid are in UTC, not in your own time zone.
+</Note>
+
+## Templates
+
+One row per WhatsApp template that opened a chat in the period: **Sent** (chats opened with it), **Replied** (as a share of those chats) and **Qualified** (as a share of those chats), best qualifying template first.
+
+Templates belong to WhatsApp, so the block is not shown on an Instagram-only account, nor while the channel filter is set to **Instagram**. On an account with both channels it is titled **WhatsApp templates**.

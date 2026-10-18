@@ -1,67 +1,115 @@
 ---
-title: "Ad reporting"
-description: "Tell Meta which of your leads turned out to be good, so it buys you more like them."
+title: "Meta Ads"
+description: "Bring leads from Facebook Lead Ads forms into a campaign, and tell Meta which of them turned out to be good"
 icon: "bullseye-arrow"
 ---
 
-Meta optimises your ad spend against whatever you tell it a good outcome is. If the only thing you report is "someone filled in the form", it will get very good at finding people who fill in forms and stop there.
+Meta Ads works in two places:
 
-Ad reporting sends the later outcomes back — who replied, who answered all your questions, who booked — so Meta stops buying you cheap leads and starts buying you real ones.
+- **Integrations → Meta Ads** connects your Facebook Pages. Each lead who fills in one of their Lead Ads forms goes into the campaign you pick, and the campaign starts the WhatsApp conversation.
+- **Ad reporting**, in a campaign, sends the later outcomes back to Meta (who replied, who answered all your questions, who booked), so Meta finds you more leads like the good ones.
 
-Open it from a campaign: **Campaigns → your campaign → Ad reporting**.
+Every account type can use Meta Ads.
 
-## The five stages
+## Bring Lead Ads leads into a campaign
 
-Choose which stages to report and what to call each one in your ad account.
+### Connect a Facebook Page
+
+1. Go to **Integrations**. Meta Ads is in the **Ads optimization** group.
+2. Turn on its switch, then open **Integrations → Meta Ads**.
+3. In **Connected Pages**, press **Add page**. A Facebook window opens: log in and allow access to your Pages and their leads.
+
+Each connected Page is listed with its picture, name and ID. **View page** opens it on Facebook.
+
+<Note>
+    If Whappy says **Facebook SDK not ready**, refresh the page: the Facebook window is loaded by Facebook itself and sometimes takes a moment.
+</Note>
+
+### Pick a campaign for each form
+
+Once a Page is connected, **Form mapping** appears.
+
+1. Open a Page. Its Lead Ads forms are listed.
+2. Next to a form, choose a campaign and press **Save**. Each form is saved on its own.
+
+A form with no campaign (**Not selected**) sends its leads to your default campaign. You choose the default on the **Campaigns** page: open a campaign's menu and pick **Set as default**.
+
+### What happens to each lead
+
+- Whappy reads the form's answers. The name, email and phone fields fill the lead's name, email and phone; every other answer is saved on the lead, where the AI can read it.
+- A lead whose form has no name field is called "Unknown Lead".
+- The campaign must talk on WhatsApp. A lead sent to a campaign that talks only on Instagram is not added.
+- Someone who fills in a form again is the same lead: their details are updated. If the campaign's **Restart the campaign for a lead that comes back** option is on and the conversation had already started, the campaign starts over with them.
+
+### Disconnect a Page
+
+Press **Disconnect** (the bin icon) on the Page's row and confirm. New leads from that Page stop arriving; leads already imported are kept.
+
+## Ad reporting
+
+Meta optimises your ad spend against whatever you tell it a good outcome is. If the only thing it hears is "someone filled in the form", it gets very good at finding people who fill in forms.
+
+Ad reporting sends the later outcomes back, so Meta learns which leads were worth having.
+
+It covers leads from Meta Lead Ads forms only. Leads from other sources, including Instagram messages, are never reported.
+
+### Open it
+
+Ad reporting is an optional page. In the campaign, open **Options**, find **Sections** and turn on **Ad reporting**. The page then appears in the campaign's sidebar. Campaigns for existing customers don't have this page.
+
+### The five stages
+
+Under **What to report, and when**, turn on **Report this stage** for each stage you want reported, and type its **Meta event name**: the name of the matching event in your ad account.
 
 | Stage | Meaning |
 | --- | --- |
 | **Filled in your form** | Meta already knows about this one. |
 | **Replied to you** | They wrote back at least once. |
-| **Answered all your questions** | Usually the one worth optimising for. |
+| **Answered all your questions** | Every required question of the campaign has an answer. Usually the one worth optimising for. |
 | **Booked an appointment** | There is a booking in your calendar. |
 | **Became a customer** | Reported by your own systems. |
 
-Each stage has its own event name, which must match an event in your Meta ad account.
+Each lead is reported once per stage, and only when it moves further. If a lead moves on two stages between two checks, only the furthest is reported.
 
 <Note>
-    **Answered all your questions** is the stage most businesses should optimise for. It is far enough down the funnel to mean something, and unlike *became a customer* it happens often enough and soon enough for Meta's optimiser to learn from.
+    **Answered all your questions** is the stage most businesses should optimise for. It is far enough down the funnel to mean something, and unlike **Became a customer** it happens often enough and soon enough for Meta to learn from.
 </Note>
 
-## Connecting your ad account
+### Your ad account
+
+- **Dataset ID**: from Meta's Events Manager.
+- **Access token**: paste it in. It is stored securely and never shown again. Leave the field blank later to keep the token you saved, or type a new one to replace it.
+
+### Practice mode and turning it on
 
 <Steps>
-    <Step title="Dataset ID">
-        From **Events Manager** in Meta.
+    <Step title="Map your stages">
+        Turn on the stages you want and give each one its event name.
     </Step>
-    <Step title="Access token">
-        Paste it in. It is stored securely and never shown again — leave the field blank later to keep the token you saved, or type a new one to replace it.
-    </Step>
-    <Step title="Choose your stages">
-        Turn on the stages you want reported and give each one its event name.
-    </Step>
-    <Step title="Check it in practice mode first">
-        See below.
+    <Step title="Leave Practice mode on">
+        **Practice mode** is on by default. Whappy records what it would send, without sending it.
     </Step>
     <Step title="Turn on reporting">
-        Nothing is sent at all until this is on.
+        Switch on **Turn on reporting** and press **Save**. Nothing happens at all until this is on, not even in practice mode.
+    </Step>
+    <Step title="Check Recent reports">
+        Whappy checks the campaign's leads every hour. **Recent reports** lists each stage a lead reached; entries recorded in practice mode are marked **practice**.
+    </Step>
+    <Step title="Turn Practice mode off">
+        When the list looks right, turn **Practice mode** off and press **Save**.
     </Step>
 </Steps>
 
-## Practice mode
-
-**Leave practice mode on until the list below looks right.**
-
-In practice mode Whappy records exactly what it *would* have sent, without sending it. The **Recent reports** list fills up as conversations finish, and each entry is marked as practice.
-
-This exists because a wrong setup here is expensive and quiet. Events sent to your ad account teach Meta what to buy, and nothing in the dashboard will tell you that it learned the wrong lesson — you will simply get worse leads, some weeks later, for reasons that look like bad luck.
-
-Check that the stages firing are the ones you expect, and that the event names match your ad account, before you turn practice mode off.
+Whappy refuses to turn practice mode off while no stage is mapped. If something stops real events from being sent, the page says what: no stage mapped to a Meta event, no dataset ID, or no access token.
 
 <Warning>
-    Once practice mode is off, events go to your ad account for real and cannot be recalled.
+    Once practice mode is off, events go to your ad account for real and cannot be recalled. A wrong setup teaches Meta to find worse leads, and nothing in Whappy will look broken: you get worse leads some weeks later.
 </Warning>
 
-## Recent reports
+## Troubleshooting
 
-The log shows what has been sent, or in practice mode what would have been. Use it to confirm that events fire when you expect: if leads are completing your funnel and nothing appears here, the stage is probably switched off or reporting itself is not on.
+**Lead Ads leads don't arrive.** Check that the Page is listed in **Connected Pages**, and that the form's campaign talks on WhatsApp.
+
+**Recent reports stays empty.** Check that **Turn on reporting** is on, that at least one stage is turned on with an event name, and that the campaign has leads from Lead Ads forms.
+
+Need help? See the [FAQ](/support/faq) or [contact support](/support/contact-support).

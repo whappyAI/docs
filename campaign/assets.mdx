@@ -1,10 +1,10 @@
 ---
 title: "Assets"
-description: "PDFs, images and voice notes your funnels can send to leads."
+description: "PDFs, images and voice notes your funnels, your assistant and you can send to leads."
 icon: "folder-open"
 ---
 
-Assets are the files your campaigns send: a price list, a brochure, a photo of a property, or a voice note in your own voice. Upload a file once and any funnel step in any campaign can send it.
+Assets are the files your campaigns send: a price list, a brochure, a photo of a property, or a voice note in your own voice. Upload a file once and any funnel step in any campaign can send it, the assistant can pick it when a conversation calls for it, and you can attach it from Chats.
 
 Find them in the sidebar under **Assets**.
 
@@ -14,9 +14,15 @@ Find them in the sidebar under **Assets**.
 | --- | --- | --- |
 | **Documents** | PDF | 16 MB |
 | **Images** | JPEG, PNG | 5 MB |
-| **Audio** | Recorded in the browser, or uploaded as MP3, M4A, WAV, OGG, AAC | 16 MB, up to 5 minutes |
+| **Audio** | Recorded in the browser, or uploaded as MP3, M4A, AAC, OGG, WebM, WAV | 16 MB, up to 5 minutes |
 
 The image limit is Meta's own ceiling rather than ours. Allowing a larger upload would let a file succeed here and then fail at send time, which is the worst place to find out.
+
+Each file in the list says where it is used: *used in N steps* for funnel steps, *offered by the assistant in N campaigns* for the files a campaign lets the assistant send. A file in use cannot be deleted.
+
+<Note>
+    If your account talks on Instagram, the page reminds you that **on Instagram files and voice notes are sent as a link** — the lead opens them in a browser. The one exception is a file the assistant picks on its own, described below.
+</Note>
 
 ## Voice notes
 
@@ -32,14 +38,58 @@ If your browser does not support recording, you can still upload an audio file.
 
 ## Sending an asset from a funnel
 
-In the [funnel builder](/campaign/funnel), add a **Send Document** step for PDFs and images, or a **Send Voice Note** step for audio.
+In the [funnel builder](/campaign/funnel), add a **Send document** step for PDFs and images, or a **Send voice note** step for audio.
 
-- **Send Document** takes up to **5 files** for one step. They are sent in the order shown.
+- **Send document** takes up to **5 files** for one step. They are sent in the order shown.
 - Add an optional **message**, sent with the first file only.
-- **Send Voice Note** takes one recording, and its optional line describes what the recording is about rather than dictating exact words — the AI assistant writes the introduction itself, in the lead's language.
+- **Send voice note** takes one recording, and its optional line describes what the recording is about rather than dictating exact words — the AI assistant writes one short line to introduce it, in the lead's language.
 - Optionally **wait for the lead to reply** before the conversation continues.
+- On WhatsApp the lead receives files and voice notes as such; on Instagram, as a link.
 
 The same file can be reused across as many steps and campaigns as you like — it is stored once.
+
+## Sending an asset from Chats
+
+In [Chats](/leads/conversation-history#sending-a-file-from-chats), the **paperclip** next to the message box sends up to **5** library files to the lead, in the order you pick them. The text in the message box goes out as the caption of the first document or image; if the first file is a voice note, the text is sent as its own message first. On Instagram each file arrives as a message with its name and a link.
+
+The paperclip follows the same rules as a typed reply: it is held while the AI is handling the chat and outside WhatsApp's 24-hour window.
+
+## Files the AI may send on its own
+
+Besides the files a funnel step sends at a fixed point, a campaign can let the assistant **choose** when a file fits: a lead asks about prices, the assistant attaches the price list to its reply.
+
+<Steps>
+    <Step title="Switch on the Files section">
+        Open the campaign's **Options** and, under **Sections**, switch on **Files**. A **Files** tab appears in the campaign's sidebar.
+    </Step>
+    <Step title="Pick the files">
+        The Files tab lists every file in your library. Switch on the ones the assistant may send. (If the library is empty, the tab points you to Assets.)
+    </Step>
+    <Step title="Say when each one fits">
+        For each file switched on, fill in **Send it when** — one sentence in your own words, up to 300 characters: *the lead asks about prices, or wants to see what we offer*. It is required: a file with no sentence cannot be saved.
+    </Step>
+    <Step title="Set the limit per conversation">
+        **Per conversation** is how many times the file may reach one lead: *once* or *up to N times*, at most 5. The count includes the same file sent by funnel steps and offers, so a brochure a step already delivered is not sent again because the lead asked.
+    </Step>
+    <Step title="Save">
+        The page saves with its own **Save** button; leaving with unsaved changes asks you first.
+    </Step>
+</Steps>
+
+### What the assistant does with them
+
+- It attaches **at most one file per reply**, and only when the conversation clearly matches the sentence you wrote. It never sends a file just in case, and never mentions a file it is not attaching.
+- Only files that are switched on, fully uploaded and still under their limit are offered to it.
+- On **WhatsApp**, a document or an image goes out **with the reply as its caption** — one message. If the reply is too long for a caption, the text goes first and the file follows. A voice note always follows the text.
+- On **Instagram**, images and PDFs are sent as **attachments** after the text, and only within 24 hours of the lead's last message. **Voice notes are never offered on Instagram.** The Files tab says so on a campaign that talks there.
+- In a **test conversation** the file is shown in the thread but nothing is sent.
+- The limit starts again when the lead moves to another campaign.
+
+### How it shows in Chats
+
+A message the assistant sent with a file carries the file and the line **Sent by the assistant: …** followed by the sentence you wrote for that file, so you can see at a glance why it went out.
+
+The Files section is available on every kind of campaign, including [campaigns for existing customers](/campaign/client-campaigns).
 
 ## Your allowance
 
@@ -53,9 +103,10 @@ Deleting an asset frees up allowance immediately.
 | --- | --- |
 | **Your plan allows N assets** | Delete one, or upgrade, to add more. |
 | **Your plan's asset storage is full** | The total size, not the count, is the limit here. Delete something large. |
-| **This asset is used by N funnel steps** | Remove it from those steps before deleting it. |
+| **This asset is used by N funnel steps or campaigns** | Remove it from those steps, and switch it off in the Files tab of those campaigns, before deleting it. |
 | **That file is too large** | Check it against the size table above. |
-| **That file type isn't supported** | Upload a PDF, JPEG or PNG. |
+| **That file type isn't supported** | Upload a PDF, a JPEG or PNG image, or an audio file in one of the formats above. |
 | **That recording is longer than 5 minutes** | Record a shorter one. |
 | **That file couldn't be read as audio** | The file is damaged or not really audio. Try recording again. |
 | **Audio processing isn't available right now** | A temporary fault on our side. Try again shortly. |
+| **The upload didn't finish** | Try again. |

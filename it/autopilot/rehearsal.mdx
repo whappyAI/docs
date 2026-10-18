@@ -1,67 +1,73 @@
 ---
-title: "Prova generale"
+title: "Prova"
 description: "Metti alla prova la campagna con clienti inventati prima che arrivino quelli veri."
 icon: "masks-theater"
 ---
 
-Una prova generale fa passare sei clienti inventati nel tuo funnel reale, uno alla volta, e ti riferisce come se l'è cavata la campagna. Non viene inviato nulla a nessuno e nessun servizio esterno viene contattato.
+Una prova fa passare sei clienti inventati nel tuo funnel reale, uno alla volta, e ti dice come se l'è cavata la campagna. Non viene inviato nulla a nessuno e nessun servizio esterno viene contattato.
 
-La apri da una campagna: **Campagne → la tua campagna → Prova generale**, poi premi **Prova**.
+## Aprire Prova
+
+Prova è una pagina facoltativa. Prima attivala: **Campagne → la tua campagna → Opzioni → Sezioni → Prova**. Poi compare nella barra laterale della campagna come **Prova**. Premi il pulsante **Prova** per avviarne una.
+
+Una [campagna clienti](/it/campaign/client-campaigns) non offre Prova.
+
+Puoi anche chiedere all'[Assistente](/it/autopilot/trust-levels) di provare una campagna per te.
 
 ## Chi viene messo alla prova
 
-I sei profili non sono sei varianti di un cliente collaborativo. Sono i modi in cui una conversazione reale va storta:
+I sei personaggi sono i modi in cui una conversazione vera va storta. Ognuno viene adattato alla tua attività, ma il cast è sempre lo stesso:
 
-| Profilo | Comportamento |
+| Personaggio | Comportamento |
 | --- | --- |
 | **Collaborativo** | Risponde a tutto. |
 | **Sfuggente** | Diffidente, evita le domande. |
-| **Solo prezzo** | Vuole sapere soltanto quanto costa. |
-| **Confuso** | Fraintende le cose. |
+| **Solo prezzo** | Vuole solo il prezzo. |
+| **Confuso** | Fraintende le domande. |
 | **Lingua sbagliata** | Risponde in un'altra lingua. |
-| **Impaziente** | Risponde a monosillabi. |
+| **Impaziente** | Risposte di una parola. |
 
-Un funnel che funziona solo con il profilo collaborativo è un funnel che funziona su una minoranza dei tuoi lead.
+Un funnel che funziona solo con il personaggio collaborativo funziona con una minoranza dei tuoi lead.
 
-## Non esce nulla
+## Nulla esce da Whappy
 
-I lead della prova sono contrassegnati, e il contrassegno li accompagna lungo tutta la pipeline. Non raggiungono mai un servizio esterno:
+I lead della prova sono segnati come inventati, e il segno li accompagna per tutto il funnel:
 
 - Nessun appuntamento viene fissato nel tuo calendario.
-- Nessun webhook viene chiamato.
-- Nessun contatto CRM viene creato o aggiornato.
-- Nessun messaggio WhatsApp arriva a un numero reale.
+- Nessun passaggio **Invia dati** parte: nessun webhook, nessuna chiamata a Zapier o Make, nessuna notifica WhatsApp.
+- Nessun contatto del CRM viene creato o aggiornato.
+- Nessun messaggio WhatsApp parte verso un numero vero.
 
-Puoi provare una campagna completamente collegata e pronta alla produzione senza toccare nulla di ciò a cui è collegata.
+Puoi provare una campagna completamente collegata senza toccare nulla di ciò a cui è collegata.
 
-## Gira in secondo piano
+## Gira in background
 
-Una prova richiede qualche minuto: ogni profilo attende una risposta vera a ogni turno, esattamente come farebbe un lead reale.
+Una prova richiede pochi minuti. A ogni passaggio ogni personaggio aspetta una risposta vera dal tuo funnel, come farebbe un lead vero.
 
-L'esecuzione viene messa in coda, non tenuta aperta sulla pagina. **Puoi lasciare la pagina** e tornare più tardi: il risultato è salvato sulla campagna e sarà lì al tuo ritorno. Durante l'attesa la pagina mostra **Prova in corso…**.
+Mentre gira la pagina mostra **Sto provando la campagna…**. Puoi lasciare la pagina: il risultato viene salvato con la campagna e lo ritrovi quando torni.
 
 ## Leggere il risultato
 
-Ogni profilo termina in uno di tre stati, e la differenza fra gli ultimi due conta:
+La pagina si apre con un numero: la quota di personaggi che hanno risposto a tutto ciò che il funnel chiede. Sotto, una frase riassume la prova e nomina la domanda mancata più spesso.
+
+**Domande più difficili** ordina le tue domande in base a quanti personaggi non hanno risposto. È lo stesso segnale che [Coach](/it/autopilot/coach) usa sulle conversazioni reali, disponibile prima che tu ne abbia.
+
+Apri **Chi abbiamo provato** per vedere ogni personaggio. Ognuno finisce in uno di questi stati:
 
 <AccordionGroup>
     <Accordion title="Ha risposto a tutto">
-        Il profilo ha completato il funnel. Vedi quanti messaggi sono serviti.
+        Il personaggio ha completato il funnel. Vedi quanti messaggi ci sono voluti.
     </Accordion>
-    <Accordion title="Si è fermato, o non ha risposto in tempo">
-        Il profilo non è arrivato in fondo. Vedi dove si è bloccato e a quali domande non ha mai risposto. **Questo è un risultato che riguarda la tua campagna** e conta nel punteggio.
+    <Accordion title="Si è fermato, o nessuna risposta in tempo">
+        Il personaggio non ha finito. Vedi dopo quanti messaggi si è fermato e a quali domande non ha mai risposto. **È un risultato sulla tua campagna** e conta nel punteggio.
     </Accordion>
     <Accordion title="Non è stato possibile eseguirlo">
-        Qualcosa non ha funzionato dalla nostra parte: il profilo non ha proprio parlato.
+        Qualcosa non ha funzionato da parte nostra, e il personaggio non ha mai parlato.
 
-        **Non è un risultato che riguarda la tua campagna.** Viene escluso completamente dal punteggio e la sua lista di domande senza risposta resta vuota, perché un profilo a cui non è mai stata posta una domanda non ha mancato di rispondere. Segnalare un nostro disservizio come una tua campagna difettosa sarebbe peggio che non segnalare nulla.
+        **Non è un risultato sulla tua campagna.** Resta fuori dal punteggio e non elenca domande senza risposta, perché non gliene è stata posta nessuna.
     </Accordion>
 </AccordionGroup>
 
-Sotto i profili, **le domande con cui hanno faticato** ordina le tue domande in base a quanti profili non sono riusciti a rispondere: lo stesso segnale che [Coach](/it/autopilot/coach) usa sulle conversazioni reali, disponibile prima di averne una.
+Se l'intera prova non va a buon fine, la pagina dice **La prova non è stata completata.** Premi **Prova** per riprovare.
 
-## Conta per gli avvii non supervisionati
-
-Una prova superata è una delle due condizioni che sbloccano il livello di [permesso](/it/autopilot/trust-levels) **Avvio**. La pagina ti dice quando un'esecuzione è stata conteggiata.
-
-L'altra condizione sono tre campagne avviate a mano senza problemi.
+Per una nuova prova dopo una modifica, premi di nuovo **Prova** in cima alla pagina. La pagina mostra la nuova prova mentre gira, poi il suo risultato.

@@ -6,11 +6,17 @@ icon: "masks-theater"
 
 A rehearsal drives six invented customers through your real funnel, one at a time, and reports how the campaign coped. Nothing is sent to anybody, and no third party is contacted.
 
-Open it from a campaign: **Campaigns → your campaign → Rehearsal**, then press **Rehearse**.
+## Open Rehearsal
+
+Rehearsal is an optional page. Switch it on first: **Campaigns → your campaign → Options → Sections → Rehearsal**. It then appears in the campaign's sidebar as **Rehearsal**. Press **Rehearse** to start a run.
+
+A [client campaign](/campaign/client-campaigns) does not offer Rehearsal.
+
+You can also ask the [Assistant](/autopilot/trust-levels) to rehearse a campaign for you.
 
 ## Who gets tried
 
-The six personas are not six variations of a cooperative customer. They are the ways a real conversation goes wrong:
+The six personas are the ways a real conversation goes wrong. Each is filled in for your business, but the cast is always the same:
 
 | Persona | Behaviour |
 | --- | --- |
@@ -21,47 +27,47 @@ The six personas are not six variations of a cooperative customer. They are the 
 | **Wrong language** | Replies in another language. |
 | **Impatient** | One-word answers. |
 
-A funnel that only works on the cooperative persona is a funnel that works on a minority of your leads.
+A funnel that only works on the cooperative persona works on a minority of your leads.
 
-## Nothing leaves the building
+## Nothing leaves Whappy
 
-Rehearsal leads are marked, and that mark travels with them through the whole pipeline. They never reach a third party:
+Rehearsal leads are marked as invented, and the mark travels with them through the whole funnel:
 
 - No appointment is booked in your calendar.
-- No webhook fires.
+- No **Send data** step fires: no webhook, Zapier or Make call, no WhatsApp notification.
 - No CRM contact is created or updated.
 - No WhatsApp message is sent to a real number.
 
-You can rehearse a fully connected, production-ready campaign without touching anything it is connected to.
+You can rehearse a fully connected campaign without touching anything it is connected to.
 
 ## It runs in the background
 
-A rehearsal takes a few minutes — each persona waits for a genuine reply at every turn, exactly as a real lead would.
+A rehearsal takes a few minutes. Each persona waits for a real reply from your funnel at every turn, as a real lead would.
 
-The run is queued, not held open on the page. **You can leave the page** and come back; the result is stored against the campaign and will be there when you return. The page shows **Rehearsing your campaign…** while it works.
+While it runs the page shows **Rehearsing your campaign…**. You can leave the page; the result is stored with the campaign and is there when you come back.
 
 ## Reading the result
 
-Each persona ends in one of three states, and the difference between the last two matters:
+The page leads with one number: the share of personas that answered everything your funnel asks. Under it, one sentence sums up the run and names the question missed most often.
+
+**Questions they struggled with** ranks your questions by how many personas did not answer them. It is the same signal [Coach](/autopilot/coach) uses on real conversations, available before you have any.
+
+Open **Who we tried** to see each persona. Each ends in one of these states:
 
 <AccordionGroup>
     <Accordion title="Answered everything">
         The persona completed the funnel. You see how many messages it took.
     </Accordion>
-    <Accordion title="Stopped, or didn't reply in time">
-        The persona did not finish. You see where it stalled and which questions it never answered. **This is a result about your campaign** and counts toward the score.
+    <Accordion title="Stopped, or didn't get a reply in time">
+        The persona did not finish. You see after how many messages it stopped, and which questions it never answered. **This is a result about your campaign** and counts toward the score.
     </Accordion>
-    <Accordion title="Couldn't be run">
-        Something failed on our side — the persona never spoke at all.
+    <Accordion title="Couldn't run">
+        Something failed on our side, and the persona never spoke.
 
-        **This is not a result about your campaign.** It is excluded from the score entirely, and its list of unanswered questions stays empty, because a persona that was never asked a question did not fail to answer it. Reporting an outage of ours as a failing campaign of yours would be worse than reporting nothing.
+        **This is not a result about your campaign.** It is left out of the score, and it lists no unanswered questions, because it was never asked any.
     </Accordion>
 </AccordionGroup>
 
-Below the personas, **questions they struggled with** ranks your questions by how many personas failed to answer them — the same signal [Coach](/autopilot/coach) uses on real conversations, available before you have any.
+If the whole run fails, the page says **The rehearsal didn't finish.** Press **Rehearse** to try again.
 
-## It counts toward unattended launches
-
-A passing rehearsal is one of the two conditions that unlock the **Launch** [permission level](/autopilot/trust-levels). The page tells you when a run counted.
-
-The other condition is three campaigns launched by hand without problems.
+To run a new rehearsal after a change, press **Rehearse** again at the top of the page. The page shows the new run while it works, then its result.

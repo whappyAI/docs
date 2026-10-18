@@ -1,0 +1,137 @@
+---
+title: "Instagram"
+description: "Let the AI answer the people who message you on Instagram, reply to your stories or comment on your posts"
+icon: "instagram"
+---
+
+Connect your Instagram professional account and the AI answers the people who write to you there. A direct message, a reply to one of your stories, a mention in someone's story or a comment that matches one of your rules starts a conversation in the campaign you choose, and the AI carries it on like a WhatsApp one: it answers questions, collects information and books appointments.
+
+<Note>
+    Instagram is being rolled out gradually. If you do not see Instagram on the **Integrations** page, it is not available for your account yet: [contact support](/support/contact-support) to ask for it.
+</Note>
+
+## What it does
+
+<CardGroup cols={2}>
+  <Card title="Direct messages" icon="message">
+    Everyone who sends you a DM is answered by the campaign you pick for DMs. They become a lead with their Instagram username; no phone number is needed.
+  </Card>
+  <Card title="Stories" icon="circle-play">
+    A reply to your story, or a mention of you in someone's story, starts a conversation. Each can go to its own campaign or to the same one as DMs.
+  </Card>
+  <Card title="Comments" icon="comment">
+    A comment that matches one of your rules gets one private message that opens the conversation, and optionally one public reply under the comment.
+  </Card>
+  <Card title="One inbox" icon="inbox">
+    Instagram conversations sit in **Chats** next to the WhatsApp ones, marked Instagram. You can read them, stop the AI and answer yourself.
+  </Card>
+</CardGroup>
+
+### What Whappy never does on Instagram
+
+- It never writes first. People always write to you first; campaigns do not open Instagram conversations, so the first message of your funnel (the WhatsApp template) is skipped for them.
+- It never sends automated messages more than 24 hours after the person's last message: that is Instagram's rule. A follow-up or a reminder that falls outside that window is not sent, and the conversation shows a note saying so.
+- It never sends voice notes. A recording from a **Send voice note** step reaches the person as a link; the files of a **Send document** step reach them as links too. Images and PDFs the AI picks from the campaign's files are sent as attachments.
+
+## Before you start
+
+- An **Instagram professional account**: business or creator. A personal account cannot be connected.
+- At least one **campaign that talks on Instagram**: in the campaign's **Options**, switch on Instagram. A campaign can talk on WhatsApp, on Instagram or on both.
+
+## Connecting your account
+
+<Steps>
+  <Step title="Open the Instagram page">
+    Go to **Integrations → Instagram** and press **Connect Instagram**.
+  </Step>
+  <Step title="Log in to Instagram">
+    Instagram opens. Log in with the professional account and allow Whappy to read your profile and manage your messages and comments. If you refuse, Whappy says Instagram did not give access and you can try again.
+  </Step>
+  <Step title="Done">
+    You are back in Whappy on a page that says **@yourhandle is connected**. Press **Continue** to choose who answers what.
+  </Step>
+</Steps>
+
+An Instagram account can be connected to one Whappy account at a time: connecting it elsewhere is refused with **This Instagram account is already connected to another account**.
+
+<Warning>
+    Right after connecting, make sure the campaign that answers DMs is running. If it is stopped, Whappy says so on the confirmation page: Instagram is connected, but nobody answers until you start the campaign.
+</Warning>
+
+## Who answers what
+
+The Instagram page has three sections. The switches and the DM campaign save as soon as you change them; the story campaigns and the comment rules save with the **Save** button that appears when you have unsaved changes.
+
+### Direct messages
+
+- **Reply to DMs**: on or off. Off, Whappy ignores everything that arrives from Instagram, stories and comments included, and nothing reaches **Chats**.
+- **Campaign for DMs**: the campaign that answers the people who write to you. Only campaigns that talk on Instagram are listed; if none does, switch Instagram on in a campaign's **Options** first.
+
+### Stories
+
+Switch on **Story replies and mentions** so that a reply to your story, or a mention in someone's story, starts a conversation. Pick a campaign for **Story replies** and one for **Story mentions**, or leave **Same as DMs**.
+
+### Comment → DM
+
+Switch on **Comment → DM** and add rules. A comment that matches a rule gets a private message from the rule's campaign, which opens the conversation; the first matching rule wins, so order them with **Move up** and **Move down**. Up to 20 rules.
+
+Each rule has:
+
+| Field | What it does |
+|---|---|
+| **Post** | **Any post or reel**, or one post chosen from your most recent posts and reels |
+| **Words** | The comment matches when it contains one of these words (whole words, any case, accents ignored). Up to 20 words of 50 characters each. No words: every comment matches |
+| **Campaign** | The campaign that sends the private message and carries on the conversation |
+| **Public reply** *(optional)* | Posted once under the comment, after the private message. Up to 300 characters |
+
+A comment gets at most one private message, whatever happens next. With no rules, comments get nothing.
+
+<Note>
+    Comment rules start working after Meta approves the app for comment access. You can prepare them in the meantime.
+</Note>
+
+## In the inbox
+
+Instagram conversations appear in **Chats** with the Instagram mark and the person's username. Everything that works on WhatsApp works there: read the conversation, stop the AI, answer yourself, move the lead to another campaign.
+
+- **Voice notes** the person sends are transcribed, as on WhatsApp, so the AI answers them.
+- **Your own replies** can be sent up to 7 days after the person's last message; the message says it was sent as a human reply. After 7 days Instagram refuses, and you can answer when the person writes again.
+- **If you answer from the Instagram app** instead of Whappy, the AI stops on that conversation so it never writes over you. Press **Continue AI conversation** in **Chats** to hand it back.
+
+### Test conversations
+
+A campaign that talks on Instagram can be tested as an Instagram conversation: in the test dialog, choose **Instagram** as the channel. On Instagram the business never opens the chat, so you write as the customer and the campaign answers; files reach you as links, as they would a real person.
+
+## Disconnecting
+
+**Disconnect** is at the end of the Instagram page. The AI stops answering on Instagram at once. Your settings (campaigns, story routing, comment rules) are kept and come back if you connect the same account again; leads and conversations stay in your account.
+
+If you remove Whappy from your Instagram settings instead, Meta tells Whappy and the account is disconnected the same way. If you ask Meta to delete your data, Whappy deletes the connection (your access, username, profile picture and comment rules) and gives you a confirmation code with a page that shows the request's status. Your leads and conversations are your business's own records and stay in your account; see the [privacy policy](https://whappy.ai/legal/privacy).
+
+## Troubleshooting
+
+<AccordionGroup>
+    <Accordion title="Instagram isn't on the Integrations page">
+        Instagram is not available for your account yet. [Contact support](/support/contact-support).
+    </Accordion>
+    <Accordion title="Instagram didn't give access">
+        Try again and allow access to your messages when Instagram asks. Make sure you log in with a professional account (business or creator), not a personal one.
+    </Accordion>
+    <Accordion title="This connection wasn't started from this browser tab">
+        Start again from **Integrations → Instagram** and finish in the same tab. Whappy refuses a connection that did not start on its own page.
+    </Accordion>
+    <Accordion title="Nobody answers DMs">
+        On the Instagram page, check that **Reply to DMs** is on and that a **Campaign for DMs** is chosen and running. A campaign that does not talk on Instagram cannot be picked: switch Instagram on in its **Options**.
+    </Accordion>
+    <Accordion title="A follow-up or reminder was not sent">
+        Instagram allows automated messages only within 24 hours of the person's last message. The conversation shows a note when a follow-up or reminder was skipped for this reason; a follow-up set to 24 hours or more never goes out on Instagram.
+    </Accordion>
+    <Accordion title="A comment got no message">
+        Check the rule's post and words: the comment must contain one of the words, as whole words. If the rules are fine, Meta may not have approved comment access for the app yet.
+    </Accordion>
+    <Accordion title="A conversation shows an Instagram sending error">
+        Check that Instagram is still connected on **Integrations → Instagram**. If it is not, press **Connect Instagram** again: your settings come back with it.
+    </Accordion>
+</AccordionGroup>
+
+Need help? Check our [FAQ](/support/faq) or [contact support](/support/contact-support).

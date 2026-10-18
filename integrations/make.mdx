@@ -10,7 +10,7 @@ keywords:
   - "api"
 ---
 
-Connect Whappy to Make (make.com) to start scenarios when something happens in a WhatsApp conversation, and to add leads to Whappy from forms, ads, sheets or any other app. The Whappy app on Make offers the same events and action as the Zapier app.
+Connect Whappy to Make (make.com) to start scenarios when something happens in a conversation, and to add leads to Whappy from forms, ads, sheets or any other app. The Whappy app on Make offers the same events and action as the [Zapier app](/integrations/zapier). Every account type can use it, agency client accounts included.
 
 ## What the app does
 
@@ -26,9 +26,9 @@ Connect Whappy to Make (make.com) to start scenarios when something happens in a
 
 | Module | Type | Fires when / does |
 | --- | --- | --- |
-| Watch closed leads | Instant trigger | A conversation reaches its Close step. Optional: only one campaign. |
+| Watch closed leads | Instant trigger | A conversation reaches its Close step. |
 | Watch new appointments | Instant trigger | A lead books an appointment. |
-| Watch dead leads | Instant trigger | A lead has not replied for the number of hours you set. |
+| Watch dead leads | Instant trigger | A lead has not replied for the number of hours you set. Each lead fires once. |
 | Watch Send data steps | Instant trigger | A conversation reaches a Send data step that uses this trigger name. |
 | Create a lead | Action | Adds a lead (phone, name, optional email, campaign and extra fields). Returns the lead as Whappy stores it. |
 | Make an API call | Universal | Any call to `https://api.whappy.ai` with your key, for example `/v1/zap/triggers`. |
@@ -41,16 +41,17 @@ Every trigger outputs the lead (`lead_id`, `name`, `phone`, `campaign_name`, `cr
 
 <Steps>
   <Step title="Install the Whappy app on Make">
-    In Whappy, open **Integrations → Make** and click **Get the Make link**. Open the link and install the app in your Make organization.
+    In Whappy, open **Integrations → Make**. Under **Install the Whappy app on Make**, click **Open in Make** (or **Copy invite link** to open it elsewhere) and install the app in your Make organization. The app is not listed in Make's directory: this invite link is the way to install it.
   </Step>
   <Step title="Copy your Make API key">
-    On the same page, copy the **Make API key**. It is separate from your Zapier key: revoking one never stops the other.
+    On the same page, under **When Make asks for a key, paste this one**, click **Copy API key**. The Make key is separate from your Zapier key: revoking one never stops the other.
   </Step>
   <Step title="Create the connection">
     In a Make scenario, add any Whappy module and click **Create a connection**. Paste the API key and save. Make checks the key immediately; a wrong or revoked key shows `[401] Invalid API key`.
   </Step>
   <Step title="Build your scenario">
     - **Triggers**: add the trigger, click **Create a webhook**, fill in its fields (hours for Watch dead leads, trigger name for Watch Send data steps) and save. Whappy starts sending events as soon as the scenario is on.
+    - **Watch closed leads** also asks for a **Campaign name**. Whappy does not apply it yet: every closed conversation reaches the scenario. To keep one campaign, add a filter on `campaign_name` after the trigger.
     - **Create a lead**: map at least **Phone** (international format, e.g. `+393331234567`) and **Name**. Turn on **Test lead** while you try it.
   </Step>
 </Steps>
@@ -85,9 +86,9 @@ Everything the Make app does goes through the public Whappy API. You can call it
 | --- | --- | --- | --- |
 | `targetUrl` | string | yes | Where Whappy POSTs the event payload. |
 | `zap_type` | string | yes | `CLOSE`, `APPOINTMENT`, `DEAD` or `SEND_DATA`. |
-| `hours` | integer | for `DEAD` | Hours without a reply before the event fires. |
+| `hours` | integer | for `DEAD` | Hours without a reply before the event fires. With several `DEAD` subscriptions, the shortest wait applies to all of them. A `DEAD` subscription without `hours` never fires. |
 | `name` | string | for `SEND_DATA` | The trigger name chosen in the Send data step. |
-| `campaignName` | string | no | `CLOSE` only: limit to one campaign. |
+| `campaignName` | string | no | Stored, not applied yet: a `CLOSE` subscription receives every campaign's closed conversations. |
 
 Response `201`:
 
@@ -105,7 +106,7 @@ Response `201`:
 
 ### Sample payload
 
-`GET /zap/sample/{name}` returns a sample event payload (`close`, `appointment`, `dead`, `send_data`).
+`GET /zap/sample/{name}` returns a list with one sample event payload. Every `name` returns the same sample, and the sample has no `campaign_name`.
 
 ### Event payload
 
@@ -130,12 +131,12 @@ Whappy POSTs this JSON to each `targetUrl` when the event happens:
 | --- | --- |
 | `lead_id` | Whappy's id of the lead. |
 | `created_at` | When the lead was created (ISO 8601). |
-| `phone`, `name`, `campaign_name` | The lead and its campaign. |
-| `appointment.full_date` | The booked date and time, when there is one (ISO 8601). |
+| `phone`, `name`, `campaign_name` | The lead and its campaign. `phone` is empty for a lead with no phone number, such as an Instagram lead. |
+| `appointment.full_date` | The booked date and time (ISO 8601), or empty when there is no appointment. |
 | `lead_info_json` | What the lead arrived with (form fields, extra data), as a JSON string. |
 | `collected_info_json` | What the AI collected in the conversation, as a JSON string. |
-| `conversation_json` | The messages (`sender` is `ai` or `lead`), as a JSON string. |
-| `appointment_json` | Appointment details, as a JSON string. |
+| `conversation_json` | The messages, as a JSON string. `sender` is `ai`, `lead`, or `user` for a message your team sent from Chats. |
+| `appointment_json` | Appointment details (`datetime`, `event_id`), as a JSON string. |
 
 The API sends the four `*_json` fields as JSON strings. The Make app parses them for you: in Make they are **Lead info**, **Collected info**, **Conversation** and **Appointment details**, and an empty one is simply left out.
 
@@ -165,6 +166,14 @@ The API sends the four `*_json` fields as JSON strings. The Make app parses them
 
 Response `200`: `{ "status": "success", "message": "...", "data": { "_id": "...", "name": "Anna", "phone": "+393331234567", ... } }`
 
+`message` says what happened:
+
+- `Lead created successfully`: a new lead.
+- `Lead already exists; details merged`: the same person was already in that campaign. Whappy keeps one lead and adds the new details.
+- `Lead already exists; details merged and campaign restart requested`: as above, and the conversation starts over because the campaign has **Restart the campaign for a lead that comes back** on (campaign **Options**).
+
+A lead for a campaign that does not talk on WhatsApp is refused with `409` (test leads are not refused).
+
 ### Errors
 
 Errors answer with a status code and a readable message, shown in Make as `[status] message`:
@@ -173,8 +182,9 @@ Errors answer with a status code and a readable message, shown in Make as `[stat
 | --- | --- | --- |
 | `400` | The request cannot be used, e.g. an unreadable phone number. | `Phone number '12' is not a valid number; add the international prefix (e.g. +48) or set a default country in Whappy settings` |
 | `401` | Missing, wrong or revoked API key. | `Invalid API key` |
+| `409` | Create a lead: the campaign does not talk on WhatsApp. The body is `{"detail": {"code": "campaign_not_on_whatsapp", "message": "..."}}`. | `This campaign does not talk on WhatsApp, so it cannot take people by phone number. Turn on WhatsApp in the campaign's options, or send the lead to a campaign that talks on WhatsApp.` |
 | `422` | A required field is missing or has the wrong type. The body also has `detail`, the list of every wrong field. | `zap_type: Field required` |
-| `500` | Unexpected error on Whappy's side; retry later. | `Failed to create lead` |
+| `500` | Unexpected error on Whappy's side; retry later. | `An unexpected error occurred: ...` |
 
 ---
 
@@ -186,10 +196,14 @@ Errors answer with a status code and a readable message, shown in Make as `[stat
   </Accordion>
 
   <Accordion title="A trigger never fires">
-    Check the scenario is **on**: Make refuses events for a scenario that is off. Check the campaign is running and that leads reach the step (Close, appointment, Send data) the trigger listens to.
+    Check the scenario is **on**: Make refuses events for a scenario that is off. Check the campaign is running and that leads reach the step (Close, appointment, Send data) the trigger listens to. For **Watch Send data steps**, the trigger name in Make must match the one picked in the Send data step.
   </Accordion>
 
   <Accordion title="Create a lead fails with [400]">
     The phone number cannot be read. Send it with the international prefix, or set a default country in Whappy's settings.
+  </Accordion>
+
+  <Accordion title="Create a lead fails with [409]">
+    The campaign does not talk on WhatsApp, so it cannot take a lead by phone number. Turn on WhatsApp under the campaign's **Options → Channels** (see [Channel](/campaign/channel)), or send the lead to another campaign.
   </Accordion>
 </AccordionGroup>

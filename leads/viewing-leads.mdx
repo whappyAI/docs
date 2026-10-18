@@ -10,11 +10,15 @@ Every campaign has a **Leads** tab listing everyone in it, what state their conv
 
 | Column | What it shows |
 | --- | --- |
-| **Name** | The lead's name. |
-| **Phone number** | In full international format. |
+| **Name** | The lead's name. A lead who asked not to receive promotional messages carries an **Opted out** badge; they can still write to you and the assistant still answers them. |
+| **Contact** | The phone number in full international format. A lead who wrote on Instagram shows the Instagram mark and their @username instead. |
 | **Email** | If you have one; otherwise *N/A*. |
-| **Conversation** | The state, and how many messages have been exchanged. |
-| **Appointment** | The booking, if one was made. |
+| **Conversation** | The state of the conversation. |
+| **Appointment** | The date and time of the booking, or *No appointment*. |
+| **Labels** | Only on campaigns for existing customers: the labels on this customer, editable in place. |
+| **Actions** | View conversation, view lead info, delete. |
+
+A number without a country code is shown in red with a warning. Hover it to see the corrected form, because a number without a country code cannot be messaged.
 
 ## Conversation states
 
@@ -23,7 +27,8 @@ Every campaign has a **Leads** tab listing everyone in it, what state their conv
 | **Ready** | In the campaign, no message sent yet. |
 | **Started** | The first message has gone out. |
 | **Active** | A conversation is under way. |
-| **Qualified** | The lead answered everything you asked for. |
+| **Paused** | The conversation has been stopped. |
+| **Completed** | The lead reached the end of the funnel. |
 | **Error** | Something went wrong on this conversation. |
 
 ## Searching and filtering
@@ -32,22 +37,27 @@ Every campaign has a **Leads** tab listing everyone in it, what state their conv
 
 **Filters** narrows the list by:
 
-- **Conversation state** — any of the states above, or all of them.
+- **Conversation state** — one of **Active**, **Ready**, **Error**, **Started** or **Qualified** (a completed conversation), or all of them.
 - **Date range** — a *from* and a *to* date.
 
-The current filters are summarised above the table, and **Clear all** removes them in one go.
+The button shows how many filters are active, the current filters are summarised inside it, and **Clear all** removes them in one go.
+
+Two more filters appear under the search when they apply:
+
+- **All / WhatsApp / Instagram**, on an account that uses both channels.
+- **Tags**, once at least one lead carries a label. Picking several shows leads with any of them.
 
 ## Looking at one lead
 
-Each row's actions menu offers:
+Each row ends with three buttons:
 
 - **View conversation** — the full message history. See [Conversation history](/leads/conversation-history).
-- **View lead info** — every answer collected from this lead.
+- **View lead info** — the contact details, every answer collected from this lead, and the language the assistant writes to them in. See [Lead language](/leads/lead-management#lead-language).
 - **Delete lead**.
 
 ## Exporting
 
-**Export to CSV** downloads the leads currently listed, including the information collected from them.
+Open the **⋮** menu and choose **Export to CSV**. It downloads the leads currently listed, including the information collected from them.
 
 <Note>
     Phone numbers must include a country code. Whappy flags a number missing one and suggests the corrected form, because a number without a country code cannot be messaged.
