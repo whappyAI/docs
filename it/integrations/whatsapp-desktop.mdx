@@ -1,0 +1,117 @@
+---
+title: "App WhatsApp desktop"
+description: "Collega il tuo WhatsApp a Whappy con una piccola app sul tuo computer Mac o Windows, senza la WhatsApp Business API"
+icon: "desktop"
+tag: "In arrivo"
+---
+
+<Info>
+    **In arrivo.** Il nostro robot sta ancora imparando a scrivere con due pollici. Il collegamento funziona già per alcuni account di prova; le conversazioni arrivano dopo.
+</Info>
+
+L'app desktop di Whappy è una piccola app per Mac e Windows. Permette a Whappy di usare il tuo account WhatsApp, sul tuo computer, tramite WhatsApp Web: niente WhatsApp Business API, niente approvazione di Meta e niente template. In Whappy si chiama **WhatsApp sul tuo computer**.
+
+## Chi può usarla
+
+L'app desktop è aperta a un piccolo gruppo di account di prova. Se nella pagina **Integrazioni** non vedi **WhatsApp sul tuo computer**, per il tuo account non è ancora aperta; comparirà lì appena lo sarà.
+
+## Cosa funziona oggi
+
+Oggi puoi collegare i tuoi account WhatsApp e vedere in Whappy se ciascuno è pronto. Whappy non invia né legge ancora messaggi tramite l'app: vedi [In arrivo](#in-arrivo).
+
+### Collegare un WhatsApp
+
+<Steps>
+  <Step title="Attivala">
+    Vai su **Integrazioni**, attiva **WhatsApp sul tuo computer** e aprila.
+  </Step>
+  <Step title="Installa l'app">
+    Premi **Scarica per macOS** o **Scarica per Windows** e installa l'app.
+  </Step>
+  <Step title="Leggi i rischi">
+    In **Prima di collegare**, leggi i rischi e spunta **Ho capito i rischi e voglio collegare un numero**.
+  </Step>
+  <Step title="Collega">
+    Premi **Collega**. Il browser apre l'app Whappy, che ti chiede di confermare il collegamento di questo computer all'account Whappy indicato per nome. Conferma solo se è il tuo account. Se non succede niente, installa l'app e premi di nuovo **Collega**; il collegamento vale 10 minuti.
+  </Step>
+  <Step title="Inquadra il codice QR">
+    L'app apre WhatsApp Web in una sua finestra. Sul telefono apri WhatsApp, vai su **Dispositivi collegati** e inquadra il codice QR, come faresti con WhatsApp Web nel browser.
+  </Step>
+  <Step title="Fatto">
+    Whappy legge il numero da WhatsApp dopo la scansione: non devi mai scriverlo. Compare in **I tuoi account WhatsApp** nella pagina.
+  </Step>
+</Steps>
+
+### Più account WhatsApp
+
+Puoi collegare più di un WhatsApp, sullo stesso computer o su computer diversi: premi **Collega un altro WhatsApp** e inquadra il codice con il successivo. Ogni WhatsApp ha la sua finestra nell'app.
+
+Un numero si può collegare una sola volta nel tuo account Whappy. Un numero già collegato a Whappy tramite la **WhatsApp Business API** (l'integrazione [WhatsApp](/it/integrations/whatsapp)), in qualsiasi account, non si può collegare anche qui: la pagina ti chiede di inquadrare il codice con un altro WhatsApp.
+
+### Stato
+
+Ogni WhatsApp in **I tuoi account WhatsApp** mostra il suo stato:
+
+| Stato | Cosa significa |
+|---|---|
+| **Online, può parlare con i contatti** | L'app è aperta e WhatsApp è collegato. |
+| **Inquadra il codice QR nell'app Whappy** | WhatsApp chiede di nuovo il codice QR (per esempio è stato scollegato da **Dispositivi collegati** sul telefono). |
+| **App chiusa o computer offline** | Da un po' Whappy non riceve notizie dall'app; la pagina mostra l'ultimo accesso. |
+| **In attesa dell'app** | Hai premuto **Collega** ma l'app non l'ha ancora ricevuto. |
+| **Questo numero è collegato alla WhatsApp Business API** | Inquadra il codice con un altro WhatsApp. |
+| **Questo numero è già collegato** | Inquadra il codice con un altro WhatsApp. |
+| **Collegato a un WhatsApp diverso da prima** | Inquadra di nuovo il codice con il WhatsApp che era collegato. |
+
+Finché un WhatsApp richiede attenzione, un banner in Whappy porta a questa pagina.
+
+### Avvisi
+
+- **Email.** Whappy scrive al titolare dell'account quando l'app è chiusa o il computer è offline da 15 minuti, e quando WhatsApp chiede una nuova scansione del codice QR da 5 minuti. Una sola email per ogni episodio, non una ogni pochi minuti.
+- **Sul computer.** L'app mostra una notifica quando WhatsApp chiede di nuovo il codice QR o smette di rispondere, e un'altra quando torna a funzionare.
+
+### Scollegare
+
+Premi **Scollega** accanto a un WhatsApp e conferma. Whappy smette subito di usare quel WhatsApp. Puoi ricollegarlo quando vuoi.
+
+## In arrivo
+
+Ecco cosa stiamo costruendo adesso. Non è ancora attivo, nemmeno per gli account di prova.
+
+- **Whappy risponde ai contatti che ti scrivono.** Quando uno dei tuoi contatti Whappy scrive al tuo WhatsApp, l'AI risponde nella campagna del contatto, come fa con la WhatsApp Business API.
+- **Rispondi ai nuovi numeri.** Un interruttore facoltativo per ogni WhatsApp collegato, spento all'inizio. Se lo accendi, chi non è ancora un contatto e ti scrive per la prima volta diventa un contatto nella campagna che scegli accanto all'interruttore.
+- **Campagne che avviano le conversazioni.** Una campagna può usare **WhatsApp desktop** come canale e scegliere quale dei tuoi WhatsApp collegati scrive. Al posto del template scrivi tu il primo messaggio, con campi come `{name}` compilati per ogni contatto.
+- **Follow-up e promemoria** partono dall'app come quelli della WhatsApp Business API.
+- **Un ritmo prudente per proteggere il tuo numero.** Ogni WhatsApp collegato invia al massimo 20 messaggi all'ora e 100 al giorno ai contatti che non hanno ancora risposto, distanziati tra loro, e solo tra le 08:00 e le 20:00 nel fuso orario della campagna. Le risposte a chi ti ha già scritto non hanno limiti.
+- **Solo testo.** L'app invia testo. File e messaggi vocali non partono; la conversazione mostra una nota quando ne salta uno.
+- **Puoi intervenire tu.** Un messaggio che scrivi tu su WhatsApp a uno di questi contatti compare in **Chat** e ferma l'AI su quella conversazione, così non ti scrive mai sopra.
+
+Cosa leggerà l'app: solo le chat dei tuoi contatti Whappy e, con **Rispondi ai nuovi numeri** attivo, le chat di numeri che non hai salvato e con cui non hai mai parlato. Non legge mai i messaggi di prima del collegamento. Le altre chat restano chiuse, e l'app è pensata per non segnare come lette le altre chat.
+
+## Da sapere
+
+- **Tieni il computer acceso e l'app aperta.** Whappy lavora attraverso l'app: se l'app è chiusa, il computer è spento o in stop, o WhatsApp chiede una nuova scansione, Whappy non può usare quel WhatsApp.
+- **Valgono le regole di WhatsApp.** L'app usa un normale account WhatsApp, non la WhatsApp Business API. WhatsApp può bloccare un numero che invia messaggi automatici, e Whappy non può evitare né revocare un blocco. Usa un numero dedicato, non quello personale, rispetta i termini di WhatsApp e scrivi solo a chi si aspetta di sentirti.
+- **L'accesso al tuo WhatsApp resta sul tuo computer.** Whappy non lo vede mai.
+- **Oggi l'app comunica a Whappy solo** la sua versione, se è aperta e funziona, se WhatsApp è collegato e il numero che hai inquadrato. Non legge nessuna chat e non invia messaggi finché le funzioni qui sopra non saranno attive.
+
+## Risoluzione dei problemi
+
+<AccordionGroup>
+    <Accordion title="WhatsApp sul tuo computer non compare nella pagina Integrazioni">
+        L'app desktop non è ancora aperta per il tuo account. Comparirà nella pagina **Integrazioni** appena lo sarà.
+    </Accordion>
+    <Accordion title="Ho premuto Collega e non è successo niente">
+        Installa l'app e premi di nuovo **Collega**. Il collegamento creato da **Collega** vale 10 minuti; dopo, premi di nuovo **Collega** per averne uno nuovo.
+    </Accordion>
+    <Accordion title="L'app chiede di collegarsi a un account che non è il mio">
+        Annulla. Non viene collegato niente. Ricomincia da **Collega** nel tuo account Whappy.
+    </Accordion>
+    <Accordion title="Lo stato dice App chiusa o computer offline">
+        Apri l'app Whappy su quel computer e controlla che il computer sia acceso e connesso a internet. Lo stato torna **Online, può parlare con i contatti** appena l'app raggiunge di nuovo Whappy.
+    </Accordion>
+    <Accordion title="Lo stato dice Inquadra il codice QR nell'app Whappy">
+        Apri l'app, trova la finestra di quel WhatsApp e inquadra di nuovo il codice QR da **Dispositivi collegati** sul telefono, con lo stesso WhatsApp di prima.
+    </Accordion>
+</AccordionGroup>
+
+Ti serve aiuto? Consulta le [domande frequenti](/it/support/faq) o [contatta l'assistenza](/it/support/contact-support).

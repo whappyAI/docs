@@ -124,6 +124,7 @@
                 "group": "Conversations",
                 "pages": [
                   "integrations/whatsapp",
+                  "integrations/whatsapp-desktop",
                   "integrations/instagram"
                 ]
               },
@@ -276,6 +277,7 @@
                 "group": "Conversazioni",
                 "pages": [
                   "it/integrations/whatsapp",
+                  "it/integrations/whatsapp-desktop",
                   "it/integrations/instagram"
                 ]
               },

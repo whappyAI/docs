@@ -1,0 +1,117 @@
+---
+title: "WhatsApp desktop app"
+description: "Connect your own WhatsApp to Whappy through a small app on your Mac or Windows computer, with no WhatsApp Business API"
+icon: "desktop"
+tag: "Coming soon"
+---
+
+<Info>
+    **Coming soon.** Our robot is still practising typing with two thumbs. Connecting already works for a few test accounts; conversations come next.
+</Info>
+
+The Whappy desktop app is a small app for Mac and Windows. It lets Whappy use your own WhatsApp account, on your computer, through WhatsApp Web: no WhatsApp Business API, no Meta approval and no message templates. In Whappy it is called **WhatsApp on your computer**.
+
+## Who can use it
+
+The desktop app is open to a small group of test accounts. If you do not see **WhatsApp on your computer** on the **Integrations** page, it is not open for your account yet; it appears there as soon as it is.
+
+## What works today
+
+Today you can connect your WhatsApp accounts and see in Whappy whether each one is ready. Whappy does not send or read messages through the app yet: see [Coming soon](#coming-soon).
+
+### Connecting a WhatsApp
+
+<Steps>
+  <Step title="Switch it on">
+    Go to **Integrations**, switch on **WhatsApp on your computer** and open it.
+  </Step>
+  <Step title="Install the app">
+    Press **Download for macOS** or **Download for Windows** and install the app.
+  </Step>
+  <Step title="Read the risks">
+    Under **Before you connect**, read the risks and tick **I understand the risks and want to connect a number**.
+  </Step>
+  <Step title="Connect">
+    Press **Connect**. Your browser opens the Whappy app, which asks **Connect this computer to the Whappy account "…"?** with the name of your Whappy account. Press **Connect** only if it is your account. If nothing happens, install the app and press **Connect** again; the link works for 10 minutes.
+  </Step>
+  <Step title="Scan the QR code">
+    The app opens WhatsApp Web in its own window. On your phone, open WhatsApp, go to **Linked devices** and scan the QR code, as you would for WhatsApp Web in a browser.
+  </Step>
+  <Step title="Done">
+    Whappy reads the number from WhatsApp after the scan: you never type it. It shows under **Your WhatsApp accounts** on the page.
+  </Step>
+</Steps>
+
+### Several WhatsApp accounts
+
+You can connect more than one WhatsApp, on the same computer or on different ones: press **Connect another WhatsApp** and scan with the next one. Each WhatsApp gets its own window in the app.
+
+A number can be connected only once in your Whappy account. A number already connected to Whappy through the **WhatsApp Business API** (the [WhatsApp](/integrations/whatsapp) integration), in any account, cannot be connected here too: the page asks you to scan with another WhatsApp.
+
+### Status
+
+Each WhatsApp under **Your WhatsApp accounts** shows its status:
+
+| Status | What it means |
+|---|---|
+| **Online, can talk to contacts** | The app is open and WhatsApp is linked. |
+| **Scan the QR code in the Whappy app** | WhatsApp needs the QR code scanned again (it was logged out, for example from **Linked devices** on your phone). |
+| **App closed or computer offline** | Whappy has not heard from the app for a while; the page shows when it was last seen. |
+| **Waiting for the app** | You pressed **Connect** but the app has not picked it up yet. |
+| **This number is connected to the WhatsApp Business API** | Scan with another WhatsApp. |
+| **This number is already connected** | Scan with another WhatsApp. |
+| **Linked to a different WhatsApp than before** | Scan again with the WhatsApp that was connected. |
+
+While a WhatsApp needs attention, a banner across Whappy links to this page.
+
+### Alerts
+
+- **Email.** Whappy emails the account owner when the app has been closed or the computer offline for 15 minutes, and when WhatsApp has needed a new QR scan for 5 minutes. One email per incident, not one every few minutes.
+- **On your computer.** The app shows a notification when WhatsApp asks for the QR code again or stops responding, and another when it works again.
+
+### Disconnecting
+
+Press **Disconnect** next to a WhatsApp and confirm. Whappy stops using that WhatsApp at once. You can connect it again later.
+
+## Coming soon
+
+This is what we are building now. It is not switched on yet, even for test accounts.
+
+- **Whappy answers the contacts who write to you.** When one of your Whappy contacts writes to your WhatsApp, the AI answers in the contact's campaign, as it does on the WhatsApp Business API.
+- **Answer new numbers.** An optional switch for each connected WhatsApp, off by default. When it is on, someone who is not yet a contact and writes to you for the first time becomes a contact in the campaign you choose next to the switch.
+- **Campaigns that start conversations.** A campaign can use **WhatsApp desktop** as its channel and pick which of your connected WhatsApp accounts writes. Instead of a template, you write the first message yourself, with fields like `{name}` filled in for each contact.
+- **Follow-ups and reminders** go out through the app like the ones on the WhatsApp Business API.
+- **A careful pace to protect your number.** Each connected WhatsApp sends at most 20 messages an hour and 100 a day to contacts who haven't replied yet, spaced out, and only between 08:00 and 20:00 in the campaign's time zone. Replies to contacts who have written back have no limit.
+- **Text only.** The app sends text. Files and voice notes are not sent; the conversation shows a note when one is skipped.
+- **You can step in.** A message you type yourself in WhatsApp to one of these contacts shows in **Chats** and stops the AI on that conversation, so it never writes over you.
+
+What the app will read: only the chats of your Whappy contacts and, with **Answer new numbers** on, chats from numbers you have not saved and never talked to before. It never reads messages from before you connected. Other chats stay unopened, and the app is designed not to mark your other chats as read.
+
+## Good to know
+
+- **Keep the computer on and the app open.** Whappy works through the app: while the app is closed, the computer is off or asleep, or WhatsApp needs a new QR scan, Whappy cannot use that WhatsApp.
+- **WhatsApp's rules apply.** The app uses a regular WhatsApp account, not the WhatsApp Business API. WhatsApp can ban a number that sends automated messages, and Whappy cannot prevent or lift a ban. Use a number just for this, not your personal one, follow WhatsApp's terms, and only write to people who expect to hear from you.
+- **Your WhatsApp login stays on your computer.** Whappy never sees it.
+- **Today the app sends Whappy only** its version, whether it is open and working, whether WhatsApp is linked and the number you scanned. It reads no chats and sends no messages until the features above are switched on.
+
+## Troubleshooting
+
+<AccordionGroup>
+    <Accordion title="WhatsApp on your computer isn't on the Integrations page">
+        The desktop app is not open for your account yet. It appears on the **Integrations** page as soon as it is.
+    </Accordion>
+    <Accordion title="Nothing happened when I pressed Connect">
+        Install the app, then press **Connect** again. The link from **Connect** works for 10 minutes; after that, press **Connect** again for a new one.
+    </Accordion>
+    <Accordion title="The app asks to connect to an account that isn't mine">
+        Press **Cancel**. Nothing is connected. Start again from **Connect** on your own Whappy account.
+    </Accordion>
+    <Accordion title="The status says App closed or computer offline">
+        Open the Whappy app on that computer and make sure the computer is on and online. The status goes back to **Online, can talk to contacts** once the app reaches Whappy again.
+    </Accordion>
+    <Accordion title="The status says Scan the QR code in the Whappy app">
+        Open the app, find the window of that WhatsApp and scan the QR code again from **Linked devices** on your phone, with the same WhatsApp as before.
+    </Accordion>
+</AccordionGroup>
+
+Need help? Check our [FAQ](/support/faq) or [contact support](/support/contact-support).
