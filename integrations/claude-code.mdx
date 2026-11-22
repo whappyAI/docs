@@ -1,0 +1,54 @@
+---
+title: "Claude Code"
+description: "Add Whappy to Claude Code with one command"
+icon: "terminal"
+---
+
+Claude Code connects to Whappy as a remote MCP server over HTTP. You sign in to Whappy in your browser the first time.
+
+For what a connection can do, its limits and the data it sees, read [Whappy in your AI assistant](/integrations/mcp).
+
+## Add Whappy
+
+<Steps>
+  <Step title="Add the server">
+    In your terminal, run:
+
+    ```bash
+    claude mcp add --transport http whappy https://mcp.whappy.ai/mcp
+    ```
+
+    This adds Whappy for you in the current project. To have it in every project, add `--scope user`:
+
+    ```bash
+    claude mcp add --transport http --scope user whappy https://mcp.whappy.ai/mcp
+    ```
+  </Step>
+  <Step title="Sign in">
+    Start Claude Code and run `/mcp`, choose **whappy** and follow the steps in your browser: sign in to Whappy and click **Allow**. You can also run `claude mcp login whappy` from your shell.
+  </Step>
+  <Step title="Ask">
+    For example: "List my Whappy campaigns and tell me which one has the most booked calls this week." More ideas in [Example prompts](/integrations/ai-prompts).
+  </Step>
+</Steps>
+
+Run `claude mcp list` to check that Whappy is connected.
+
+<Tip>
+  If you already added Whappy as a connector on claude.ai, Claude Code can pick it up from your Claude account. Add it with the command above only if you want it configured in Claude Code itself.
+</Tip>
+
+<Note>
+  Coming soon: a Whappy **plugin** for Claude Code, installed from our plugin marketplace, that adds the connection plus ready-made commands such as a daily inbox review and a weekly report.
+</Note>
+
+## Disconnect
+
+Log out first, so Claude Code asks Whappy to revoke the access, then remove the server:
+
+```bash
+claude mcp logout whappy
+claude mcp remove whappy
+```
+
+`claude mcp remove` on its own only deletes the tokens stored on your computer.

@@ -1,85 +1,168 @@
 ---
-title: "Claude and other MCP clients"
-description: "Connect Whappy to Claude or any MCP client and build a WhatsApp agent from a conversation"
+title: "Whappy in your AI assistant"
+description: "Connect Whappy to Claude, ChatGPT, Codex, Gemini CLI, Grok or any MCP client: what a connection can do, its limits, the data it sees and how to revoke it"
 icon: "sparkles"
 ---
 
-Whappy can be attached to Claude, or to any other client that speaks the Model Context Protocol, as a **custom connector**. Once connected, you describe what you want in the chat and it builds the campaign in your Whappy account: "build me a WhatsApp agent for example.com" is enough to get a funnel, the questions it asks, and its knowledge of your business.
+Whappy can be attached to an AI assistant that speaks the Model Context Protocol (MCP). Once connected, you describe what you want in the chat and the assistant works in your Whappy account: "build me a WhatsApp agent for example.com" is enough to get a funnel, the questions it asks, and its knowledge of your business. You can also ask it how your campaigns are doing and what your leads said.
 
 The connection is yours to grant and yours to withdraw. Nothing happens until you allow it, and everything it does happens inside your account under your name.
 
-## Connecting
+## Connect your assistant
+
+Every assistant uses the same address:
+
+```
+https://mcp.whappy.ai/mcp
+```
+
+Pick yours for the exact steps:
+
+<CardGroup cols={2}>
+  <Card title="Claude" icon="message" href="/integrations/claude">
+    claude.ai, Claude Desktop and the mobile apps
+  </Card>
+  <Card title="Claude Code" icon="terminal" href="/integrations/claude-code">
+    One command in your terminal
+  </Card>
+  <Card title="ChatGPT" icon="comments" href="/integrations/chatgpt">
+    A custom MCP server in Business and Enterprise workspaces
+  </Card>
+  <Card title="Codex" icon="code" href="/integrations/codex">
+    The Codex CLI
+  </Card>
+  <Card title="Gemini CLI" icon="terminal" href="/integrations/gemini-cli">
+    One command in your terminal
+  </Card>
+  <Card title="Grok" icon="bolt" href="/integrations/grok">
+    A custom connector on grok.com
+  </Card>
+</CardGroup>
+
+Any other client that supports remote MCP servers over HTTP with OAuth works the same way: give it the address above and sign in when it asks.
+
+Not sure what to ask once you are connected? See [Example prompts](/integrations/ai-prompts). Something not working? See [Troubleshooting](/integrations/ai-troubleshooting).
+
+## What happens when you connect
 
 <Steps>
-  <Step title="Add the connector">
-    In your client, add a custom connector with this URL:
-
-    ```
-    https://mcp.whappy.ai/mcp
-    ```
-
-    In Claude, that is **Settings → Connectors → Add custom connector**. Whappy is not in the connector directory, so it has to be added by URL.
+  <Step title="Add Whappy in your assistant">
+    Give your assistant the address above. Each client's page says where.
   </Step>
   <Step title="Sign in to Whappy">
-    The client opens a Whappy page in your browser. Sign in with the account you want the client to work in, or create one.
+    The assistant opens a Whappy page in your browser. Sign in with the account you want it to work in, or create one.
   </Step>
   <Step title="Allow the connection">
-    You will see who is asking. Click **Allow**, or **Deny**. There is no access level to choose.
+    The consent page shows which assistant is asking, the account you are signed in with, and where you will be sent back. Click **Allow**, or **Deny**.
   </Step>
-  <Step title="Start building">
-    Back in the client, say what you want. A good first message is a website address and who you want to reach.
+  <Step title="Start working">
+    Back in your assistant, say what you want. A good first message is a website address and who you want to reach.
   </Step>
 </Steps>
 
-## The consent page
+The consent page is valid for 10 minutes. If it says the request has expired, start again from your assistant.
 
-The consent page shows which client is asking, the account you are signed in with, and where you will be sent back. It says that a connection never starts campaigns, changes your leads or changes billing, and that it can send a test template to a number you give it. Click **Allow** or **Deny**.
+<Note>
+  Coming soon: the consent page will also offer one box, **Let it act in my chats**, unticked by default. Tick it only if you want the assistant to be able to message your leads (see [Acting in your chats](#acting-in-your-chats)). Today there is nothing to tick: **Allow** gives every connection the same tools, listed below.
+</Note>
 
-There is no access level to choose: every connection gets the same tools, listed below, and the same limits.
+## What a connection can do
 
-The consent page is valid for 10 minutes. If it says the request has expired, start again from your client.
+### With Allow
 
-## What a connected client can and cannot do
-
-A connected client can:
+A connected assistant can:
 
 - Build a campaign from a website or a description of the business, and create, rename, duplicate or delete campaigns.
 - Read, generate and edit the funnel.
 - Write the campaign's knowledge and the questions it collects.
-- Draft WhatsApp templates, translate them, submit them to Meta, and send a test template to a phone number.
-- Choose which campaign answers a WhatsApp number's incoming messages.
+- Draft WhatsApp templates, translate them, submit them to Meta, and send a test template to a phone number you give it.
+- Choose which campaign answers a WhatsApp number's incoming messages, and which channels a campaign talks on.
 - Change a campaign's working hours, time zone and start delay.
 - Rehearse a campaign against invented customers.
 - Read your leads, conversations, results and Coach reports, your calendar settings and your plan.
 
-Some things stay out of its reach by design:
+<Note>
+  Coming soon, with Allow: an inbox summary (unread, waiting, stopped and failed chats per campaign), reading one conversation page by page, your daily briefing, results by channel, and **pausing the AI** in a chat so you can take it over yourself.
+</Note>
 
-- **Starting or stopping a campaign.** You do that in the dashboard.
-- **Messaging your leads** and **adding leads.**
-- **Billing, subscriptions and account changes.**
-- **Connecting WhatsApp or Instagram.** Meta's sign-up runs in a browser, so the client gives you a link and you finish it there.
+### Acting in your chats
 
-When a client asks for something outside this list, Whappy refuses and says it happens in the dashboard. The assistant inside the Whappy dashboard can do more than a connection.
+<Note>
+  Coming soon. Nothing on this section works yet: today a connection cannot message your leads in any way. It will arrive after the first directory listings, which go out without messaging.
+</Note>
+
+If you tick **Let it act in my chats** on the consent page, the assistant can also:
+
+- **Reply** in a chat with one of your leads.
+- **Send a first message** to a lead who has not been contacted yet.
+- **Resume the AI** in a chat that was paused, so your Whappy agent starts answering that lead again.
+
+WhatsApp's own rules still apply: outside WhatsApp's 24-hour customer-service window, only an approved template can be sent.
+
+Every message goes through **two steps**:
+
+1. The assistant asks Whappy for a **preview**: the recipient (masked), the channel and the exact text. It shows you that preview.
+2. Only when you say yes does it send. The preview can be used once, for 5 minutes; after that the assistant has to ask for a new one.
+
+Most assistants also ask you to approve the action before they call Whappy at all, so you will usually confirm twice. A connection without the box ticked is refused, and the assistant is told to ask you to reconnect: see [Troubleshooting](/integrations/ai-troubleshooting#a-permission-is-missing).
+
+### Never through a connection
+
+Some things stay in the dashboard by design, whatever you tick:
+
+- **Starting or stopping a campaign.**
+- **Bulk sends and broadcasts**, **adding or importing leads**, and **deleting leads**.
+- **Billing, subscriptions, API keys and account changes.**
+- **Connecting WhatsApp or Instagram.** Meta's sign-up runs in a browser, so the assistant gives you a link and you finish it there.
+
+When an assistant asks for something outside its reach, Whappy refuses and says it happens in the dashboard. The assistant inside the Whappy dashboard can do more than a connection.
 
 ## Limits
 
-These bound what can happen while you are not watching. They are per account, not per connection.
+These bound what can happen while you are not watching.
 
-- **30 AI generation requests per hour.** Building campaigns, generating funnels and rehearsals count. The in-app assistant and every connection share the same limit. When it is reached, wait for the hour to roll over and try again.
-- **20 new client registrations per hour** from one network address. You will not meet this one unless something is misbehaving.
+| Limit | Value | Counted |
+|---|---|---|
+| AI generation requests (building campaigns, generating funnels, rehearsals) | 30 per hour | per account, shared with the in-app assistant and every connection |
+| New client registrations | 20 per hour | per network address. You will not meet this one unless something is misbehaving. |
+
+When a limit is reached, Whappy says so and how long to wait. See [Troubleshooting](/integrations/ai-troubleshooting#too-many-requests-429).
+
+<Note>
+  Coming soon: every connection will also be limited to **60 tool calls a minute and 300 an hour**. When messaging arrives, it comes with its own caps:
+
+  | Limit | Value |
+  |---|---|
+  | Messages to leads (replies, first messages, templates) | 30 per hour per connection, and 150 per day per account |
+  | First messages | 20 per day per account |
+  | WhatsApp templates | 20 per day per account |
+  | Resuming the AI | 60 per hour per connection |
+</Note>
+
+## The data an assistant sees
+
+A connection reads what it needs to do its job: your campaigns, and your leads and their conversations when you ask about them. What the assistant reads is also processed by its provider (Anthropic, OpenAI, Google, xAI or whoever makes your client) under that provider's terms.
+
+Today, lead names, phone numbers and email addresses are returned in full.
+
+<Note>
+  Coming soon: lead phone numbers and email addresses will be **masked by default**, for example `+39 ••• ••• 1234`. Searching still works on the full number, so "find +39 333 1234567" finds the lead without the number coming back in full. An account setting will let you share full contact details with your connected assistants; it will be off unless you turn it on.
+</Note>
+
+A connection never sees your Meta access tokens, your API keys or your card details.
 
 ## Staying connected
 
-Your client is given access for one hour at a time and renews it quietly in the background for up to 30 days. If you do not use the connection for 30 days, you will be asked to sign in again.
+Your assistant is given access for one hour at a time and renews it quietly in the background for up to 30 days. If you do not use the connection for 30 days, you will be asked to sign in again.
 
-## Disconnecting
+## Revoking a connection
 
-Remove the connector in your client — Claude calls it **Disconnect**. That tells Whappy to revoke the access immediately, and the client cannot renew it.
+Remove Whappy in your assistant. Each client's page says how. Clients that support it tell Whappy to revoke the access immediately, and it cannot be renewed.
 
 <Note>
-  There is not yet a page in the Whappy dashboard listing your connected clients. Until there is, disconnect from the client side. If you have lost access to the client, or you believe a connection has been compromised, [contact support](/support/contact-support) and we will revoke it for you.
+  Coming soon: a **Connected apps** page in the Whappy dashboard listing every connection, since when it is connected and what it did lately, with a button to disconnect it. Until then, disconnect from the assistant's side. If you have lost access to the assistant, or you believe a connection has been compromised, [contact support](/support/contact-support) and we will revoke it for you.
 </Note>
 
 ## If you are on an agency account
 
-Connecting a client to a **client account you manage** is not supported in this release. A connection is bound to the person who approved it and acts in their own account, so switching into a managed account will not carry over to it.
+Connecting an assistant to a **client account you manage** is not supported yet. A connection is bound to the person who approved it and acts in their own account, so switching into a managed account will not carry over to it.

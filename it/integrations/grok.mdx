@@ -1,0 +1,43 @@
+---
+title: "Grok"
+description: "Aggiungi Whappy a Grok come connettore personalizzato"
+icon: "bolt"
+---
+
+Whappy si aggiunge a Grok su grok.com come **connettore personalizzato**. Secondo xAI i connettori sono disponibili per tutti gli utenti di Grok. Su Grok Business ed Enterprise, un admin del team deve prima configurare il connettore per il team nella console di xAI.
+
+Per cosa può fare un collegamento, i limiti e i dati che vede, leggi [Whappy nel tuo assistente AI](/it/integrations/mcp).
+
+I nomi dei menu sono quelli della versione inglese di Grok.
+
+## Aggiungi Whappy
+
+<Steps>
+  <Step title="Apri Connectors">
+    Vai su [grok.com/connectors](https://grok.com/connectors).
+  </Step>
+  <Step title="Aggiungi un connettore personalizzato">
+    Clicca **New Connector**, poi **Custom**. Inserisci questo indirizzo:
+
+    ```
+    https://mcp.whappy.ai/mcp
+    ```
+  </Step>
+  <Step title="Accedi">
+    Completa l'accesso che Grok ti chiede: accedi a Whappy e clicca **Consenti**.
+  </Step>
+</Steps>
+
+<Warning>
+  La pagina di xAI non dice come Grok accede a un connettore personalizzato, e non abbiamo ancora provato Whappy in Grok fino in fondo. Se Grok ti chiede un token o una chiave API invece di aprire una pagina di accesso Whappy, oggi non può collegarsi a Whappy: [faccelo sapere](/it/support/contact-support).
+</Warning>
+
+Grok non documenta una richiesta di conferma prima delle azioni, quindi una richiesta come "elimina la vecchia campagna" potrebbe essere eseguita senza conferma. Sii preciso in quello che chiedi.
+
+<Note>
+  Prossimamente: **token di accesso personali**, per l'API di xAI e per altri client che possono solo inviare un token fisso invece di accedere.
+</Note>
+
+## Scollegare
+
+Rimuovi il connettore dalla pagina **Connectors** di Grok. Per essere sicuro che l'accesso sia chiuso lato Whappy, [contatta l'assistenza](/it/support/contact-support).

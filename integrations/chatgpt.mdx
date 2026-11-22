@@ -1,0 +1,60 @@
+---
+title: "ChatGPT"
+description: "Add Whappy to ChatGPT as a custom MCP server"
+icon: "comments"
+---
+
+Whappy is added to ChatGPT as a **custom MCP server**, from ChatGPT on the web.
+
+For what a connection can do, its limits and the data it sees, read [Whappy in your AI assistant](/integrations/mcp).
+
+## Who can add it
+
+| ChatGPT plan | What works |
+|---|---|
+| **Business** | Full access. Only workspace admins and owners can add a custom MCP server. |
+| **Enterprise** and **Edu** | Full access. Your admin decides who may add one. |
+| **Pro** | Read only: ChatGPT can read your campaigns, leads and results, but cannot build or change anything. |
+
+<Note>
+  Coming soon: Whappy in the ChatGPT plugin directory, so you can add it without typing the address.
+</Note>
+
+## Add Whappy
+
+<Steps>
+  <Step title="Open Plugins">
+    In ChatGPT on the web, go to **Plugins**.
+  </Step>
+  <Step title="Add a custom MCP server">
+    Select **+**, then **Add custom MCP server**. Name it `Whappy`. Under **Connection**, enter:
+
+    ```
+    https://mcp.whappy.ai/mcp
+    ```
+  </Step>
+  <Step title="Authentication">
+    Choose OAuth. ChatGPT registers itself with Whappy; you do not need a client ID or secret.
+  </Step>
+  <Step title="Create it">
+    Tick **I understand and want to continue**, then select **Create as a plugin**. Sign in to Whappy in the window that opens and click **Allow**. ChatGPT then shows the tools it found.
+  </Step>
+</Steps>
+
+<Warning>
+  We have not yet tested every step of this flow end to end in ChatGPT. If a step looks different for you, [tell us](/support/contact-support).
+</Warning>
+
+## Use it
+
+In a chat, turn on the Whappy plugin and ask, for example: "How many leads did my Whappy campaigns get this week, and how many booked a call?" More ideas in [Example prompts](/integrations/ai-prompts).
+
+ChatGPT may ask you to confirm before an action that changes something.
+
+## Staying signed in
+
+ChatGPT keeps a connection alive only when the server advertises `offline_access`, which Whappy does not yet do. If ChatGPT asks you to sign in to Whappy again, do so: it is expected. See [Troubleshooting](/integrations/ai-troubleshooting#reconnecting).
+
+## Disconnect
+
+Remove the Whappy plugin from **Plugins** in ChatGPT. If you cannot find where, or you want to be sure the access is cut off, [contact support](/support/contact-support) and we will revoke it.

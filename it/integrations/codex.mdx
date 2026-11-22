@@ -1,0 +1,47 @@
+---
+title: "Codex"
+description: "Aggiungi Whappy alla CLI di Codex"
+icon: "code"
+---
+
+La CLI di Codex si collega a Whappy come server MCP remoto via HTTP e accede con OAuth nel browser.
+
+Per cosa può fare un collegamento, i limiti e i dati che vede, leggi [Whappy nel tuo assistente AI](/it/integrations/mcp).
+
+## Aggiungi Whappy
+
+<Steps>
+  <Step title="Aggiungi il server">
+    ```bash
+    codex mcp add whappy --url https://mcp.whappy.ai/mcp
+    ```
+  </Step>
+  <Step title="Accedi">
+    ```bash
+    codex mcp login whappy
+    ```
+
+    Il browser si apre su Whappy: accedi e clicca **Consenti**.
+
+    Su un computer senza browser, esegui `codex mcp login whappy --no-browser`, apri l'indirizzo che stampa su un altro dispositivo, accedi e incolla nel terminale l'indirizzo completo a cui vieni rimandato.
+  </Step>
+  <Step title="Verifica">
+    `codex mcp list` mostra Whappy tra i tuoi server.
+  </Step>
+</Steps>
+
+Poi chiedi a Codex, per esempio: "Leggi la mia campagna Whappy per lo studio dentistico e suggerisci tre domande di qualifica migliori." Altre idee in [Esempi di richieste](/it/integrations/ai-prompts).
+
+<Warning>
+  Non abbiamo ancora provato questo flusso fino in fondo in Codex. Se un passaggio fallisce, [dicci](/it/support/contact-support) cosa ha stampato Codex.
+</Warning>
+
+<Note>
+  Prossimamente: un plugin Whappy per Codex nella directory dei plugin di OpenAI.
+</Note>
+
+## Disattivarlo o rimuoverlo
+
+Per smettere di usare Whappy in Codex senza cancellarne la voce, imposta `enabled = false` nella tabella `[mcp_servers.whappy]` del tuo `config.toml` di Codex. Esegui `codex mcp --help` per vedere i comandi che la tua versione offre per rimuovere un server.
+
+Rimuovere il server da Codex non revoca da solo l'accesso lato Whappy. Per essere sicuro che sia chiuso, [contatta l'assistenza](/it/support/contact-support).

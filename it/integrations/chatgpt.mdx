@@ -1,0 +1,62 @@
+---
+title: "ChatGPT"
+description: "Aggiungi Whappy a ChatGPT come server MCP personalizzato"
+icon: "comments"
+---
+
+Whappy si aggiunge a ChatGPT come **server MCP personalizzato**, da ChatGPT sul web.
+
+Per cosa può fare un collegamento, i limiti e i dati che vede, leggi [Whappy nel tuo assistente AI](/it/integrations/mcp).
+
+I nomi dei menu sono quelli della versione inglese di ChatGPT.
+
+## Chi può aggiungerlo
+
+| Piano ChatGPT | Cosa funziona |
+|---|---|
+| **Business** | Accesso completo. Solo gli admin e gli owner dello spazio di lavoro possono aggiungere un server MCP personalizzato. |
+| **Enterprise** ed **Edu** | Accesso completo. Il tuo admin decide chi può aggiungerne uno. |
+| **Pro** | Sola lettura: ChatGPT può leggere campagne, lead e risultati, ma non può costruire o cambiare nulla. |
+
+<Note>
+  Prossimamente: Whappy nella directory dei plugin di ChatGPT, così potrai aggiungerlo senza scrivere l'indirizzo.
+</Note>
+
+## Aggiungi Whappy
+
+<Steps>
+  <Step title="Apri Plugins">
+    In ChatGPT sul web, vai in **Plugins**.
+  </Step>
+  <Step title="Aggiungi un server MCP personalizzato">
+    Seleziona **+**, poi **Add custom MCP server**. Chiamalo `Whappy`. In **Connection**, inserisci:
+
+    ```
+    https://mcp.whappy.ai/mcp
+    ```
+  </Step>
+  <Step title="Autenticazione">
+    Scegli OAuth. ChatGPT si registra da solo presso Whappy; non ti servono client ID o secret.
+  </Step>
+  <Step title="Crealo">
+    Spunta **I understand and want to continue**, poi seleziona **Create as a plugin**. Accedi a Whappy nella finestra che si apre e clicca **Consenti**. ChatGPT mostra poi gli strumenti che ha trovato.
+  </Step>
+</Steps>
+
+<Warning>
+  Non abbiamo ancora provato ogni passaggio di questo flusso in ChatGPT. Se un passaggio ti appare diverso, [faccelo sapere](/it/support/contact-support).
+</Warning>
+
+## Usalo
+
+In una chat, attiva il plugin Whappy e chiedi, per esempio: "Quanti lead hanno ricevuto le mie campagne Whappy questa settimana, e quanti hanno fissato una chiamata?" Altre idee in [Esempi di richieste](/it/integrations/ai-prompts).
+
+ChatGPT può chiederti conferma prima di un'azione che cambia qualcosa.
+
+## Restare collegati
+
+ChatGPT mantiene attivo un collegamento solo se il server dichiara `offline_access`, cosa che Whappy non fa ancora. Se ChatGPT ti chiede di accedere di nuovo a Whappy, fallo: è previsto. Vedi [Risoluzione dei problemi](/it/integrations/ai-troubleshooting#ricollegarsi).
+
+## Scollegare
+
+Rimuovi il plugin Whappy da **Plugins** in ChatGPT. Se non trovi dove, o vuoi essere sicuro che l'accesso sia chiuso, [contatta l'assistenza](/it/support/contact-support) e lo revocheremo.

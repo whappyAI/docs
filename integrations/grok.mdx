@@ -1,0 +1,41 @@
+---
+title: "Grok"
+description: "Add Whappy to Grok as a custom connector"
+icon: "bolt"
+---
+
+Whappy is added to Grok on grok.com as a **custom connector**. xAI says connectors are available to all Grok users. On Grok Business and Enterprise, a team admin first has to set the connector up for the team in xAI's console.
+
+For what a connection can do, its limits and the data it sees, read [Whappy in your AI assistant](/integrations/mcp).
+
+## Add Whappy
+
+<Steps>
+  <Step title="Open Connectors">
+    Go to [grok.com/connectors](https://grok.com/connectors).
+  </Step>
+  <Step title="Add a custom connector">
+    Click **New Connector**, then **Custom**. Enter this URL:
+
+    ```
+    https://mcp.whappy.ai/mcp
+    ```
+  </Step>
+  <Step title="Sign in">
+    Complete the sign-in Grok asks for: sign in to Whappy and click **Allow**.
+  </Step>
+</Steps>
+
+<Warning>
+  xAI's page does not say how Grok signs in to a custom connector, and we have not yet tested Whappy in Grok end to end. If Grok asks for a token or an API key instead of opening a Whappy sign-in page, it cannot connect to Whappy today: [tell us](/support/contact-support).
+</Warning>
+
+Grok does not document asking you before an action, so a request like "delete the old campaign" may run without a confirmation. Be precise in what you ask.
+
+<Note>
+  Coming soon: **personal access tokens**, for the xAI API and other clients that can only send a fixed token instead of signing in.
+</Note>
+
+## Disconnect
+
+Remove the connector in Grok's **Connectors** page. To be sure the access is cut off on Whappy's side, [contact support](/support/contact-support).

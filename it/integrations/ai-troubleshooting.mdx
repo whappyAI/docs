@@ -1,0 +1,70 @@
+---
+title: "Risoluzione dei problemi"
+description: "Risolvi i problemi più comuni quando Whappy è collegato a un assistente AI"
+icon: "wrench"
+---
+
+Per come funzionano i collegamenti, vedi [Whappy nel tuo assistente AI](/it/integrations/mcp).
+
+## Troppe richieste (429)
+
+Whappy limita quanto un collegamento può fare in poco tempo, così un assistente che gira a vuoto non può far salire il tuo consumo. Quando un limite viene raggiunto, all'assistente viene detto quanto aspettare.
+
+| Cosa vedi | Perché | Cosa fare |
+|---|---|---|
+| "This account has reached its limit of 30 AI generation calls per hour" | Costruire campagne, generare funnel e le prove contano verso 30 all'ora per account, condivisi con l'assistente in-app e con ogni collegamento. | Aspetta che passi l'ora e riprova. Nel frattempo le letture (lead, conversazioni, risultati) funzionano. |
+| L'assistente non riesce a collegarsi e segnala "Too many client registrations" o HTTP 429 | Più di 20 nuovi collegamenti sono partiti dal tuo indirizzo di rete in un'ora. | Aspetta un'ora e collegati di nuovo. Se continua, [contatta l'assistenza](/it/support/contact-support). |
+
+<Note>
+  Prossimamente: un limite di 60 chiamate al minuto e 300 all'ora per collegamento, con risposta HTTP 429 e i secondi da aspettare; e limiti sui messaggi ai lead. I valori attuali sono in [Limiti](/it/integrations/mcp#limiti).
+</Note>
+
+## Manca un permesso
+
+<Note>
+  Prossimamente. Oggi ogni collegamento ha gli stessi strumenti, e nessuno di questi può scrivere ai tuoi lead.
+</Note>
+
+Se l'assistente dice che non può rispondere a un lead, inviare un primo messaggio o riprendere l'AI, il collegamento è stato fatto senza **Lascialo agire nelle mie chat**. Quella casella si può spuntare solo quando ti colleghi, quindi:
+
+<Steps>
+  <Step title="Scollega">
+    Rimuovi Whappy dal tuo assistente (vedi la pagina del tuo assistente in [Collega il tuo assistente](/it/integrations/mcp#collega-il-tuo-assistente)).
+  </Step>
+  <Step title="Collegati di nuovo">
+    Aggiungi di nuovo Whappy e accedi.
+  </Step>
+  <Step title="Spunta la casella">
+    Nella pagina di consenso, spunta **Lascialo agire nelle mie chat**, poi clicca **Consenti**.
+  </Step>
+</Steps>
+
+Alcuni assistenti possono chiedere da soli il permesso in più e aprirti la pagina di consenso; allora ti basta spuntare la casella e cliccare **Consenti**.
+
+## L'assistente dice che una cosa va fatta dalla dashboard
+
+È voluto: avviare o fermare una campagna, aggiungere lead, gli invii in massa, la fatturazione e il collegamento di WhatsApp o Instagram non si fanno mai tramite un collegamento. Apri la [dashboard](https://app.whappy.ai), o segui il link che ti dà l'assistente.
+
+## Ricollegarsi
+
+L'assistente rinnova l'accesso in background fino a 30 giorni. Ti viene chiesto di accedere di nuovo a Whappy quando:
+
+- non hai usato il collegamento per 30 giorni;
+- il collegamento è stato revocato, da te o da noi;
+- l'assistente non è riuscito a rinnovare l'accesso (ChatGPT, per esempio, può chiederti di accedere di nuovo dopo un po').
+
+Accedi di nuovo quando ti viene chiesto. Se l'assistente continua a fallire con un errore di autorizzazione e non ti chiede mai di accedere, rimuovi Whappy dall'assistente e aggiungilo di nuovo.
+
+**La pagina di consenso dice che la richiesta è scaduta.** È valida 10 minuti. Ricomincia dal tuo assistente.
+
+**L'assistente lavora nell'account Whappy sbagliato.** Usa l'account con cui hai fatto l'accesso nella pagina di consenso. Scollega, esci da Whappy nel browser, poi collegati di nuovo e accedi con l'account giusto. Con un account agenzia, un collegamento lavora nel tuo account, non in un account cliente che gestisci.
+
+## Revocare un collegamento
+
+Rimuovi Whappy dal tuo assistente: la pagina di ogni assistente dice come. I client che lo supportano chiedono a Whappy di revocare subito l'accesso.
+
+<Note>
+  Prossimamente: una pagina **App collegate** nella dashboard per vedere e scollegare ogni collegamento dal lato di Whappy.
+</Note>
+
+Se non hai più accesso all'assistente, o pensi che un collegamento sia stato usato male, [contatta l'assistenza](/it/support/contact-support): lo revocheremo noi.
