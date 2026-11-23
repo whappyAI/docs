@@ -1,0 +1,65 @@
+---
+title: "Gemini CLI"
+description: "Aggiungi Whappy a Gemini CLI"
+icon: "terminal"
+---
+
+Gemini CLI si collega a Whappy come server MCP remoto via HTTP. Quando Whappy gli chiede di accedere, Gemini CLI trova la pagina di accesso di Whappy, si registra e apre il browser.
+
+Per cosa può fare un collegamento, i limiti e i dati che vede, leggi [Connettori MCP](/it/integrations/mcp).
+
+## Aggiungi Whappy
+
+<Steps>
+  <Step title="Aggiungi il server">
+    ```bash
+    gemini mcp add --transport http whappy https://mcp.whappy.ai/mcp
+    ```
+
+    Oppure aggiungilo a mano nel `settings.json` di Gemini CLI:
+
+    ```json
+    {
+      "mcpServers": {
+        "whappy": {
+          "httpUrl": "https://mcp.whappy.ai/mcp"
+        }
+      }
+    }
+    ```
+  </Step>
+  <Step title="Accedi">
+    Avvia Gemini CLI ed esegui:
+
+    ```
+    /mcp auth whappy
+    ```
+
+    Il browser si apre su Whappy: accedi e clicca **Consenti**. L'accesso richiede un browser sullo stesso computer, quindi non funziona in una sessione SSH senza interfaccia grafica.
+  </Step>
+  <Step title="Verifica">
+    `gemini mcp list` mostra Whappy e se è collegato.
+  </Step>
+</Steps>
+
+Poi chiedi, per esempio: "Quali conversazioni Whappy di ieri si sono chiuse senza una prenotazione, e perché?" Altre idee in [Esempi di richieste](/it/integrations/ai-prompts).
+
+<Warning>
+  Non abbiamo ancora provato questo flusso fino in fondo in Gemini CLI. Se un passaggio fallisce, [dicci](/it/support/contact-support) cosa ha stampato.
+</Warning>
+
+<Note>
+  Prossimamente: un'estensione Whappy per Gemini CLI, nella galleria delle estensioni di Gemini CLI.
+</Note>
+
+## Rimuoverlo
+
+```bash
+gemini mcp remove whappy
+```
+
+Rimuovere il server da Gemini CLI non revoca da solo l'accesso lato Whappy. Per chiuderlo, clicca **Revoca** accanto ad esso in **App collegate** nella pagina [Connettori MCP](https://app.whappy.ai/it/integrations/ai-assistants).
+
+<Info>
+  L'app Gemini per i consumatori non è trattata qui: Google offre i connettori personalizzati solo ad alcuni account e paesi. Questa pagina la tratterà quando Whappy potrà essere aggiunto nei paesi dei nostri clienti.
+</Info>

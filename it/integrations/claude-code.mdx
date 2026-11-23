@@ -1,0 +1,54 @@
+---
+title: "Claude Code"
+description: "Aggiungi Whappy a Claude Code con un comando"
+icon: "terminal"
+---
+
+Claude Code si collega a Whappy come server MCP remoto via HTTP. La prima volta accedi a Whappy nel browser.
+
+Per cosa può fare un collegamento, i limiti e i dati che vede, leggi [Connettori MCP](/it/integrations/mcp).
+
+## Aggiungi Whappy
+
+<Steps>
+  <Step title="Aggiungi il server">
+    Nel terminale, esegui:
+
+    ```bash
+    claude mcp add --transport http whappy https://mcp.whappy.ai/mcp
+    ```
+
+    Così Whappy è disponibile per te nel progetto corrente. Per averlo in tutti i progetti, aggiungi `--scope user`:
+
+    ```bash
+    claude mcp add --transport http --scope user whappy https://mcp.whappy.ai/mcp
+    ```
+  </Step>
+  <Step title="Accedi">
+    Avvia Claude Code ed esegui `/mcp`, scegli **whappy** e segui i passaggi nel browser: accedi a Whappy e clicca **Consenti**. Puoi anche eseguire `claude mcp login whappy` dalla shell.
+  </Step>
+  <Step title="Chiedi">
+    Per esempio: "Elenca le mie campagne Whappy e dimmi quale ha più chiamate fissate questa settimana." Altre idee in [Esempi di richieste](/it/integrations/ai-prompts).
+  </Step>
+</Steps>
+
+Esegui `claude mcp list` per verificare che Whappy sia collegato.
+
+<Tip>
+  Se hai già aggiunto Whappy come connettore su claude.ai, Claude Code può prenderlo dal tuo account Claude. Usa il comando qui sopra solo se vuoi configurarlo in Claude Code stesso.
+</Tip>
+
+<Note>
+  Prossimamente: un **plugin** Whappy per Claude Code, da installare dal nostro marketplace di plugin, che aggiunge il collegamento e comandi pronti come la revisione quotidiana della posta e un report settimanale.
+</Note>
+
+## Scollegare
+
+Prima esci, così Claude Code chiede a Whappy di revocare l'accesso, poi rimuovi il server:
+
+```bash
+claude mcp logout whappy
+claude mcp remove whappy
+```
+
+`claude mcp remove` da solo cancella soltanto i token salvati sul tuo computer. Puoi anche clicca **Revoca** accanto ad esso in **App collegate** nella pagina [Connettori MCP](https://app.whappy.ai/it/integrations/ai-assistants).

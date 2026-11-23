@@ -1,0 +1,81 @@
+---
+title: "Claude"
+description: "Connect Whappy to Claude on claude.ai, Claude Desktop and the mobile apps"
+icon: "message"
+---
+
+Whappy is added to Claude as a **custom connector**. Custom connectors work on Claude's Free, Pro, Max, Team and Enterprise plans; on Free you can add one custom connector.
+
+For what a connection can do, its limits and the data it sees, read [MCP connectors](/integrations/mcp).
+
+<Note>
+  Coming soon: Whappy in Claude's connector directory, so you can add it from the directory instead of typing the address.
+</Note>
+
+## Add Whappy
+
+<Tabs>
+  <Tab title="Free, Pro and Max">
+    <Steps>
+      <Step title="Open Connectors">
+        On claude.ai, go to **Customize → Connectors**.
+      </Step>
+      <Step title="Add a custom connector">
+        Click **+ Add**, then **Add custom connector**. Name it `Whappy` and enter this URL:
+
+        ```
+        https://mcp.whappy.ai/mcp
+        ```
+
+        Leave the other fields empty and click **Add**.
+      </Step>
+      <Step title="Sign in and allow">
+        Claude opens a Whappy page in your browser. Sign in with the account you want Claude to work in, then click **Allow**.
+      </Step>
+    </Steps>
+  </Tab>
+  <Tab title="Team and Enterprise">
+    An Owner adds the connector once for the whole organization, then each member connects their own Whappy account.
+
+    <Steps>
+      <Step title="Owner: add it to the organization">
+        Go to **Organization settings → Connectors**, click **Add**, hover over **Custom** and choose **Web**. Name it `Whappy`, enter `https://mcp.whappy.ai/mcp` and click **Add**.
+      </Step>
+      <Step title="Member: connect your account">
+        Go to **Customize → Connectors**, find **Whappy** and click **Connect**. Sign in to Whappy and click **Allow**.
+      </Step>
+    </Steps>
+
+    Each member connects their own Whappy account: one person's connection never acts in another person's account.
+  </Tab>
+</Tabs>
+
+## Use it in a chat
+
+In a chat, click **+** at the lower left, then **Connectors**, and switch **Whappy** on. Then ask, for example:
+
+> Build me a WhatsApp agent for example.com that books calls with new leads.
+
+More ideas in [Example prompts](/integrations/ai-prompts).
+
+Claude runs read-only Whappy tools without asking, and asks you before a tool that deletes or overwrites something.
+
+## Desktop and mobile
+
+Remote connectors are set up through your Claude account, not on one device, so a connector you add on claude.ai is used by Claude Desktop too.
+
+<Note>
+  We have not yet confirmed how the Claude mobile apps show a custom connector. Add Whappy on claude.ai; this page will say more once we have tested the mobile apps.
+</Note>
+
+## Claude Code
+
+If you use Claude Code, a connector added in your claude.ai account can show up there too. You can also add Whappy to Claude Code directly: see [Claude Code](/integrations/claude-code).
+
+## Disconnect
+
+Go to **Customize → Connectors**, click **Remove** or the **⋯** next to Whappy, and follow the prompts. On Team and Enterprise, an Owner removes it for the whole organization in **Organization settings → Connectors**.
+
+To change the connector's details, remove it and add it again.
+
+To cut off the access from Whappy's side, click **Revoke** next to it in **Connected apps** on the [MCP connectors](https://app.whappy.ai/integrations/ai-assistants) page.

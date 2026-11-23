@@ -1,0 +1,65 @@
+---
+title: "Gemini CLI"
+description: "Add Whappy to Gemini CLI"
+icon: "terminal"
+---
+
+Gemini CLI connects to Whappy as a remote MCP server over HTTP. When Whappy asks it to sign in, Gemini CLI finds Whappy's sign-in page, registers itself and opens your browser.
+
+For what a connection can do, its limits and the data it sees, read [MCP connectors](/integrations/mcp).
+
+## Add Whappy
+
+<Steps>
+  <Step title="Add the server">
+    ```bash
+    gemini mcp add --transport http whappy https://mcp.whappy.ai/mcp
+    ```
+
+    Or add it by hand to your Gemini CLI `settings.json`:
+
+    ```json
+    {
+      "mcpServers": {
+        "whappy": {
+          "httpUrl": "https://mcp.whappy.ai/mcp"
+        }
+      }
+    }
+    ```
+  </Step>
+  <Step title="Sign in">
+    Start Gemini CLI and run:
+
+    ```
+    /mcp auth whappy
+    ```
+
+    Your browser opens on Whappy: sign in and click **Allow**. Signing in needs a browser on the same machine, so it does not work over a headless SSH session.
+  </Step>
+  <Step title="Check it">
+    `gemini mcp list` shows Whappy and whether it is connected.
+  </Step>
+</Steps>
+
+Then ask, for example: "Which of my Whappy conversations from yesterday ended without a booking, and why?" More ideas in [Example prompts](/integrations/ai-prompts).
+
+<Warning>
+  We have not yet tested this flow end to end in Gemini CLI. If a step fails, [tell us](/support/contact-support) what it printed.
+</Warning>
+
+<Note>
+  Coming soon: a Whappy extension for Gemini CLI, listed in the Gemini CLI extensions gallery.
+</Note>
+
+## Remove it
+
+```bash
+gemini mcp remove whappy
+```
+
+Removing the server from Gemini CLI does not by itself revoke the access on Whappy's side. To cut it off, click **Revoke** next to it in **Connected apps** on the [MCP connectors](https://app.whappy.ai/integrations/ai-assistants) page.
+
+<Info>
+  The consumer Gemini app is not covered here: Google offers custom connectors there only to some accounts and regions. This page will cover it once Whappy can be added for our customers' regions.
+</Info>

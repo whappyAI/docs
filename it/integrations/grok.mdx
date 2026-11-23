@@ -1,0 +1,45 @@
+---
+title: "Grok"
+description: "Aggiungi Whappy a Grok come connettore personalizzato, o all'API di xAI con un token di accesso personale"
+icon: "bolt"
+---
+
+Whappy si aggiunge a Grok su grok.com come **connettore personalizzato**. Secondo xAI i connettori sono disponibili per tutti gli utenti di Grok. Su Grok Business ed Enterprise, un admin del team deve prima configurare il connettore per il team nella console di xAI.
+
+Per cosa può fare un collegamento, i limiti e i dati che vede, leggi [Connettori MCP](/it/integrations/mcp).
+
+I nomi dei menu sono quelli della versione inglese di Grok.
+
+## Aggiungi Whappy
+
+<Steps>
+  <Step title="Apri Connectors">
+    Vai su [grok.com/connectors](https://grok.com/connectors).
+  </Step>
+  <Step title="Aggiungi un connettore personalizzato">
+    Clicca **New Connector**, poi **Custom**. Inserisci questo indirizzo:
+
+    ```
+    https://mcp.whappy.ai/mcp
+    ```
+  </Step>
+  <Step title="Accedi">
+    Completa l'accesso che Grok ti chiede: accedi a Whappy e clicca **Consenti**.
+  </Step>
+</Steps>
+
+<Warning>
+  La pagina di xAI non dice come Grok accede a un connettore personalizzato, e non abbiamo ancora provato Whappy in Grok fino in fondo. Se Grok ti chiede un token invece di aprire una pagina di accesso Whappy, dagli un [token di accesso personale](/it/integrations/mcp#token-di-accesso-personali), e [facci sapere](/it/support/contact-support) cosa ha mostrato Grok.
+</Warning>
+
+Grok non documenta una richiesta di conferma prima delle azioni, quindi una richiesta come "elimina i vecchi passaggi del funnel" potrebbe essere eseguita senza conferma. Sii preciso in quello che chiedi.
+
+## L'API di xAI
+
+Lo strumento MCP remoto dell'API di xAI invia un token fisso invece di accedere. Crea un [token di accesso personale](/it/integrations/mcp#token-di-accesso-personali) nella pagina [Connettori MCP](https://app.whappy.ai/it/integrations/ai-assistants), poi dai all'API l'indirizzo del server `https://mcp.whappy.ai/mcp` con il token inviato come header `Authorization: Bearer <il tuo token>`.
+
+Il token può fare quello che fa un collegamento OAuth, e scrive ai tuoi contatti solo se hai spuntato **Lascia che agisca nelle mie chat** quando l'hai creato.
+
+## Scollegare
+
+Rimuovi il connettore dalla pagina **Connectors** di Grok. Per essere sicuro che l'accesso sia chiuso lato Whappy, clicca **Revoca** accanto ad esso (o accanto al token di accesso personale) in **App collegate** nella pagina [Connettori MCP](https://app.whappy.ai/it/integrations/ai-assistants).

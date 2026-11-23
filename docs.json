@@ -135,9 +135,18 @@
                 ]
               },
               {
-                "group": "AI clients",
+                "group": "MCP connectors",
                 "pages": [
-                  "integrations/mcp"
+                  "integrations/mcp",
+                  "integrations/claude",
+                  "integrations/claude-code",
+                  "integrations/chatgpt",
+                  "integrations/cursor",
+                  "integrations/codex",
+                  "integrations/gemini-cli",
+                  "integrations/grok",
+                  "integrations/ai-prompts",
+                  "integrations/ai-troubleshooting"
                 ]
               },
               {
@@ -288,9 +297,18 @@
                 ]
               },
               {
-                "group": "Client AI",
+                "group": "Connettori MCP",
                 "pages": [
-                  "it/integrations/mcp"
+                  "it/integrations/mcp",
+                  "it/integrations/claude",
+                  "it/integrations/claude-code",
+                  "it/integrations/chatgpt",
+                  "it/integrations/cursor",
+                  "it/integrations/codex",
+                  "it/integrations/gemini-cli",
+                  "it/integrations/grok",
+                  "it/integrations/ai-prompts",
+                  "it/integrations/ai-troubleshooting"
                 ]
               },
               {

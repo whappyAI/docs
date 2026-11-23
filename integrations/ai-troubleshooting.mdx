@@ -1,0 +1,72 @@
+---
+title: "Troubleshooting"
+description: "Fix the common problems when Whappy is connected to an AI assistant through an MCP connector"
+icon: "wrench"
+---
+
+For how connections work, see [MCP connectors](/integrations/mcp).
+
+## Too many requests (429)
+
+Whappy limits how much a connection can do in a short time, so a looping assistant cannot run up your usage or message your contacts without end. When a limit is reached, the assistant is told how long to wait.
+
+| What you see | Why | What to do |
+|---|---|---|
+| The assistant says it is rate limited and gives a number of seconds to wait | One connection made more than 60 tool calls in a minute or 300 in an hour. | Wait the time it gives. If an assistant keeps hitting this, it is probably looping: stop it and ask again more precisely. |
+| "This account has reached its limit of 30 AI generation calls per hour" | Building campaigns, generating funnels and rehearsals count towards 30 an hour per account, shared with the in-app assistant and every connection. | Wait for the hour to roll over and try again. Reads (contacts, conversations, results) still work in the meantime. |
+| The assistant says a sending limit is reached | Messages to contacts are capped: 30 an hour per connected app and 150 a day per account, 20 first messages and 20 templates a day per account, and turning the AI back on 60 times an hour per connection. | Wait the time it gives, or answer in the dashboard. |
+| Your assistant cannot connect and reports "Too many client registrations" or HTTP 429 | More than 20 new connections were started from your network address in an hour. | Wait an hour and connect again. If it keeps happening, [contact support](/support/contact-support). |
+
+All the values are on [Limits](/integrations/mcp#limits).
+
+## A permission is missing
+
+If the assistant says it is not allowed to reply to a contact, send a first message or a template, send a test template or turn the AI back on, the connection was made without **Let it act in my chats**. That box can only be ticked when you connect, so:
+
+<Steps>
+  <Step title="Disconnect">
+    Remove Whappy in your assistant (see your assistant's page under [Connect your assistant](/integrations/mcp#connect-your-assistant)), or click **Revoke** next to it in **Connected apps** on the [MCP connectors](https://app.whappy.ai/integrations/ai-assistants) page.
+  </Step>
+  <Step title="Connect again">
+    Add Whappy again and sign in.
+  </Step>
+  <Step title="Tick the box">
+    On the consent page, tick **Let it act in my chats**, then click **Allow**.
+  </Step>
+</Steps>
+
+For a personal access token, create a new one with **Allow it to act in my chats** ticked and revoke the old one.
+
+## The assistant says to reconnect
+
+Connections made before 22 November 2026 keep the tool set that was allowed at the time. They can still read and build, but the inbox actions (marking chats read, pausing the AI, tags, language, marketing opt-out, late-message alerts, pausing the desktop app) are refused with a request to reconnect.
+
+Disconnect and connect again as in [A permission is missing](#a-permission-is-missing); the new connection gets the current tool set. Tick **Let it act in my chats** again if you want it.
+
+## The assistant says something must be done in the dashboard
+
+That is by design: switching a campaign on, deleting a campaign, deleting contacts or chats, broadcasts, importing contacts, billing, account settings, API keys and connecting WhatsApp or Instagram are never done through a connection. Open the [dashboard](https://app.whappy.ai) to do it, or follow the link the assistant gives you.
+
+## The assistant cannot see a phone number or email
+
+That is the default: contact details reach connected assistants masked, like `+39 *** *** 4567`. Searching by the full number or address still works. To share full details, turn on **Share full contact details with connected assistants** on the [MCP connectors](https://app.whappy.ai/integrations/ai-assistants) page. See [The data an assistant sees](/integrations/mcp#the-data-an-assistant-sees).
+
+## Reconnecting
+
+Your assistant renews its access in the background for up to 30 days. You are asked to sign in to Whappy again when:
+
+- you did not use the connection for 30 days;
+- the connection was revoked, by you or by us;
+- your assistant could not renew its access (ChatGPT, for example, may ask you to sign in again after a while).
+
+Sign in again when asked. If the assistant keeps failing with an authorization error and never asks you to sign in, remove Whappy in the assistant and add it again.
+
+**The consent page says the request has expired.** It is valid for 10 minutes. Start again from your assistant.
+
+**The assistant works in the wrong Whappy account.** It uses the account you signed in with on the consent page. Disconnect, sign out of Whappy in your browser, then connect again and sign in with the right account. On an agency account, a connection works in your own account, not in a client account you manage.
+
+## Revoking a connection
+
+Click **Revoke** next to it in **Connected apps** on the [MCP connectors](https://app.whappy.ai/integrations/ai-assistants) page: it stops working at once. You can also remove Whappy in your assistant: each assistant's page says how.
+
+If you think a connection has been misused, revoke it, check its **Recent actions**, and [contact support](/support/contact-support).
