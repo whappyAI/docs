@@ -1,70 +1,72 @@
 ---
 title: "Risoluzione dei problemi"
-description: "Risolvi i problemi più comuni quando Whappy è collegato a un assistente AI"
+description: "Risolvi i problemi più comuni quando Whappy è collegato a un assistente AI tramite un connettore MCP"
 icon: "wrench"
 ---
 
-Per come funzionano i collegamenti, vedi [Whappy nel tuo assistente AI](/it/integrations/mcp).
+Per come funzionano i collegamenti, vedi [Connettori MCP](/it/integrations/mcp).
 
 ## Troppe richieste (429)
 
-Whappy limita quanto un collegamento può fare in poco tempo, così un assistente che gira a vuoto non può far salire il tuo consumo. Quando un limite viene raggiunto, all'assistente viene detto quanto aspettare.
+Whappy limita quanto può fare un collegamento in poco tempo, così un assistente che gira a vuoto non può far salire il tuo consumo né scrivere ai tuoi contatti senza fine. Quando si raggiunge un limite, all'assistente viene detto quanto aspettare.
 
 | Cosa vedi | Perché | Cosa fare |
 |---|---|---|
-| "This account has reached its limit of 30 AI generation calls per hour" | Costruire campagne, generare funnel e le prove contano verso 30 all'ora per account, condivisi con l'assistente in-app e con ogni collegamento. | Aspetta che passi l'ora e riprova. Nel frattempo le letture (lead, conversazioni, risultati) funzionano. |
-| L'assistente non riesce a collegarsi e segnala "Too many client registrations" o HTTP 429 | Più di 20 nuovi collegamenti sono partiti dal tuo indirizzo di rete in un'ora. | Aspetta un'ora e collegati di nuovo. Se continua, [contatta l'assistenza](/it/support/contact-support). |
+| L'assistente dice di aver raggiunto un limite di frequenza e indica quanti secondi aspettare | Un collegamento ha fatto più di 60 chiamate agli strumenti in un minuto o 300 in un'ora. | Aspetta il tempo indicato. Se un assistente ci finisce spesso, probabilmente gira a vuoto: fermalo e chiedi di nuovo in modo più preciso. |
+| "This account has reached its limit of 30 AI generation calls per hour" | Costruire campagne, generare funnel e fare prove contano per 30 l'ora per account, condivise con l'assistente nell'app e con ogni collegamento. | Aspetta che passi l'ora e riprova. Le letture (contatti, conversazioni, risultati) funzionano anche nel frattempo. |
+| L'assistente dice che è stato raggiunto un limite di invio | I messaggi ai contatti hanno un tetto: 30 l'ora per app collegata e 150 al giorno per account, 20 primi messaggi e 20 template al giorno per account, e 60 riattivazioni dell'AI l'ora per collegamento. | Aspetta il tempo indicato, oppure rispondi dalla dashboard. |
+| L'assistente non riesce a collegarsi e segnala "Too many client registrations" o HTTP 429 | Dal tuo indirizzo di rete sono stati avviati più di 20 nuovi collegamenti in un'ora. | Aspetta un'ora e collegati di nuovo. Se continua a succedere, [contatta l'assistenza](/it/support/contact-support). |
 
-<Note>
-  Prossimamente: un limite di 60 chiamate al minuto e 300 all'ora per collegamento, con risposta HTTP 429 e i secondi da aspettare; e limiti sui messaggi ai lead. I valori attuali sono in [Limiti](/it/integrations/mcp#limiti).
-</Note>
+Tutti i valori sono in [Limiti](/it/integrations/mcp#limiti).
 
 ## Manca un permesso
 
-<Note>
-  Prossimamente. Oggi ogni collegamento ha gli stessi strumenti, e nessuno di questi può scrivere ai tuoi lead.
-</Note>
-
-Se l'assistente dice che non può rispondere a un lead, inviare un primo messaggio o riprendere l'AI, il collegamento è stato fatto senza **Lascialo agire nelle mie chat**. Quella casella si può spuntare solo quando ti colleghi, quindi:
+Se l'assistente dice che non può rispondere a un contatto, inviare un primo messaggio o un template, inviare un template di prova o riattivare l'AI, il collegamento è stato fatto senza **Lascia che agisca nelle mie chat**. Quella casella si può spuntare solo quando colleghi, quindi:
 
 <Steps>
   <Step title="Scollega">
-    Rimuovi Whappy dal tuo assistente (vedi la pagina del tuo assistente in [Collega il tuo assistente](/it/integrations/mcp#collega-il-tuo-assistente)).
+    Rimuovi Whappy dal tuo assistente (vedi la pagina del tuo assistente in [Collega il tuo assistente](/it/integrations/mcp#collega-il-tuo-assistente)), oppure clicca **Revoca** accanto ad esso in **App collegate** nella pagina [Connettori MCP](https://app.whappy.ai/it/integrations/ai-assistants).
   </Step>
-  <Step title="Collegati di nuovo">
+  <Step title="Collega di nuovo">
     Aggiungi di nuovo Whappy e accedi.
   </Step>
   <Step title="Spunta la casella">
-    Nella pagina di consenso, spunta **Lascialo agire nelle mie chat**, poi clicca **Consenti**.
+    Nella pagina di consenso, spunta **Lascia che agisca nelle mie chat**, poi clicca **Consenti**.
   </Step>
 </Steps>
 
-Alcuni assistenti possono chiedere da soli il permesso in più e aprirti la pagina di consenso; allora ti basta spuntare la casella e cliccare **Consenti**.
+Per un token di accesso personale, creane uno nuovo con **Lascia che agisca nelle mie chat** spuntata e revoca quello vecchio.
+
+## Ti chiede di ricollegarti
+
+I collegamenti fatti prima del 22 novembre 2026 mantengono gli strumenti consentiti allora. Possono ancora leggere e costruire, ma le azioni sulla posta (segnare le chat come lette, mettere in pausa l'AI, tag, lingua, uscita dal marketing, avvisi di messaggi in ritardo, sospensione dell'app desktop) vengono rifiutate con la richiesta di ricollegarsi.
+
+Scollega e collega di nuovo come in [Manca un permesso](#manca-un-permesso); il nuovo collegamento riceve gli strumenti attuali. Spunta di nuovo **Lascia che agisca nelle mie chat** se la vuoi.
 
 ## L'assistente dice che una cosa va fatta dalla dashboard
 
-È voluto: avviare o fermare una campagna, aggiungere lead, gli invii in massa, la fatturazione e il collegamento di WhatsApp o Instagram non si fanno mai tramite un collegamento. Apri la [dashboard](https://app.whappy.ai), o segui il link che ti dà l'assistente.
+È voluto: attivare una campagna, eliminare una campagna, eliminare contatti o chat, invii di massa, importare contatti, fatturazione, impostazioni dell'account, chiavi API e collegare WhatsApp o Instagram non si fanno mai tramite un collegamento. Apri la [dashboard](https://app.whappy.ai) per farlo, o segui il link che ti dà l'assistente.
+
+## L'assistente non vede un numero o un'email
+
+È il comportamento predefinito: i dati di contatto arrivano agli assistenti collegati mascherati, come `+39 *** *** 4567`. La ricerca con il numero o l'indirizzo completo funziona comunque. Per condividere i dati completi, attiva **Condividi i dati di contatto completi con gli assistenti collegati** nella pagina [Connettori MCP](https://app.whappy.ai/it/integrations/ai-assistants). Vedi [I dati che vede un assistente](/it/integrations/mcp#i-dati-che-vede-un-assistente).
 
 ## Ricollegarsi
 
-L'assistente rinnova l'accesso in background fino a 30 giorni. Ti viene chiesto di accedere di nuovo a Whappy quando:
+Il tuo assistente rinnova l'accesso in background fino a 30 giorni. Ti viene chiesto di accedere di nuovo a Whappy quando:
 
 - non hai usato il collegamento per 30 giorni;
 - il collegamento è stato revocato, da te o da noi;
-- l'assistente non è riuscito a rinnovare l'accesso (ChatGPT, per esempio, può chiederti di accedere di nuovo dopo un po').
+- il tuo assistente non è riuscito a rinnovare l'accesso (ChatGPT, per esempio, può chiederti di accedere di nuovo dopo un po').
 
-Accedi di nuovo quando ti viene chiesto. Se l'assistente continua a fallire con un errore di autorizzazione e non ti chiede mai di accedere, rimuovi Whappy dall'assistente e aggiungilo di nuovo.
+Accedi di nuovo quando te lo chiede. Se l'assistente continua a fallire con un errore di autorizzazione e non ti chiede mai di accedere, rimuovi Whappy dall'assistente e aggiungilo di nuovo.
 
-**La pagina di consenso dice che la richiesta è scaduta.** È valida 10 minuti. Ricomincia dal tuo assistente.
+**La pagina di consenso dice che la richiesta è scaduta.** Vale 10 minuti. Ricomincia dal tuo assistente.
 
-**L'assistente lavora nell'account Whappy sbagliato.** Usa l'account con cui hai fatto l'accesso nella pagina di consenso. Scollega, esci da Whappy nel browser, poi collegati di nuovo e accedi con l'account giusto. Con un account agenzia, un collegamento lavora nel tuo account, non in un account cliente che gestisci.
+**L'assistente lavora nell'account Whappy sbagliato.** Usa l'account con cui hai effettuato l'accesso nella pagina di consenso. Scollega, esci da Whappy nel browser, poi collega di nuovo e accedi con l'account giusto. Con un account agenzia, un collegamento lavora nel tuo account, non in un account cliente che gestisci.
 
 ## Revocare un collegamento
 
-Rimuovi Whappy dal tuo assistente: la pagina di ogni assistente dice come. I client che lo supportano chiedono a Whappy di revocare subito l'accesso.
+Clicca **Revoca** accanto ad esso in **App collegate** nella pagina [Connettori MCP](https://app.whappy.ai/it/integrations/ai-assistants): smette subito di funzionare. Puoi anche rimuovere Whappy dal tuo assistente: la pagina di ogni assistente dice come.
 
-<Note>
-  Prossimamente: una pagina **App collegate** nella dashboard per vedere e scollegare ogni collegamento dal lato di Whappy.
-</Note>
-
-Se non hai più accesso all'assistente, o pensi che un collegamento sia stato usato male, [contatta l'assistenza](/it/support/contact-support): lo revocheremo noi.
+Se pensi che un collegamento sia stato usato in modo improprio, revocalo, controlla le sue **Azioni recenti** e [contatta l'assistenza](/it/support/contact-support).

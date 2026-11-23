@@ -1,0 +1,41 @@
+---
+title: "Cursor"
+description: "Aggiungi Whappy a Cursor con una voce in mcp.json"
+icon: "arrow-pointer"
+---
+
+Cursor si collega a Whappy come server MCP remoto e accede con OAuth: la prima volta accedi a Whappy nel browser. La guida di Cursor è su [cursor.com/docs/context/mcp](https://cursor.com/docs/context/mcp).
+
+Per cosa può fare un collegamento, i limiti e i dati che vede, leggi [Connettori MCP](/it/integrations/mcp).
+
+## Aggiungi Whappy
+
+<Steps>
+  <Step title="Aggiungi il server a mcp.json">
+    Aggiungi questo a `~/.cursor/mcp.json` per avere Whappy in tutti i progetti, oppure a `.cursor/mcp.json` nella cartella di un progetto per averlo solo in quel progetto:
+
+    ```json
+    {
+      "mcpServers": {
+        "whappy": {
+          "url": "https://mcp.whappy.ai/mcp"
+        }
+      }
+    }
+    ```
+
+    Se il file ha già una sezione `mcpServers`, aggiungi la voce `whappy` al suo interno.
+  </Step>
+  <Step title="Accedi">
+    Quando Cursor ti chiede di accedere, si apre una pagina Whappy nel browser. Accedi con l'account in cui vuoi che Cursor lavori, poi clicca **Consenti**.
+  </Step>
+  <Step title="Chiedi">
+    Nella chat di Cursor chiedi per esempio: "Elenca le mie campagne Whappy e dimmi quale ha più chat non lette." Altre idee in [Esempi di richieste](/it/integrations/ai-prompts).
+  </Step>
+</Steps>
+
+La stessa voce di `mcp.json` è pronta da copiare nella scheda **Cursor** della pagina [Connettori MCP](https://app.whappy.ai/it/integrations/ai-assistants) della dashboard.
+
+## Scollegare
+
+Togli la voce `whappy` dal tuo `mcp.json`, poi clicca **Revoca** accanto al collegamento in **App collegate** nella pagina [Connettori MCP](https://app.whappy.ai/it/integrations/ai-assistants). Togliere la voce da sola non revoca l'accesso lato Whappy.

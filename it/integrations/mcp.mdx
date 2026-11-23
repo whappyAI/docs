@@ -1,16 +1,18 @@
 ---
-title: "Whappy nel tuo assistente AI"
-description: "Collega Whappy a Claude, ChatGPT, Codex, Gemini CLI, Grok o a qualsiasi client MCP: cosa può fare un collegamento, i limiti, i dati che vede e come revocarlo"
+title: "Connettori MCP"
+description: "Usa Whappy da Claude, ChatGPT, Cursor, Codex, Claude Code, Gemini CLI, Grok o qualsiasi client MCP: cosa può fare un collegamento, i limiti, i dati che vede e come revocarlo"
 icon: "sparkles"
 ---
 
-Whappy può essere collegato a un assistente AI che parla il Model Context Protocol (MCP). Una volta collegato, descrivi in chat quello che vuoi e l'assistente lavora nel tuo account Whappy: "costruiscimi un agente WhatsApp per example.com" basta per ottenere un funnel, le domande da fare e la conoscenza della tua attività. Puoi anche chiedergli come vanno le tue campagne e cosa hanno scritto i tuoi lead.
+I **connettori MCP** collegano Whappy a un assistente AI che parla il Model Context Protocol (MCP): Claude, ChatGPT, Cursor, Codex, Claude Code, Gemini CLI, Grok e altri client MCP. Una volta collegato, descrivi in chat quello che vuoi e l'assistente lavora nel tuo account Whappy: "costruiscimi un agente WhatsApp per example.com" basta per ottenere un funnel, le domande da fare e la conoscenza della tua attività. Puoi anche chiedergli come vanno le tue campagne, cosa hanno scritto i tuoi contatti, e fargli mettere in ordine la posta.
 
 Il collegamento lo autorizzi tu e lo revochi tu. Non succede nulla finché non lo consenti, e tutto quello che fa avviene dentro il tuo account a tuo nome.
 
+Nella dashboard, tutto sui tuoi collegamenti è nella pagina [Connettori MCP](https://app.whappy.ai/it/integrations/ai-assistants) sotto **Integrazioni**: l'indirizzo del connettore con i passaggi per ogni assistente, le app collegate, i token di accesso personali e cosa vedono gli assistenti dei tuoi contatti.
+
 ## Collega il tuo assistente
 
-Tutti gli assistenti usano lo stesso indirizzo:
+Tutti gli assistenti usano lo stesso indirizzo, e accedono a Whappy con OAuth:
 
 ```
 https://mcp.whappy.ai/mcp
@@ -22,147 +24,187 @@ Scegli il tuo per i passaggi esatti:
   <Card title="Claude" icon="message" href="/it/integrations/claude">
     claude.ai, Claude Desktop e le app mobili
   </Card>
-  <Card title="Claude Code" icon="terminal" href="/it/integrations/claude-code">
-    Un comando nel terminale
-  </Card>
   <Card title="ChatGPT" icon="comments" href="/it/integrations/chatgpt">
     Un server MCP personalizzato negli spazi di lavoro Business ed Enterprise
   </Card>
+  <Card title="Cursor" icon="arrow-pointer" href="/it/integrations/cursor">
+    Una voce nel tuo `mcp.json`
+  </Card>
   <Card title="Codex" icon="code" href="/it/integrations/codex">
     La CLI di Codex
+  </Card>
+  <Card title="Claude Code" icon="terminal" href="/it/integrations/claude-code">
+    Un comando nel terminale
   </Card>
   <Card title="Gemini CLI" icon="terminal" href="/it/integrations/gemini-cli">
     Un comando nel terminale
   </Card>
   <Card title="Grok" icon="bolt" href="/it/integrations/grok">
-    Un connettore personalizzato su grok.com
+    Un connettore personalizzato su grok.com, o un token per l'API di xAI
   </Card>
 </CardGroup>
 
-Qualsiasi altro client che supporta server MCP remoti via HTTP con OAuth funziona allo stesso modo: dagli l'indirizzo qui sopra e accedi quando te lo chiede.
+Qualsiasi altro client che supporta server MCP remoti via HTTP con OAuth funziona allo stesso modo: dagli l'indirizzo qui sopra e accedi quando te lo chiede. Un client che può solo inviare un token fisso usa invece un [token di accesso personale](#token-di-accesso-personali).
 
 Non sai cosa chiedere una volta collegato? Vedi [Esempi di richieste](/it/integrations/ai-prompts). Qualcosa non funziona? Vedi [Risoluzione dei problemi](/it/integrations/ai-troubleshooting).
 
-## Cosa succede quando ti colleghi
+## Cosa succede quando colleghi
 
 <Steps>
   <Step title="Aggiungi Whappy nel tuo assistente">
-    Dai al tuo assistente l'indirizzo qui sopra. La pagina di ogni client dice dove.
+    Dai al tuo assistente l'indirizzo qui sopra. La pagina di ogni assistente dice dove.
   </Step>
   <Step title="Accedi a Whappy">
     L'assistente apre una pagina Whappy nel browser. Accedi con l'account in cui vuoi che lavori, oppure creane uno.
   </Step>
-  <Step title="Consenti il collegamento">
-    La pagina di consenso mostra quale assistente sta chiedendo, l'account con cui hai effettuato l'accesso e dove verrai rimandato. Clicca **Consenti**, oppure **Rifiuta**.
+  <Step title="Consenti o rifiuta">
+    La pagina di consenso mostra quale assistente chiede l'accesso, cosa può fare e cosa non farà mai, l'account con cui hai effettuato l'accesso e dove tornerai. Clicca **Consenti** oppure **Rifiuta**.
   </Step>
   <Step title="Inizia a lavorare">
-    Torna nell'assistente e di' cosa vuoi. Un buon primo messaggio è l'indirizzo di un sito e a chi vuoi rivolgerti.
+    Tornato nell'assistente, di' cosa vuoi. Un buon primo messaggio è l'indirizzo di un sito e chi vuoi raggiungere.
   </Step>
 </Steps>
 
-La pagina di consenso è valida per 10 minuti. Se dice che la richiesta è scaduta, ricomincia dal tuo assistente.
+La pagina di consenso vale 10 minuti. Se dice che la richiesta è scaduta, ricomincia dal tuo assistente.
 
-<Note>
-  Prossimamente: la pagina di consenso offrirà anche una casella, **Lascialo agire nelle mie chat**, non spuntata. Spuntala solo se vuoi che l'assistente possa scrivere ai tuoi lead (vedi [Agire nelle tue chat](#agire-nelle-tue-chat)). Oggi non c'è nulla da spuntare: **Consenti** dà a ogni collegamento gli stessi strumenti, elencati qui sotto.
-</Note>
+### Chi chiede l'accesso
+
+La pagina di consenso indica l'assistente che chiede l'accesso:
+
+| Etichetta | Significato |
+|---|---|
+| **Verificata** | Whappy riconosce l'app: il suo accesso torna all'indirizzo pubblicato dal produttore, come per Claude su claude.ai o per ChatGPT. |
+| **Sul tuo computer** | Un programma sul tuo computer, come Claude Code, Codex o Gemini CLI. Il nome lo dichiara l'app stessa. |
+| **Non verificata** | Whappy non può confermare chi è l'app: il nome lo dichiara l'app stessa. Consenti solo se hai avviato tu questo collegamento e ti fidi dell'app. |
+
+### Lascia che agisca nelle mie chat
+
+Sotto la descrizione c'è una sola casella facoltativa, **Lascia che agisca nelle mie chat**, non spuntata. Se la lasci vuota, l'assistente non può scrivere a nessuno. Spuntala solo se vuoi che l'assistente invii messaggi al posto tuo: vedi [Agire nelle tue chat](#agire-nelle-tue-chat).
+
+La casella si può spuntare solo quando colleghi. Per aggiungerla dopo, scollega e collega di nuovo.
 
 ## Cosa può fare un collegamento
 
-### Con Consenti
+Ogni collegamento, con **Consenti**, può:
 
-Un assistente collegato può:
+- **Leggere** campagne, chat, contatti e risultati: un riepilogo della posta (chat non lette, in attesa, ferme e in errore per campagna), le conversazioni, il briefing giornaliero, le analisi (anche per canale) e i report e le proposte del Coach.
+- **Costruire una campagna** da un sito o dalla descrizione dell'attività, e creare, rinominare o duplicare campagne.
+- **Modificare una campagna**: il funnel, la conoscenza, le domande che raccoglie, i canali, gli orari di lavoro, il fuso orario e il ritardo di avvio, e quale campagna risponde ai messaggi in arrivo su un numero WhatsApp.
+- **Eliminare** passaggi del funnel, conoscenze e domande di qualificazione.
+- **Provare** una campagna con clienti inventati.
+- **Preparare template WhatsApp**, tradurli e **inviarli a Meta** per l'approvazione.
 
-- Costruire una campagna da un sito o da una descrizione dell'attività, e creare, rinominare, duplicare o eliminare campagne.
-- Leggere, generare e modificare il funnel.
-- Scrivere la conoscenza della campagna e le domande che raccoglie.
-- Preparare template WhatsApp, tradurli, inviarli a Meta e inviare un template di prova a un numero che gli indichi.
-- Scegliere quale campagna risponde ai messaggi in arrivo su un numero WhatsApp, e su quali canali parla una campagna.
-- Cambiare orari di lavoro, fuso orario e ritardo di avvio di una campagna.
-- Provare una campagna con clienti inventati.
-- Leggere lead, conversazioni, risultati e report del Coach, le impostazioni del calendario e il tuo piano.
+### Azioni sulla posta
+
+Un collegamento può anche gestire la posta, senza scrivere a nessuno:
+
+- **Segnare le chat come lette.**
+- **Mettere in pausa l'AI** in una chat, così la prendi in mano tu.
+- **Aggiungere tag a un contatto.**
+- **Impostare la lingua di un contatto.**
+- **Togliere un contatto dai messaggi di marketing.**
+- **Ignorare gli avvisi di messaggi in ritardo** e **sospendere l'invio dall'app desktop**, negli account che usano l'[app desktop di WhatsApp](/it/integrations/whatsapp-desktop).
 
 <Note>
-  Prossimamente, con Consenti: un riepilogo della posta (chat non lette, in attesa, ferme e in errore per campagna), la lettura di una conversazione pagina per pagina, il tuo briefing giornaliero, i risultati per canale e la **pausa dell'AI** in una chat, per rispondere tu.
+  **Collegato prima del 22 novembre 2026?** Il tuo collegamento mantiene gli strumenti che avevi consentito allora, senza le azioni sulla posta. Scollega e collega di nuovo per averle: vedi [Risoluzione dei problemi](/it/integrations/ai-troubleshooting#ti-chiede-di-ricollegarti).
 </Note>
 
 ### Agire nelle tue chat
 
-<Note>
-  Prossimamente. Nulla di questa sezione funziona ancora: oggi un collegamento non può scrivere ai tuoi lead in alcun modo. Arriverà dopo le prime pubblicazioni nelle directory, che escono senza messaggi.
-</Note>
+Se hai spuntato **Lascia che agisca nelle mie chat** nella pagina di consenso, l'assistente può anche:
 
-Se spunti **Lascialo agire nelle mie chat** nella pagina di consenso, l'assistente può anche:
+- **Rispondere** in una chat con uno dei tuoi contatti.
+- **Inviare un primo messaggio** a un contatto non ancora contattato, in una campagna attiva.
+- **Inviare un template WhatsApp approvato** in una chat.
+- **Inviare un template di prova** a un numero che gli indichi, mai a uno dei tuoi contatti.
+- **Riattivare l'AI** in una chat messa in pausa, così il tuo agente Whappy ricomincia a rispondere a quel contatto.
 
-- **Rispondere** in una chat con uno dei tuoi lead.
-- **Inviare un primo messaggio** a un lead non ancora contattato.
-- **Riprendere l'AI** in una chat messa in pausa, così il tuo agente Whappy torna a rispondere a quel lead.
+Non fa mai invii di massa né importa contatti. Le regole di WhatsApp restano valide: fuori dalla finestra di assistenza di 24 ore di WhatsApp si può inviare solo un template approvato.
 
-Restano valide le regole di WhatsApp: fuori dalla finestra di assistenza di 24 ore si può inviare solo un template approvato.
+Ogni messaggio passa da **due passaggi**:
 
-Ogni messaggio passa per **due passaggi**:
+1. L'assistente **prepara** il messaggio. Whappy lo controlla e restituisce un'anteprima: il destinatario (mascherato), il canale e il testo esatto. Non viene inviato nulla.
+2. L'assistente **conferma** quello stesso messaggio, e solo allora viene inviato. Un'anteprima si può confermare una sola volta, entro 5 minuti; se cambia qualcosa, l'assistente deve prepararlo di nuovo.
 
-1. L'assistente chiede a Whappy un'**anteprima**: il destinatario (mascherato), il canale e il testo esatto. Ti mostra l'anteprima.
-2. Invia solo quando dici di sì. L'anteprima si può usare una volta sola, entro 5 minuti; dopo, l'assistente deve chiederne una nuova.
+La maggior parte degli assistenti ti mostra l'anteprima e ti chiede prima di confermare, ma dipende dall'assistente. I messaggi hanno un tetto di 30 l'ora per ogni app collegata e 150 al giorno per account (vedi [Limiti](#limiti)).
 
-Quasi tutti gli assistenti ti chiedono anche di approvare l'azione prima di chiamare Whappy, quindi di solito confermi due volte. Un collegamento senza la casella spuntata viene rifiutato, e all'assistente viene detto di chiederti di ricollegarti: vedi [Risoluzione dei problemi](/it/integrations/ai-troubleshooting#manca-un-permesso).
+Un collegamento senza la casella spuntata viene rifiutato, e all'assistente viene detto di chiederti di ricollegarlo: vedi [Risoluzione dei problemi](/it/integrations/ai-troubleshooting#manca-un-permesso).
 
 ### Mai tramite un collegamento
 
 Alcune cose restano nella dashboard per scelta, qualunque cosa spunti:
 
-- **Avviare o fermare una campagna.**
-- **Invii in massa e broadcast**, **aggiungere o importare lead** ed **eliminare lead**.
-- **Fatturazione, abbonamenti, chiavi API e modifiche all'account.**
-- **Collegare WhatsApp o Instagram.** La registrazione di Meta avviene nel browser, quindi l'assistente ti dà un link e la completi lì.
+- **Attivare una campagna** ed **eliminare una campagna**.
+- **Eliminare contatti o chat.**
+- **Invii di massa** e **importazione di contatti**.
+- **Fatturazione, impostazioni dell'account e chiavi API.**
+- **Collegare WhatsApp o Instagram.** La registrazione di Meta si fa nel browser, quindi l'assistente ti dà un link e la completi lì.
 
 Quando un assistente chiede qualcosa fuori dalla sua portata, Whappy rifiuta e dice che si fa dalla dashboard. L'assistente dentro la dashboard di Whappy può fare più di un collegamento.
 
 ## Limiti
 
-Questi limiti delimitano cosa può succedere mentre non stai guardando.
+Questi limiti delimitano cosa può succedere mentre non guardi.
 
 | Limite | Valore | Conteggio |
 |---|---|---|
-| Richieste di generazione AI (costruire campagne, generare funnel, prove) | 30 all'ora | per account, condiviso con l'assistente in-app e con ogni collegamento |
-| Registrazioni di nuovi client | 20 all'ora | per indirizzo di rete. Non lo incontrerai a meno che qualcosa non funzioni male. |
+| Chiamate agli strumenti | 60 al minuto e 300 l'ora | per collegamento |
+| Richieste di generazione AI (costruire campagne, generare funnel, prove) | 30 l'ora | per account, condivise con l'assistente nell'app e con ogni collegamento |
+| Messaggi ai contatti (risposte, primi messaggi, template, template di prova) | 30 l'ora, e 150 al giorno | per app collegata, e per account |
+| Primi messaggi | 20 al giorno | per account |
+| Template WhatsApp (compresi quelli di prova) | 20 al giorno | per account |
+| Riattivazioni dell'AI | 60 l'ora | per collegamento |
+| Registrazioni di nuovi client | 20 l'ora | per indirizzo di rete. Non lo incontrerai a meno che qualcosa non funzioni male. |
 
-Quando un limite viene raggiunto, Whappy lo dice e indica quanto aspettare. Vedi [Risoluzione dei problemi](/it/integrations/ai-troubleshooting#troppe-richieste-429).
+Quando si raggiunge un limite, Whappy lo dice e indica quanto aspettare. Vedi [Risoluzione dei problemi](/it/integrations/ai-troubleshooting#troppe-richieste-429).
 
-<Note>
-  Prossimamente: ogni collegamento avrà anche un limite di **60 chiamate al minuto e 300 all'ora**. Quando arriveranno i messaggi, avranno i loro limiti:
+## I dati che vede un assistente
 
-  | Limite | Valore |
-  |---|---|
-  | Messaggi ai lead (risposte, primi messaggi, template) | 30 all'ora per collegamento e 150 al giorno per account |
-  | Primi messaggi | 20 al giorno per account |
-  | Template WhatsApp | 20 al giorno per account |
-  | Riprendere l'AI | 60 all'ora per collegamento |
-</Note>
+Un collegamento legge quello che gli serve per lavorare: le tue campagne, e i tuoi contatti e le loro conversazioni quando glieli chiedi. Quello che l'assistente legge è trattato anche dal suo fornitore (Anthropic, OpenAI, Cursor, Google, xAI o chi produce il tuo client) secondo le condizioni di quel fornitore.
 
-## I dati che un assistente vede
+**I dati di contatto sono mascherati per impostazione predefinita.** Numeri di telefono, indirizzi email e nomi utente Instagram arrivano all'assistente mascherati, per esempio `+39 *** *** 4567` o `m***@gmail.com`. Il testo dei messaggi non è mascherato. La ricerca funziona comunque con il valore completo: "trova +39 333 1234567" trova il contatto senza che il numero torni per intero. Un numero o un indirizzo parziale non trova nulla finché il mascheramento è attivo; i nomi si trovano anche in parte.
 
-Un collegamento legge ciò che gli serve per lavorare: le tue campagne, e i tuoi lead e le loro conversazioni quando ne chiedi. Ciò che l'assistente legge viene trattato anche dal suo fornitore (Anthropic, OpenAI, Google, xAI o chi produce il tuo client) secondo i termini di quel fornitore.
-
-Oggi nomi, numeri di telefono ed email dei lead vengono restituiti per intero.
-
-<Note>
-  Prossimamente: numeri di telefono ed email dei lead saranno **mascherati per impostazione predefinita**, per esempio `+39 ••• ••• 1234`. La ricerca funziona comunque sul numero completo, quindi "trova +39 333 1234567" trova il lead senza che il numero torni per intero. Un'impostazione dell'account ti permetterà di condividere i contatti completi con gli assistenti collegati; resterà spenta finché non la accendi.
-</Note>
+Per condividere i dati di contatto completi, attiva **Condividi i dati di contatto completi con gli assistenti collegati** sotto **Cosa vedono gli assistenti** nella pagina [Connettori MCP](https://app.whappy.ai/it/integrations/ai-assistants). È disattivato finché non lo attivi, e vale per tutti i tuoi collegamenti. L'assistente dentro la dashboard di Whappy vede sempre i dati completi.
 
 Un collegamento non vede mai i tuoi token di accesso Meta, le tue chiavi API o i dati della tua carta.
 
 ## Restare collegati
 
-L'assistente riceve l'accesso per un'ora alla volta e lo rinnova in silenzio in background fino a 30 giorni. Se non usi il collegamento per 30 giorni, ti verrà chiesto di accedere di nuovo.
+Il tuo assistente riceve l'accesso per un'ora alla volta e lo rinnova in background fino a 30 giorni. Se non usi il collegamento per 30 giorni, ti verrà chiesto di accedere di nuovo.
 
-## Revocare un collegamento
+## App collegate e revoca
 
-Rimuovi Whappy dal tuo assistente. La pagina di ogni client dice come. I client che lo supportano chiedono a Whappy di revocare subito l'accesso, che non può più essere rinnovato.
+**App collegate** nella pagina [Connettori MCP](https://app.whappy.ai/it/integrations/ai-assistants) elenca ogni assistente e token di accesso personale che può lavorare nel tuo account: la sua etichetta, se può scrivere ai tuoi contatti, quando è stato collegato e usato l'ultima volta, e le sue **Azioni recenti**.
 
-<Note>
-  Prossimamente: una pagina **App collegate** nella dashboard di Whappy con ogni collegamento, da quando è attivo e cosa ha fatto di recente, e un pulsante per scollegarlo. Fino ad allora, scollega dal lato dell'assistente. Se non hai più accesso all'assistente, o pensi che un collegamento sia stato compromesso, [contatta l'assistenza](/it/support/contact-support) e lo revocheremo noi.
-</Note>
+Clicca **Revoca** per chiuderne uno. Smette subito di funzionare nel tuo account; per usarlo di nuovo, collegalo di nuovo.
+
+Puoi anche rimuovere Whappy dal tuo assistente: la pagina di ogni assistente dice come. Alcuni assistenti chiedono a Whappy di revocare l'accesso quando lo fai; per esserne sicuro, controlla **App collegate**. Se pensi che un collegamento sia stato usato in modo improprio, revocalo e [contatta l'assistenza](/it/support/contact-support).
+
+## Token di accesso personali
+
+Alcune app non possono accedere a Whappy e accettano solo un token fisso, come l'API di xAI. Per queste, crea un **token di accesso personale** nella pagina [Connettori MCP](https://app.whappy.ai/it/integrations/ai-assistants):
+
+<Steps>
+  <Step title="Dagli un nome">
+    Sotto **Token di accesso personali**, scrivi a cosa serve, per esempio `API di Grok`.
+  </Step>
+  <Step title="Scegli quando scade">
+    30, 90 o 365 giorni. 90 è il valore predefinito.
+  </Step>
+  <Step title="Decidi sui messaggi">
+    Spunta **Lascia che agisca nelle mie chat** solo se l'app deve poter scrivere ai tuoi contatti, come descritto in [Agire nelle tue chat](#agire-nelle-tue-chat). Non è spuntata per impostazione predefinita.
+  </Step>
+  <Step title="Crealo e copialo">
+    Clicca **Crea token** e copialo subito: viene mostrato una sola volta. L'app lo invia come questo header:
+
+    ```
+    Authorization: Bearer <il tuo token>
+    ```
+  </Step>
+</Steps>
+
+Un token vale come una password: tienilo riservato. Può fare esattamente quello che fa un collegamento OAuth, compare in **App collegate** con l'etichetta **Token personale** e si revoca lì allo stesso modo. Se lo perdi, revocalo e creane uno nuovo.
 
 ## Se hai un account agenzia
 
-Collegare un assistente a un **account cliente che gestisci** non è ancora supportato. Un collegamento è legato alla persona che lo ha approvato e agisce nel suo account, quindi passare a un account gestito non lo porta con sé.
+Un collegamento appartiene alla persona che l'ha approvato e lavora nel suo account Whappy. Collegare un assistente a un **account cliente che gestisci** non è supportato: entrare in un account gestito non lo porta con sé, e la pagina Connettori MCP ti chiede di uscire dall'account cliente per collegare o gestire i tuoi assistenti.

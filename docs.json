@@ -135,12 +135,13 @@
                 ]
               },
               {
-                "group": "AI assistants",
+                "group": "MCP connectors",
                 "pages": [
                   "integrations/mcp",
                   "integrations/claude",
                   "integrations/claude-code",
                   "integrations/chatgpt",
+                  "integrations/cursor",
                   "integrations/codex",
                   "integrations/gemini-cli",
                   "integrations/grok",
@@ -296,12 +297,13 @@
                 ]
               },
               {
-                "group": "Assistenti AI",
+                "group": "Connettori MCP",
                 "pages": [
                   "it/integrations/mcp",
                   "it/integrations/claude",
                   "it/integrations/claude-code",
                   "it/integrations/chatgpt",
+                  "it/integrations/cursor",
                   "it/integrations/codex",
                   "it/integrations/gemini-cli",
                   "it/integrations/grok",

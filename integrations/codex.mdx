@@ -6,7 +6,7 @@ icon: "code"
 
 The Codex CLI connects to Whappy as a remote MCP server over HTTP, and signs in with OAuth in your browser.
 
-For what a connection can do, its limits and the data it sees, read [Whappy in your AI assistant](/integrations/mcp).
+For what a connection can do, its limits and the data it sees, read [MCP connectors](/integrations/mcp).
 
 ## Add Whappy
 
@@ -44,4 +44,4 @@ Then ask Codex, for example: "Read my Whappy campaign for the dental clinic and 
 
 To stop Codex using Whappy without deleting the entry, set `enabled = false` in the `[mcp_servers.whappy]` table of your Codex `config.toml`. Run `codex mcp --help` to see the commands your version has for removing a server.
 
-Removing the server from Codex does not by itself revoke the access on Whappy's side. To be sure it is cut off, [contact support](/support/contact-support).
+Removing the server from Codex does not by itself revoke the access on Whappy's side. To cut it off, click **Revoke** next to it in **Connected apps** on the [MCP connectors](https://app.whappy.ai/integrations/ai-assistants) page.

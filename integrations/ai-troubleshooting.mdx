@@ -1,35 +1,31 @@
 ---
 title: "Troubleshooting"
-description: "Fix the common problems when Whappy is connected to an AI assistant"
+description: "Fix the common problems when Whappy is connected to an AI assistant through an MCP connector"
 icon: "wrench"
 ---
 
-For how connections work, see [Whappy in your AI assistant](/integrations/mcp).
+For how connections work, see [MCP connectors](/integrations/mcp).
 
 ## Too many requests (429)
 
-Whappy limits how much a connection can do in a short time, so a looping assistant cannot run up your usage. When a limit is reached, the assistant is told how long to wait.
+Whappy limits how much a connection can do in a short time, so a looping assistant cannot run up your usage or message your contacts without end. When a limit is reached, the assistant is told how long to wait.
 
 | What you see | Why | What to do |
 |---|---|---|
-| "This account has reached its limit of 30 AI generation calls per hour" | Building campaigns, generating funnels and rehearsals count towards 30 an hour per account, shared with the in-app assistant and every connection. | Wait for the hour to roll over and try again. Reads (leads, conversations, results) still work in the meantime. |
+| The assistant says it is rate limited and gives a number of seconds to wait | One connection made more than 60 tool calls in a minute or 300 in an hour. | Wait the time it gives. If an assistant keeps hitting this, it is probably looping: stop it and ask again more precisely. |
+| "This account has reached its limit of 30 AI generation calls per hour" | Building campaigns, generating funnels and rehearsals count towards 30 an hour per account, shared with the in-app assistant and every connection. | Wait for the hour to roll over and try again. Reads (contacts, conversations, results) still work in the meantime. |
+| The assistant says a sending limit is reached | Messages to contacts are capped: 30 an hour per connected app and 150 a day per account, 20 first messages and 20 templates a day per account, and turning the AI back on 60 times an hour per connection. | Wait the time it gives, or answer in the dashboard. |
 | Your assistant cannot connect and reports "Too many client registrations" or HTTP 429 | More than 20 new connections were started from your network address in an hour. | Wait an hour and connect again. If it keeps happening, [contact support](/support/contact-support). |
 
-<Note>
-  Coming soon: a limit of 60 tool calls a minute and 300 an hour per connection, answered with HTTP 429 and the number of seconds to wait; and caps on messages to leads. The current values are on [Limits](/integrations/mcp#limits).
-</Note>
+All the values are on [Limits](/integrations/mcp#limits).
 
 ## A permission is missing
 
-<Note>
-  Coming soon. Today every connection has the same tools, and none of them can message your leads.
-</Note>
-
-If the assistant says it is not allowed to reply to a lead, send a first message or resume the AI, the connection was made without **Let it act in my chats**. That box can only be ticked when you connect, so:
+If the assistant says it is not allowed to reply to a contact, send a first message or a template, send a test template or turn the AI back on, the connection was made without **Let it act in my chats**. That box can only be ticked when you connect, so:
 
 <Steps>
   <Step title="Disconnect">
-    Remove Whappy in your assistant (see your assistant's page under [Connect your assistant](/integrations/mcp#connect-your-assistant)).
+    Remove Whappy in your assistant (see your assistant's page under [Connect your assistant](/integrations/mcp#connect-your-assistant)), or click **Revoke** next to it in **Connected apps** on the [MCP connectors](https://app.whappy.ai/integrations/ai-assistants) page.
   </Step>
   <Step title="Connect again">
     Add Whappy again and sign in.
@@ -39,11 +35,21 @@ If the assistant says it is not allowed to reply to a lead, send a first message
   </Step>
 </Steps>
 
-Some assistants can ask for the extra permission themselves and open the consent page for you; then you only need to tick the box and click **Allow**.
+For a personal access token, create a new one with **Allow it to act in my chats** ticked and revoke the old one.
+
+## The assistant says to reconnect
+
+Connections made before 22 November 2026 keep the tool set that was allowed at the time. They can still read and build, but the inbox actions (marking chats read, pausing the AI, tags, language, marketing opt-out, late-message alerts, pausing the desktop app) are refused with a request to reconnect.
+
+Disconnect and connect again as in [A permission is missing](#a-permission-is-missing); the new connection gets the current tool set. Tick **Let it act in my chats** again if you want it.
 
 ## The assistant says something must be done in the dashboard
 
-That is by design: starting or stopping a campaign, adding leads, bulk sends, billing and connecting WhatsApp or Instagram are never done through a connection. Open the [dashboard](https://app.whappy.ai) to do it, or follow the link the assistant gives you.
+That is by design: switching a campaign on, deleting a campaign, deleting contacts or chats, broadcasts, importing contacts, billing, account settings, API keys and connecting WhatsApp or Instagram are never done through a connection. Open the [dashboard](https://app.whappy.ai) to do it, or follow the link the assistant gives you.
+
+## The assistant cannot see a phone number or email
+
+That is the default: contact details reach connected assistants masked, like `+39 *** *** 4567`. Searching by the full number or address still works. To share full details, turn on **Share full contact details with connected assistants** on the [MCP connectors](https://app.whappy.ai/integrations/ai-assistants) page. See [The data an assistant sees](/integrations/mcp#the-data-an-assistant-sees).
 
 ## Reconnecting
 
@@ -61,10 +67,6 @@ Sign in again when asked. If the assistant keeps failing with an authorization e
 
 ## Revoking a connection
 
-Remove Whappy in your assistant: each assistant's page says how. Clients that support it tell Whappy to revoke the access at once.
+Click **Revoke** next to it in **Connected apps** on the [MCP connectors](https://app.whappy.ai/integrations/ai-assistants) page: it stops working at once. You can also remove Whappy in your assistant: each assistant's page says how.
 
-<Note>
-  Coming soon: a **Connected apps** page in the dashboard to see and disconnect every connection from Whappy's side.
-</Note>
-
-If you no longer have access to the assistant, or you think a connection has been misused, [contact support](/support/contact-support): we will revoke it for you.
+If you think a connection has been misused, revoke it, check its **Recent actions**, and [contact support](/support/contact-support).
